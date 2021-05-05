@@ -15,4 +15,14 @@ class ProjectController extends Controller
 	{
 
 	}
+
+	public function register() 
+	{
+
+	}
+
+	public function search() 
+	{
+
+	}
 }

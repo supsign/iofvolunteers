@@ -15,4 +15,14 @@ class VolunteerController extends Controller
 	{
 
 	}
+
+	public function register() 
+	{
+
+	}
+
+	public function search() 
+	{
+
+	}
 }

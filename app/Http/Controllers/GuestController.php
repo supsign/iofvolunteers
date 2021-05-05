@@ -15,4 +15,14 @@ class GuestController extends Controller
 	{
 
 	}
+
+	public function register() 
+	{
+
+	}
+
+	public function search() 
+	{
+
+	}
 }
