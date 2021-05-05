@@ -6,5 +6,13 @@ use Illuminate\Http\Request;
 
 class HostController extends Controller
 {
-    //
+	public function registerForm() 
+	{
+
+	}
+
+	public function searchForm() 
+	{
+
+	}
 }
