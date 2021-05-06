@@ -556,7 +556,6 @@ class CountrySeeder extends Seeder
         		$country = Country::where('alpha-2_code', $value)->first();
 
         		if (!$country) {
-        			var_dump($key, $value);
         			continue;
         		}
 
