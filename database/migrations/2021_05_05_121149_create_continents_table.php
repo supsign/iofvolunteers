@@ -15,8 +15,14 @@ class CreateContinentsTable extends Migration
     {
         Schema::create('continents', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestampsTz();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => ContinentSeeder::class,
+            '--force' => true
+        ]);
     }
 
     /**

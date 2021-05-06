@@ -18,6 +18,11 @@ class CreateProjectsTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->timestampsTz();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => CountrySeeder::class,
+            '--force' => true
+        ]);
     }
 
     /**
