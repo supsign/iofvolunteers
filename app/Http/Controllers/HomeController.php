@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -12,10 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
+    public function __construct() {}
 
     /**
      * Show the application dashboard.
@@ -24,8 +20,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $path = Storage::path('images');
-
-        return view('home', compact('path'));
+        return view('home');
     }
 }
