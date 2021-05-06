@@ -21,13 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
 Route::get('/guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
