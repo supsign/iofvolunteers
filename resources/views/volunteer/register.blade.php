@@ -49,7 +49,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <div class="warn">Country</div>
+                            <div class="warn">Gender</div>
                             <select size="1" name="gender" id="gender">
                                 @foreach($genders AS $gender)
                                     <option value="{{ $gender->short_name }}">{{ ucfirst($gender->name) }}</option>
