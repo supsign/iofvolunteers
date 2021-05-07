@@ -20,6 +20,11 @@ class CreateCountriesTable extends Migration
             $table->string('name');
             $table->timestampsTz();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => CountrySeeder::class,
+            '--force' => true
+        ]);
     }
 
     /**
