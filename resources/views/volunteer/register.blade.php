@@ -7,7 +7,8 @@
                 volunteer!</div>
         </div>
 
-        <form method="POST" action="volunteer/register" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
+            @csrf
             <input type="hidden" name="id" value="">
             {{-- <input type="hidden" name="MAX_FILE_SIZE" value="{{ MAX_FILE_SIZE }}" /> --}}
 
@@ -54,7 +55,7 @@
                             <div class="warn">Gender</div>
                             <select size="1" name="gender" id="gender">
                                 @foreach($genders AS $gender)
-                                    <option value="{{ $gender->short_name }}">{{ ucfirst($gender->name) }}</option>
+                                    <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
                             <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />

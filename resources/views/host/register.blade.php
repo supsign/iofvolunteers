@@ -4,7 +4,8 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ $imagePath }}/icon-add4.svg" width="65" height="65"> Host Registration Form</h1>
         </div>
 
-        <form method="POST" action="host/register" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
+            @csrf
             <input type="hidden" name="id" value="">
 
             <div class="row">

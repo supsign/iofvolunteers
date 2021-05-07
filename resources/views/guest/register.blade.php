@@ -4,7 +4,8 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ $imagePath }}/icon-add5.svg" width="65" height="65"> Guest Registration Form</h1>
         </div>
 
-        <form method="POST" action="guest/register" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
+            @csrf
             <input type="hidden" name="id" value="">
 
             <div class="row">
@@ -18,12 +19,12 @@
 
                         <div class="form-group">
                             <div class="warn">Country</div>
-                            <select type="text" name="country" id="country" size="1" value="" required>
+                            <select type="text" name="country_id" id="country" size="1" value="" required>
                                 @foreach($countries AS $country)
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="country_id" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -33,12 +34,12 @@
 
                         <div class="form-group">
                             <div class="warn">Gender</div>
-                            <select size="1" name="gender" id="gender">
+                            <select size="1" name="gender_id" id="gender">
                                 @foreach($genders AS $gender)
-                                    <option value="{{ $gender->short_name }}">{{ ucfirst($gender->name) }}</option>
+                                    <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="gender_id" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
 
                         <div class="form-group">

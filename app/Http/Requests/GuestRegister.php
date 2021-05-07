@@ -24,7 +24,12 @@ class GuestRegister extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'int',
+            'country_id' = > 'int',
+            'name' => 'string',
+            'gender_id' => 'int',
+            'email' => 'email',
+            
         ];
     }
 }
