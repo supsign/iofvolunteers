@@ -15,7 +15,9 @@ class CreateGuestsTable extends Migration
     {
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('gender_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('country_id')->nullable()->constrained();
             $table->timestampsTz();
         });
     }

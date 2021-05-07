@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVolunteersTable extends Migration
+class CreateGenders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,19 @@ class CreateVolunteersTable extends Migration
      */
     public function up()
     {
-        Schema::create('volunteers', function (Blueprint $table) {
+        Schema::create('genders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('country_id')->nullable()->constrained();
+            $table->string('name');
+            $table->string('salutation');
+            $table->string('short_name');
             $table->timestampsTz();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => GenderSeeder::class,
+            '--force' => true
+
+        ]);
     }
 
     /**
@@ -28,6 +35,6 @@ class CreateVolunteersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('volunteers');
+        Schema::dropIfExists('genders');
     }
 }

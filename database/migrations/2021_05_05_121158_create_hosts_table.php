@@ -16,6 +16,7 @@ class CreateHostsTable extends Migration
         Schema::create('hosts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('country_id')->nullable()->constrained();
             $table->timestampsTz();
         });
     }

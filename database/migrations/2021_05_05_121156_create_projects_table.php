@@ -15,7 +15,9 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('gender_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('country_id')->nullable()->constrained();
             $table->timestampsTz();
         });
 
