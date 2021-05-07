@@ -56,10 +56,13 @@
                         </div>
 
                         <div class="form-group">
-                            <select type="text" name="country" id="country" size="1" value="">{{ $countries }}</select>
-                            <div class="warn">
-                                Country
-                            </div>
+                            <div class="warn">Country</div>
+                            <select type="text" name="country" id="country" size="1" value="" required>
+                                @foreach($countries AS $country)
+                                    <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
+                                @endforeach
+                            </select>
+                            <img for="country" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
 
                         <div class="form-group">
