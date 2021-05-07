@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Gender;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
             $view->with('imagePath', Storage::url('images'));
+            $view->with('genders', Gender::all());
         });
     }
 }

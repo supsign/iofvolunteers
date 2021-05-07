@@ -9,7 +9,7 @@
 
         <form method="POST" action="volunteer/register" enctype="multipart/form-data">
             <input type="hidden" name="id" value="">
-            <input type="hidden" name="MAX_FILE_SIZE" value="{{ MAX_FILE_SIZE }}" />
+            {{-- <input type="hidden" name="MAX_FILE_SIZE" value="{{ MAX_FILE_SIZE }}" /> --}}
 
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -49,10 +49,11 @@
                         </h3>
 
                         <div class="form-group">
+                            <div class="warn">Country</div>
                             <select size="1" name="gender" id="gender">
-                                <option selected="" value="">Gender</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                @foreach($genders AS $gender)
+                                    <option value="{{ $gender->short_name }}">{{ ucfirst($gender->name) }}</option>
+                                @endforeach
                             </select>
                             <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
@@ -791,15 +792,17 @@
                         <div class="form-group">
                             <label class="formGroupLabelStatic">Skilled in mapping? Upload your "best" maps here...</label>
                             <div class="warn">Required for mappers!
-                            <br>(At most 3 maps in PDF format, max file size is 2 Mb)
-                            {% if maps %}
-                                <p>Already loaded maps:
-                                    {% for map in maps %}
-                                        <a href="{{ url }}{{ map }}" target="_blank">Map {{ loop.index }}</a>
-                                    {% endfor %}
-                                    <br/><span class="warn">New maps will erase previously loaded</span>
-                                </p>
-                            {% endif %}</div>
+                                <br>(At most 3 maps in PDF format, max file size is 2 Mb)
+
+                                @if(isset($maps) && $maps)
+                                    <p>Already loaded maps:
+                                        @foreach ($maps AS $key => $map)
+                                            <a href="" target="_blank">Map {{ ++$key }}</a>
+                                        @endforeach
+                                        <br/><span class="warn">New maps will erase previously loaded</span>
+                                    </p>
+                                @endif
+                            </div>
 
                             <div class="custom-file mt-3">
                                 <input type="file" class="custom-file-input" id="mapsFile1" name="maps[]" accept=".pdf">
@@ -870,34 +873,5 @@
                 </div>
             </div>
         </form>
-
-        <script language="javascript" type="text/javascript">
-
-            jQuery(document).ready(function($) {
-
-                {% if data %}
-                var data = JSON.parse('{{ data | raw }}');
-
-                // reset form values from json object
-                $.each(data, function(name, val){
-
-                    var $el = $('[name="'+name+'"]'), type = $el.attr('type');
-
-                    switch(type){
-                        case 'checkbox':
-                            $el.attr('checked', 'checked');
-                            break;
-                        case 'radio':
-                            $el.filter('[value="'+val+'"]').attr('checked', 'checked');
-                            break;
-                        default:
-                            $el.val(val);
-                    }
-                });
-                {% endif %}
-
-            });
-
-        </script>
     </div>
 </section>

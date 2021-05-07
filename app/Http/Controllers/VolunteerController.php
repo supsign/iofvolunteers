@@ -10,12 +10,12 @@ class VolunteerController extends Controller
 {
 	public function registerForm() 
 	{
-		return view('guest.register', ['countries' => Country::all()]);
+		return view('volunteer.register', ['countries' => Country::all()]);
 	}
 
 	public function searchForm() 
 	{
-		return view('guest.search');
+		return view('volunteer.search');
 	}
 
 	public function register(VolunteerRegister $request) 

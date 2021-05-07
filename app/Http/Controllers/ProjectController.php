@@ -10,12 +10,12 @@ class ProjectController extends Controller
 {
 	public function registerForm() 
 	{
-		return view('guest.register', ['countries' => Country::all()]);
+		return view('project.register', ['countries' => Country::all()]);
 	}
 
 	public function searchForm() 
 	{
-		return view('guest.search');
+		return view('project.search');
 	}
 
 	public function register(ProjectRegister $request) 

@@ -27,10 +27,11 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="warn">Country</div>
                             <select size="1" name="gender" id="gender">
-                                <option selected="" value="">Gender</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                @foreach($genders AS $gender)
+                                    <option value="{{ $gender->short_name }}">{{ ucfirst($gender->name) }}</option>
+                                @endforeach
                             </select>
                             <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>

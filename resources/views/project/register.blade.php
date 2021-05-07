@@ -1,10 +1,10 @@
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title pb-0"><img class="title-icon" src="{{ url }}images/icon-add3.svg" width="65" height="65"> Project Registration Form</h1>
+            <h1 class="title pb-0"><img class="title-icon" src="{{ $imagePath }}/icon-add3.svg" width="65" height="65"> Project Registration Form</h1>
         </div>
 
-        <form method="POST" action="{{ url }}project/register" enctype="multipart/form-data">
+        <form method="POST" action="project/register" enctype="multipart/form-data">
             <input type="hidden" name="id" value="">
 
             <div class="row">
@@ -306,7 +306,7 @@
                                 <option value="11 - 30">11 - 30</option>
                                 <option value="over 30">over 30</option>
                             </select>
-                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ url }}/images/selectArr.svg" alt="" />
+                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -362,7 +362,7 @@
                                 <option value="11 - 20">11 - 20</option>
                                 <option value="over 20">over 20</option>
                             </select>
-                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ url }}/images/selectArr.svg" alt="" />
+                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -557,34 +557,5 @@
                 </div>
             </div>
         </form>
-
-        <script language="javascript" type="text/javascript">
-
-            jQuery(document).ready(function($) {
-
-                {% if data %}
-                var data = JSON.parse('{{ data | raw }}');
-
-                // reset form values from json object
-                $.each(data, function (name, val) {
-
-                    var $el = $('[name="' + name + '"]'), type = $el.attr('type');
-
-                    switch (type) {
-                        case 'checkbox':
-                            $el.attr('checked', 'checked');
-                            break;
-                        case 'radio':
-                            $el.filter('[value="' + val + '"]').attr('checked', 'checked');
-                            break;
-                        default:
-                            $el.val(val);
-                    }
-                });
-                {% endif %}
-
-            });
-
-        </script>
     </div>
 </section>

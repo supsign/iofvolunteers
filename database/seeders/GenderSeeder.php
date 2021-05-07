@@ -16,12 +16,12 @@ class GenderSeeder extends Seeder
     {
         DB::table('genders')->updateOrInsert(
             ['id' => '1'],
-            ['name' => 'male', 'salutation' => 'sir', 'short_name' => 'm']
+            ['name' => 'male', 'salutation' => 'sir', 'short_name' => 'M']
         );
 
         DB::table('genders')->updateOrInsert(
             ['id' => '2'],
-            ['name' => 'female', 'salutation' => 'madam', 'short_name' => 'f']
+            ['name' => 'female', 'salutation' => 'madam', 'short_name' => 'F']
         );
     }
 }

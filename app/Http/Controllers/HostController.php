@@ -10,12 +10,12 @@ class HostController extends Controller
 {
 	public function registerForm() 
 	{
-		return view('guest.register', ['countries' => Country::all()]);
+		return view('host.register', ['countries' => Country::all()]);
 	}
 
 	public function searchForm() 
 	{
-		return view('guest.search');
+		return view('host.search');
 	}
 
 	public function register(HostRegister $request) 
