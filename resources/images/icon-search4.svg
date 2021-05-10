@@ -1,0 +1,15 @@
+<svg id="Search_Register_as_host_icon" data-name="Search Register as host icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_24" data-name="Ellipse 24" cx="25" cy="25" r="25" fill="#307ea1"/>
+  <g id="people-24px" transform="translate(11.535 9.521)">
+    <path id="Path_42" data-name="Path 42" d="M0,0H31.447V31.447H0Z" fill="none"/>
+  </g>
+  <g id="Ellipse_25" data-name="Ellipse 25" transform="translate(13 13)" fill="none" stroke="#fff" stroke-width="2">
+    <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+    <circle cx="12.5" cy="12.5" r="11.5" fill="none"/>
+  </g>
+  <line id="Line_51" data-name="Line 51" x2="8.47" y2="8.62" transform="translate(34.251 34.867)" fill="none" stroke="#fff" stroke-width="2"/>
+  <g id="supervisor_account-24px" transform="translate(12 14.468)">
+    <path id="Path_61" data-name="Path 61" d="M0,0H24.5V24.5H0Z" fill="none"/>
+    <path id="Path_62" data-name="Path 62" d="M16.8,12.146A2.552,2.552,0,1,0,14.25,9.594,2.544,2.544,0,0,0,16.8,12.146ZM9.146,11.125A3.062,3.062,0,1,0,6.083,8.063,3.05,3.05,0,0,0,9.146,11.125ZM16.8,14.188c-1.868,0-5.615.939-5.615,2.807v4.523l4.7.3,6.524-2.527v-2.3C22.417,15.127,18.67,14.188,16.8,14.188ZM9.146,13.167c-2.379,0-6.194.684-6.194,3.063l1.032,1.806,5.162,3.009v-4.05a4.024,4.024,0,0,1,2.419-3.542A12.539,12.539,0,0,0,9.146,13.167Z" transform="translate(0.042 0.104)" fill="#fff"/>
+  </g>
+</svg>

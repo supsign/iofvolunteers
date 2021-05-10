@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Left_corner_icon" data-name="Left corner icon" transform="translate(-718 -614.818)">
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="25" cy="25" r="25" transform="translate(718 614.818)" fill="#307ea1"/>
+    <g id="people-24px" transform="translate(723.971 618.476)">
+      <path id="Path_42" data-name="Path 42" d="M0,0H36.826V36.826H0Z" fill="none"/>
+      <g id="person_add-24px" transform="translate(4.478 9.672)">
+        <path id="Path_46" data-name="Path 46" d="M0,0H27.154V23.726H0Z" fill="none"/>
+        <path id="Path_47" data-name="Path 47" d="M17.56,13.6a4.8,4.8,0,1,0-4.731-4.8A4.765,4.765,0,0,0,17.56,13.6ZM6.914,11.2V7.6H4.548v3.6H1v2.4H4.548v3.6H6.914V13.6h3.548V11.2ZM17.56,16C14.4,16,8.1,17.608,8.1,20.8v2.4H27.022V20.8C27.022,17.608,20.718,16,17.56,16Z" transform="translate(-0.434 -1.737)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

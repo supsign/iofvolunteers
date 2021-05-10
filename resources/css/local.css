@@ -1,0 +1,82 @@
+h1,h2,h3,h4,h5,label {
+    color: #376FA6;
+}
+
+.desc {
+    color: #376FA6;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+}
+
+.black-desc {
+    color: #000000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+}
+
+.big-desc {
+    color: #376FA6;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+    font-weight: bold;
+}
+
+.maincol {
+    color: #BC0000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+}
+
+.title {
+    color: #376FA6;
+    font-family: Verdana, Times, serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.value {
+    color: #376FA6;
+    font-family: Verdana, Times, serif;
+}
+
+.warn {
+    color: #B30000;
+    font-family: Verdana, Times, serif;
+    font-size: x-small;
+}
+
+.warn-title {
+    color: #B30000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+}
+
+.smradio {
+    color: #376FA6;
+    font-family: Verdana, Times, serif;
+    font-size: x-small;
+}
+
+a.main {
+    text-decoration: none;
+}
+
+.custom-button {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 10px;
+    background-color: #1D8EAC;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background: #78CAE2;
+    text-decoration: none;
+}

@@ -1,0 +1,10 @@
+<svg id="Register_guest_icon" data-name="Register guest icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_11" data-name="Ellipse 11" cx="25" cy="25" r="25" fill="#307ea1"/>
+  <g id="how_to_reg-24px" transform="translate(10 14)">
+    <path id="Path_56" data-name="Path 56" d="M0,0H27.25V21.9H0Z" fill="none" fill-rule="evenodd"/>
+    <g id="Group_64" data-name="Group 64" transform="translate(3.406 -0.634)">
+      <path id="Path_57" data-name="Path 57" d="M11.258,21.892l4.129-4.046a12.856,12.856,0,0,0-1.376-.083C10.336,17.763,3,19.607,3,23.268v2.753H15.387ZM14.01,15.01A5.505,5.505,0,1,0,8.505,9.505,5.5,5.5,0,0,0,14.01,15.01" transform="translate(-3 -4)" fill="#fff" fill-rule="evenodd"/>
+      <path id="Path_58" data-name="Path 58" d="M16.776,23.51,12,18.693l1.927-1.941,2.849,2.863,7.06-7.115,1.927,1.941Z" transform="translate(0.387 -0.802)" fill="#fff" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

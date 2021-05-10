@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Left_corner_icon" data-name="Left corner icon" transform="translate(-718 -615)">
+    <path id="Path_52" data-name="Path 52" d="M25,0A25,25,0,1,1,0,25,25,25,0,0,1,25,0Z" transform="translate(718 615)" fill="#307ea1"/>
+    <g id="search-24px" transform="translate(726.338 623.338)">
+      <path id="Path_44" data-name="Path 44" d="M19.734,17.726H18.676l-.375-.361a8.715,8.715,0,1,0-.937.937l.361.375v1.058l6.693,6.68,1.995-1.995Zm-8.032,0A6.024,6.024,0,1,1,17.726,11.7,6.016,6.016,0,0,1,11.7,17.726Z" transform="translate(1.929 1.929)" fill="#fff"/>
+      <path id="Path_45" data-name="Path 45" d="M0,0H34.11V34.11H0Z" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg id="Register_as_host_icon" data-name="Register as host icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_22" data-name="Ellipse 22" cx="25" cy="25" r="25" fill="#307ea1"/>
+  <g id="how_to_reg-24px" transform="translate(10 14)">
+    <path id="Path_56" data-name="Path 56" d="M0,0H27.25V21.9H0Z" fill="none" fill-rule="evenodd"/>
+  </g>
+  <g id="supervisor_account-24px" transform="translate(10 10)">
+    <path id="Path_61" data-name="Path 61" d="M0,0H29.968V29.968H0Z" fill="none"/>
+    <path id="Path_62" data-name="Path 62" d="M20.106,13.741a3.122,3.122,0,1,0-3.122-3.122A3.112,3.112,0,0,0,20.106,13.741Zm-9.365-1.249A3.746,3.746,0,1,0,6.995,8.746,3.73,3.73,0,0,0,10.741,12.492Zm9.365,3.746c-2.285,0-6.868,1.149-6.868,3.434v2.81H26.974v-2.81C26.974,17.387,22.391,16.238,20.106,16.238Zm-9.365-1.249C7.831,14.989,2,16.45,2,19.36v3.122h8.741v-2.81c0-1.061.412-2.922,2.959-4.333A15.338,15.338,0,0,0,10.741,14.989Z" transform="translate(0.497 1.243)" fill="#fff"/>
+  </g>
+</svg>

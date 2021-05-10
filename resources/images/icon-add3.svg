@@ -1,0 +1,10 @@
+<svg id="Register_project_icon" data-name="Register project icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_21" data-name="Ellipse 21" cx="25" cy="25" r="25" fill="#307ea1"/>
+  <g id="how_to_reg-24px" transform="translate(10 14)">
+    <path id="Path_56" data-name="Path 56" d="M0,0H27.25V21.9H0Z" fill="none" fill-rule="evenodd"/>
+  </g>
+  <g id="directions_run-24px" transform="translate(10 10)">
+    <path id="Path_59" data-name="Path 59" d="M0,0H29.968V29.968H0Z" fill="none"/>
+    <path id="Path_60" data-name="Path 60" d="M16.126,6.475a2.5,2.5,0,1,0-2.5-2.5A2.5,2.5,0,0,0,16.126,6.475Zm-4.5,17.357,1.249-5.494,2.622,2.5v7.492H18V18.961l-2.622-2.5.749-3.746a9.143,9.143,0,0,0,6.868,3.122v-2.5a6.142,6.142,0,0,1-5.369-3l-1.249-2A2.575,2.575,0,0,0,14.253,7.1c-.375,0-.624.125-1,.125L6.761,9.971V15.84h2.5V11.594l2.248-.874-2,10.114L3.389,19.586l-.5,2.5Z" transform="translate(0.719 0.368)" fill="#fff"/>
+  </g>
+</svg>

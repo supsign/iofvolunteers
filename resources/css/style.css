@@ -1,0 +1,813 @@
+@font-face {
+	font-family: "Franklin Gothic";
+	src: url("../fonts/fgbook400.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Franklin Gothic";
+	src: url("../fonts/fg500.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Franklin Gothic";
+	src: url("../fonts/fg600.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Franklin Gothic";
+	src: url("../fonts/fg900.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 900;
+}
+
+/********************CSS reset - begin********************/
+	* {
+		outline: none !important;
+	}
+	html, body, div, span,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	img, ins, kbd, q, s, samp,
+	small, strike, strong,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-size: 100%;
+		vertical-align: baseline;
+		background: transparent;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	table.vertical tbody tr > td:first-child > * {
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+		display: inline-block;
+		position: relative;
+		top: 50px;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	h2 {
+		font-size: 22px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	h4 {
+		font-size: 18px;
+	}
+	h5{
+		font-size: 17px;
+	}
+	h6 {
+		font-size: 16px;
+	}
+	a {
+		text-decoration: none;
+	}
+	a,
+	a:hover,
+	a:visited {
+		color: #307EA1;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	p {
+		margin: 0 0 18px 0
+	}
+	p:last-child {
+		margin-bottom: 0 !important;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	a img {
+		border: none;
+	}
+
+
+	.text ul {
+		list-style: none;
+		padding-left: 0px;
+		margin-bottom: 15px;
+		font-size: 18px;
+	}
+	.text ol {
+		margin: 0;
+		padding-left: 0px;
+		margin-bottom: 15px;
+		font-size: 18px;
+	}
+	.text > ol,
+	.text > ul {
+		margin-left: 30px;
+	}
+	.text ol:last-child,
+	.text ul:last-child {
+		margin-bottom: 0;
+	}
+	.text ol > li {
+		margin-left: 20px;
+	}
+	.text ol > li > ol > li {
+		list-style-type: lower-alpha;
+	}
+	.text ol > li > ol > li > ol > li {
+		list-style-type: upper-roman;
+	}
+	.text ul > li {
+		padding-left: 20px;
+		background: url(../images/li_bg.svg)  no-repeat left 0px top 7px;
+	}
+
+	.hidden_block {
+		overflow: hidden;
+	}
+/********************CSS reset - end********************/
+
+/********************CSS base - begin*******************/
+	html {
+		height: 100%;
+	}
+
+	body {
+		position: relative;
+		min-height: 100%;
+		font-size: 20px;
+		font-family: 'Franklin Gothic', sans-serif;
+		background: #fff;
+		color: #212121;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+		line-height: 1.3;
+		font-weight: 400;
+		min-height: 100vh;
+
+		-webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
+	}
+	.clear {
+		clear: both;
+	}
+
+	ul.sub-menu {
+		display: none;
+	}
+
+	.shadow {
+		box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.hover_in {
+		overflow: hidden;
+	}
+	.hover_in img {
+		transition: 0.3s ease-in-out;
+	}
+
+	.title.v1 {
+		font-size: 34px;
+		color: #212121;
+		font-weight: 900;
+		margin-bottom: 20px;
+	}
+	.text{
+		color: #212121;
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.block_title,
+	.text h2 {
+		font-size: 26px;
+		font-weight: 600;
+		margin-bottom: 5px;
+	}
+	.text h3 {
+		font-size: 23px;
+		font-weight: 500;
+		margin-bottom: 5px;
+	}
+	.text.v2,
+	.subscribe_block {
+		color: white;
+		font-size: 14px;
+		font-weight: 400;
+	}
+	.text.v2 h3,
+	.subscribe_block h3 {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 18px;
+	}
+
+	main {
+		position: relative;
+		z-index: 1;
+	}
+
+	body.overlay:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: -3px;
+		width: 100%;
+		height: 100%;
+		min-height: 100vh;
+		background: rgba(65, 65, 65, 0.71);
+		z-index: 1;
+	}
+
+/********************CSS base - end*******************/
+
+
+/********************header - start*******************/
+
+	header {
+		position: relative;
+	}
+	.logo {
+		width: 176px;
+	}
+	.eltop {
+		position: relative;
+		z-index: 2;
+		background: white;
+	}
+
+	header nav .child {
+		background: #307EA1;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+		position: static;
+	}
+	header nav .child a {
+		color: white;
+		text-decoration: none;
+	}
+	header nav .child .top_menu a {
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: 400;
+		display: block;
+		padding: 0 10px;
+		margin-right: 25px;
+		position: relative;
+	}
+	header nav .child .top_menu a:hover {
+		text-decoration: underline;
+	}
+	header nav .child .top_menu a[target="_blank"]:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 9px;
+		height: 9px;
+		background: url(../images/target.svg) no-repeat center center;
+	}
+
+
+	header nav .main .main_menu > li > a {
+		font-size: 20px;
+		font-weight: 600;
+		display: block;
+		color: #212121;
+		margin: 15px 0px 15px 15px;
+		padding: 2px 10px;
+		box-sizing: border-box;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		position: relative;
+		text-decoration: none;
+	}
+	header nav .main .main_menu li.current-menu-item > a,
+	header nav .main .main_menu li > a:hover {
+		color: #307EA1;
+	}
+	header nav .main .main_menu > li > ul.sub-menu {
+		background: #F9F9F9;
+		padding: 45px 45px 35px 45px;
+		display: flex;
+	}
+	header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li {
+		margin-bottom: 10px;
+	}
+	header nav .main .main_menu ul.sub-menu ul.sub-menu {
+		display: block;
+	}
+	header nav .main .main_menu > li > ul.sub-menu > li {
+		width: 32%;
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		box-sizing: border-box;
+		padding: 0 20px;
+	}
+	header nav .main .main_menu > li > ul.sub-menu > li > a {
+		display: none !important;
+	}
+	header nav .main .main_menu > li > ul.sub-menu > li a {
+		color: #000;
+		font-size: 16px;
+		font-weight: 400;
+	}
+	header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
+		font-size: 20px;
+		font-weight: 500;
+	}
+	header nav .main .main_menu > li > ul.sub-menu {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 104px;
+		top: 94px;
+		background: white;
+		width: 100%;
+		z-index: 5;
+		border-bottom: 4px solid #307EA1;
+	}
+	header nav .main .main_menu > li > ul.sub-menu:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: -3px;
+		width: 100%;
+		height: 3px;
+		box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	section.page_img {
+		position: relative;
+		overflow: hidden;
+	}
+	section.page_img img {
+		display: block;
+		object-fit: cover;
+		object-position: center center;
+		width: 100%;
+		height: auto;
+		min-height: 200px;
+	}
+	section.page_img .page_img-link {
+		padding: 35px;
+		box-sizing: border-box;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+	section.page_img .page_img-title {
+		display: inline-block;
+		padding: 20px 25px;
+		box-sizing: border-box;
+		background: #fff;
+		font-size: 34px;
+		font-weight: 900;
+		color: #212121;
+	}
+
+	.main_menu_burger {
+		display: none;
+	}
+/********************header - end*******************/
+
+
+/********************footer - start*******************/
+
+	footer {
+		background: #307EA1;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		color: white;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	footer h4 {
+		margin-bottom: 15px;
+		font-size: 18px;
+		font-weight: 500;
+	}
+	footer a {
+		color: white !important;
+	}
+
+/********************footer - end*******************/
+
+
+/********************home - start*******************/
+
+	section.default,
+	.news_list {
+		padding: 45px 0;
+		background: #fff;
+	}
+	.NI_wrap {
+		background: white;
+		min-height: 100%;
+	}
+	.NI_details p {
+		margin-bottom: 10px;
+	}
+	.subtitle {
+		font-size: 30px;
+		font-weight: 600;
+		color: #212121;
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+	}
+	.subtitle a {
+		color: #212121;
+		text-decoration: none;
+	}
+	.subtitle a:hover {
+		color: #307EA1;
+	}
+	.subtitle img {
+		margin-right: 15px;
+	}
+	.warn {
+		color: #E30420;
+		font-size: 16px;
+	}
+
+/********************home - end*******************/
+
+
+/********************default - start*******************/
+
+h1.title {
+	padding: 15px 0;
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+	font-weight: 600;
+}
+.title-icon {
+	margin-right: 15px;
+}
+.titleWrap {
+	padding-bottom: 60px;
+}
+
+.default div.tableWrap {
+	overflow: auto;
+	width: 100%;
+}
+.default input[type="button"] {
+	background: #fff;
+	color: #307EA1;
+	border: 1px solid #307EA1;
+	font-size: 12px;
+	font-weight: 400;
+	padding: 8px 10px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	margin: 0 5px 5px 0;
+}
+.default input[type="button"]:hover {
+	background: #307EA1;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+table.table {
+	border: 1px solid #E7E7E7;
+}
+table.table th,
+table.table td {
+	padding: 20px 25px;
+	font-size: 18px;
+}
+table.table tr:first-child td.big-desc,
+table.table th {
+	border-top: 1px solid #E7E7E7;
+	font-weight: 600;
+	color: #000000;
+	background: white;
+}
+table.table td {
+	color: #707070;
+	font-weight: 400;
+	border-top: 1px solid #E7E7E7;
+}
+table.table tr:hover {
+	background: rgba(231, 231, 231, 0.5);
+}
+/*table.table a {
+	color: #707070;
+}*/
+table.withTables {
+	border: none;
+	width: 100%;
+	background: white;
+}
+
+
+form input[type="submit"] {
+	background: #307EA1;
+	color: white;
+	border: 1px solid #307EA1;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 13px 15px;
+	min-width: 212px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+form input[type="submit"]:hover {
+	background: #fff;
+	color: #307EA1;
+	cursor: pointer;
+}
+
+form select  {
+	padding-right: 56px !important;
+}
+form .selectWrap {
+	position: relative;
+	max-width: 100%;
+}
+form .selectWrap:after {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 7px 0 7px;
+	border-color: #707070 transparent transparent transparent;
+	position: absolute;
+	top: 24px;
+	right: 22px;
+}
+form textarea,
+form input[type="email"],
+form input[type="number"],
+form input[type="tel"],
+form input[type="date"],
+form input[type="password"],
+form input[type="text"],
+form select  {
+	height: 55px;
+	border: none;
+	border-bottom: 1px solid #707070;
+	background: #EBEBEB;
+	padding: 20px 20px 0 20px;
+	outline: none;
+	border-radius: 0;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	color: #000;
+	max-width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+form select {
+	padding: 10px 20px;
+}
+
+.formSection .form-group {
+	position: relative;
+}
+
+.formSection .form-group .form-check-input {
+	display: none;
+}
+.formSection .form-group .form-check-label {
+	padding: 0 0 0 27px;
+	color: #707070;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+}
+.formSection .form-group .form-check-input:checked + .form-check-label {
+	color: #000000;
+}
+.formSection .form-group .form-check-input[type="checkbox"] + .form-check-label {
+	background: url(../images/checkbox.svg) no-repeat left center;
+}
+.formSection .form-group .form-check-input[type="checkbox"]:checked + .form-check-label {
+	background-image: url(../images/checkboxActive.svg);
+}
+.formSection .form-group .form-check-input[type="radio"] + .form-check-label {
+	background: url(../images/radio.svg) no-repeat left center;
+}
+.formSection .form-group .form-check-input[type="radio"]:checked + .form-check-label {
+	background-image: url(../images/radioActive.svg);
+}
+
+.form-group.form-inline {
+	justify-content: space-between;
+}
+.form-group.form-inline .form-check:first-child {
+	width: 150px;
+	justify-content: left;
+}
+.form-group.form-inline .form-check:not(:last-child) {
+	margin-right: 10px;
+}
+
+.form-group .form-check {
+	padding-left: 0;
+}
+
+.formSection .form-group label.formGroupLabelStatic {
+	display: block;
+}
+.formSection .form-group label.formGroupLabel {
+	position: absolute;
+	transition: 0.3s all ease-in-out;
+	left: 18px;
+	top: 20px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	color: #AAAAAA;
+}
+.formSection .form-group textarea:not(:placeholder-shown) + label.formGroupLabel,
+.formSection .form-group input:not(:placeholder-shown) + label.formGroupLabel,
+.formSection .form-group textarea:focus + label.formGroupLabel,
+.formSection .form-group input:focus + label.formGroupLabel {
+	font-size: 12px;
+	top: 7px;
+}
+
+.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="email"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="email"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="number"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="number"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="date"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="date"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="password"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="password"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="text"]:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="text"]:invalid:not(:focus):not(:placeholder-shown) + label + .warn {
+	color: #E30420;
+ }
+.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="tel"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="date"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="text"]:invalid:not(:focus):not(:placeholder-shown) {
+	border-bottom-color: #E30420;
+ }
+.formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="email"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="email"]:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="number"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="number"]:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="tel"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="tel"]:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="date"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="date"]:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="password"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="password"]:valid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type="text"]:valid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type="text"]:valid:not(:focus):not(:placeholder-shown) + label + .warn {
+	color: #307EA1;
+ }
+.formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="email"]:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="number"]:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="tel"]:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="date"]:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="password"]:valid:not(:focus):not(:placeholder-shown),
+.formSection .form-group input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
+	border-bottom-color: #307EA1;
+}
+
+.formSection .form-group .selectArr {
+	position: absolute;
+	right: 21px;
+	top: 24px;
+}
+.formSection .form-group .selectArr.v2 {
+	right: 19px;
+	top: 16px;
+}
+.formSection .form-group textarea {
+	height: 190px;
+	resize: none;
+	font-family: inherit;
+	padding-top: 20px;
+}
+.formSection .form-group .custom-file {
+	font-family: inherit;
+	font-size: 18px;
+}
+.formSection .form-group textarea,
+.formSection .form-group input[type="email"],
+.formSection .form-group input[type="number"],
+.formSection .form-group input[type="tel"],
+.formSection .form-group input[type="date"],
+.formSection .form-group input[type="password"],
+.formSection .form-group input[type="text"],
+.formSection .form-group select {
+	width: 100% !important;
+}
+.formSection .form-group .warn,
+.formSection .form-group .font-italic {
+	font-size: 14px;
+	color: #AAAAAA;
+	margin: 6px 0 0 18px;
+}
+
+.formSection h3.formSectionTitle {
+	color: #000000;
+	font-size: 22px;
+	font-weight: 600;
+	margin-top: 25px;
+	margin-bottom: 16px;
+}
+.formSection:first-child h3.formSectionTitle {
+	margin-top: 0;
+}
+.formSection h3.formSectionTitle .warn,
+.formSection h3.formSectionTitle .font-italic {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.noteWrap {
+	box-sizing: border-box;
+	padding: 24px;
+	border: 1px solid #DADADA;
+	border-radius: 3px;
+	margin-bottom: 25px;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 26px;
+	color: #212121;
+}
+.noteTitle {
+	color: #212121;
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+form a.resetPassword-link {
+	margin: 9px 0 0 10px;
+	font-size: 16px;
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 20px;
+}
+
+/********************default - end*******************/
+
+
+
+
+
+
+
+
+
+
+
+

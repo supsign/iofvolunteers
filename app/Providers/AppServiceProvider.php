@@ -28,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
-            $view->with('imagePath', Storage::url('images'));
             $view->with('genders', Gender::all());
         });
     }

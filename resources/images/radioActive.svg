@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+  <g id="Group_64" data-name="Group 64" transform="translate(-111 -527)">
+    <g id="Box" transform="translate(111 527)" fill="#fff" stroke="#307ea1" stroke-width="1">
+      <rect width="17" height="17" rx="8.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="16" height="16" rx="8" fill="none"/>
+    </g>
+    <rect id="Box-2" data-name="Box" width="11" height="11" rx="5.5" transform="translate(114 530)" fill="#307ea1"/>
+  </g>
+</svg>
