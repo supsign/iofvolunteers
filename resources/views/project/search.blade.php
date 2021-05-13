@@ -1,7 +1,9 @@
+@extends('layouts.app')
+@section('content')
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title"><img class="title-icon" src="{{ $imagePath }}/icon-search3.svg" width="65" height="65"> Project Search Form</h1>
+            <h1 class="title"><img class="title-icon" src="{{asset('images/icon-search3.svg')}}" width="65" height="65"> Project Search Form</h1>
 
             <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!</div>
         </div>
@@ -14,7 +16,7 @@
                         <div class="form-group">
                             <select type="text" name="country" id="country" size="1" value=""></select>
                             <div class="warn">Country</div>
-                            <img for="country" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="country" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
                     </div>
 
@@ -196,3 +198,4 @@
         </form>
     </div>
 </section>
+@endsection

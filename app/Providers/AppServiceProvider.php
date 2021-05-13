@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Gender;
+use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
             $view->with('genders', Gender::all());
+            $view->with('countries', Country::all());
         });
     }
 }

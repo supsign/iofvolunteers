@@ -1,7 +1,9 @@
+@extends('layouts.app')
+@section('content')
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title"><img class="title-icon" src="{{ $imagePath }}/icon-search5.svg" width="65" height="65"> Guest Search Form</h1>
+            <h1 class="title"><img class="title-icon" src="{{asset('images/icon-search5.svg')}}" width="65" height="65"> Guest Search Form</h1>
 
             <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!</div>
         </div>
@@ -21,19 +23,19 @@
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                             </select>
-                            <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="gender" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
-                            <div class="row mx-0">
-                                <div class="form-group col-12 col-sm-6 pl-0 pr-0 pr-sm-2">
+                            <div class="mx-0 row">
+                                <div class="pl-0 pr-0 form-group col-12 col-sm-6 pr-sm-2">
                                     <input id="field_minage" placeholder=" " type="text" name="minage" size="2">
                                     <label class="formGroupLabel"  for="field_minage">Age (at least)</label>
                                     <div class="warn">
                                         Note that volunteers under 18 are not allowed to register in the Platform
                                     </div>
                                 </div>
-                                <div class="form-group col-12 col-sm-6 pr-0 pl-0 pl-sm-2">
+                                <div class="pl-0 pr-0 form-group col-12 col-sm-6 pl-sm-2">
                                     <input id="field_maxage" placeholder=" " type="text" name="maxage" size="2">
                                     <label class="formGroupLabel"  for="field_maxage">Age (at most)</label>
                                 </div>
@@ -107,7 +109,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExplocal" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExplocal" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -118,7 +120,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExpnational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpnational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -129,7 +131,7 @@
                                 <option value="21 - 50">21 - 50</option>
                                 <option value="over 50">over 50</option>
                             </select>
-                            <img for="competitorExpinternational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpinternational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
                     </div>
 
@@ -203,13 +205,13 @@
                             5. Timing
                         </h3>
 
-                        <div class="row mx-0">
-                            <div class="form-group col-12 col-sm-6 pl-0 pr-0 pr-sm-2">
+                        <div class="mx-0 row">
+                            <div class="pl-0 pr-0 form-group col-12 col-sm-6 pr-sm-2">
                                 <input id="field_timeToStart" placeholder=" " type="text" size="10" name="timeToStart" value="" >
                                 <label class="formGroupLabel"  for="field_timeToStart">When to start?</label>
                             </div>
 
-                            <div class="form-group col-12 col-sm-6 pr-0 pl-0 pl-sm-2">
+                            <div class="pl-0 pr-0 form-group col-12 col-sm-6 pl-sm-2">
                                 <input id="field_maxWorkDuration" placeholder=" " type="text" size="7" name="maxWorkDuration" value="">
                                 <label class="formGroupLabel"  for="field_maxWorkDuration">Must stay for at least "" weeks</label>
                             </div>
@@ -238,3 +240,4 @@
 
     </div>
 </section>
+@endsection

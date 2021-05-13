@@ -1,7 +1,9 @@
+@extends('layouts.app')
+@section('content')
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title pb-0"><img class="title-icon" src="{{ $imagePath }}/icon-add5.svg" width="65" height="65"> Guest Registration Form</h1>
+            <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add5.svg')}}" width="65" height="65"> Guest Registration Form</h1>
         </div>
 
         <form method="POST" enctype="multipart/form-data">
@@ -24,7 +26,7 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country_id" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="country_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -39,7 +41,7 @@
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender_id" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="gender_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -56,7 +58,7 @@
                         <div class="form-group">
                             <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="">
                             <label class="formGroupLabel"  for="field_startO">Year you started orienteering (yyyy) *</label>
-                            <img for="field_startO" class="selectArr v2" src="{{ $imagePath }}/calendarIcon.svg" alt="" />
+                            <img for="field_startO" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -75,7 +77,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExplocal" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExplocal" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -86,7 +88,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExpnational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpnational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -97,7 +99,7 @@
                                 <option value="21 - 50">21 - 50</option>
                                 <option value="over 50">over 50</option>
                             </select>
-                            <img for="competitorExpinternational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpinternational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
                     </div>
 
@@ -418,3 +420,4 @@
         </form>
     </div>
 </section>
+@endsection

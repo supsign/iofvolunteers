@@ -1,7 +1,9 @@
+@extends('layouts.app')
+@section('content')
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title"><img class="title-icon" src="{{ $imagePath }}/icon-add.svg" width="65" height="65"> Volunteer Registration Form</h1>
+            <h1 class="title"><img class="title-icon" src="{{asset('images/icon-add.svg')}}" width="65" height="65"> Volunteer Registration Form</h1>
 
             <div class="title-desc">Please note that you must be 18+ to register as a
                 volunteer!</div>
@@ -31,7 +33,7 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="country" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -58,13 +60,13 @@
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="gender" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
                             <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel"  for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
-                            <img for="field_birthdate" class="selectArr v2" src="{{ $imagePath }}/calendarIcon.svg" alt="" />
+                            <img for="field_birthdate" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -80,7 +82,7 @@
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
-                            <img for="license" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="license" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
                     </div>
 
@@ -125,7 +127,7 @@
                         <div class="form-group">
                             <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>
                             <label class="formGroupLabel"  for="field_startO">Year you started orienteering (yyyy) *</label>
-                            <img for="field_startO" class="selectArr v2" src="{{ $imagePath }}/calendarIcon.svg" alt="" />
+                            <img for="field_startO" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -144,7 +146,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExplocal" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExplocal" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -155,7 +157,7 @@
                                 <option value="51 - 100">51 - 100</option>
                                 <option value="over 100">over 100</option>
                             </select>
-                            <img for="competitorExpnational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpnational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -166,7 +168,7 @@
                                 <option value="21 - 50">21 - 50</option>
                                 <option value="over 50">over 50</option>
                             </select>
-                            <img for="competitorExpinternational" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="competitorExpinternational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
                     </div>
 
@@ -683,7 +685,7 @@
                                 <option value="11 - 30">11 - 30</option>
                                 <option value="over 30">over 30</option>
                             </select>
-                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="oworkLocalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -739,7 +741,7 @@
                                 <option value="11 - 20">11 - 20</option>
                                 <option value="over 20">over 20</option>
                             </select>
-                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -807,17 +809,17 @@
                                 @endif
                             </div>
 
-                            <div class="custom-file mt-3">
+                            <div class="mt-3 custom-file">
                                 <input type="file" class="custom-file-input" id="mapsFile1" name="maps[]" accept=".pdf">
                                 <label class="custom-file-label" for="mapsFile1">Choose file</label>
                             </div>
 
-                            <div class="custom-file mt-3">
+                            <div class="mt-3 custom-file">
                                 <input type="file" class="custom-file-input" id="mapsFile2" name="maps[]" accept=".pdf">
                                 <label class="custom-file-label" for="mapsFile2">Choose file</label>
                             </div>
 
-                            <div class="custom-file mt-3">
+                            <div class="mt-3 custom-file">
                                 <input type="file" class="custom-file-input" id="mapsFile3" name="maps[]" accept=".pdf">
                                 <label class="custom-file-label" for="mapsFile3">Choose file</label>
                             </div>
@@ -878,3 +880,4 @@
         </form>
     </div>
 </section>
+@endsection

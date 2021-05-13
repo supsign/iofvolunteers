@@ -1,7 +1,9 @@
+@extends('layouts.app')
+@section('content')
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title pb-0"><img class="title-icon" src="{{ $imagePath }}/icon-add3.svg" width="65" height="65"> Project Registration Form</h1>
+            <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add3.svg')}}" width="65" height="65"> Project Registration Form</h1>
         </div>
 
         <form method="POST" enctype="multipart/form-data">
@@ -63,7 +65,7 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="country" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -131,7 +133,7 @@
                                 </label>
                             </div>
 
-                            <div class="form-group mt-2">
+                            <div class="mt-2 form-group">
                                 <input id="field_offerother" placeholder=" " type="text" name="offer[other]" size="20">
                                 <label class="formGroupLabel"  for="field_offerother">Other (please state):</label>
                             </div>
@@ -310,7 +312,7 @@
                                 <option value="11 - 30">11 - 30</option>
                                 <option value="over 30">over 30</option>
                             </select>
-                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="oworkLocalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -366,7 +368,7 @@
                                 <option value="11 - 20">11 - 20</option>
                                 <option value="over 20">over 20</option>
                             </select>
-                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ $imagePath }}/selectArr.svg" alt="" />
+                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -563,3 +565,4 @@
         </form>
     </div>
 </section>
+@endsection

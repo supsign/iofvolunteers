@@ -19,24 +19,21 @@
 
     <!-- Scripts -->
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css')}}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
 
 </head>
 <body class="d-flex flex-column">
     <div class="wrapper flex-grow-1">
         <header>
-            <div class="container-fluid shadow eltop">
+            <div class="shadow container-fluid eltop">
                 <div class="row justify-content-between align-items-center">
-                    <a href="/" class="col-auto logo d-none  d-xl-block">
-                        <img src={{ asset('images/logo.svg')}}" width="160" alt="" />
+                    <a href="/" class="col-auto logo d-none d-xl-block">
+                        <img src="{{ asset('images/logo.svg')}}" width="160" alt="" />
                     </a>
                     <nav class="flex-grow-1 d-flex flex-column justify-content-end">
                         <div class="col-12 child d-flex justify-content-between align-items-center">
@@ -52,7 +49,7 @@
                             <a href="/" class="col logo d-block d-xl-none">
                                 <img src="{{ asset('images/logo.svg') }}" width="160" alt="" />
                             </a>
-                            <a href="#" class="main_menu_burger order-1 pl-3 pr-3">
+                            <a href="#" class="order-1 pl-3 pr-3 main_menu_burger">
                                 <img src="{{ asset('images/menu.svg') }}" alt="" />
                             </a>
                             <ul id="menu-main-menu" class="menu main_menu d-xl-flex align-items-center w-100">
@@ -65,7 +62,7 @@
                                             <a href="#">Column 1</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="volunteer/list">
+                                                    <a href="{{ route('volunteer.registerForm') }}">
                                                         Register as a Volunteer
                                                     </a>
                                                 </li>
@@ -75,7 +72,7 @@
                                             <a href="#">Column 2</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="volunteer/search">
+                                                    <a href="{{ route('volunteer.searchForm') }}">
                                                         Search a Volunteer
                                                     </a>
                                                 </li>
@@ -92,7 +89,7 @@
                                             <a href="#">Column 1</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="project/list">
+                                                    <a href="{{ route('project.registerForm') }}">
                                                         Register a Project
                                                     </a>
                                                 </li>
@@ -102,7 +99,7 @@
                                             <a href="#">Column 2</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="project/search">
+                                                    <a href="{{ route('project.searchForm') }}">
                                                         Search a Project
                                                     </a>
                                                 </li>
@@ -119,7 +116,7 @@
                                             <a href="#">Column 1</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="host/list">
+                                                    <a href="{{ route('host.registerForm') }}">
                                                         Register as a Host Family
                                                     </a>
                                                 </li>
@@ -129,7 +126,7 @@
                                             <a href="#">Column 2</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="host/search">
+                                                    <a href="{{ route('host.searchForm') }}">
                                                         Find a host family
                                                     </a>
                                                 </li>
@@ -146,7 +143,7 @@
                                             <a href="#">Column 1</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="guest/list">
+                                                    <a href="{{ route('guest.registerForm') }}">
                                                         Register as a Guest
                                                     </a>
                                                 </li>
@@ -156,7 +153,7 @@
                                             <a href="#">Column 2</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
-                                                    <a href="guest/search">
+                                                    <a href="{{ route('guest.searchForm') }}">
                                                         Search a guest
                                                     </a>
                                                 </li>
@@ -166,18 +163,18 @@
                                 </li>
                                 
                                     @guest
-                                    <li class="m_green menu-item ml-auto">
+                                    <li class="ml-auto m_green menu-item">
                                         <a href="javascript:void(0);" data-toggle="modal" data-target="#registration-modal">
                                             NEW USER
                                         </a>
                                     </li>
-                                    <li class="m_red menu-item mr-3">
+                                    <li class="mr-3 m_red menu-item">
                                         <a href="javascript:void(0);" data-toggle="modal" data-target="#login-modal">
                                             SIGN IN
                                         </a>
                                     </li>
 @else
-<li class="m_red menu-item ml-auto mr-3">
+<li class="ml-auto mr-3 m_red menu-item">
     <a href="logout">
         Logout
     </a>
@@ -239,7 +236,7 @@
                                         <input class="form-control form-control-sm" type="password" name="password" size="20" required="">
                                     </div>
                                 </div>
-                                <div class="form-group row mx-0">
+                                <div class="mx-0 form-group row">
                                     <button type="submit" class="btn btn-primary">Sign in!</button>
                                     <a href="restore" class="resetPassword-link">
                                         Restore password
@@ -263,7 +260,8 @@
                         </div>
                         <div class="modal-body">
         
-                            <form id="registerForm" method="POST" action="register">
+                            <form id="registerForm" method="POST" action="{{ route('register') }}">
+                                @csrf                                
                                 <p  class="big-desc">All fields are required!</p>
                                 <div class="form-group row desc">
                                     <label class="col-3 col-form-label col-form-label-sm" for="name">Name<span class="warn-title">*</span>: </label>
@@ -274,7 +272,11 @@
                                 <div class="form-group row desc">
                                     <label class="col-3 col-form-label col-form-label-sm" for="name">Country<span class="warn-title">*</span>: </label>
                                     <div class="col-9">
-                                        <select type="text" name="country" id="country" required=""></select>
+                                        <select type="text" name="country" id="country" required="">
+                                            @foreach ($countries as $country )
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row desc">
@@ -283,16 +285,16 @@
                                         <input class="form-control form-control-sm" type="text" name="email" size="20" required="">
                                     </div>
                                 </div>
-                                <div class="form-group row desc">
-                                    <label class="col-3 col-form-label col-form-label-sm" for="name">Username<span class="warn-title">*</span>: </label>
-                                    <div class="col-9">
-                                        <input class="form-control form-control-sm" type="text" name="login" size="20" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group row desc">
+                                  <div class="form-group row desc">
                                     <label class="col-3 col-form-label col-form-label-sm" for="name">Password<span class="warn-title">*</span>: </label>
                                     <div class="col-9">
                                         <input class="form-control form-control-sm" type="password" name="password" size="20" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row desc">
+                                    <label class="col-3 col-form-label col-form-label-sm" for="name">Password Confirmation<span class="warn-title">*</span>: </label>
+                                    <div class="col-9">
+                                        <input class="form-control form-control-sm" type="password" name="password_confirmation" size="20" required="">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Register</button>
@@ -334,6 +336,8 @@
         
             </script>
 @endguest        
+<script src="{{ asset('js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('js/datepicker.min.js')}}"></script>
 
         <script language="javascript" type="text/javascript">
             $.fn.datepicker.language['en'] = {
@@ -349,6 +353,6 @@
                 firstDay: 0
             };
         </script>
-        
+        <script src="{{ asset('js/main.js')}}"></script>
         </body>
         </html>

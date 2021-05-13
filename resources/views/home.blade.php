@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <section class="page_img">
     <img border="0" src="{{ asset('images/pg_template1.jpg')}}" />
@@ -13,9 +12,9 @@
 <section class="news_list">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-add.svg')}}" width="50" height="50">
                             <a href="volunteer/register">
@@ -33,9 +32,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-search1.svg')}}" width="50" height="50">
                             <a href="volunteer/search">
@@ -53,9 +52,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-add3.svg')}}" width="50" height="50">
                             <a href="project/register">
@@ -70,9 +69,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-search3.svg')}}" width="50" height="50">
                             <a href="project/search">
@@ -86,9 +85,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-add4.svg')}}" width="50" height="50">
                             <a href="host/register">
@@ -103,9 +102,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-search4.svg')}}" width="50" height="50">
                             <a href="host/search">
@@ -123,9 +122,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-add5.svg')}}" width="50" height="50">
                             <a href="guest/register">
@@ -143,9 +142,9 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 pt-3 pb-3">
-                <div class="NI_wrap shadow">
-                    <div class="NI_details  p-4">
+            <div class="pt-3 pb-3 col-12 col-md-6">
+                <div class="shadow NI_wrap">
+                    <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-search5.svg')}}" width="50" height="50">
                             <a href="guest/search">
