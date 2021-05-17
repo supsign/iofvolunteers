@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Language;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,5 +23,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function test()
+    {
+        $volunteer = Volunteer::find(1);
+
+        var_dump($volunteer->languages);
+
+
+
+
     }
 }

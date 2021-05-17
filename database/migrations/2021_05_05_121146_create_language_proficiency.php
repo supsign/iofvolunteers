@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGenders extends Migration
+class CreateLanguageProficiency extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateGenders extends Migration
      */
     public function up()
     {
-        Schema::create('genders', function (Blueprint $table) {
+        Schema::create('language_proficiency', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('salutation');
-            $table->string('short_name');
             $table->timestampsTz();
         });
 
         Artisan::call('db:seed', [
-            '--class' => GenderSeeder::class,
+            '--class' => LanguageProficiencySeeder::class,
             '--force' => true
         ]);
     }
@@ -34,6 +32,6 @@ class CreateGenders extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genders');
+        Schema::dropIfExists('language_proficiency');
     }
 }

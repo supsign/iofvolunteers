@@ -13,4 +13,9 @@ class Volunteer extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function languages()
+    {
+        return $this->morphToMany(Language::class, 'language_model');
+    }
 }

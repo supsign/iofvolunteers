@@ -18,6 +18,11 @@ class CreateVolunteersTable extends Migration
             $table->foreignId('gender_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('country_id')->nullable()->constrained();
+            $table->string('name')->nullable();
+            $table->string('nickname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('birthdate')->nullable();
             $table->timestampsTz();
         });
     }
