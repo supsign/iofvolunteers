@@ -28,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', function() {
+	return redirect(route('home'));
+});
 
 Route::get('/guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
 Route::get('/guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
