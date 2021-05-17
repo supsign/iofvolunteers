@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }
+	
 	public function registerForm() 
 	{
 		return view('project.register', ['countries' => Country::all()]);
