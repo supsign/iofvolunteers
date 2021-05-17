@@ -175,9 +175,12 @@
                                     </li>
 @else
 <li class="ml-auto mr-3 m_red menu-item">
-    <a href="logout">
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         Logout
     </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </li>
 @endguest
                             </ul>
