@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class HostController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }
+	
 	public function registerForm() 
 	{
 		return view('host.register', ['countries' => Country::all()]);

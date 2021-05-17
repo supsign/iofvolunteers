@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class VolunteerController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }
+
 	public function registerForm() 
 	{
 		return view('volunteer.register', ['countries' => Country::all()]);

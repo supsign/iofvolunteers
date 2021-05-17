@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }
+	
 	public function registerForm() 
 	{
 		return view('guest.register', ['countries' => Country::all()]);
