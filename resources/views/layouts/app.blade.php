@@ -227,9 +227,9 @@
         
                             <form id="signinForm" method="POST" action="login">
                                 @csrf
-                                <p  class="big-desc">You may sign in using your e-mail or username and password...</p>
+                                <p  class="big-desc">You may sign in using your e-mail and password...</p>
                                 <div class="form-group row desc">
-                                    <label class="col-3 col-form-label col-form-label-sm" for="email">Username / E-mail: </label>
+                                    <label class="col-3 col-form-label col-form-label-sm" for="email">E-mail: </label>
                                     <div class="col-9">
                                         <input class="form-control form-control-sm" type="text" name="email" size="20" required="">
                                     </div>
