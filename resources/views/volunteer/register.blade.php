@@ -22,13 +22,13 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" size="15">
+                            <input id="field_name" placeholder=" " type="text" name="name" size="15" required>
                             <label class="formGroupLabel"  for="field_name">Name</label>
                         </div>
 
                         <div class="form-group">
                             <div class="warn">Country</div>
-                            <select type="text" name="country" id="country" size="1" value="">
+                            <select type="text" name="country" id="country" size="1" value="" required>
                                 @foreach($countries AS $country)
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" size="15">
+                            <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
                             <label class="formGroupLabel"  for="field_email">E-mail *</label>
                         </div>
 
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd">
+                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel"  for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
                         </div>
@@ -125,7 +125,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="">
+                            <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>
                             <label class="formGroupLabel"  for="field_startO">Year you started orienteering (yyyy) *</label>
                             <img for="field_startO" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
                         </div>
@@ -175,7 +175,7 @@
                     <div class="formSection">
                         <h3 class="formSectionTitle">
                             5. Languages spoken
-                            <div class="warn"> , even if only listed in "other")</div>
+                            <div class="warn"> (required, even if only listed in "other")</div>
                         </h3>
 
                         <div class="form-group form-inline">
@@ -478,13 +478,13 @@
                         <h3 class="formSectionTitle">
                             8. Skills
                             <div class="warn"> &nbsp;(Please tick all relevant to you.
-                                Details are <b</b> if skill is ticked)
+                                Details are <b>required</b> if skill is ticked)
                             </div>
                         </h3>
 
                         <div class="form-group">
                             <div class="formGroupLabelStatic">* Mapping</div>
-                            <div class="warn">Notice that you will be to upload map samples!</div>
+                            <div class="warn">Notice that you will be required to upload map samples!</div>
 
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="1" name="mappingDesc[Sprint]" id="mappingDesc1">
@@ -796,7 +796,7 @@
 
                         <div class="form-group">
                             <label class="formGroupLabelStatic">Skilled in mapping? Upload your "best" maps here...</label>
-                            <div class="warn" for mappers!
+                            <div class="warn">Required for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
 
                                 @if(isset($maps) && $maps)
@@ -826,7 +826,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="4" cols="30" name="helpDesc" id="helpDesc" value=""></textarea>
+                            <textarea placeholder=" " rows="4" cols="30" name="helpDesc" id="helpDesc" value="" required></textarea>
                             <label class="formGroupLabel"  for="helpDesc">Explain how you can help as a volunteer *</label>
                         </div>
 
@@ -862,7 +862,7 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms">
+                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms" required>
                                     <label class="form-check-label" for="iAgreeWithTerms">
                                         I have read and understood the above.
                                     </label>
