@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Experience;
 use App\Models\Language;
 use App\Models\Volunteer;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,6 +29,10 @@ class HomeController extends Controller
 
     public function test()
     {
+        $skills = Skill::all();
+
+        die();
+
         $volunteer = Volunteer::find(1);
 
         var_dump($volunteer->duties);

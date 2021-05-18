@@ -4,7 +4,7 @@
     </h3>
 
     <div class="form-group">
-        <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>
+        <input type="number" min="1900" max="2099" step="1" name="duration" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>
         <label class="formGroupLabel"  for="field_startO">Year you started orienteering (yyyy) *</label>
         <img for="field_startO" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
     </div>

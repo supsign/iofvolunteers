@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             <div class="warn">Country</div>
-                            <select type="text" name="country" id="country_id" size="1" value="" required>
+                            <select type="text" name="country_id" id="country_id" size="1" value="" required>
                                 @foreach($countries AS $country)
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach

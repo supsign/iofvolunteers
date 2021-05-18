@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Volunteer;
@@ -30,13 +31,31 @@ class VolunteerController extends Controller
 
 	public function register(VolunteerRegister $request) 
 	{
-		var_dump(
-			$request->all()
-		);
+		$data = $request->all();
 
-		die();
+		unset($data['_token']);
 
-		return Volunteer::create($request->validated());
+		foreach (['o_experience', 'continent', 'discipline', 'language', 'skill'] AS $key) {
+			$$key = Helper::exractElementByKey($data, $key);
+		}
+
+		unset($data['mappingDesc']);
+		unset($data['coachDesc']);
+		unset($data['itDesc']);
+		unset($data['eventDesc']);
+		unset($data['teacherDesc']);
+		unset($data['oworkLocalExp']);
+		unset($data['oworkInternationalExp']);
+
+		var_dump($data);
+
+		// var_dump(
+		// 	$data
+		// );
+
+		// die();
+
+		return Volunteer::create($data);
 	}
 
 	public function update(Volunteer $volunteer, VolunteerRegister $request)

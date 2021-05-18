@@ -9,6 +9,8 @@ class BaseModel extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function getSnakeCaseNameAttribute()
     {
     	return str_replace(' ', '_', strtolower($this->name));
