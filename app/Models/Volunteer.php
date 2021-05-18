@@ -19,6 +19,11 @@ class Volunteer extends Model
         return $this->morphToMany(Discipline::class, 'discipline_model');
     }
 
+    public function duties()
+    {
+        return $this->morphToMany(Duty::class, 'duty_model');
+    }
+
     public function continents()
     {
         return $this->morphToMany(Continent::class, 'continent_model');
