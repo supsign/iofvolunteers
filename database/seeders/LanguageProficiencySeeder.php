@@ -11,6 +11,7 @@ class LanguageProficiencySeeder extends Seeder
 		['id' => 1, 'name' => 'Excellent'],
 		['id' => 2, 'name' => 'Ok'],
 		['id' => 3, 'name' => 'Poor'],
+        ['id' => 4, 'name'  => 'none']
     ];
     /**
      * Run the database seeds.
@@ -30,7 +31,7 @@ class LanguageProficiencySeeder extends Seeder
         		$data[$key] = $value;
         	}
 
-            DB::table('language_proficiency')->updateOrInsert(['id' => $entry['id']], $data);
+            DB::table('language_proficiencies')->updateOrInsert(['id' => $entry['id']], $data);
         }
     }
 }

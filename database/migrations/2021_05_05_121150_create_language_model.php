@@ -16,7 +16,7 @@ class CreateLanguageModel extends Migration
         Schema::create('language_models', function (Blueprint $table) {
             $table->id();
             $table->foreignId('language_id')->constrained('languages');
-            $table->foreignId('language_proficiency_id')->nullable()->constrained('language_proficiency');
+            $table->foreignId('language_proficiency_id')->nullable()->constrained('language_proficiencies');
             $table->unsignedBigInteger('language_model_id');
             $table->string('language_model_type');
             $table->timestampsTz();
