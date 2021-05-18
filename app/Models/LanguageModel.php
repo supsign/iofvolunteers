@@ -2,13 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class LanguageModel extends Model
+class LanguageModel extends BaseModel
 {
-    use HasFactory;
-
     public function language()
     {
     	return $this->belongsTo(Language::class);

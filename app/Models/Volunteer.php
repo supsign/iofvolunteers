@@ -2,13 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Volunteer extends Model
+class Volunteer extends BaseModel
 {
-    use HasFactory;
-
     public function user() 
     {
     	return $this->belongsTo(User::class);

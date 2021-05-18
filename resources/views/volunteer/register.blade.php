@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             <div class="warn">Country</div>
-                            <select type="text" name="country" id="country" size="1" value="" required>
+                            <select type="text" name="country" id="country_id" size="1" value="" required>
                                 @foreach($countries AS $country)
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
@@ -55,7 +55,7 @@
 
                         <div class="form-group">
                             <div class="warn">Gender</div>
-                            <select size="1" name="gender" id="gender">
+                            <select size="1" name="gender_id" id="gender">
                                 @foreach($genders AS $gender)
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select size="1" name="license" id="license">
+                            <select size="1" name="driving_licence" id="license">
                                 <option selected="" value="">International driving license?</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
@@ -92,36 +92,19 @@
                         </h3>
 
                         <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="footO" name="footO">
-                                <label class="form-check-label" for="footO">
-                                    Foot-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="mtbO" name="mtbO">
-                                <label class="form-check-label" for="mtbO">
-                                    MTBO
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="skiO" name="skiO">
-                                <label class="form-check-label" for="skiO">
-                                    Ski-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="trailO" name="trailO">
-                                <label class="form-check-label" for="trailO">
-                                    Trail-O
-                                </label>
-                            </div>
+                            @foreach($disciplines AS $discipline)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="discipline_{{ $discipline->snakeCaseName }}" name="discipline[{{ $discipline->id }}]">
+                                    <label class="form-check-label" for="{{ $discipline->snakeCaseName }}">
+                                        {{ $discipline->name }}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-<x-orienteering.experience-form />
-                   
 
-<x-language.experience-form />
+                    <x-orienteering.experience-form />
+                    <x-language.experience-form />
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
@@ -134,54 +117,20 @@
 
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[Anywhere]" id="preferredContinents1">
-                                <label class="form-check-label" for="preferredContinents1">
+                                <input class="form-check-input" type="checkbox" value="1" name="continent[0]" id="continent-anywhere">
+                                <label class="form-check-label" for="continent-anywhere">
                                     Anywhere
                                 </label>
                             </div>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[North America]" id="preferredContinents2">
-                                <label class="form-check-label" for="preferredContinents2">
-                                    North America
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[South America]" id="preferredContinents3">
-                                <label class="form-check-label" for="preferredContinents3">
-                                    South America
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[Europe]" id="preferredContinents4">
-                                <label class="form-check-label" for="preferredContinents4">
-                                    Europe
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[Asia]" id="preferredContinents5">
-                                <label class="form-check-label" for="preferredContinents5">
-                                    Asia
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[Africa]" id="preferredContinents6">
-                                <label class="form-check-label" for="preferredContinents6">
-                                    Africa
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="preferredContinents[Oceania]" id="preferredContinents7">
-                                <label class="form-check-label" for="preferredContinents7">
-                                    Oceania
-                                </label>
-                            </div>
-
+                            @foreach($continents AS $continent)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}">
+                                    <label class="form-check-label" for="continent_{{ $continent->snakeCaseName }}">
+                                        {{ $continent->name }}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 

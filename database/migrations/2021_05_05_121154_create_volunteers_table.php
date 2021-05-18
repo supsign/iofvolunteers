@@ -20,9 +20,12 @@ class CreateVolunteersTable extends Migration
             $table->foreignId('country_id')->nullable()->constrained();
             $table->string('name')->nullable();
             $table->string('nickname')->nullable();
+            $table->timestampTz('birthdate')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('birthdate')->nullable();
+            $table->boolean('driving_licence')->default(false);
+            $table->unsignedSmallInteger('start_year')->nullable();
+            $table->string('club')->nullable();
             $table->timestampsTz();
         });
     }

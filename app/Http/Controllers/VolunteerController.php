@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\Continent;
+use App\Models\Discipline;
 use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
 use Illuminate\Http\Request;
@@ -16,7 +17,10 @@ class VolunteerController extends Controller
 
 	public function registerForm() 
 	{
-		return view('volunteer.register', ['countries' => Country::all()]);
+		return view('volunteer.register', [
+			'disciplines' => Discipline::all(),
+			'continents' => Continent::all()
+		]);
 	}
 
 	public function searchForm() 
@@ -26,6 +30,10 @@ class VolunteerController extends Controller
 
 	public function register(VolunteerRegister $request) 
 	{
+		var_dump(
+			$request->all()
+		);
+
 		die();
 
 		return Volunteer::create($request->validated());

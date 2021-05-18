@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
 use App\Models\Language;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
@@ -27,6 +28,9 @@ class HomeController extends Controller
 
     public function test()
     {
+        $volunteer = Volunteer::find(1);
+
+        var_dump($volunteer->duties);
 
     }
 }

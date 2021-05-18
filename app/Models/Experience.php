@@ -2,13 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Experience extends Model
+class Experience extends BaseModel
 {
-    use HasFactory;
-
     public function newCollection(array $models = [])
     {
         return new ExperienceCollection($models);
