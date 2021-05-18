@@ -13,7 +13,7 @@ class CreateLanguageProficiency extends Migration
      */
     public function up()
     {
-        Schema::create('language_proficiency', function (Blueprint $table) {
+        Schema::create('language_proficiencies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestampsTz();
@@ -32,6 +32,6 @@ class CreateLanguageProficiency extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_proficiency');
+        Schema::dropIfExists('language_proficiencies');
     }
 }

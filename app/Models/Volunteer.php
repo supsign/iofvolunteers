@@ -18,4 +18,18 @@ class Volunteer extends Model
     {
         return $this->morphToMany(Language::class, 'language_model');
     }
+
+    public function languageModels()
+    {
+    	return $this
+    		->hasMany(LanguageModel::class, 'language_model_id')
+    		->where('language_model_type', self::class)
+    		->with('language')
+    		->with('languageProficiency');
+    }
+
+    public function languageProficiencies()
+    {
+        return $this->morphToMany(LanguageProficiency::class, 'language_model');
+    }
 }
