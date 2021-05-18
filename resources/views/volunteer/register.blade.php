@@ -144,8 +144,8 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder="" type="text" size="3" name="duration" id="duration" value="">
-                            <label class="formGroupLabel" for="duration">weeks</label>
+                            <input placeholder="" type="text" size="3" name="work_duration" id="work_duration" value="">
+                            <label class="formGroupLabel" for="work_duration">weeks</label>
                         </div>
                     </div>
 
@@ -156,116 +156,30 @@
                             9. O-Work Experience
                         </h3>
 
-                        <div class="form-group">
-                            <select size="1" name="oworkLocalExp[experience]" id="oworkLocalExpexperience">
-                                <option selected="" value="">Local / National Events</option>
-                                <option value="none">none</option>
-                                <option value="1 - 10">1 - 10</option>
-                                <option value="11 - 30">11 - 30</option>
-                                <option value="over 30">over 30</option>
-                            </select>
-                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <label class="formGroupLabelStatic">Duties:</label>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkLocalExp[director]" id="oworkLocalExp1">
-                                <label class="form-check-label" for="oworkLocalExp1">
-                                    Event Director
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkLocalExp[mapper]" id="oworkLocalExp2">
-                                <label class="form-check-label" for="oworkLocalExp2">
-                                    Mapper / Course Planner
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkLocalExp[it]" id="oworkLocalExp3">
-                                <label class="form-check-label" for="oworkLocalExp3">
-                                    IT Director
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkLocalExp[advisor]" id="oworkLocalExp4">
-                                <label class="form-check-label" for="oworkLocalExp4">
-                                    Event Advisor
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkLocalExp[jury]" id="oworkLocalExp5">
-                                <label class="form-check-label" for="oworkLocalExp5">
-                                    Jury Member
-                                </label>
+                        @foreach ($dutyTypes AS $dutyType)
+                            <div class="form-group">
+                                <select size="1" name="" id="">
+                                    <option selected="" value="">{{ $dutyType->name }}</option>
+                                    <option value="none">none</option>
+                                    <option value="1 - 10">1 - 10</option>
+                                    <option value="11 - 30">11 - 30</option>
+                                    <option value="over 30">over 30</option>
+                                </select>
+                                <img for="" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                             </div>
 
                             <div class="form-group">
-                                <input id="field_oworkLocalExpother" placeholder=" " type="text" name="oworkLocalExp[other]" value="" size="20">
-                                <label class="formGroupLabel" for="field_oworkLocalExpother">Other duties? State below...</label>
+                                <label class="formGroupLabelStatic">Duties:</label>
+                                @foreach ($duties AS $duty)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
+                                        <label class="form-check-label" for="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
+                                            {{ $duty->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <select size="1" name="oworkInternationalExp[experience]" id="oworkInternationalExpexperience">
-                                <option selected="" value="">International Events</option>
-                                <option value="none">none</option>
-                                <option value="1 - 10">1 - 10</option>
-                                <option value="11 - 20">11 - 20</option>
-                                <option value="over 20">over 20</option>
-                            </select>
-                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <label class="formGroupLabelStatic">Duties:</label>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkInternationalExp[director]" id="oworkInternationalExp1">
-                                <label class="form-check-label" for="oworkInternationalExp1">
-                                    Event Director
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkInternationalExp[mapper]" id="oworkInternationalExp2">
-                                <label class="form-check-label" for="oworkInternationalExp2">
-                                    Mapper / Course Planner
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkInternationalExp[it]" id="oworkInternationalExp3">
-                                <label class="form-check-label" for="oworkInternationalExp3">
-                                    IT Director
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkInternationalExp[advisor]" id="oworkInternationalExp4">
-                                <label class="form-check-label" for="oworkInternationalExp4">
-                                    Event Advisor
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="oworkInternationalExp[jury]" id="oworkInternationalExp5">
-                                <label class="form-check-label" for="oworkInternationalExp5">
-                                    Jury Member
-                                </label>
-                            </div>
-
-                            <div class="form-group">
-                                <input id="field_oworkInternationalExpinfo" placeholder=" " type="text" name="oworkInternationalExp[info]" value="" size="20">
-                                <label class="formGroupLabel" for="field_oworkInternationalExpinfo">Other duties? State below...</label>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <div class="formSection">

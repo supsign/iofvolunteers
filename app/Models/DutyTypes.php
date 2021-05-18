@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Skill extends BaseModel
+class DutyTypes extends BaseModel
 {
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Continent;
 use App\Models\Discipline;
+use App\Models\Duty;
+use App\Models\DutyTypes;
 use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
 use Illuminate\Http\Request;
@@ -20,7 +22,9 @@ class VolunteerController extends Controller
 	{
 		return view('volunteer.register', [
 			'disciplines' => Discipline::all(),
-			'continents' => Continent::all()
+			'continents' => Continent::all(),
+			'dutyTypes' => DutyTypes::all(),
+			'duties' => Duty::all()
 		]);
 	}
 
@@ -34,26 +38,13 @@ class VolunteerController extends Controller
 		$data = $request->all();
 
 		unset($data['_token']);
+		unset($data['agb']);
 
-		foreach (['o_experience', 'continent', 'discipline', 'language', 'skill'] AS $key) {
+		unset($data['birthdate']);		//	format doesn't match
+
+		foreach (['o_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] AS $key) {
 			$$key = Helper::exractElementByKey($data, $key);
 		}
-
-		unset($data['mappingDesc']);
-		unset($data['coachDesc']);
-		unset($data['itDesc']);
-		unset($data['eventDesc']);
-		unset($data['teacherDesc']);
-		unset($data['oworkLocalExp']);
-		unset($data['oworkInternationalExp']);
-
-		var_dump($data);
-
-		// var_dump(
-		// 	$data
-		// );
-
-		// die();
 
 		return Volunteer::create($data);
 	}
