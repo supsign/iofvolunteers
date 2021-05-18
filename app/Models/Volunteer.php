@@ -43,6 +43,11 @@ class Volunteer extends Model
         return $this->morphToMany(LanguageProficiency::class, 'language_model');
     }
 
+    public function skills()
+    {
+        return $this->morphToMany(Skill::class, 'skill_model');
+    }
+
     public function getLanguageInfoAttribute()
     {
     	$res = [];
