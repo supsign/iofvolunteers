@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Continent extends Model
 {
     use HasFactory;
+
+    public function volunteers()
+    {
+        return $this->morphedByMany(Volunteer::class, 'continent_model');
+    }
 }

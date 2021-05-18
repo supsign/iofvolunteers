@@ -20,7 +20,7 @@ class CreateLanguageModel extends Migration
             $table->unsignedBigInteger('language_model_id');
             $table->string('language_model_type');
             $table->timestampsTz();
-            $table->unique(['language_id', 'model_id', 'model_type'], 'language_model_unique');
+            $table->unique(['language_id', 'language_model_id', 'language_model_type'], 'language_model_unique');
         });
     }
 

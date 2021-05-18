@@ -18,4 +18,14 @@ class LanguageModel extends Model
     {
     	return $this->belongsTo(LanguageProficiency::class);
     }
+
+    public function getLanguageNameAttribute()
+    {
+    	return $this->language->name;
+    }
+
+    public function getLanguageProficiencyNameAttribute()
+    {
+    	return $this->languageProficiency->name;
+    }
 }

@@ -14,6 +14,11 @@ class Volunteer extends Model
     	return $this->belongsTo(User::class);
     }
 
+    public function continents()
+    {
+        return $this->morphToMany(Continent::class, 'continent_model');
+    }
+
     public function languages()
     {
         return $this->morphToMany(Language::class, 'language_model');
@@ -31,5 +36,16 @@ class Volunteer extends Model
     public function languageProficiencies()
     {
         return $this->morphToMany(LanguageProficiency::class, 'language_model');
+    }
+
+    public function getLanguageInfoAttribute()
+    {
+    	$res = [];
+
+        foreach ($this->languageModels AS $languageModel) {
+        	$res[$languageModel->languageName] = $languageModel->languageProficiencyName;
+        }
+
+        return $res;
     }
 }
