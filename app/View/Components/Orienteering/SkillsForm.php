@@ -2,10 +2,11 @@
 
 namespace App\View\Components\Orienteering;
 
-use App\Models\Experience;
+use App\Models\Skill;
+use App\Models\SkillType;
 use Illuminate\View\Component;
 
-class ExperienceForm extends Component
+class SkillsForm extends Component
 {
     /**
      * Create a new component instance.
@@ -13,11 +14,13 @@ class ExperienceForm extends Component
      * @return void
      */
 
-    public $experiences;
+    public $skilltypes;
+    public $skills;
 
     public function __construct()
     {
-        $this->experiences = Experience::all();
+        $this->skilltypes = SkillType::all();
+        $this->skills = Skill::all();
     }
 
     /**
@@ -27,6 +30,6 @@ class ExperienceForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.experience-form');
+        return view('components.orienteering.skills-form');
     }
 }
