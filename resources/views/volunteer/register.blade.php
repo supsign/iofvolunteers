@@ -537,8 +537,8 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms" required>
-                                    <label class="form-check-label" for="iAgreeWithTerms">
+                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <label class="form-check-label" for="agb">
                                         I have read and understood the above.
                                     </label>
                                     <div class="warn"> Please tick the disclaimer...</div>
