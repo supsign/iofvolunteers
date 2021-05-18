@@ -54,6 +54,7 @@ class CreateDutiesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('duty_models');
+        Schema::dropIfExists('duty_types');
         Schema::dropIfExists('duties');
     }
 }
