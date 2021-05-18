@@ -118,59 +118,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
-                            4. O-Experience
-                        </h3>
-
-                        <div class="form-group">
-                            <input type="number" min="1900" max="2099" step="1" name="startO" size="4" id="field_startO" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>
-                            <label class="formGroupLabel"  for="field_startO">Year you started orienteering (yyyy) *</label>
-                            <img for="field_startO" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_club" placeholder=" " type="text" name="club" size="20">
-                            <label class="formGroupLabel"  for="field_club">Your present club (if any)</label>
-                            <div class="font-italic">
-                                Experience as Competitor
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[local]" id="competitorExplocal">
-                                <option selected="" value="">Local events</option>
-                                <option value="none">none</option>
-                                <option value="1 - 50">1 - 50</option>
-                                <option value="51 - 100">51 - 100</option>
-                                <option value="over 100">over 100</option>
-                            </select>
-                            <img for="competitorExplocal" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[national]" id="competitorExpnational">
-                                <option selected="" value="">National Championships</option>
-                                <option value="none">none</option>
-                                <option value="1 - 50">1 - 50</option>
-                                <option value="51 - 100">51 - 100</option>
-                                <option value="over 100">over 100</option>
-                            </select>
-                            <img for="competitorExpnational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[international]" id="competitorExpinternational">
-                                <option selected="" value="">International Competitions</option>
-                                <option value="none">none</option>
-                                <option value="1 - 20">1 - 20</option>
-                                <option value="21 - 50">21 - 50</option>
-                                <option value="over 50">over 50</option>
-                            </select>
-                            <img for="competitorExpinternational" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
-                        </div>
-                    </div>
+<x-orienteering.experience-form />
+                   
 
 <x-language.experience-form />
 
