@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ExpirenceSeeder extends Seeder
+class ExperienceSeeder extends Seeder
 {
     private $data = [
 		['id' => 1, 'value' => 'none', 'local' => true, 'national' => true, 'international' => true],
@@ -34,7 +34,7 @@ class ExpirenceSeeder extends Seeder
         		$data[$key] = $value;
         	}
 
-            DB::table('expirences')->updateOrInsert(['id' => $entry['id']], $data);
+            DB::table('experiences')->updateOrInsert(['id' => $entry['id']], $data);
         }
     }
 }

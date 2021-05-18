@@ -13,7 +13,7 @@ class CreateExpirence extends Migration
      */
     public function up()
     {
-        Schema::create('expirences', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->string('value');
             $table->boolean('local')->default(false);
@@ -23,14 +23,14 @@ class CreateExpirence extends Migration
         });
 
         Artisan::call('db:seed', [
-            '--class' => ExpirenceSeeder::class,
+            '--class' => ExperienceSeeder::class,
             '--force' => true
         ]);
 
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->foreignId('local_expirence_id')->nullable()->after('country_id')->constrained('expirences');
-            $table->foreignId('national_expirence_id')->nullable()->after('local_expirence_id')->constrained('expirences');
-            $table->foreignId('international_expirence_id')->nullable()->after('national_expirence_id')->constrained('expirences');
+            $table->foreignId('local_experience_id')->nullable()->after('country_id')->constrained('experiences');
+            $table->foreignId('national_experience_id')->nullable()->after('local_experience_id')->constrained('experiences');
+            $table->foreignId('international_experience_id')->nullable()->after('national_experience_id')->constrained('experiences');
         });
     }
 
@@ -42,14 +42,14 @@ class CreateExpirence extends Migration
     public function down()
     {
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->dropForeign(['local_expirence_id']);
-            $table->dropColumn('local_expirence_id');
-            $table->dropForeign(['national_expirence_id']);
-            $table->dropColumn('national_expirence_id');
-            $table->dropForeign(['international_expirence_id']);
-            $table->dropColumn('international_expirence_id');
+            $table->dropForeign(['local_experience_id']);
+            $table->dropColumn('local_experience_id');
+            $table->dropForeign(['national_experience_id']);
+            $table->dropColumn('national_experience_id');
+            $table->dropForeign(['international_experience_id']);
+            $table->dropColumn('international_experience_id');
         });
 
-        Schema::dropIfExists('expirences');
+        Schema::dropIfExists('experiences');
     }
 }
