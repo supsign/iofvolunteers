@@ -144,8 +144,8 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder=" " type="text" size="3" name="maxWorkDuration" id="maxWorkDuration" value="">
-                            <label class="formGroupLabel"  for="maxWorkDuration">weeks</label>
+                            <input placeholder="" type="text" size="3" name="duration" id="duration" value="">
+                            <label class="formGroupLabel" for="duration">weeks</label>
                         </div>
                     </div>
 
@@ -191,7 +191,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="mappingDesc[info]" id="mappingDescInfo" value=""></textarea>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_mapping" id="mappingDescInfo" value=""></textarea>
                             <label class="formGroupLabel"  for="mappingDescInfo">Brief outline of your experience as a mapper</label>
                         </div>
 
@@ -215,7 +215,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="coachDesc[info]" id="coachDescInfo" value=""></textarea>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_coaching" id="coachDescInfo" value=""></textarea>
                             <label class="formGroupLabel"  for="coachDescInfo">Brief outline of your experience in coaching</label>
                         </div>
 
@@ -253,7 +253,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="itDesc[info]" id="itDescInfo" value=""></textarea>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_it" id="itDescInfo" value=""></textarea>
                             <label class="formGroupLabel"  for="itDescInfo">Brief details of your IT skills &amp; experience</label>
                         </div>
 
@@ -291,7 +291,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="eventDesc[info]" id="eventDescInfo" value=""></textarea>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_event_org" id="eventDescInfo" value=""></textarea>
                             <label class="formGroupLabel"  for="eventDescInfo">Brief outline of your experience as organiser</label>
                         </div>
 
@@ -336,14 +336,14 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="teacherDesc[info]" id="teacherDescInfo" value=""></textarea>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_teaching" id="teacherDescInfo" value=""></textarea>
                             <label class="formGroupLabel"  for="teacherDescInfo">Brief outline of your experience in teaching</label>
                         </div>
 
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="otherSkills" id="otherSkills" value=""></textarea>
-                            <label class="formGroupLabel"  for="otherSkills">* Other skills? Please explain...</label>
+                            <textarea placeholder=" " rows="2" cols="30" name="skill_other" id="skill_other" value=""></textarea>
+                            <label class="formGroupLabel"  for="skill_other">* Other skills? Please explain...</label>
                         </div>
                     </div>
 
@@ -501,23 +501,23 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="4" cols="30" name="helpDesc" id="helpDesc" value="" required></textarea>
-                            <label class="formGroupLabel"  for="helpDesc">Explain how you can help as a volunteer *</label>
+                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
+                            <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="4" cols="30" name="expectations" id="expectations" value=""></textarea>
-                            <label class="formGroupLabel"  for="expectations">Expectations as a volunteer</label>
+                            <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation" value=""></textarea>
+                            <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="4" cols="30" name="abroadExp" id="abroadExp" value=""></textarea>
-                            <label class="formGroupLabel"  for="abroadExp">Experience abroad? When? Where? What?</label>
+                            <textarea placeholder="" rows="4" cols="30" name="experience" id="experience" value=""></textarea>
+                            <label class="formGroupLabel" for="experience">Experience abroad? When? Where? What?</label>
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder=" " rows="4" cols="30" name="learning" id="learning" value=""></textarea>
-                            <label class="formGroupLabel"  for="learning">Seminars, Training Camps attended...</label>
+                            <textarea placeholder="" rows="4" cols="30" name="education" id="education" value=""></textarea>
+                            <label class="formGroupLabel" for="education">Seminars, Training Camps attended...</label>
                         </div>
                     </div>
                 </div>

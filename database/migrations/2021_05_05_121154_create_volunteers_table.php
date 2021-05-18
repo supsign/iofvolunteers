@@ -25,7 +25,18 @@ class CreateVolunteersTable extends Migration
             $table->string('phone')->nullable();
             $table->boolean('driving_licence')->default(false);
             $table->unsignedSmallInteger('start_year')->nullable();
+            $table->unsignedSmallInteger('duration')->nullable();
             $table->string('club')->nullable();
+            $table->text('skill_mapping');
+            $table->text('skill_coaching');
+            $table->text('skill_it');
+            $table->text('skill_event_org');
+            $table->text('skill_teaching');
+            $table->text('skill_other');
+            $table->text('help');
+            $table->text('expectation');
+            $table->text('experience');
+            $table->text('education');
             $table->timestampsTz();
         });
     }
