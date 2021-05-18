@@ -27,12 +27,6 @@ class HomeController extends Controller
 
     public function test()
     {
-        $volunteer = Volunteer::find(1);
-
-        var_dump($volunteer->languages);
-
-
-
 
     }
 }
