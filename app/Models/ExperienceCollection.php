@@ -2,10 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
-class ExperienceCollection extends Model
+class ExperienceCollection extends Collection
 {
-    use HasFactory;
+	public function local()
+	{
+		return $this->filter(function($experience) {
+			return $experience->local;
+		});
+	}
+
+	public function national()
+	{
+		return $this->filter(function($experience) {
+			return $experience->national;
+		});
+	}
+
+	public function international()
+	{
+		return $this->filter(function($experience) {
+			return $experience->international;
+		});
+	}
 }
