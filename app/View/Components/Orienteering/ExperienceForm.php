@@ -13,11 +13,12 @@ class ExperienceForm extends Component
      * @return void
      */
 
-public $experiences;
+    public $experiences;
 
     public function __construct()
     {
-$this->experiences = Experience::all();    }
+        $this->experiences = Experience::all();
+    }
 
     /**
      * Get the view / contents that represent the component.
