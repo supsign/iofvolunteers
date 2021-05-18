@@ -3,7 +3,7 @@
 <section class="default">
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title"><img class="title-icon" src="{{asset('images/icon-add.svg')}}" width="65" height="65"> Volunteer Registration Form</h1>
+            <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65" height="65"> Volunteer Registration Form</h1>
 
             <div class="title-desc">Please note that you must be 18+ to register as a
                 volunteer!</div>
@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <input id="field_name" placeholder=" " type="text" name="name" size="15" required>
-                            <label class="formGroupLabel"  for="field_name">Name</label>
+                            <label class="formGroupLabel" for="field_name">Name</label>
                         </div>
 
                         <div class="form-group">
@@ -33,17 +33,17 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="country" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
                             <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
-                            <label class="formGroupLabel"  for="field_email">E-mail *</label>
+                            <label class="formGroupLabel" for="field_email">E-mail *</label>
                         </div>
 
                         <div class="form-group">
                             <input id="field_phone" placeholder=" " type="text" name="phone" value="" size="15">
-                            <label class="formGroupLabel"  for="field_phone">Phone </label>
+                            <label class="formGroupLabel" for="field_phone">Phone </label>
                             <div class="warn">(optional)</div>
                         </div>
                     </div>
@@ -60,20 +60,20 @@
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="gender" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
                             <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
-                            <label class="formGroupLabel"  for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
-                            <img for="field_birthdate" class="selectArr v2" src="{{asset('images/calendarIcon.svg')}}" alt="" />
+                            <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
+                            <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
                             <input id="field_nickname" placeholder=" " type="text" name="nickname" size="15" value="">
-                            <label class="formGroupLabel"  for="field_nickname">Nickname </label>
+                            <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="warn">optional</div>
-                            <div class="warn">if left blank, your first name  will be assumed as your nickname</div>
+                            <div class="warn">if left blank, your first name will be assumed as your nickname</div>
                         </div>
 
                         <div class="form-group">
@@ -82,7 +82,7 @@
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
-                            <img for="license" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <x-orienteering.experience-form />
+                    <x-orienteering.competitor-experience-form />
                     <x-language.experience-form />
 
                     <div class="formSection">
@@ -149,203 +149,7 @@
                         </div>
                     </div>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
-                            8. Skills
-                            <div class="warn"> &nbsp;(Please tick all relevant to you.
-                                Details are <b>required</b> if skill is ticked)
-                            </div>
-                        </h3>
-
-                        <div class="form-group">
-                            <div class="formGroupLabelStatic">* Mapping</div>
-                            <div class="warn">Notice that you will be required to upload map samples!</div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="mappingDesc[Sprint]" id="mappingDesc1">
-                                <label class="form-check-label" for="mappingDesc1">
-                                    Sprint
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="mappingDesc[Forest]" id="mappingDesc2">
-                                <label class="form-check-label" for="mappingDesc2">
-                                    Forest
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="mappingDesc[MTBO]" id="mappingDesc3">
-                                <label class="form-check-label" for="mappingDesc3">
-                                    MTBO
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="mappingDesc[SkiO]" id="mappingDesc4">
-                                <label class="form-check-label" for="mappingDesc4">
-                                    SkiO
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_mapping" id="mappingDescInfo" value=""></textarea>
-                            <label class="formGroupLabel"  for="mappingDescInfo">Brief outline of your experience as a mapper</label>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="formGroupLabelStatic">* Coaching</div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="coachDesc[nationalTeam]" id="coachDesc1">
-                                <label class="form-check-label" for="coachDesc1">
-                                    National Team
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="coachDesc[clubs]" id="coachDesc2">
-                                <label class="form-check-label" for="coachDesc2">
-                                    Clubs
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_coaching" id="coachDescInfo" value=""></textarea>
-                            <label class="formGroupLabel"  for="coachDescInfo">Brief outline of your experience in coaching</label>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="formGroupLabelStatic">* IT &amp; time-keeping</div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="itDesc[si]" id="itDesc1">
-                                <label class="form-check-label" for="itDesc1">
-                                    SportIdent
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="itDesc[emit]" id="itDesc2">
-                                <label class="form-check-label" for="itDesc2">
-                                    Emit
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="itDesc[othertime]" id="itDesc3">
-                                <label class="form-check-label" for="itDesc3">
-                                    Other Timekeeping
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="itDesc[gps]" id="itDesc4">
-                                <label class="form-check-label" for="itDesc4">
-                                    GPS Tracking
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_it" id="itDescInfo" value=""></textarea>
-                            <label class="formGroupLabel"  for="itDescInfo">Brief details of your IT skills &amp; experience</label>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="formGroupLabelStatic">* Event Organising</div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="eventDesc[club]" id="eventDesc1">
-                                <label class="form-check-label" for="eventDesc1">
-                                    Club
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="eventDesc[local]" id="eventDesc2">
-                                <label class="form-check-label" for="eventDesc2">
-                                    Local
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="eventDesc[national]" id="eventDesc3">
-                                <label class="form-check-label" for="eventDesc3">
-                                    National
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="eventDesc[highLevel]" id="eventDesc4">
-                                <label class="form-check-label" for="eventDesc4">
-                                    High-Level
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_event_org" id="eventDescInfo" value=""></textarea>
-                            <label class="formGroupLabel"  for="eventDescInfo">Brief outline of your experience as organiser</label>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="formGroupLabelStatic">* Teaching experience</div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="teacherDesc[beginners]" id="teacherDesc1">
-                                <label class="form-check-label" for="teacherDesc1">
-                                    Beginners &amp; children
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="teacherDesc[map]" id="teacherDesc2">
-                                <label class="form-check-label" for="teacherDesc2">
-                                    Teach how to map
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="teacherDesc[coach]" id="teacherDesc3">
-                                <label class="form-check-label" for="teacherDesc3">
-                                    Teach coaching
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="teacherDesc[it]" id="teacherDesc4">
-                                <label class="form-check-label" for="teacherDesc4">
-                                    Teach IT &amp; Timekeeping
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="teacherDesc[events]" id="teacherDesc5">
-                                <label class="form-check-label" for="teacherDesc5">
-                                    Teach Event Organising
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_teaching" id="teacherDescInfo" value=""></textarea>
-                            <label class="formGroupLabel"  for="teacherDescInfo">Brief outline of your experience in teaching</label>
-                        </div>
-
-
-                        <div class="form-group">
-                            <textarea placeholder=" " rows="2" cols="30" name="skill_other" id="skill_other" value=""></textarea>
-                            <label class="formGroupLabel"  for="skill_other">* Other skills? Please explain...</label>
-                        </div>
-                    </div>
+                    <x-orienteering.skills-form />
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
@@ -360,7 +164,7 @@
                                 <option value="11 - 30">11 - 30</option>
                                 <option value="over 30">over 30</option>
                             </select>
-                            <img for="oworkLocalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="oworkLocalExpexperience" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -403,7 +207,7 @@
 
                             <div class="form-group">
                                 <input id="field_oworkLocalExpother" placeholder=" " type="text" name="oworkLocalExp[other]" value="" size="20">
-                                <label class="formGroupLabel"  for="field_oworkLocalExpother">Other duties? State below...</label>
+                                <label class="formGroupLabel" for="field_oworkLocalExpother">Other duties? State below...</label>
                             </div>
                         </div>
 
@@ -416,7 +220,7 @@
                                 <option value="11 - 20">11 - 20</option>
                                 <option value="over 20">over 20</option>
                             </select>
-                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="oworkInternationalExpexperience" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -459,7 +263,7 @@
 
                             <div class="form-group">
                                 <input id="field_oworkInternationalExpinfo" placeholder=" " type="text" name="oworkInternationalExp[info]" value="" size="20">
-                                <label class="formGroupLabel"  for="field_oworkInternationalExpinfo">Other duties? State below...</label>
+                                <label class="formGroupLabel" for="field_oworkInternationalExpinfo">Other duties? State below...</label>
                             </div>
                         </div>
                     </div>
@@ -476,10 +280,10 @@
 
                                 @if(isset($maps) && $maps)
                                     <p>Already loaded maps:
-                                        @foreach ($maps AS $key => $map)
+                                        @foreach($maps AS $key => $map)
                                             <a href="" target="_blank">Map {{ ++$key }}</a>
                                         @endforeach
-                                        <br/><span class="warn">New maps will erase previously loaded</span>
+                                        <br /><span class="warn">New maps will erase previously loaded</span>
                                     </p>
                                 @endif
                             </div>
@@ -527,10 +331,10 @@
                         <div class="noteWrap">
                             <h3 class="noteTitle">Disclaimer</h3>
                             <p>I have filled in my details
-                            above as accurately as possible. By submitting this form, I state that I am a volunteer in
-                            developing orienteering. I understand that the IOF cannot be held responsible for my being or not
-                            being recruited as a volunteer. I also understand that should I choose to accept any offer
-                            requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
+                                above as accurately as possible. By submitting this form, I state that I am a volunteer in
+                                developing orienteering. I understand that the IOF cannot be held responsible for my being or not
+                                being recruited as a volunteer. I also understand that should I choose to accept any offer
+                                requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
                                 as a volunteer.</p>
                         </div>
 

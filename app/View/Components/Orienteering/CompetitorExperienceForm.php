@@ -5,7 +5,7 @@ namespace App\View\Components\Orienteering;
 use App\Models\Experience;
 use Illuminate\View\Component;
 
-class ExperienceForm extends Component
+class CompetitorExperienceForm extends Component
 {
     /**
      * Create a new component instance.
@@ -27,6 +27,6 @@ class ExperienceForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.experience-form');
+        return view('components.orienteering.competitor-experience-form');
     }
 }
