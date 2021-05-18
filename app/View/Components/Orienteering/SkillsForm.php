@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Orienteering;
 
+use App\Models\Skill;
+use App\Models\SkillType;
 use Illuminate\View\Component;
 
 class SkillsForm extends Component
@@ -11,9 +13,14 @@ class SkillsForm extends Component
      *
      * @return void
      */
+
+    public $skilltypes;
+    public $skills;
+
     public function __construct()
     {
-        //
+        $this->skilltypes = SkillType::all();
+        $this->skills = Skill::all();
     }
 
     /**
