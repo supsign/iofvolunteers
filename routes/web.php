@@ -49,6 +49,7 @@ Route::get('/project/search', [ProjectController::class, 'searchForm'])->name('p
 Route::post('/project/register', [ProjectController::class, 'register'])->name('project.register');
 Route::post('/project/search', [ProjectController::class, 'search'])->name('project.search');
 
+Route::get('/volunteer/list', [VolunteerController::class, 'list'])->name('volunteer.list');
 Route::get('/volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
 Route::get('/volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
 Route::post('/volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');

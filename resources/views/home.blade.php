@@ -17,7 +17,7 @@
                     <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             <img src="{{ asset('images/icon-add.svg')}}" width="50" height="50">
-                            <a href="{{ route('volunteer.registerForm') }}">
+                            <a href="{{ route('volunteer.list') }}">
                                 Register as a Volunteer
                             </a>
                         </h3>
