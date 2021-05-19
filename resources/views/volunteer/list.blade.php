@@ -18,9 +18,8 @@
             <tbody>
                 <tr>
                     <td class="big-desc">Nickname</td>
-                    <td class="big-desc">Languages</td>
+                    <td class="big-desc">Name</td>
                     <td class="big-desc">Duration available</td>
-                    <td class="big-desc">O-Experience</td>
                     <td class="big-desc"></td>
                 </tr>
                 @foreach($volunteers AS $volunteer)
@@ -37,12 +36,9 @@
                             	<span class="warn"> (disabled)</span>
                             @endif
                         </td>
-                        {{--
-                        <td class="desc"> {{ volunteer.languages }}</td>
-                        <td class="desc">{{ volunteer.maxWorkDuration }} weeks</td>
-                        <td class="desc">Started orienteering in {{ $volunteer->start_year }} <br> {{ $volunteer->o_work_expirence_local }}</td>
+                        <td class="desc"> {{ $volunteer->name }}</td>
+                        <td class="desc">{{ $volunteer->work_duration }} weeks</td>
                         <td class="desc">
-                       	--}}
                         @if(true)
                             <input type="button" onclick="location.href='volunteer/edit/{{ $volunteer->id }}';" value="Edit" />
                             <input type="button" onclick="location.href='volunteer/switch/{{ $volunteer->id }}';" value="{{ $volunteer->active ? 'Disable' : 'Enable' }}" />
