@@ -77,8 +77,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select size="1" name="driving_licence" id="license">
-                                <option selected="" value="">International driving license?</option>
+                            <select size="1" name="driving_licence" id="license" required>
+                                <option disabled selected="" value="">International driving license?</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
@@ -156,10 +156,10 @@
                             9. O-Work Experience
                         </h3>
 
-                        @foreach ($dutyTypes AS $dutyType)
+                        @foreach($dutyTypes AS $dutyType)
                             <div class="form-group">
-                                <select size="1" name="" id="">
-                                    <option selected="" value="">{{ $dutyType->name }}</option>
+                                <select size="1" name="duty[{{ $dutyType->id }}]" id="duty[{{ $dutyType->id }}]">
+                                    <option disabled selected="" value="">{{ $dutyType->name }}</option>
                                     <option value="none">none</option>
                                     <option value="1 - 10">1 - 10</option>
                                     <option value="11 - 30">11 - 30</option>
@@ -170,7 +170,7 @@
 
                             <div class="form-group">
                                 <label class="formGroupLabelStatic">Duties:</label>
-                                @foreach ($duties AS $duty)
+                                @foreach($duties AS $duty)
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
                                         <label class="form-check-label" for="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">

@@ -22,8 +22,8 @@
                 </div>
             @endforeach
             <div class="form-group">
-                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="mappingDescInfo" value=""></textarea>
-                <label class="formGroupLabel" for="mappingDescInfo">{{ $skilltype->text }}</label>
+                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="skill_{{ $skilltype->snakeCaseName }}" value=""></textarea>
+                <label class="formGroupLabel" for="skill_{{ $skilltype->snakeCaseName }}">{{ $skilltype->text }}</label>
             </div>
         </div>
     @endforeach

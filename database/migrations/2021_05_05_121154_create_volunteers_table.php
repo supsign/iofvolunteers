@@ -23,7 +23,7 @@ class CreateVolunteersTable extends Migration
             $table->timestampTz('birthdate')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->boolean('driving_licence')->default(false);
+            $table->boolean('driving_licence')->default(false)->nullable();
             $table->unsignedSmallInteger('start_year')->nullable();
             $table->unsignedSmallInteger('ol_duration')->nullable();
             $table->unsignedSmallInteger('work_duration')->nullable();
