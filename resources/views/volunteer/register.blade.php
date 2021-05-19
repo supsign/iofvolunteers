@@ -104,7 +104,7 @@
                     </div>
 
                     <x-orienteering.competitor-experience-form />
-                    <x-language.experience-form />
+                    <x-language.experience-form title="5. Languages" />
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

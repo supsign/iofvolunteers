@@ -100,105 +100,10 @@
                             <label class="formGroupLabelStatic">Experience as Competitor</label>
                         </div>
 
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[local]" id="competitorExplocal">
-                                <option selected="" value="">Taken part in minimum <br>
-                                    Local events</option>
-                                <option value="none">none</option>
-                                <option value="1 - 50">1 - 50</option>
-                                <option value="51 - 100">51 - 100</option>
-                                <option value="over 100">over 100</option>
-                            </select>
-                            <img for="competitorExplocal" class="selectArr" src="{{ asset('images/selectArr.svg')}}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[national]" id="competitorExpnational">
-                                <option selected="" value="">National Championships</option>
-                                <option value="none">none</option>
-                                <option value="1 - 50">1 - 50</option>
-                                <option value="51 - 100">51 - 100</option>
-                                <option value="over 100">over 100</option>
-                            </select>
-                            <img for="competitorExpnational" class="selectArr" src="{{ asset('images/selectArr.svg')}}" alt="" />
-                        </div>
-
-                        <div class="form-group">
-                            <select size="1" name="competitorExp[international]" id="competitorExpinternational')}}">
-                                <option selected="" value="">International Competitions</option>
-                                <option value="none">none</option>
-                                <option value="1 - 20">1 - 20</option>
-                                <option value="21 - 50">21 - 50</option>
-                                <option value="over 50">over 50</option>
-                            </select>
-                            <img for="competitorExpinternational" class="selectArr" src="{{ asset('images/selectArr.svg')}}" alt="" />
-                        </div>
+                        <x-orienteering.competitor-experience-dropdown />
                     </div>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
-                            4. Languages required
-                            <div class="warn">
-                                Tick only the <u>most important</u> one or two to increase search results
-                            </div>
-                        </h3>
-
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[English][known]" value="1" id="languages1_1">
-                                <label class="form-check-label" for="languages1_1">
-                                    English
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[French][known]" value="1" id="languages2_1">
-                                <label class="form-check-label" for="languages2_1">
-                                    French
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[Spanish][known]" value="1" id="languages3_1">
-                                <label class="form-check-label" for="languages3_1">
-                                    Spanish
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[German][known]" value="1" id="languages4_1">
-                                <label class="form-check-label" for="languages4_1">
-                                    German
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[Italian][known]" value="1" id="languages5_1">
-                                <label class="form-check-label" for="languages5_1">
-                                    Italian
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[Portuguese][known]" value="1" id="languages6_1">
-                                <label class="form-check-label" for="languages6_1">
-                                    Portuguese
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="languages[Scandinavian][known]" value="1" id="languages7_1">
-                                <label class="form-check-label" for="languages7_1">
-                                    Scandinavian
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_languagesOther" placeholder=" " type="text" name="languages[Other]" value="">
-                            <label class="formGroupLabel"  for="field_languagesOther">Other:</label>
-                        </div>
-                    </div>
+                    <x-language.experience-form title="4. Languages" />
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

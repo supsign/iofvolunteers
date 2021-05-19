@@ -1,6 +1,6 @@
 <div class="formSection">
     <h3 class="formSectionTitle">
-        5. Languages spoken
+        {{ $title }}
         <div class="warn"> (required, even if only listed in "other")</div>
     </h3>
 
