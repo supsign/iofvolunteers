@@ -1,7 +1,9 @@
 <div class="formSection">
+    @isset($title)
     <h3 class="formSectionTitle">
-        4. O-Experience
+        {{ $title }}
     </h3>
+    @endisset
 
     <div class="form-group">
         <input type="number" min="1900" max="2099" step="1" name="ol_duration" size="4" id="ol_duration" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required>

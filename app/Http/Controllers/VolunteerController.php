@@ -88,6 +88,10 @@ class VolunteerController extends Controller
     {
         die();
 
+        $volunteer->disciplines()->sync(array_keys($discipline));
+        $volunteer->continents()->sync(array_keys($continent));
+        $volunteer->skills()->sync(array_keys($skill));
+
         return;
     }
 
@@ -97,6 +101,12 @@ class VolunteerController extends Controller
         $data = $request->all();
 
         unset($data['_token']);
+
+        // foreach (['minage', 'maxage', 'o_experience', 'language', 'other_languages', 'max_work_duration', 'skillType'] as $key) {
+        //     $$key = Helper::exractElementByKey($data, $key);
+        // }
+
+        // $volunteer = Volunteer::where('')
 
         var_dump($data);
 
