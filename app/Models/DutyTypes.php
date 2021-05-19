@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Contact extends BaseModel
+class DutyTypes extends BaseModel
 {
 
 }

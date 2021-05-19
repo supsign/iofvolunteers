@@ -32,6 +32,8 @@ Route::get('/home', function() {
 	return redirect(route('home'));
 });
 
+Route::get('/test', [HomeController::class, 'test'])->name('test');
+
 Route::get('/guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
 Route::get('/guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
 Route::post('/guest/register', [GuestController::class, 'register'])->name('guest.register');
@@ -49,5 +51,5 @@ Route::post('/project/search', [ProjectController::class, 'search'])->name('proj
 
 Route::get('/volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
 Route::get('/volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
-Route::post('/volunteer/registerForm', [VolunteerController::class, 'register'])->name('volunteer.register');
+Route::post('/volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
 Route::post('/volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');

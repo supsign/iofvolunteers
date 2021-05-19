@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Gender extends BaseModel
+class Skill extends BaseModel
 {
-	
+
 }
