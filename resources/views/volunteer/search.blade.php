@@ -53,38 +53,7 @@
                         </div>
                     </div>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
-                            2. Disciplines of experience
-                        </h3>
-
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="footO" name="footO">
-                                <label class="form-check-label" for="footO">
-                                    Foot-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="mtbO" name="mtbO">
-                                <label class="form-check-label" for="mtbO">
-                                    MTBO
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="skiO" name="skiO">
-                                <label class="form-check-label" for="skiO">
-                                    Ski-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="trailO" name="trailO">
-                                <label class="form-check-label" for="trailO">
-                                    Trail-O
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    <x-orienteering.disciplines-form title="2. Disciplines of experience" />
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
