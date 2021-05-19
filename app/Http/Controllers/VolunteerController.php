@@ -92,8 +92,15 @@ class VolunteerController extends Controller
     }
 
 
-    public function search()
+    public function search(Request $request)
     {
+        $data = $request->all();
 
+        unset($data['_token']);
+
+        var_dump($data);
+
+
+        return;
     }
 }

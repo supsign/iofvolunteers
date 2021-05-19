@@ -1,11 +1,11 @@
 <?php
 
-namespace App\View\Components\Orienteering;
+namespace App\View\Components\Person;
 
-use App\Models\Discipline;
+use App\Models\Gender;
 use Illuminate\View\Component;
 
-class DisciplinesForm extends Component
+class GendersForm extends Component
 {
     /**
      * Create a new component instance.
@@ -13,11 +13,11 @@ class DisciplinesForm extends Component
      * @return void
      */
 
-    public $disciplines;
+    public $genders;
 
     public function __construct()
     {
-        $this->disciplines = Discipline::all();
+        $this->disciplines = Gender::all();
     }
 
     /**
@@ -27,6 +27,6 @@ class DisciplinesForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.disciplines-form');
+        return view('components.person.genders-form');
     }
 }

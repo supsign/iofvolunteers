@@ -1,8 +1,12 @@
 <div class="formSection">
+    @isset($title)
     <h3 class="formSectionTitle">
         {{ $title }}
-        <div class="warn"> (required, even if only listed in "other")</div>
+        @isset($subtitle)
+            <div class="warn"> {{ $subtitle }}</div>
+        @endisset
     </h3>
+    @endisset
 
     @foreach($languages as $l)
         <div class="form-group form-inline">
