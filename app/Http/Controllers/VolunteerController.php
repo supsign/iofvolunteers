@@ -40,12 +40,20 @@ class VolunteerController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        foreach (['o_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+        foreach (['o_experience', 'o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
 
         foreach ($o_experience AS $key => $value) {
         	$data[$key.'_experience_id'] = $value;
+        }
+
+        if (isset($o_work_expirence[1])) {
+        	$data['o_work_expirence_local'] = $o_work_expirence[1];
+        } 
+
+        if (isset($o_work_expirence[2])) {
+        	$data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
         $volunteer = Volunteer::create($data);
@@ -75,6 +83,6 @@ class VolunteerController extends Controller
 
     public function search()
     {
-    	
+
     }
 }

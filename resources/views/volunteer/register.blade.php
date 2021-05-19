@@ -158,7 +158,7 @@
 
                         @foreach($dutyTypes AS $dutyType)
                             <div class="form-group">
-                                <select size="1" name="duty[{{ $dutyType->id }}]" id="duty[{{ $dutyType->id }}]">
+                                <select size="1" name="o_work_expirence[{{ $dutyType->id }}]" id="duty[{{ $dutyType->id }}]">
                                     <option disabled selected="" value="">{{ $dutyType->name }}</option>
                                     <option value="none">none</option>
                                     <option value="1 - 10">1 - 10</option>
