@@ -1,10 +1,11 @@
 <?php
 
-namespace App\View\Components\Orienteering;
+namespace App\View\Components\Person;
 
+use App\Models\Gender;
 use Illuminate\View\Component;
 
-class CompetitorExperienceForm extends Component
+class GendersForm extends Component
 {
     /**
      * Create a new component instance.
@@ -12,9 +13,11 @@ class CompetitorExperienceForm extends Component
      * @return void
      */
 
+    public $genders;
+
     public function __construct()
     {
-
+        $this->disciplines = Gender::all();
     }
 
     /**
@@ -24,6 +27,6 @@ class CompetitorExperienceForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.competitor-experience-form');
+        return view('components.person.genders-form');
     }
 }

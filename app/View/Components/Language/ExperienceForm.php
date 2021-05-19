@@ -17,7 +17,7 @@ class ExperienceForm extends Component
     public $languages;
     public $languageProficiencies;
 
-    public function __construct(public $langSelection=Null)
+    public function __construct(public $langSelection = null)
     {
         $this->languages = Language::all();
         $this->languageProficiencies = LanguageProficiency::all();

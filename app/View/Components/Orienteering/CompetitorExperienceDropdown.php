@@ -2,9 +2,10 @@
 
 namespace App\View\Components\Orienteering;
 
+use App\Models\Experience;
 use Illuminate\View\Component;
 
-class CompetitorExperienceForm extends Component
+class CompetitorExperienceDropdown extends Component
 {
     /**
      * Create a new component instance.
@@ -12,9 +13,11 @@ class CompetitorExperienceForm extends Component
      * @return void
      */
 
+    public $experiences;
+
     public function __construct()
     {
-
+        $this->experiences = Experience::all();
     }
 
     /**
@@ -24,6 +27,6 @@ class CompetitorExperienceForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.competitor-experience-form');
+        return view('components.orienteering.competitor-experience-dropdown');
     }
 }

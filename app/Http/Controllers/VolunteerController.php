@@ -10,12 +10,22 @@ use App\Models\DutyTypes;
 use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VolunteerController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function list()
+    {
+    	if (!Auth::user()->volunteers()->count()) {
+    		return $this->registerForm();
+    	}
+
+    	return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
     }
 
     public function registerForm()
@@ -57,6 +67,7 @@ class VolunteerController extends Controller
         }
 
         $volunteer = Volunteer::create($data);
+        Auth::user()->volunteers()->attach($volunteer->id);
 
         foreach ($language AS $key => $value) {
         	$volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
@@ -81,8 +92,15 @@ class VolunteerController extends Controller
     }
 
 
-    public function search()
+    public function search(Request $request)
     {
+        $data = $request->all();
 
+        unset($data['_token']);
+
+        var_dump($data);
+
+
+        return;
     }
 }

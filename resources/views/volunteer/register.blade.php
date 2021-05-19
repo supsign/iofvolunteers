@@ -5,8 +5,7 @@
         <div class="titleWrap">
             <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65" height="65"> Volunteer Registration Form</h1>
 
-            <div class="title-desc">Please note that you must be 18+ to register as a
-                volunteer!</div>
+            <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
         <form method="POST" enctype="multipart/form-data">
@@ -53,15 +52,7 @@
                             2. Personal Information
                         </h3>
 
-                        <div class="form-group">
-                            <div class="warn">Gender</div>
-                            <select size="1" name="gender_id" id="gender">
-                                @foreach($genders AS $gender)
-                                    <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
-                                @endforeach
-                            </select>
-                            <img for="gender" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                        </div>
+                        <x-person.genders-form/>
 
                         <div class="form-group">
                             <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
@@ -86,25 +77,20 @@
                         </div>
                     </div>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
+                    <x-orienteering.disciplines-form>
+                        <x-slot name="title">
                             3. Disciplines of experience
-                        </h3>
-
-                        <div class="form-group">
-                            @foreach($disciplines AS $discipline)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="discipline_{{ $discipline->snakeCaseName }}" name="discipline[{{ $discipline->id }}]">
-                                    <label class="form-check-label" for="discipline_{{ $discipline->snakeCaseName }}">
-                                        {{ $discipline->name }}
-                                    </label>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
+                        </x-slot>
+                    </x-orienteering.disciplines-form>
                     <x-orienteering.competitor-experience-form />
-                    <x-language.experience-form />
+                    <x-language.experience-form>
+                        <x-slot name="title">
+                            5. Languages
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            (required, even if only listed in "other")
+                        </x-slot>
+                    </x-language.experience-form>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
