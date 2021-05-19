@@ -15,8 +15,8 @@
 
             @foreach($skills->where('skill_type_id', $skilltype->id) as $skill )
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="skill[{{ $skilltype->id }}][{{ $skill->id }}]" id="skills[{{ $skilltype->id }}][{{ $skill->id }}]">
-                    <label class="form-check-label" for="skills[{{ $skilltype->id }}][{{ $skill->id }}]">
+                    <input class="form-check-input" type="checkbox" value="1" name="skill[{{ $skill->id }}]" id="skills[{{ $skill->id }}]">
+                    <label class="form-check-label" for="skills[{{ $skill->id }}]">
                         {{ $skill->name }}
                     </label>
                 </div>

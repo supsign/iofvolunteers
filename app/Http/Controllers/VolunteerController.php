@@ -40,24 +40,41 @@ class VolunteerController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        // unset($data['birthdate']);		//	format doesn't match
-
         foreach (['o_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
 
-        return Volunteer::create($data);
+        foreach ($o_experience AS $key => $value) {
+        	$data[$key.'_experience_id'] = $value;
+        }
+
+        $volunteer = Volunteer::create($data);
+
+        foreach ($language AS $key => $value) {
+        	$volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
+        }
+
+        $volunteer->disciplines()->attach(array_keys($discipline));
+        $volunteer->continents()->attach(array_keys($continent));
+        $volunteer->skills()->attach(array_keys($skill));
+
+        foreach ($duty AS $key => $values) {
+        	$volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        }
+
+        return $volunteer;
     }
 
     public function update(Volunteer $volunteer, VolunteerRegister $request)
     {
         die();
 
-        return Volunteer::update($request->validated());
+        return;
     }
 
 
     public function search()
     {
+    	
     }
 }

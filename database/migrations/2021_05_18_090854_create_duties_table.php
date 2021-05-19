@@ -42,7 +42,7 @@ class CreateDutiesTable extends Migration
             $table->unsignedBigInteger('duty_model_id');
             $table->string('duty_model_type');
             $table->timestampsTz();
-            $table->unique(['duty_id', 'duty_model_id', 'duty_model_type'], 'duty_model_unique');
+            $table->unique(['duty_id', 'duty_model_id', 'duty_type_id', 'duty_model_type'], 'duty_model_unique');
         });
     }
 

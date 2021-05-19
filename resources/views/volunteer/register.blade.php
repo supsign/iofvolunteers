@@ -22,13 +22,13 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" size="15" required>
+                            <input id="field_name" placeholder=" " type="text" name="name" size="15" >
                             <label class="formGroupLabel" for="field_name">Name</label>
                         </div>
 
                         <div class="form-group">
                             <div class="warn">Country</div>
-                            <select type="text" name="country_id" id="country_id" size="1" value="" required>
+                            <select type="text" name="country_id" id="country_id" size="1" value="" >
                                 @foreach($countries AS $country)
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
+                            <input id="field_email" placeholder=" " type="text" name="email" size="15" >
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                         </div>
 
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
+                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" >
                             <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
                         </div>
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select size="1" name="driving_licence" id="license" required>
+                            <select size="1" name="driving_licence" id="license" >
                                 <option disabled selected="" value="">International driving license?</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
@@ -189,7 +189,7 @@
 
                         <div class="form-group">
                             <label class="formGroupLabelStatic">Skilled in mapping? Upload your "best" maps here...</label>
-                            <div class="warn">Required for mappers!
+                            <div class="warn"> for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
 
                                 @if(isset($maps) && $maps)
@@ -219,7 +219,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
+                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" ></textarea>
                             <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
                         </div>
 
@@ -255,7 +255,7 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" >
                                     <label class="form-check-label" for="agb">
                                         I have read and understood the above.
                                     </label>
