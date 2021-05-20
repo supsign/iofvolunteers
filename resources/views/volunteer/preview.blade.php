@@ -39,7 +39,7 @@
                         <b>Age:</b> {{ $volunteer->age }}
                         <br>
                         <br>
-                        <b>International driving license:</b> {{ $volunteer->driving_licence }}
+                        <b>International driving license:</b> {{ $volunteer->driving_licence ? 'Yes' : 'No' }}
                         @if(true)
                             <br>
                             Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
