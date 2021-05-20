@@ -31,7 +31,7 @@ class Volunteer extends BaseModel
         return $this->morphToMany(Language::class, 'language_model');
     }
 
-    public function languageModels()
+    public function languageVolunteers()
     {
     	return $this
     		->hasMany(LanguageModel::class, 'language_model_id')

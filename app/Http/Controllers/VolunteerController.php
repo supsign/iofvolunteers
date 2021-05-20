@@ -103,13 +103,7 @@ class VolunteerController extends Controller
         $columns = array_flip(Schema::getColumnListing('volunteers'));
         $volunteerData = array_intersect_key($request->all(), $columns);
         $otherData = array_diff_key($request->all(), $columns);
-
-        var_dump(
-            $volunteerData,
-            $otherData
-        );
-
-        $volunteers = Volunteer::with('languages');
+        $volunteers = Volunteer::with('languageVolunteers');
 
         if (array_filter($volunteerData)) {
             foreach ($volunteerData AS $key => $value) {
@@ -132,19 +126,17 @@ class VolunteerController extends Controller
                 case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
                 case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
                 case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
-                case 'language':
-                    break;
-
-                default:
-                    break;
+                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+                default: break;
             }
 
         }
 
         echo '<hr/>';
-        var_dump($volunteers);
+        var_dump($volunteers->count());
+        die();
 
-        return;
+         return view('volunteer.list', ['volunteers' => $volunteers]);
     }
 }
 
