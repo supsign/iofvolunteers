@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+
 class Volunteer extends BaseModel
 {
     public function user() 
@@ -46,6 +48,15 @@ class Volunteer extends BaseModel
     public function skills()
     {
         return $this->morphToMany(Skill::class, 'skill_model');
+    }
+
+    public function newCollection(array $models = [])
+    {
+        return new VolunteerCollection($models);
+    }
+
+    public function getAgeAttribute() {
+        return Carbon::parse($this->birthdate)->age;;
     }
 
     public function getLanguageInfoAttribute()

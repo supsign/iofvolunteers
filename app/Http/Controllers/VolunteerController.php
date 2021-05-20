@@ -11,6 +11,7 @@ use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Schema;
 
 class VolunteerController extends Controller
 {
@@ -98,9 +99,52 @@ class VolunteerController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->all();
+        $columns = array_flip(Schema::getColumnListing('volunteers'));
+        $volunteerData = array_intersect_key($request->all(), $columns);
+        $otherData = array_diff_key($request->all(), $columns);
 
-        unset($data['_token']);
+        var_dump(
+            $volunteerData,
+            $otherData
+        );
+
+        if (array_filter($volunteerData)) {
+            foreach ($volunteerData AS $key => $value) {
+                if (!isset($volunteers)) {
+                    $volunteers = Volunteer::with('languages')->where($key, $value);
+                } else {
+                    $volunteers->where($key, $value);
+                }
+
+                $volunteers = $volunteers->get();
+            }
+        } else {
+            $volunteers = Volunteer::with('languages')->get();
+        }
+
+        foreach ($otherData AS $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
+                case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
+                case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
+                case 'language':
+
+                    
+
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        echo '<hr/>';
+        var_dump($volunteers);
 
         // foreach (['minage', 'maxage', 'o_experience', 'language', 'other_languages', 'max_work_duration', 'skillType'] as $key) {
         //     $$key = Helper::exractElementByKey($data, $key);
@@ -108,9 +152,37 @@ class VolunteerController extends Controller
 
         // $volunteer = Volunteer::where('')
 
-        var_dump($data);
+        // var_dump($data);
 
 
         return;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
