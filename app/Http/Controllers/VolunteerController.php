@@ -132,11 +132,7 @@ class VolunteerController extends Controller
 
         }
 
-        echo '<hr/>';
-        var_dump($volunteers->count());
-        die();
-
-         return view('volunteer.list', ['volunteers' => $volunteers]);
+        return view('volunteer.list', ['volunteers' => $volunteers]);
     }
 }
 
