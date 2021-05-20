@@ -127,8 +127,9 @@ class VolunteerController extends Controller
                 case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
                 case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
                 case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
-                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
                 case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
+                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+                case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
                 default: break;
             }
 
