@@ -24,7 +24,7 @@ class VolunteerController extends Controller
     public function list()
     {
     	if (!Auth::user()->volunteers()->count()) {
-    		return $this->registerForm();
+            return redirect()->route('volunteer.registerForm');
     	}
 
     	return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
