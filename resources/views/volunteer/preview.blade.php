@@ -43,33 +43,31 @@
                         @if(true)
                             <br>
                             Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
-                        endif
+                        @endif
                     </td>
 
                     <td>
-                        {{ $volunteer->languages }}
+                        languages
                     </td>
 
                     <td>
-                        Preferred destinations: {{ $volunteer->preferredContinents }}
+                        continents
                     </td>
 
                     <td>
-                        {% if $volunteer->footO %} Foot-O<br> {% endif %}
-                        {% if $volunteer->mtbO %} MTBO<br> {% endif %}
-                        {% if $volunteer->skiO %} Ski-O<br> {% endif %}
-                        {% if $volunteer->trailO %} Trail-O<br> {% endif %}
+                        skills
                     </td>
 
                     <td>
-                        {{ $volunteer->competitorExp }}
+                        expirence
                     </td>
 
                     <td>
-                        {{ $volunteer->skills|raw }}
+                        skills again?
+
                         <br>
                         <b>How can this Volunteer help you? </b>
-                        <br>{{ $volunteer->helpDesc }}
+                        <br>{{ $volunteer->help }}
 
                         <br>
                         <b>Expectations as a Volunteer </b>
@@ -81,20 +79,20 @@
         </table>
 
 
-        {% if not visit %}
+        @if(true)
             <div class="mt-3">
-                <form class="d-flex flex-column align-items-start"  method="POST" action="{{ url }}volunteer/contact" enctype="multipart/form-data">
+                <form class="d-flex flex-column align-items-start"  method="POST" action="/volunteer/contact" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="{{ $volunteer->id }}">
                     <p>Invite volunteer to project:</p>
                     <div class="selectWrap">
                         <select size="1" name="project">
-                            {{ projects|raw }}
+                            Projects
                         </select>
                     </div>
                 <input class="mt-3" type="submit" value="Contact volunteer"/>
                 </form>
             </div>
-        {% endif %}
+        @endif
     </div>
 </section>
 

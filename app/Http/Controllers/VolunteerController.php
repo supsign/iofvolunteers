@@ -21,6 +21,11 @@ class VolunteerController extends Controller
         $this->middleware('auth');
     }
 
+    public function contact()
+    {
+        
+    }
+
     public function list()
     {
     	if (!Auth::user()->volunteers()->count()) {
