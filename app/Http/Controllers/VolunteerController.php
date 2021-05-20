@@ -105,13 +105,15 @@ class VolunteerController extends Controller
         $otherData = array_diff_key($request->all(), $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
-        if (array_filter($volunteerData)) {
-            foreach ($volunteerData AS $key => $value) {
-                switch ($key) {
-                    case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
-                    case 'other_languages': break;
-                    default: $volunteers->where($key, $value); break;
-                }
+        foreach ($volunteerData AS $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
+                case 'other_languages': break;
+                default: $volunteers->where($key, $value); break;
             }
         }
 
