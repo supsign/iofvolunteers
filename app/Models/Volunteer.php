@@ -26,6 +26,11 @@ class Volunteer extends BaseModel
         return $this->morphToMany(Continent::class, 'continent_model');
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function languages()
     {
         return $this->morphToMany(Language::class, 'language_model');
