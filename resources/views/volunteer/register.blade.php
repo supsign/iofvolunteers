@@ -82,7 +82,13 @@
                             3. Disciplines of experience
                         </x-slot>
                     </x-orienteering.disciplines-form>
-                    <x-orienteering.competitor-experience-form />
+
+                    <x-orienteering.competitor-experience-form>
+                        <x-slot name="title">
+                            4. O-Experience
+                        </x-slot>
+                    </x-orienteering.competitor-experience-form>
+
                     <x-language.experience-form>
                         <x-slot name="title">
                             5. Languages

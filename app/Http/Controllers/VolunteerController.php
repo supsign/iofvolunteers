@@ -9,8 +9,10 @@ use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Schema;
 
 class VolunteerController extends Controller
 {
@@ -22,7 +24,7 @@ class VolunteerController extends Controller
     public function list()
     {
     	if (!Auth::user()->volunteers()->count()) {
-    		return $this->registerForm();
+            return redirect()->route('volunteer.registerForm');
     	}
 
     	return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
@@ -88,19 +90,50 @@ class VolunteerController extends Controller
     {
         die();
 
+        $volunteer->disciplines()->sync(array_keys($discipline));
+        $volunteer->continents()->sync(array_keys($continent));
+        $volunteer->skills()->sync(array_keys($skill));
+
         return;
     }
 
 
     public function search(Request $request)
     {
-        $data = $request->all();
+        $columns = array_flip(Schema::getColumnListing('volunteers'));
+        $volunteerData = array_intersect_key($request->all(), $columns);
+        $otherData = array_diff_key($request->all(), $columns);
+        $volunteers = Volunteer::with('languageVolunteers');
 
-        unset($data['_token']);
+        foreach ($volunteerData AS $key => $value) {
+            if (!$value) {
+                continue;
+            }
 
-        var_dump($data);
+            switch ($key) {
+                case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
+                case 'other_languages': break;
+                default: $volunteers->where($key, $value); break;
+            }
+        }
 
+        $volunteers = $volunteers->get();
 
-        return;
+        foreach ($otherData AS $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
+                case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
+                case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
+                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+                default: break;
+            }
+
+        }
+
+        return view('volunteer.list', ['volunteers' => $volunteers]);
     }
 }
