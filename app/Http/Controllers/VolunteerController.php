@@ -112,7 +112,6 @@ class VolunteerController extends Controller
 
             switch ($key) {
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
-                case 'other_languages': break;
                 default: $volunteers->where($key, $value); break;
             }
         }

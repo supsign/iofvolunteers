@@ -30,6 +30,7 @@
         </div>
     @endforeach
 
+    {{--
     <div class="form-group">
         <input id="field_languagesOther" placeholder=" " type="text" name="other_languages" value="" size="30">
         <label class="formGroupLabel"  for="field_languagesOther">Other languages?</label>
@@ -37,4 +38,5 @@
             State each language and level, separated by commas below...
         </div>
     </div>
+    --}}
 </div>
