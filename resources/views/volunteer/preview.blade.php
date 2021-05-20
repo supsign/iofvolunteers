@@ -47,19 +47,32 @@
                     </td>
 
                     <td>
-                        languages
+                        @foreach ($volunteer->languageVolunteers AS $languageVolunteer)
+                            @if($languageVolunteer->language_proficiency_id === 4)
+                                @continue;
+                            @endif
+
+                            {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br/>
+
+                        @endforeach
                     </td>
 
                     <td>
-                        continents
+                        @foreach($volunteer->continents AS $continent)
+                            {{ $continent->name }}
+                        @endforeach
                     </td>
 
                     <td>
-                        skills
+                        @foreach($volunteer->skills AS $skill)
+                            {{ $skill->name }}
+                        @endforeach
                     </td>
 
                     <td>
-                        expirence
+                        Local: {{ $volunteer->expirenceLocal->value ?? '' }}
+                        National: {{ $volunteer->expirenceNational->value ?? '' }}
+                        International: {{ $volunteer->expirenceInternational->value ?? '' }}
                     </td>
 
                     <td>

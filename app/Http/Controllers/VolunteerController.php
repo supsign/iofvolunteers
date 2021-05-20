@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Continent;
+use App\Models\Country;
 use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
@@ -23,7 +24,7 @@ class VolunteerController extends Controller
 
     public function contact()
     {
-        
+
     }
 
     public function list()
@@ -40,6 +41,7 @@ class VolunteerController extends Controller
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
             'continents' => Continent::all(),
+            'countries' => Country::all(),
             'dutyTypes' => DutyTypes::all(),
             'duties' => Duty::all()
         ]);
