@@ -9,6 +9,7 @@ use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Volunteer;
 use App\Http\Requests\VolunteerRegister;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Schema;
@@ -108,19 +109,19 @@ class VolunteerController extends Controller
             $otherData
         );
 
+        $volunteers = Volunteer::with('languages');
+
         if (array_filter($volunteerData)) {
             foreach ($volunteerData AS $key => $value) {
-                if (!isset($volunteers)) {
-                    $volunteers = Volunteer::with('languages')->where($key, $value);
-                } else {
-                    $volunteers->where($key, $value);
+                switch ($key) {
+                    case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
+                    case 'other_languages': break;
+                    default: $volunteers->where($key, $value); break;
                 }
-
-                $volunteers = $volunteers->get();
             }
-        } else {
-            $volunteers = Volunteer::with('languages')->get();
         }
+
+        $volunteers = $volunteers->get();
 
         foreach ($otherData AS $key => $value) {
             if (!$value) {
@@ -132,9 +133,6 @@ class VolunteerController extends Controller
                 case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
                 case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
                 case 'language':
-
-                    
-
                     break;
 
                 default:
@@ -145,15 +143,6 @@ class VolunteerController extends Controller
 
         echo '<hr/>';
         var_dump($volunteers);
-
-        // foreach (['minage', 'maxage', 'o_experience', 'language', 'other_languages', 'max_work_duration', 'skillType'] as $key) {
-        //     $$key = Helper::exractElementByKey($data, $key);
-        // }
-
-        // $volunteer = Volunteer::where('')
-
-        // var_dump($data);
-
 
         return;
     }
