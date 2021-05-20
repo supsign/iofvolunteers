@@ -45,6 +45,11 @@ class VolunteerController extends Controller
         return view('volunteer.search');
     }
 
+    public function show(Volunteer $volunteer)
+    {
+        return view('volunteer.preview', ['volunteer' => $volunteer]);
+    }
+
     public function register(VolunteerRegister $request)
     {
         $data = $request->all();
