@@ -64,7 +64,7 @@
                             <input id="field_nickname" placeholder=" " type="text" name="nickname" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="warn">optional</div>
-                            <div class="warn">if left blank, your first name will be assumed as your nickname</div>
+                            <div class="warn">if left blank, your name will be assumed as your nickname</div>
                         </div>
 
                         <div class="form-group">
