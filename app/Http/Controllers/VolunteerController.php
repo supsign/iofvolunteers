@@ -79,6 +79,10 @@ class VolunteerController extends Controller
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+        if (empty($data['nickname'])) {
+            $data['nickname'] = $data['name'];
+        }
+
         $data['user_id'] = Auth::user()->id;
         $volunteer = Volunteer::create($data);
 
