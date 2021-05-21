@@ -112,7 +112,6 @@ class VolunteerController extends Controller
 
             switch ($key) {
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
-                case 'other_languages': break;
                 default: $volunteers->where($key, $value); break;
             }
         }
@@ -128,7 +127,9 @@ class VolunteerController extends Controller
                 case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
                 case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
                 case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
+                case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
                 case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+                case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
                 default: break;
             }
 

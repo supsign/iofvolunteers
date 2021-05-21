@@ -69,4 +69,15 @@ class Volunteer extends BaseModel
 
         return $res;
     }
+
+    public function getSkillTypesAttribute()
+    {
+        $skillTypes = collect();
+
+        foreach ($this->skills AS $skill) {
+            $skillTypes->push($skill->skillType);
+        }
+
+        return $skillTypes;
+    }
 }

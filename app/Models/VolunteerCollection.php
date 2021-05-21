@@ -18,4 +18,30 @@ class VolunteerCollection extends Collection
 			return true;
 		});
 	}
+
+	public function filterByDisciplines($disciplinesArray)
+	{
+		return $this->filter(function($volunteer) use ($disciplinesArray) {
+			foreach (array_keys($disciplinesArray) AS $discipline) {
+				if (!$volunteer->disciplines->contains('id', $discipline)) {
+					return false;
+				}
+			}
+
+			return true;
+		});
+	}
+
+	public function filterBySkillType($skillTypeArray)
+	{
+		return $this->filter(function($volunteer) use ($skillTypeArray) {
+			foreach (array_keys($skillTypeArray) AS $skillType) {
+				if (!$volunteer->skillTypes->contains('id', $skillType)) {
+					return false;
+				}
+			}
+
+			return true;
+		});
+	}
 }
