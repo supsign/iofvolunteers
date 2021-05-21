@@ -12,44 +12,23 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td class="big-desc">
-                        Volunteer
-                    </td>
-                    <td class="big-desc">
-                        Languages spoken
-                    </td>
-                    <td class="big-desc">
-                        Work Preferences
-                    </td>
-                    <td class="big-desc">
-                        Disciplines of experience
-                    </td>
-                    <td class="big-desc">
-                        O-Experience
-                    </td>
-                    <td class="big-desc">
-                        O-Skills
-                    </td>
+                    <td>Nickname</td>
+                    <td>{{ $volunteer->nickname }}</td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Nickname:</b> {{ $volunteer->nickname }}
-                        <br>
-                        <br>
-                        <b>Country:</b> {{ $volunteer->country->name }}
-                        <br>
-                        <br>
-                        <b>Age:</b> {{ $volunteer->age }}
-                        <br>
-                        <br>
-                        <b>International driving license:</b> {{ $volunteer->driving_licence ? 'Yes' : 'No' }}
-
-                        @if(false)
-                            <br>
-                            Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
-                        @endif
-                    </td>
-
+                    <td>Country</td>
+                    <td>{{ $volunteer->country->name }}</td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>{{ $volunteer->age }}</td>
+                </tr>
+                <tr>
+                    <td>Driving license:</td>
+                    <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr>
+                    <td>Languages</td>
                     <td>
                         @foreach($volunteer->languageVolunteers AS $languageVolunteer)
                             @if($languageVolunteer->language_proficiency_id === 4)
@@ -60,54 +39,83 @@
 
                         @endforeach
                     </td>
-
+                </tr>
+                <tr>
+                    <td>Prefered destinations:</td>
                     <td>
-                        Prefered destinations:
                         <ul>
                             @foreach($volunteer->continents AS $continent)
                                 <li> {{ $continent->name }}</li>
                             @endforeach
                         </ul>
                     </td>
-
+                </tr>
+                <tr>
+                    <td>O-Experience</td>
                     <td>
-                        @foreach($volunteer->disciplines AS $discipline)
-                            {{ $discipline->name }}
-                        @endforeach
-                    </td>
-
-                    <td>
-                        Local: {{ $volunteer->expirenceLocal->value ?? '' }}
-                        National: {{ $volunteer->expirenceNational->value ?? '' }}
-                        International: {{ $volunteer->expirenceInternational->value ?? '' }}
-                    </td>
-
-
-                    <td>
-                        @foreach($volunteer->skillTypes AS $skillType)
-                            {{ $skillType->name }}<br/>
-
-                            @foreach ($volunteer->skills AS $skill)
-                                @if($skill->skill_type_id !== $skillType->id)
-                                    @continue;
-                                @endif
-
-                                * {{ $skill->name }}<br/>
+                        <ul>
+                            @foreach($volunteer->disciplines AS $discipline)
+                                <li>{{ $discipline->name }}</li>
                             @endforeach
-                        @endforeach
+                        </ul>
+                        <ul>
+                            <li>Local: {{ $volunteer->expirenceLocal->value ?? '' }}</li>
+                            <li> National: {{ $volunteer->expirenceNational->value ?? '' }}</li>
+                            <li>International: {{ $volunteer->expirenceInternational->value ?? '' }}</li>
+                        </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td>O-Work Experience</td>
+                    <td>
+                        <ul>
+                            @foreach($volunteer->skillTypes AS $skillType)
+                                <li>{{ $skillType->name }}</li>
+                                <ul>
+                                    @foreach($volunteer->skills AS $skill)
+                                        @if($skill->skill_type_id !== $skillType->id)
+                                            @continue;
+                                        @endif
+                                        <li>{{ $skill->name }}</li>
+                                    @endforeach
+                                </ul>
+                            @endforeach
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>My benefits</td>
+                    <td>{{ $volunteer->help }}</td>
+                </tr>
+                <tr>
+                    <td>Expectations</td>
+                    <td>{{ $volunteer->expectation }}
+                </tr>
+                <tr>
+                    <td>Experiences</td>
+                    <td>{{ $volunteer->experience }}</td>
+                </tr>
+                <tr>
+                    <td>Education / Seminars</td>
+                    <td>{{ $volunteer->education }}</td>
+                </tr>
+
             </tbody>
         </table>
-
+        @if(false)
+            <br>
+            Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
+        @endif
 
         <br>
-        <b>How can this Volunteer help you? </b>
-        <br>{{ $volunteer->help }}
+        <b></b>
+        <br>
 
         <br>
-        <b>Expectations as a Volunteer </b>
-        <br>{{ $volunteer->expectations }}
+        <b></b>
+        <br>
 
 
         @if(false)
