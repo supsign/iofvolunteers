@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\DB;
 class ContinentSeeder extends Seeder
 {
     private $data = [
-        ['id' => 1, 'name' => 'North America'],
-        ['id' => 2, 'name' => 'South America'],
-		['id' => 3, 'name' => 'Europe'],
-        ['id' => 4, 'name' => 'Asia'],
-		['id' => 5, 'name' => 'Africa'],
-		['id' => 6, 'name' => 'Oceania'],
+		['id' => 1, 'name' => 'Europe'],
+		['id' => 3, 'name' => 'Africa'],
+		['id' => 4, 'name' => 'Oceania'],
+		['id' => 5, 'name' => 'North America'],
+		['id' => 6, 'name' => 'Asia'],
+		['id' => 7, 'name' => 'South America'],
     ];
     /**
      * Run the database seeds.
