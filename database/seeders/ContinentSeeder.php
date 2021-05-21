@@ -10,10 +10,11 @@ class ContinentSeeder extends Seeder
     private $data = [
         ['id' => 1, 'name' => 'North America'],
         ['id' => 2, 'name' => 'South America'],
-		['id' => 3, 'name' => 'Europe'],
+        ['id' => 3, 'name' => 'Europe'],
         ['id' => 4, 'name' => 'Asia'],
-		['id' => 5, 'name' => 'Africa'],
-		['id' => 6, 'name' => 'Oceania'],
+        ['id' => 5, 'name' => 'Africa'],
+        ['id' => 6, 'name' => 'Oceania'],
+        ['id' => 7, 'name' => 'Antarctica']
     ];
     /**
      * Run the database seeds.
@@ -23,15 +24,15 @@ class ContinentSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-        	$data = array();
+            $data = array();
 
-        	foreach ($entry AS $key => $value) {
+            foreach ($entry as $key => $value) {
                 if ($key === 'id') {
                     continue;
                 }
 
-        		$data[$key] = $value;
-        	}
+                $data[$key] = $value;
+            }
 
             DB::table('continents')->updateOrInsert(['id' => $entry['id']], $data);
         }

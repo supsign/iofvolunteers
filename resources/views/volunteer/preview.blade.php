@@ -6,6 +6,9 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Volunteer Details</h1>
         </div>
 
+        <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results" />
+
+
         <table class="table">
             <tbody>
                 <tr>
@@ -40,33 +43,35 @@
                         <br>
                         <br>
                         <b>International driving license:</b> {{ $volunteer->driving_licence ? 'Yes' : 'No' }}
-                        @if(true)
+
+                        @if(false)
                             <br>
                             Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
                         @endif
                     </td>
 
                     <td>
-                        @foreach ($volunteer->languageVolunteers AS $languageVolunteer)
+                        @foreach($volunteer->languageVolunteers AS $languageVolunteer)
                             @if($languageVolunteer->language_proficiency_id === 4)
                                 @continue;
                             @endif
 
-                            {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br/>
+                            {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br />
 
                         @endforeach
                     </td>
 
                     <td>
-                        @foreach($volunteer->continents AS $continent)
-                            {{ $continent->name }}
-                        @endforeach
+                        Prefered destinations:
+                        <ul>
+                            @foreach($volunteer->continents AS $continent)
+                                <li> {{ $continent->name }}</li>
+                            @endforeach
+                        </ul>
                     </td>
 
                     <td>
-                        @foreach($volunteer->skills AS $skill)
-                            {{ $skill->name }}
-                        @endforeach
+                        DIscplines
                     </td>
 
                     <td>
@@ -75,16 +80,12 @@
                         International: {{ $volunteer->expirenceInternational->value ?? '' }}
                     </td>
 
+
                     <td>
-                        skills again?
+                        @foreach($volunteer->skills AS $skill)
+                            {{ $skill->name }}
+                        @endforeach
 
-                        <br>
-                        <b>How can this Volunteer help you? </b>
-                        <br>{{ $volunteer->help }}
-
-                        <br>
-                        <b>Expectations as a Volunteer </b>
-                        <br>{{ $volunteer->expectations }}
 
                     </td>
                 </tr>
@@ -92,9 +93,18 @@
         </table>
 
 
-        @if(true)
+        <br>
+        <b>How can this Volunteer help you? </b>
+        <br>{{ $volunteer->help }}
+
+        <br>
+        <b>Expectations as a Volunteer </b>
+        <br>{{ $volunteer->expectations }}
+
+
+        @if(false)
             <div class="mt-3">
-                <form class="d-flex flex-column align-items-start"  method="POST" action="/volunteer/contact" enctype="multipart/form-data">
+                <form class="d-flex flex-column align-items-start" method="POST" action="/volunteer/contact" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="{{ $volunteer->id }}">
                     <p>Invite volunteer to project:</p>
                     <div class="selectWrap">
@@ -102,7 +112,7 @@
                             Projects
                         </select>
                     </div>
-                <input class="mt-3" type="submit" value="Contact volunteer"/>
+                    <input class="mt-3" type="submit" value="Contact volunteer" />
                 </form>
             </div>
         @endif

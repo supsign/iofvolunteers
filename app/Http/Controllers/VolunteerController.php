@@ -24,16 +24,15 @@ class VolunteerController extends Controller
 
     public function contact()
     {
-
     }
 
     public function list()
     {
-    	if (!Auth::user()->volunteers()->count()) {
+        if (!Auth::user()->volunteers()->count()) {
             return redirect()->route('volunteer.registerForm');
-    	}
+        }
 
-    	return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
+        return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
     }
 
     public function registerForm()
@@ -68,31 +67,31 @@ class VolunteerController extends Controller
             $$key = Helper::exractElementByKey($data, $key);
         }
 
-        foreach ($o_experience AS $key => $value) {
-        	$data[$key.'_experience_id'] = $value;
+        foreach ($o_experience as $key => $value) {
+            $data[$key.'_experience_id'] = $value;
         }
 
         if (isset($o_work_expirence[1])) {
-        	$data['o_work_expirence_local'] = $o_work_expirence[1];
-        } 
+            $data['o_work_expirence_local'] = $o_work_expirence[1];
+        }
 
         if (isset($o_work_expirence[2])) {
-        	$data['o_work_expirence_international'] = $o_work_expirence[2];
+            $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
         $volunteer = Volunteer::create($data);
         Auth::user()->volunteers()->attach($volunteer->id);
 
-        foreach ($language AS $key => $value) {
-        	$volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
+        foreach ($language as $key => $value) {
+            $volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
         }
 
         $volunteer->disciplines()->attach(array_keys($discipline));
         $volunteer->continents()->attach(array_keys($continent));
         $volunteer->skills()->attach(array_keys($skill));
 
-        foreach ($duty AS $key => $values) {
-        	$volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        foreach ($duty as $key => $values) {
+            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
         return $volunteer;
@@ -117,7 +116,7 @@ class VolunteerController extends Controller
         $otherData = array_diff_key($request->all(), $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
-        foreach ($volunteerData AS $key => $value) {
+        foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
             }
@@ -130,7 +129,7 @@ class VolunteerController extends Controller
 
         $volunteers = $volunteers->get();
 
-        foreach ($otherData AS $key => $value) {
+        foreach ($otherData as $key => $value) {
             if (!$value) {
                 continue;
             }
@@ -144,9 +143,8 @@ class VolunteerController extends Controller
                 case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
                 default: break;
             }
-
         }
 
-        return view('volunteer.list', ['volunteers' => $volunteers]);
+        return view('volunteer.searchList', ['volunteers' => $volunteers]);
     }
 }
