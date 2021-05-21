@@ -16,12 +16,28 @@
                     <td>{{ $volunteer->nickname }}</td>
                 </tr>
                 <tr>
-                    <td>Country</td>
-                    <td>{{ $volunteer->country->name }}</td>
+                    <td>Name</td>
+                    <td>{{ $volunteer->name }}</td>
+                </tr>
+
+                <tr>
+                    <td>Sex</td>
+                    <td>{{ $volunteer->gender->name ?? 'none' }}</td>
+                </tr>
+                <tr>
+                    <td>Country & Club</td>
+                    <td>
+                        {{ $volunteer->country->name }}<br>
+                        {{ $volunteer->club }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Age</td>
                     <td>{{ $volunteer->age }}</td>
+                </tr>
+                <tr>
+                    <td>Experience</td>
+                    <td>since {{ $volunteer->ol_duration }}</td>
                 </tr>
                 <tr>
                     <td>Driving license:</td>

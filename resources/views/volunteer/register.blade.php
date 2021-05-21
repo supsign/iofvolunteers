@@ -52,7 +52,7 @@
                             2. Personal Information
                         </h3>
 
-                        <x-person.genders-form/>
+                        <x-person.genders-form />
 
                         <div class="form-group">
                             <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
@@ -129,7 +129,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder="" type="text" size="3" name="work_duration" id="work_duration" value="">
+                            <input placeholder="" type="number" size="3" name="work_duration" id="work_duration" value="">
                             <label class="formGroupLabel" for="work_duration">weeks</label>
                         </div>
                     </div>
@@ -178,86 +178,86 @@
                             <div class="warn">Required for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
 
-                                @if(isset($maps) && $maps)
+@if(isset($maps) && $maps)
                                     <p>Already loaded maps:
-                                        @foreach($maps AS $key => $map)
+@foreach($maps AS $key => $map)
                                             <a href="" target="_blank">Map {{ ++$key }}</a>
-                                        @endforeach
-                                        <br /><span class="warn">New maps will erase previously loaded</span>
-                                    </p>
-                                @endif
-                            </div>
-
-                            <div class="mt-3 custom-file">
-                                <input type="file" class="custom-file-input" id="mapsFile1" name="maps[]" accept=".pdf">
-                                <label class="custom-file-label" for="mapsFile1">Choose file</label>
-                            </div>
-
-                            <div class="mt-3 custom-file">
-                                <input type="file" class="custom-file-input" id="mapsFile2" name="maps[]" accept=".pdf">
-                                <label class="custom-file-label" for="mapsFile2">Choose file</label>
-                            </div>
-
-                            <div class="mt-3 custom-file">
-                                <input type="file" class="custom-file-input" id="mapsFile3" name="maps[]" accept=".pdf">
-                                <label class="custom-file-label" for="mapsFile3">Choose file</label>
-                            </div>
-                            --}}
+                            @endforeach
+                            <br /><span class="warn">New maps will erase previously loaded</span>
+                            </p>
+                            @endif
                         </div>
 
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
-                            <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
+                        <div class="mt-3 custom-file">
+                            <input type="file" class="custom-file-input" id="mapsFile1" name="maps[]" accept=".pdf">
+                            <label class="custom-file-label" for="mapsFile1">Choose file</label>
                         </div>
 
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation" value=""></textarea>
-                            <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
+                        <div class="mt-3 custom-file">
+                            <input type="file" class="custom-file-input" id="mapsFile2" name="maps[]" accept=".pdf">
+                            <label class="custom-file-label" for="mapsFile2">Choose file</label>
                         </div>
 
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="experience" id="experience" value=""></textarea>
-                            <label class="formGroupLabel" for="experience">Experience abroad? When? Where? What?</label>
+                        <div class="mt-3 custom-file">
+                            <input type="file" class="custom-file-input" id="mapsFile3" name="maps[]" accept=".pdf">
+                            <label class="custom-file-label" for="mapsFile3">Choose file</label>
                         </div>
+                        --}}
+                    </div>
 
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="education" id="education" value=""></textarea>
-                            <label class="formGroupLabel" for="education">Seminars, Training Camps attended...</label>
-                        </div>
+                    <div class="form-group">
+                        <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
+                        <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation" value=""></textarea>
+                        <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea placeholder="" rows="4" cols="30" name="experience" id="experience" value=""></textarea>
+                        <label class="formGroupLabel" for="experience">Experience abroad? When? Where? What?</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea placeholder="" rows="4" cols="30" name="education" id="education" value=""></textarea>
+                        <label class="formGroupLabel" for="education">Seminars, Training Camps attended...</label>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="sticky">
-                        <div class="noteWrap">
-                            <h3 class="noteTitle">Disclaimer</h3>
-                            <p>I have filled in my details
-                                above as accurately as possible. By submitting this form, I state that I am a volunteer in
-                                developing orienteering. I understand that the IOF cannot be held responsible for my being or not
-                                being recruited as a volunteer. I also understand that should I choose to accept any offer
-                                requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
-                                as a volunteer.</p>
+            <div class="col-12 col-md-6">
+                <div class="sticky">
+                    <div class="noteWrap">
+                        <h3 class="noteTitle">Disclaimer</h3>
+                        <p>I have filled in my details
+                            above as accurately as possible. By submitting this form, I state that I am a volunteer in
+                            developing orienteering. I understand that the IOF cannot be held responsible for my being or not
+                            being recruited as a volunteer. I also understand that should I choose to accept any offer
+                            requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
+                            as a volunteer.</p>
+                    </div>
+
+                    <div class="formSection">
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                <label class="form-check-label" for="agb">
+                                    I have read and understood the above.
+                                </label>
+                                <div class="warn"> Please tick the disclaimer...</div>
+                            </div>
                         </div>
 
-                        <div class="formSection">
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
-                                    <label class="form-check-label" for="agb">
-                                        I have read and understood the above.
-                                    </label>
-                                    <div class="warn"> Please tick the disclaimer...</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group d-flex">
-                                <input class="ml-auto" type="submit" value="Submit my details">
-                            </div>
+                        <div class="form-group d-flex">
+                            <input class="ml-auto" type="submit" value="Submit my details">
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+    </div>
+    </form>
     </div>
 </section>
 @endsection

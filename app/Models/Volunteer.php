@@ -6,9 +6,9 @@ use Carbon\Carbon;
 
 class Volunteer extends BaseModel
 {
-    public function user() 
+    public function user()
     {
-    	return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function disciplines()
@@ -46,6 +46,11 @@ class Volunteer extends BaseModel
         return $this->belongsTo(Experience::class, 'international_experience_id');
     }
 
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class);
+    }
+
     public function languages()
     {
         return $this->morphToMany(Language::class, 'language_model');
@@ -53,11 +58,11 @@ class Volunteer extends BaseModel
 
     public function languageVolunteers()
     {
-    	return $this
-    		->hasMany(LanguageModel::class, 'language_model_id')
-    		->where('language_model_type', self::class)
-    		->with('language')
-    		->with('languageProficiency');
+        return $this
+            ->hasMany(LanguageModel::class, 'language_model_id')
+            ->where('language_model_type', self::class)
+            ->with('language')
+            ->with('languageProficiency');
     }
 
     public function languageProficiencies()
@@ -75,16 +80,17 @@ class Volunteer extends BaseModel
         return new VolunteerCollection($models);
     }
 
-    public function getAgeAttribute() {
+    public function getAgeAttribute()
+    {
         return Carbon::parse($this->birthdate)->age;
     }
 
     public function getLanguageInfoAttribute()
     {
-    	$res = [];
+        $res = [];
 
-        foreach ($this->languageModels AS $languageModel) {
-        	$res[$languageModel->languageName] = $languageModel->languageProficiencyName;
+        foreach ($this->languageModels as $languageModel) {
+            $res[$languageModel->languageName] = $languageModel->languageProficiencyName;
         }
 
         return $res;
@@ -94,7 +100,7 @@ class Volunteer extends BaseModel
     {
         $skillTypes = collect();
 
-        foreach ($this->skills AS $skill) {
+        foreach ($this->skills as $skill) {
             $skillTypes->push($skill->skillType);
         }
 

@@ -68,7 +68,7 @@
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="{{ route('volunteer.registerForm') }}">
+                                                        <a href="{{ route('volunteer.list') }}">
                                                             Register as a Volunteer
                                                         </a>
                                                     </li>

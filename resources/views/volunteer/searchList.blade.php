@@ -11,9 +11,7 @@
         </div>
 
 
-        @if(true)
-            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search" />
-        @endif
+        <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search" />
 
         <table class="table">
             <tbody>

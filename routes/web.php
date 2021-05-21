@@ -28,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', function() {
-	return redirect(route('home'));
+Route::get('/home', function () {
+    return redirect(route('home'));
 });
 
 Route::get('/test', [HomeController::class, 'test'])->name('test');

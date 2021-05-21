@@ -42,7 +42,8 @@
                         <td class="desc"> {{ $volunteer->name }}</td>
                         <td class="desc">{{ $volunteer->work_duration }} weeks</td>
                         <td class="desc">
-                            @if(true)
+                            *An dieser Stelle folgen nach Diskussion die Buttons für Edit und Delete*
+                            @if(false)
                                 <input type="button" onclick="location.href='volunteer/edit/{{ $volunteer->id }}';" value="Edit" />
                                 <input type="button" onclick="location.href='volunteer/switch/{{ $volunteer->id }}';" value="{{ $volunteer->active ? 'Disable' : 'Enable' }}" />
                             @endif
@@ -52,20 +53,6 @@
             </tbody>
         </table>
 
-        @if(true)
-            <div class="mt-3">
-                <form class="d-flex flex-column align-items-start" method="POST" action="volunteer/contactall" enctype="multipart/form-data">
-                    <input type="hidden" name="list" value="">
-                    <p>Invite all volunteers to project:</p>
-                    <div class="selectWrap">
-                        <select size="1" name="project">
-                            -Project-
-                        </select>
-                    </div>
-                    <input class="mt-3" type="submit" value="Contact volunteers" />
-                </form>
-            </div>
-        @endif
     </div>
 </section>
 
