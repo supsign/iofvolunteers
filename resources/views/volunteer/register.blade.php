@@ -108,13 +108,6 @@
                         </h3>
 
                         <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="continent[0]" id="continent-anywhere">
-                                <label class="form-check-label" for="continent-anywhere">
-                                    Anywhere
-                                </label>
-                            </div>
-
                             @foreach($continents AS $continent)
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}">
@@ -180,6 +173,7 @@
                         </h3>
 
                         <div class="form-group">
+                            {{--
                             <label class="formGroupLabelStatic">Skilled in mapping? Upload your "best" maps here...</label>
                             <div class="warn">Required for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
@@ -208,6 +202,7 @@
                                 <input type="file" class="custom-file-input" id="mapsFile3" name="maps[]" accept=".pdf">
                                 <label class="custom-file-label" for="mapsFile3">Choose file</label>
                             </div>
+                            --}}
                         </div>
 
                         <div class="form-group">
