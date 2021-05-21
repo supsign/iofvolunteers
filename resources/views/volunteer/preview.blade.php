@@ -71,7 +71,9 @@
                     </td>
 
                     <td>
-                        DIscplines
+                        @foreach($volunteer->disciplines AS $discipline)
+                            {{ $discipline->name }}
+                        @endforeach
                     </td>
 
                     <td>
@@ -82,11 +84,17 @@
 
 
                     <td>
-                        @foreach($volunteer->skills AS $skill)
-                            {{ $skill->name }}
+                        @foreach($volunteer->skillTypes AS $skillType)
+                            {{ $skillType->name }}<br/>
+
+                            @foreach ($volunteer->skills AS $skill)
+                                @if($skill->skill_type_id !== $skillType->id)
+                                    @continue;
+                                @endif
+
+                                * {{ $skill->name }}<br/>
+                            @endforeach
                         @endforeach
-
-
                     </td>
                 </tr>
             </tbody>
