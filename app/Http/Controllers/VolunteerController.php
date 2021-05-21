@@ -80,8 +80,8 @@ class VolunteerController extends Controller
         	$data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+        $data['user_id'] = Auth::user()->id;
         $volunteer = Volunteer::create($data);
-        Auth::user()->volunteers()->attach($volunteer->id);
 
         foreach ($language AS $key => $value) {
         	$volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
@@ -95,7 +95,7 @@ class VolunteerController extends Controller
         	$volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
-        return $volunteer;
+        return redirect()->route('volunteer.list');
     }
 
     public function update(Volunteer $volunteer, VolunteerRegister $request)
