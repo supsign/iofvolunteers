@@ -9,7 +9,6 @@ class ContinentSeeder extends Seeder
 {
     private $data = [
 		['id' => 1, 'name' => 'Europe'],
-		['id' => 2, 'name' => 'Antarctica'],
 		['id' => 3, 'name' => 'Africa'],
 		['id' => 4, 'name' => 'Oceania'],
 		['id' => 5, 'name' => 'North America'],

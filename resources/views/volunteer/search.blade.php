@@ -26,7 +26,7 @@
                                     <input id="field_minage" placeholder="" type="text" name="minage" size="2">
                                     <label class="formGroupLabel"  for="field_minage">Age (at least)</label>
                                     <div class="warn">
-                                        Note that volunteers under 18 are not allowed to register in the Platform
+                                        Note that volunteers under 18 are not allowed to register on the Platform
                                     </div>
                                 </div>
                                 <div class="pl-0 pr-0 form-group col-12 col-sm-6 pl-sm-2">
