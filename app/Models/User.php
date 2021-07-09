@@ -56,8 +56,8 @@ class User extends Authenticatable
         return $this->hasMany(Project::class);
     }
 
-    public function volunteers()
+    public function volunteer()
     {
-        return $this->hasMany(Volunteer::class);
+        return $this->belongsTo(Volunteer::class);
     }
 }

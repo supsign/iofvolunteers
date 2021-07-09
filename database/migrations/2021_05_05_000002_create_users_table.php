@@ -23,6 +23,11 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestampsTz();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => UserSeeder::class,
+            '--force' => true
+        ]);
     }
 
     /**

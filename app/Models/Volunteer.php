@@ -8,7 +8,7 @@ class Volunteer extends BaseModel
 {
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function disciplines()

@@ -31,6 +31,6 @@ class CreateLanguageModel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_model');
+        Schema::dropIfExists('language_models');
     }
 }

@@ -215,15 +215,6 @@
                         <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                     </div>
 
-                    <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="experience" id="experience" value=""></textarea>
-                        <label class="formGroupLabel" for="experience">Experience abroad? When? Where? What?</label>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="education" id="education" value=""></textarea>
-                        <label class="formGroupLabel" for="education">Seminars, Training Camps attended...</label>
-                    </div>
                 </div>
             </div>
 

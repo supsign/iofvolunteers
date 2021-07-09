@@ -16,7 +16,6 @@ class CreateVolunteersTable extends Migration
         Schema::create('volunteers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('gender_id')->nullable()->constrained();
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('country_id')->nullable()->constrained();
             $table->boolean('active')->default(true);
             $table->string('name')->nullable();
@@ -40,9 +39,11 @@ class CreateVolunteersTable extends Migration
             $table->text('skill_other')->nullable();
             $table->text('help')->nullable();
             $table->text('expectation')->nullable();
-            $table->text('experience')->nullable();
-            $table->text('education')->nullable();
             $table->timestampsTz();
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('volunteer_id')->after('country_id')->nullable()->constrained();
         });
     }
 
@@ -53,6 +54,11 @@ class CreateVolunteersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['volunteer_id']);
+            $table->dropColumn('volunteer_id');
+        });
+
         Schema::dropIfExists('volunteers');
     }
 }

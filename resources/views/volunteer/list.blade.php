@@ -25,31 +25,29 @@
                     <td class="big-desc">Duration available</td>
                     <td class="big-desc"></td>
                 </tr>
-                @foreach($volunteers AS $volunteer)
-                    <tr>
-                        <td>
-                            @if(true)
-                                {{ $volunteer->nickname ?? '' }}
-                            @else
-                                <a href="{{ url }}volunteer/preview/{{ $volunteer->id }}">
-                                    {{ $volunteer->nickname ?? '' }}
-                                </a>
-                            @endif
-                            @if(false)
-                                <span class="warn"> (disabled)</span>
-                            @endif
-                        </td>
-                        <td class="desc"> {{ $volunteer->name }}</td>
-                        <td class="desc">{{ $volunteer->work_duration }} weeks</td>
-                        <td class="desc">
-                            *An dieser Stelle folgen nach Diskussion die Buttons für Edit und Delete*
-                            @if(false)
-                                <input type="button" onclick="location.href='volunteer/edit/{{ $volunteer->id }}';" value="Edit" />
-                                <input type="button" onclick="location.href='volunteer/switch/{{ $volunteer->id }}';" value="{{ $volunteer->active ? 'Disable' : 'Enable' }}" />
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
+                <tr>
+                    <td>
+                        @if(true)
+                            {{ $user->volunteer->nickname ?? '' }}
+                        @else
+                            <a href="{{ url }}volunteer/preview/{{ $user->volunteer->id }}">
+                                {{ $user->volunteer->nickname ?? '' }}
+                            </a>
+                        @endif
+                        @if(false)
+                            <span class="warn"> (disabled)</span>
+                        @endif
+                    </td>
+                    <td class="desc"> {{ $user->volunteer->name }}</td>
+                    <td class="desc">{{ $user->volunteer->work_duration }} weeks</td>
+                    <td class="desc">
+                        *An dieser Stelle folgen nach Diskussion die Buttons für Edit und Delete*
+                        @if(false)
+                            <input type="button" onclick="location.href='volunteer/edit/{{ $user->volunteer->id }}';" value="Edit" />
+                            <input type="button" onclick="location.href='volunteer/switch/{{ $user->volunteer->id }}';" value="{{ $user->volunteer->active ? 'Disable' : 'Enable' }}" />
+                        @endif
+                    </td>
+                </tr>
             </tbody>
         </table>
 

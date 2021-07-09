@@ -28,11 +28,11 @@ class VolunteerController extends Controller
 
     public function list()
     {
-        if (!Auth::user()->volunteers()->count()) {
+        if (!Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');
         }
 
-        return view('volunteer.list', ['volunteers' => Auth::user()->volunteers]);
+        return view('volunteer.list');
     }
 
     public function registerForm()
@@ -83,8 +83,10 @@ class VolunteerController extends Controller
             $data['nickname'] = $data['name'];
         }
 
-        $data['user_id'] = Auth::user()->id;
         $volunteer = Volunteer::create($data);
+
+        Auth::user()->volunteer_id = $volunteer->id;
+        Auth::user()->save();
 
         foreach ($language as $key => $value) {
             $volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
