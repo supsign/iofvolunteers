@@ -41,7 +41,7 @@
             </tbody>
         </table>
 
-        @if(true)
+        @if($user->projects()->count())
             <div class="mt-3">
                 <form class="d-flex flex-column align-items-start" method="POST" action="volunteer/contactall" enctype="multipart/form-data">
                     <input type="hidden" name="list" value="">
