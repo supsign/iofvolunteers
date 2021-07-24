@@ -25,26 +25,20 @@
                             <label class="formGroupLabel" for="field_name">Name</label>
                         </div>
 
-                        <div class="form-group">
-                            <div class="warn">Country</div>
-                            <select type="text" name="country_id" id="country_id" size="1" value="" required>
-                                @foreach($countries AS $country)
-                                    <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
-                                @endforeach
-                            </select>
-                            <img for="country" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                        </div>
+                        <x-person.countries-form />
 
                         <div class="form-group">
                             <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                         </div>
 
+                        {{--
                         <div class="form-group">
                             <input id="field_phone" placeholder=" " type="text" name="phone" value="" size="15">
                             <label class="formGroupLabel" for="field_phone">Phone </label>
                             <div class="warn">(optional)</div>
                         </div>
+                        --}}
                     </div>
 
                     <div class="formSection">

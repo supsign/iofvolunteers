@@ -5,6 +5,9 @@
         @foreach($genders AS $gender)
             <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
         @endforeach
+        @if($isSearch)
+            <option value="3">Doesn't matter</option>
+        @endif
     </select>
     <img for="gender" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
 </div>

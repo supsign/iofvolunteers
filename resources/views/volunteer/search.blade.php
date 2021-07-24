@@ -18,7 +18,7 @@
                             1. Personal Information
                         </h3>
 
-                        <x-person.genders-form/>
+                        <x-person.genders-form isSearch="true"/>
 
                         <div class="form-group">
                             <div class="mx-0 row">

@@ -27,28 +27,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function test()
-    {
-        $sk = SkillType::all();
-
-        foreach ($sk AS $blubb) {
-            var_dump(
-                $blubb->snakeCaseName
-            );
-        }
-        
-
-
-        die();
-
-        $skills = Skill::all();
-
-        die();
-
-        $volunteer = Volunteer::find(1);
-
-        var_dump($volunteer->duties);
-
-    }
 }

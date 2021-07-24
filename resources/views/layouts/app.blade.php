@@ -274,9 +274,15 @@
                                     @csrf
                                     <p class="big-desc">All fields are required!</p>
                                     <div class="form-group row desc">
-                                        <label class="col-3 col-form-label col-form-label-sm" for="name">Name<span class="warn-title">*</span>: </label>
+                                        <label class="col-3 col-form-label col-form-label-sm" for="firstname">Firstname<span class="warn-title">*</span>: </label>
                                         <div class="col-9">
-                                            <input class="form-control form-control-sm" type="text" name="name" size="20" required="">
+                                            <input class="form-control form-control-sm" type="text" name="firstname" size="20" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row desc">
+                                        <label class="col-3 col-form-label col-form-label-sm" for="lastname">Lastname<span class="warn-title">*</span>: </label>
+                                        <div class="col-9">
+                                            <input class="form-control form-control-sm" type="text" name="lastname" size="20" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row desc">

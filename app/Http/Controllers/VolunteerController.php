@@ -40,7 +40,6 @@ class VolunteerController extends Controller
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
             'continents' => Continent::all(),
-            'countries' => Country::all(),
             'dutyTypes' => DutyTypes::all(),
             'duties' => Duty::all()
         ]);

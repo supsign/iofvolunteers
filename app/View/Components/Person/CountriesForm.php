@@ -5,7 +5,7 @@ namespace App\View\Components\Person;
 use App\Models\Gender;
 use Illuminate\View\Component;
 
-class GendersForm extends Component
+class CountriesForm extends Component
 {
     /**
      * Create a new component instance.
@@ -13,13 +13,11 @@ class GendersForm extends Component
      * @return void
      */
 
-    public $genders;
-    public $isSearch;
+    public $countries;
 
-    public function __construct(bool $isSearch = false)
+    public function __construct()
     {
-        $this->genders = Gender::all();
-        $this->isSearch = $isSearch;
+        $this->countries = Country::all();
     }
 
     /**
