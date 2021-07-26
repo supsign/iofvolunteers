@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\DB;
 class SkillTypeSeeder extends Seeder
 {
     private $data = [
-        ['id' => 1, 'name' => 'Mapping', 'text'=>'Brief outline of your experience as a mapper', 'warn' => 'Notice that you will be required to upload map samples!'],
-        ['id' => 2, 'name' => 'Coaching', 'text' => 'Brief outline of your experience in coaching'],
-        ['id' => 3, 'name' => 'IT & time-keeping', 'text' => 'Brief details of your IT skills & experience'],
+        ['id' => 2, 'name' => 'Mapping', 'text'=>'Brief outline of your experience as a mapper', 'warn' => 'Notice that you will be required to upload map samples!'],
+        ['id' => 3, 'name' => 'Coaching', 'text' => 'Brief outline of your experience in coaching'],
+        ['id' => 5, 'name' => 'IT & time-keeping', 'text' => 'Brief details of your IT skills & experience'],
         ['id' => 4, 'name' => 'Event Organising', 'text' => 'Brief outline of your experience as organiser'],
-        ['id' => 5, 'name' => 'Teaching experience', 'text' => 'Brief outline of your experience in teaching'],
+        ['id' => 1, 'name' => 'Teaching experience', 'text' => 'Brief outline of your experience in teaching'],
     ];
     /**
      * Run the database seeds.

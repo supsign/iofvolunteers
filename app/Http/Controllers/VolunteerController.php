@@ -37,6 +37,10 @@ class VolunteerController extends Controller
 
     public function registerForm()
     {
+        if (Auth::user()->volunteer) {
+            return redirect()->route('volunteer.list');
+        }
+
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
             'continents' => Continent::all(),

@@ -12,8 +12,7 @@
             <div class="title-desc">Click on Volunteer Nickname for more details</div>
         </div>
 
-
-        @if(true)
+        @if(false)
             <input type="button" class="mb-3" onclick="location.href='{{ route('volunteer.register') }}';" value="Add volunteer" />
         @endif
 

@@ -9,10 +9,11 @@ class DutySeeder extends Seeder
 {
     private $data = [
 		['id' => 1, 'name' => 'Event Director'],
-		['id' => 2, 'name' => 'Mapper / Course Planner'],
-		['id' => 3, 'name' => 'IT Director'],
-		['id' => 4, 'name' => 'Event Advisor'],
-		['id' => 5, 'name' => 'Jury Member'],
+		['id' => 2, 'name' => 'Mapper'],
+        ['id' => 3, 'name' => 'Course Planner'],
+		['id' => 4, 'name' => 'IT Director'],
+		['id' => 5, 'name' => 'Event Advisor'],
+		['id' => 6, 'name' => 'Jury Member'],
 	];
 
     /**

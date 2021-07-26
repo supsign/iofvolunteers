@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Person;
 
-use App\Models\Gender;
+use App\Models\Country;
 use Illuminate\View\Component;
 
 class CountriesForm extends Component
