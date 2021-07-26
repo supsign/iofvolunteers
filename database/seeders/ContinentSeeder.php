@@ -14,6 +14,7 @@ class ContinentSeeder extends Seeder
 		['id' => 5, 'name' => 'North America'],
 		['id' => 6, 'name' => 'Asia'],
 		['id' => 7, 'name' => 'South America'],
+        ['id' => 8, 'name' => 'Central America / Caribbean'],
     ];
     /**
      * Run the database seeds.
