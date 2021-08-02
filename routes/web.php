@@ -9,6 +9,7 @@ use App\Http\Controllers\HostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\VolunteerController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*

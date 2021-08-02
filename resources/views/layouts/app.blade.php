@@ -207,13 +207,16 @@
             </main>
             <footer>
                 <div class="container">
-                    <div class="row">
-                        <aside class="col-12">
+                    <div class="row d-flex justify-content-between">
+                        <aside>
                             <h4>International Orienteering Federation</h4>
                             <p>Drottninggatan 47 31/2 tr<br>
                                 SE-65225 Karlstad<br>
                                 SWEDEN<br>
                                 <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
+                        </aside>
+                        <aside>
+                            <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200"/>
                         </aside>
                     </div>
                 </div>
