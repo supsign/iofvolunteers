@@ -68,7 +68,7 @@
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item"> 
-                                                        @if ($user->volunteer)
+                                                        @if (isset($user) && $user->volunteer)
                                                         <a href="{{ route('volunteer.edit', $user->volunteer) }}">
                                                             Edit your Volunteer
                                                         </a>
