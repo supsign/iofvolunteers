@@ -25,7 +25,7 @@ class GuestRegister extends FormRequest
     {
         return [
             'id' => 'int',
-            'country_id' = > 'int',
+            'country_id' => 'int',
             'name' => 'string',
             'gender_id' => 'int',
             'email' => 'email',
