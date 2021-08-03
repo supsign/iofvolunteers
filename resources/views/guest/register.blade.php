@@ -26,7 +26,7 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="country_id" class="selectArr selectArrComponents" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -41,7 +41,7 @@
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="gender_id" class="selectArr selectArrComponents" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">

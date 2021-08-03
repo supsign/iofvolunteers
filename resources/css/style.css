@@ -583,7 +583,7 @@ form select  {
 	height: 55px;
 	border: none;
 	border-bottom: 1px solid #707070;
-	background: #EBEBEB;
+	background: #d9d9d9;
 	padding: 20px 20px 0 20px;
 	outline: none;
 	border-radius: 0;
@@ -716,6 +716,10 @@ form select {
 	border-bottom-color: #307EA1;
 }
 
+.selectArrComponents {
+	top: 40px !important;
+}
+
 .formSection .form-group .selectArr {
 	position: absolute;
 	right: 21px;
@@ -725,6 +729,7 @@ form select {
 	right: 19px;
 	top: 16px;
 }
+
 .formSection .form-group textarea {
 	height: 190px;
 	resize: none;
@@ -754,7 +759,7 @@ form select {
 
 .formSection h3.formSectionTitle {
 	color: #000000;
-	font-size: 22px;
+	font-size: 27px;
 	font-weight: 600;
 	margin-top: 25px;
 	margin-bottom: 16px;
