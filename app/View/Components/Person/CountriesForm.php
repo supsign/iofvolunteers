@@ -27,6 +27,6 @@ class CountriesForm extends Component
      */
     public function render()
     {
-        return view('components.person.genders-form');
+        return view('components.person.countries-form');
     }
 }
