@@ -67,10 +67,17 @@
                                             <li class="menu-item">
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item">
+                                                    <li class="menu-item"> 
+                                                        @if (isset($user) && $user->volunteer)
+                                                        <a href="{{ route('volunteer.edit', $user->volunteer) }}">
+                                                            Edit your Volunteer
+                                                        </a>
+                                                        @else
                                                         <a href="{{ route('volunteer.list') }}">
                                                             Register as a Volunteer
                                                         </a>
+                                                        @endif
+                                                        
                                                     </li>
                                                 </ul>
                                             </li>
