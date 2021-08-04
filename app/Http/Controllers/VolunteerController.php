@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Continent;
-use App\Models\Country;
 use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
@@ -106,13 +105,18 @@ class VolunteerController extends Controller
         return redirect()->route('volunteer.list');
     }
 
+    public function edit(Volunteer $volunteer)
+    {
+        abort(501);
+    }
+
     public function update(Volunteer $volunteer, VolunteerRegister $request)
     {
         die();
 
-        $volunteer->disciplines()->sync(array_keys($discipline));
-        $volunteer->continents()->sync(array_keys($continent));
-        $volunteer->skills()->sync(array_keys($skill));
+        // $volunteer->disciplines()->sync(array_keys($discipline));
+        // $volunteer->continents()->sync(array_keys($continent));
+        // $volunteer->skills()->sync(array_keys($skill));
 
         return;
     }
