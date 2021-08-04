@@ -14,12 +14,10 @@ class GendersForm extends Component
      */
 
     public $genders;
-    public $isSearch;
 
-    public function __construct(bool $isSearch = false)
+    public function __construct(public bool $isSearch = false)
     {
         $this->genders = Gender::all();
-        $this->isSearch = $isSearch;
     }
 
     /**

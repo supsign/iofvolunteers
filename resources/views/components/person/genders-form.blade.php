@@ -5,7 +5,7 @@
         @foreach($genders AS $gender)
             <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
         @endforeach
-        @isset($isSearch)
+        @if($isSearch)
             <option value="3">Doesn't matter</option>
         @endif
     </select>
