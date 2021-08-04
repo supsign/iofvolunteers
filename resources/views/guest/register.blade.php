@@ -407,6 +407,7 @@
                                     <label class="form-check-label" for="iAgreeWithTerms">
                                         I have read and understood the above. *
                                     </label>
+                                    <div class="warn">Mandatory: Please accept the disclaimer.</div>
                                 </div>
                             </div>
 
