@@ -231,7 +231,7 @@
                                 <label class="form-check-label" for="agb">
                                     I have read and understood the above.
                                 </label>
-                                <div class="warn"> Please tick the disclaimer...</div>
+                                <div class="warn"> Mandatory: Please accept the disclaimer.</div>
                             </div>
                         </div>
 
