@@ -9,5 +9,5 @@
             <option value="3">Doesn't matter</option>
         @endif
     </select>
-    <img for="gender" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
+    <img for="gender" class="selectArr selectArrComponents" src="{{ asset('images/selectArr.svg') }}" alt="" />
 </div>

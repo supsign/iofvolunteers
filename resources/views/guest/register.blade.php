@@ -26,7 +26,7 @@
                                     <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="country_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="country_id" class="selectArr selectArrComponents" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -41,7 +41,7 @@
                                     <option value="{{ $gender->id }}">{{ ucfirst($gender->name) }}</option>
                                 @endforeach
                             </select>
-                            <img for="gender_id" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <img for="gender_id" class="selectArr selectArrComponents" src="{{asset('images/selectArr.svg')}}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -403,10 +403,11 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms">
+                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms" required>
                                     <label class="form-check-label" for="iAgreeWithTerms">
                                         I have read and understood the above. *
                                     </label>
+                                    <div class="warn">Mandatory: Please accept the disclaimer.</div>
                                 </div>
                             </div>
 
