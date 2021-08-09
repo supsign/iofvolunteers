@@ -93,30 +93,16 @@
                         </x-slot>
                     </x-language.experience-form>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
+                    <x-person.continents-form>
+                        <x-slot name="title">
                             6. Where to work?
-                            <div class="font-italic">
-                                Do you have a preferred destination?
-                                <br>If not, just tick "Anywhere"
-                            </div>
-                        </h3>
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            Do you have a preferred destination?
+                            <br>If not, just tick "Anywhere"
+                        </x-slot>
 
-                        <div class="form-group" id="selectAny">
-                            <input class="form-check-input checkbox" type="checkbox" value="1" name="AnyName" id="AnyId">
-                            <label class="form-check-label" for="AnyId">
-                                Anywhere
-                            </label>
-                            @foreach($continents AS $continent)
-                                <div class="form-check">
-                                    <input class="form-check-input checkbox" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}">
-                                    <label class="form-check-label" for="continent_{{ $continent->snakeCaseName }}">
-                                        {{ $continent->name }}
-                                    </label>                     
-                                </div>
-                            @endforeach                           
-                        </div>
-                    </div>
+                    </x-person.continents-form>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
