@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <section class="default">
+
     <div class="container">
         <div class="titleWrap">
             <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65" height="65"> Volunteer Registration Form</h1>
@@ -101,15 +102,19 @@
                             </div>
                         </h3>
 
-                        <div class="form-group">
+                        <div class="form-group" id="selectAny">
+                            <input class="form-check-input checkbox" type="checkbox" value="1" name="AnyName" id="AnyId">
+                            <label class="form-check-label" for="AnyId">
+                                Anywhere
+                            </label>
                             @foreach($continents AS $continent)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}">
+                                    <input class="form-check-input checkbox" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}">
                                     <label class="form-check-label" for="continent_{{ $continent->snakeCaseName }}">
                                         {{ $continent->name }}
-                                    </label>
+                                    </label>                     
                                 </div>
-                            @endforeach
+                            @endforeach                           
                         </div>
                     </div>
 

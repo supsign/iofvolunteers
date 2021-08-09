@@ -30,6 +30,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
         <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script src="{{ asset('js/check-all.js') }}"></script>
 
     </head>
 
@@ -256,11 +257,14 @@
                                             <input class="form-control form-control-sm" type="password" name="password" size="20" required="">
                                         </div>
                                     </div>
-                                    <div class="mx-0 form-group row">
-                                        <button type="submit" class="btn btn-primary">Sign in!</button>
-                                        <a href="restore" class="resetPassword-link">
+                                    <div class="mx-0 form-group row d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary w-100">Sign in!</button>
+                                        <a href="register">
+                                            Register
+                                        </a>  
+                                        <a href="restore">
                                             Restore password
-                                        </a>
+                                        </a>                                                                                                     
                                     </div>
                                 </form>
 
