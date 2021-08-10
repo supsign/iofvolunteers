@@ -23,23 +23,23 @@ jQuery(document).ready(function($){
 });
 
 $(document).ready(function(){
-    $('#AnyId').on('click',function(){
+    $('#continentsCheckboxesTrigger').on('click',function(){
         if(this.checked){
-            $('.checkbox').each(function(){
+            $('.continentsCheckboxes').each(function(){
                 this.checked = true;
             });
         }else{
-            $('.checkbox').each(function(){
+            $('.continentsCheckboxes').each(function(){
                 this.checked = false;
             });
         }
     });
     
-    $('.checkbox').on('click',function(){
-        if($('.checkbox:checked').length == $('.checkbox').length){
-            $('#AnyId').prop('checked',true);
+    $('.continentsCheckboxes').on('click',function(){
+        if($('.continentsCheckboxes:checked').length == $('.continentsCheckboxes').length){
+            $('#continentsCheckboxesTrigger').prop('checked',true);
         }else{
-            $('#AnyId').prop('checked',false);
+            $('#continentsCheckboxesTrigger').prop('checked',false);
         }
     });
 });
