@@ -20,9 +20,7 @@ jQuery(document).ready(function($){
             $('body').removeClass('overlay');
         }
     });
-});
 
-$(document).ready(function(){
     $('#continentsCheckboxesTrigger').on('click',function(){
         if(this.checked){
             $('.continentsCheckboxes').each(function(){

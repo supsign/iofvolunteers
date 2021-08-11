@@ -30,7 +30,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
         <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
-        <script src="{{ asset('js/check-all.js') }}"></script>
 
     </head>
 
