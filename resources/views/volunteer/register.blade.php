@@ -8,6 +8,8 @@
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
+        {{-- @dump($errors) --}}
+
         <form method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="">
@@ -21,14 +23,14 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" size="15" required>
+                            <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') }}" size="15" required>
                             <label class="formGroupLabel" for="field_name">Name</label>
                         </div>
 
                         <x-person.countries-form />
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
+                            <input id="field_email" placeholder=" " type="text" name="email" value="{{ old('email') }}" size="15" required>
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                         </div>
 
@@ -49,13 +51,13 @@
                         <x-person.genders-form />
 
                         <div class="form-group">
-                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
+                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="{{ old('birthdate') }}" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
-                            <input id="field_nickname" placeholder=" " type="text" name="nickname" size="15" value="">
+                            <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="warn">optional</div>
                             <div class="warn">if left blank, your name will be assumed as your nickname</div>
@@ -123,7 +125,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder="" type="number" size="3" name="work_duration" id="work_duration" value="">
+                            <input placeholder="" type="number" size="3" name="work_duration" value="{{ old('work_duration') }}" id="work_duration" value="">
                             <label class="formGroupLabel" for="work_duration">weeks</label>
                         </div>
                     </div>
@@ -200,12 +202,12 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
+                        <textarea placeholder="" rows="4" cols="30" name="help" id="help" required>{{ old('help') }}</textarea>
                         <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
                     </div>
 
                     <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation" value=""></textarea>
+                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') }}</textarea>
                         <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                     </div>
 
