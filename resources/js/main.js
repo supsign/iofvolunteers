@@ -20,4 +20,24 @@ jQuery(document).ready(function($){
             $('body').removeClass('overlay');
         }
     });
+
+    $('#continentsCheckboxesTrigger').on('click',function(){
+        if(this.checked){
+            $('.continentsCheckboxes').each(function(){
+                this.checked = true;
+            });
+        }else{
+            $('.continentsCheckboxes').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.continentsCheckboxes').on('click',function(){
+        if($('.continentsCheckboxes:checked').length == $('.continentsCheckboxes').length){
+            $('#continentsCheckboxesTrigger').prop('checked',true);
+        }else{
+            $('#continentsCheckboxesTrigger').prop('checked',false);
+        }
+    });
 });
