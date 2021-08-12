@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') }}" size="15" required>
-                            <label class="formGroupLabel" for="field_name">Name</label>
+                            <label class="formGroupLabel" for="field_name">Name *</label>
                         </div>
 
                         <x-person.countries-form />
@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                             <select size="1" name="driving_licence" id="license" required>
-                                <option disabled selected="" value="">International driving license?</option>
+                                <option disabled selected="" value="">International driving license? *</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
