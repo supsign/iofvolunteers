@@ -9,7 +9,9 @@
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
-        @dump($errors) 
+        @dump($errors)
+        @dump(session()->getOldInput())
+        
 
         <form method="POST" enctype="multipart/form-data">
             @csrf
@@ -87,9 +89,11 @@
 
                         <div class="form-group">
                             <select size="1" name="driving_licence" id="license" required>
-                                <option disabled selected="" value="">International driving license? *</option>
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                @if(!old('driving_licence'))
+                                    <option disabled selected="" value="">International driving license? *</option>
+                                @endif
+                                <option value="1" @if(old('driving_licence') == "1") selected @endif>Yes</option>
+                                <option value="0" @if(old('driving_licence') == "0") selected @endif>No</option>
                             </select>
                             <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                             <div class="mt-3">
