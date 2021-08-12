@@ -803,8 +803,7 @@ form a.resetPassword-link {
 	top: 20px;
 }
 
-/* No Arrow for Number-Input Field */
-
+/* No Arrows/Icons for Number- and Date-Input Field */
 /* Chrome, Safari, Edge, Opera */
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {
@@ -816,6 +815,12 @@ form a.resetPassword-link {
 	input[type=number] {
   		-moz-appearance: textfield;
 	}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}
 
 
 /********************default - end*******************/

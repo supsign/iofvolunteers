@@ -24,7 +24,7 @@ class VolunteerRegister extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'int',
+            'id' => 'int|nullable',
             'name' => 'required|max:191',
             'country_id' => 'int',
             'email' => 'required|email|max:191',
@@ -33,12 +33,12 @@ class VolunteerRegister extends FormRequest
             'nickname' => 'max:191',
             'driving_licence' => 'required|boolean',
             'discipline' => '',
-            'ol_duration' => 'int|size:4',
+            'ol_duration' => 'int',
             'club' => 'max:191',
             'o_experience' => '',
             'language' => '',
             'continent' => '',
-            'work_duration' => 'int',
+            'work_duration' => 'int|nullable',
             'skill' => '',
             'skill_teaching' => '',
             'skill_mapping' => '',

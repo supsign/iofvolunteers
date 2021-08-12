@@ -9,7 +9,7 @@
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
-        {{-- @dump($errors) --}}
+        @dump($errors) 
 
         <form method="POST" enctype="multipart/form-data">
             @csrf
@@ -26,6 +26,11 @@
                         <div class="form-group">
                             <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') }}" size="15" required>
                             <label class="formGroupLabel" for="field_name">Name *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('name') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <x-person.countries-form />
@@ -33,6 +38,11 @@
                         <div class="form-group">
                             <input id="field_email" placeholder=" " type="text" name="email" value="{{ old('email') }}" size="15" required>
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('email') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         {{--
@@ -55,6 +65,12 @@
                             <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="{{ old('birthdate') }}" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('birthdate') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
+
                         </div>
 
                         <div class="form-group">
@@ -62,6 +78,11 @@
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="warn">optional</div>
                             <div class="warn">if left blank, your name will be assumed as your nickname</div>
+                            <div class="mt-3">
+                                @foreach ($errors->get('nickname') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -71,6 +92,11 @@
                                 <option value="0">No</option>
                             </select>
                             <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('driving_licence') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 
@@ -101,7 +127,7 @@
                         </x-slot>
                         <x-slot name="subtitle">
                             Do you have a preferred destination?
-                            <br>If not, just tick "Anywhere"
+                            <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
 
                     </x-person.continents-form>
@@ -118,6 +144,11 @@
                         <div class="form-group">
                             <input placeholder="" type="number" size="3" name="work_duration" value="{{ old('work_duration') }}" id="work_duration" value="">
                             <label class="formGroupLabel" for="work_duration">weeks</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('work_duration') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 

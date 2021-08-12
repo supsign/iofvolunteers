@@ -19,9 +19,9 @@
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="language[{{ $l->id }}]" value="{{ $lp->id }}" id="languages_{{ $l->id }}_{{ $lp->id }}"
                         @if($lp->name === 'none' && !isset($langSelection))
-                           {{-- checked="checked" --}}
+                           checked="checked"
                         @endif
-                        required
+                        
                     >
                     <label class="form-check-label" for="languages_{{ $l->id }}_{{ $lp->id }}">
                         {{$lp->name}}

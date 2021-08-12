@@ -7,4 +7,9 @@
         @endforeach
     </select>
     <img for="country" class="selectArr selectArrComponents" src="{{ asset('images/selectArr.svg') }}" alt="" />
+    <div class="mt-3">
+        @foreach ($errors->get('name') as $message)
+            <div class="alert alert-danger">{{ $message }} </div>
+        @endforeach
+    </div>
 </div>
