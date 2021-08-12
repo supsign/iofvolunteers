@@ -173,6 +173,8 @@
                                     <option value="over 30">over 30</option>
                                 </select>
                                 <img for="" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
+                                {{-- @dump(old('o_work_expirence')[$dutyType->id])
+                                @dump($dutyType->id) --}}
                             </div>
 
                             <div class="form-group">
