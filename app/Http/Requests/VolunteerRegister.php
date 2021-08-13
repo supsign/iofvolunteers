@@ -27,7 +27,7 @@ class VolunteerRegister extends FormRequest
             'id' => 'int|nullable',
             'name' => 'required|max:191',
             'country_id' => 'int',
-            'email' => 'required|email|max:191',
+            'email' => 'required|email:rfc,dns|max:191',
             'gender_id' => 'int',
             'birthdate' => 'required|date',
             'nickname' => 'max:191',
