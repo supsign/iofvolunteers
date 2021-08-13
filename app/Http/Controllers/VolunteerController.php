@@ -111,8 +111,7 @@ class VolunteerController extends Controller
 
     public function update(Volunteer $volunteer, VolunteerRegister $request)
     {
-        die();
-
+        exit();
         // $volunteer->disciplines()->sync(array_keys($discipline));
         // $volunteer->continents()->sync(array_keys($continent));
         // $volunteer->skills()->sync(array_keys($skill));
