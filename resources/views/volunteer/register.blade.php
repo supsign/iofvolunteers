@@ -9,8 +9,8 @@
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
-        @dump($errors)
-        @dump(session()->getOldInput())
+        {{-- @dump($errors)
+        @dump(session()->getOldInput()) --}}
         
 
         <form method="POST" enctype="multipart/form-data">
