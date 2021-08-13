@@ -38,7 +38,7 @@
                         <x-person.countries-form />
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" value="{{ old('email') }}" size="15" required>
+                            <input id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') }}" size="15" required>
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('email') as $message)
@@ -181,7 +181,13 @@
                                 <label class="formGroupLabelStatic">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
+                                        <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}"
+                                            @if(!empty(old('duty')[$dutyType->id][$duty->id]))
+                                                @if((old('duty')[$dutyType->id][$duty->id]) == "1") 
+                                                    checked="checked" 
+                                                @endif
+                                            @endif
+                                        >
                                         <label class="form-check-label" for="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
                                             {{ $duty->name }}
                                         </label>
