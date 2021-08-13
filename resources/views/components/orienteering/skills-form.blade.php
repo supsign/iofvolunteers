@@ -28,7 +28,7 @@
                 </div>
             @endforeach
             <div class="form-group">
-                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="skill_{{ $skilltype->snakeCaseName }}" value="">{{-- old() einfügen --}}</textarea> 
+                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="skill_{{ $skilltype->snakeCaseName }}" value="">{{ old('skill_' . $skilltype->snakeCaseName) }}</textarea> 
                 <label class="formGroupLabel" for="skill_{{ $skilltype->snakeCaseName }}">{{ $skilltype->text }}</label>
             </div>
         </div>
