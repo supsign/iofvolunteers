@@ -15,7 +15,7 @@ class ContinentsForm extends Component
 
     public $continents;
 
-    public function __construct()
+    public function __construct(public $volunteer = null)
     {
         $this->continents = Continent::all();
     }

@@ -15,7 +15,7 @@ class CountriesForm extends Component
 
     public $countries;
 
-    public function __construct()
+    public function __construct(public $volunteer = null)
     {
         $this->countries = Country::all();
     }

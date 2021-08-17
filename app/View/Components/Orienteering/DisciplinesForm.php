@@ -15,7 +15,7 @@ class DisciplinesForm extends Component
 
     public $disciplines;
 
-    public function __construct()
+    public function __construct(public $volunteer = null)
     {
         $this->disciplines = Discipline::all();
     }

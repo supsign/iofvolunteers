@@ -106,18 +106,67 @@ class VolunteerController extends Controller
 
     public function edit(Volunteer $volunteer)
     {
-        abort(501);
+        if (!Auth::user()->volunteer) {
+            return redirect()->route('volunteer.registerForm');
+        }
+
+        return view('volunteer.edit',[
+            'volunteer' => $volunteer,
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyTypes::all(),
+            'duties' => Duty::all()
+        ]);
     }
 
     public function update(Volunteer $volunteer, VolunteerRegister $request)
     {
-        die();
-
         // $volunteer->disciplines()->sync(array_keys($discipline));
         // $volunteer->continents()->sync(array_keys($continent));
         // $volunteer->skills()->sync(array_keys($skill));
 
-        return;
+        $data = $request->all();
+
+        unset($data['_token']);
+        unset($data['agb']);
+
+        foreach (['o_experience', 'o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+            $$key = Helper::exractElementByKey($data, $key);
+        }
+
+        foreach ($o_experience as $key => $value) {
+            $data[$key.'_experience_id'] = $value;
+        }
+
+        if (isset($o_work_expirence[1])) {
+            $data['o_work_expirence_local'] = $o_work_expirence[1];
+        }
+
+        if (isset($o_work_expirence[2])) {
+            $data['o_work_expirence_international'] = $o_work_expirence[2];
+        }
+
+        if (empty($data['nickname'])) {
+            $data['nickname'] = $data['name'];
+        }
+
+        $volunteer = Volunteer::create($data);
+
+        Auth::user()->volunteer_id = $volunteer->id;
+        Auth::user()->save();
+
+        foreach ($language as $key => $value) {
+            $volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
+        }
+
+        $volunteer->disciplines()->attach(array_keys($discipline));
+        $volunteer->continents()->attach(array_keys($continent));
+        $volunteer->skills()->attach(array_keys($skill));
+
+        foreach ($duty as $key => $values) {
+            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        }
+
+        return redirect()->route('volunteer.list');
     }
 
 
