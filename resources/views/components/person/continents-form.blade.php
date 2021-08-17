@@ -20,12 +20,19 @@
             Anywhere
         </label>
         @foreach($continents AS $continent)
+        {{-- @dump($volunteer->continents->contains($continent)) --}}
+         @php
+            if(isset($volunteer)) {
+                $oldContinents= !empty(old('continent')[$continent->id]) ? old('continent')[$continent->id] : $volunteer->continents->contains($continent);
+            }
+            else {
+                $oldContinents= !empty(old('continent')[$continent->id]) ? old('continent')[$continent->id] : null;
+            }
+        @endphp
             <div class="form-check">
                 <input class="form-check-input continentsCheckboxes" type="checkbox" value="1" name="continent[{{ $continent->id }}]" id="continent_{{ $continent->snakeCaseName }}"
-                    @if(!empty(old('continent')[$continent->id]))
-                        @if((old('continent')[$continent->id]) == "1") 
-                            checked="checked" 
-                        @endif
+                    @if($oldContinents) 
+                        checked="checked" 
                     @endif
                 >
                 <label class="form-check-label" for="continent_{{ $continent->snakeCaseName }}">

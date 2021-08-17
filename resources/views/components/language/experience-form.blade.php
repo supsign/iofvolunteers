@@ -8,16 +8,16 @@
     </h3>
     @endisset
     
-   
+  
     @foreach($languages as $l)
-         @dump($volunteer->languageVolunteers)
+          {{-- @dump($volunteer->languages->contains($l)) --}}
         <div class="form-group form-inline">
             @php
             if(isset($volunteer)) {
-                $oldExperience= !empty(old('language')[$l->id]) ? old('language')[$l->id] : null ;
+                $oldLanguage= !empty(old('language')[$l->id]) ? old('language')[$l->id] : $volunteer->languages->contains($l) ;
             }
             else {
-                $oldExperience= !empty(old('language')[$l->id]) ? old('language')[$l->id] : null;
+                $oldLanguage= !empty(old('language')[$l->id]) ? old('language')[$l->id] : null;
             }
         @endphp
             

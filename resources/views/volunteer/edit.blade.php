@@ -109,7 +109,7 @@
                         </x-slot>
                     </x-language.experience-form>
 
-                    <x-person.continents-form>
+                    <x-person.continents-form :volunteer=$volunteer>
                         <x-slot name="title">
                             6. Where to work?
                         </x-slot>
