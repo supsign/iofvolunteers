@@ -7,9 +7,20 @@
         @endisset
     </h3>
     @endisset
-
+    
+   
     @foreach($languages as $l)
+         @dump($volunteer->languageVolunteers)
         <div class="form-group form-inline">
+            @php
+            if(isset($volunteer)) {
+                $oldExperience= !empty(old('language')[$l->id]) ? old('language')[$l->id] : null ;
+            }
+            else {
+                $oldExperience= !empty(old('language')[$l->id]) ? old('language')[$l->id] : null;
+            }
+        @endphp
+            
             <div class="form-check">
                 <label class="form-check-label">
                     {{ $l->name }}

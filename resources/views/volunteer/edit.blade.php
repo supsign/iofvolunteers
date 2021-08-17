@@ -100,7 +100,7 @@
                         </x-slot>
                     </x-orienteering.competitor-experience-form>
 
-                    <x-language.experience-form>
+                    <x-language.experience-form :volunteer=$volunteer>
                         <x-slot name="title">
                             5. Languages
                         </x-slot>
