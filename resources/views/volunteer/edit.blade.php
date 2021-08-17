@@ -18,7 +18,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') ?: $volunteer->name }}" size="15" required>
+                            <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') ?? $volunteer?->name }}" size="15" required>
                             <label class="formGroupLabel" for="field_name">Name *</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('name') as $message)
@@ -30,7 +30,7 @@
                         <x-person.countries-form :volunteer=$volunteer/>
 
                         <div class="form-group">
-                            <input disabled id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') ?: $volunteer->email }}" size="15">
+                            <input disabled id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') ?? $volunteer?->email }}" size="15">
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('email') as $message)
@@ -48,7 +48,7 @@
                         <x-person.genders-form :volunteer=$volunteer/>
 
                         <div class="form-group">
-                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="{{ old('birthdate') ?: $volunteer->birthdate }}" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
+                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="{{ old('birthdate') ?? $volunteer?->birthdate }}" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
                             <div class="mt-3">
@@ -58,9 +58,9 @@
                             </div>
 
                         </div>
-
+                        @dump($volunteer)
                         <div class="form-group">
-                            <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') ?: $volunteer->nickname }}" size="15" value="">
+                            <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') ?? $volunteer?->nickname }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="mt-3">
                                 @foreach ($errors->get('nickname') as $message)
@@ -72,12 +72,11 @@
                         <div class="form-group">
                             <div class="warn">International driving license</div>
                             <select size="1" name="driving_licence" id="license" required>
-                                
                                 @if(!old('driving_licence'))
                                     <option disabled selected="" value="">International driving license? *</option>
                                 @endif
-                                <option value="1" @if(!is_null(old('driving_licence')) ? old('driving_licence') : $volunteer->driving_licence) selected @endif>Yes</option>
-                                <option value="0" @if(!is_null(old('driving_licence')) ? old('driving_licence') : $volunteer->driving_licence) selected @endif>No</option>
+                                <option value="1" @if(old('driving_licence') ?? $volunteer?->driving_licence) selected @endif>Yes</option>
+                                <option value="0" @if(old('driving_licence') ?? $volunteer?->driving_licence) selected @endif>No</option>
                             </select>
                             <img for="license" class="selectArr selectArrComponents" src="{{ asset('images/selectArr.svg') }}" alt="" />
                             <div class="mt-3">
@@ -130,7 +129,7 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder="" type="number" size="3" name="work_duration" value="{{ old('work_duration') ?: $volunteer->work_duration }}" id="work_duration" value="">
+                            <input placeholder="" type="number" size="3" name="work_duration" value="{{ old('work_duration') ?? $volunteer?->work_duration }}" id="work_duration" value="">
                             <label class="formGroupLabel" for="work_duration">weeks</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('work_duration') as $message)
@@ -140,7 +139,7 @@
                         </div>
                     </div>
 
-                    <x-orienteering.skills-form />
+                    <x-orienteering.skills-form :volunteer=$volunteer/>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
@@ -162,13 +161,19 @@
                             <div class="form-group">
                                 <label class="formGroupLabelStatic">Duties:</label>
                                 @foreach($duties AS $duty)
+                                    @php
+                                        if(isset($volunteer)) {
+                                            $oldDuties= !empty(old('duty')[$dutyType->id]) ? old('duty')[$dutyType->id] : $volunteer->duties->contains($duty);
+                                        }
+                                        else {
+                                            $oldDuties= !empty(old('duty')[$dutyType->id]) ? old('duty')[$dutyType->id] : null;
+                                        }
+                                    @endphp
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}"
-                                            @if(!empty(old('duty')[$dutyType->id][$duty->id]))
-                                                @if((old('duty')[$dutyType->id][$duty->id]) == "1") 
+                                                @if($oldDuties) 
                                                     checked="checked" 
                                                 @endif
-                                            @endif
                                         >
                                         <label class="form-check-label" for="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
                                             {{ $duty->name }}
@@ -198,9 +203,6 @@
                     </div>
                     <input class="ml-auto" type="submit" value="Safe changes">
                 </div>
-                {{-- <div class="col-12 col-md-6">
-                
-                </div> --}}
             </div>
         </form>
 

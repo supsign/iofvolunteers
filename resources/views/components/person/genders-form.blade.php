@@ -1,6 +1,6 @@
 <div class="form-group">
     <div class="warn">Gender</div>
-    @dump($volunteer)
+    {{-- @dump($volunteer) --}}
     <select size="1" name="gender_id" id="gender">
         @php
             if(isset($volunteer)) {

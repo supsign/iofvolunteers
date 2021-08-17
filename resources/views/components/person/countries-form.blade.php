@@ -9,7 +9,7 @@
                 $oldCountry= old('country_id');
             }
         @endphp     
-        @if($oldCountry)
+        @if(!$oldCountry)
             <option selected disabled>Country</option>
         @endif
         @foreach($countries AS $country)
