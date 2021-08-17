@@ -58,7 +58,7 @@
                             </div>
 
                         </div>
-                        @dump($volunteer)
+                        
                         <div class="form-group">
                             <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') ?? $volunteer?->nickname }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
@@ -75,8 +75,8 @@
                                 @if(!old('driving_licence'))
                                     <option disabled selected="" value="">International driving license? *</option>
                                 @endif
-                                <option value="1" @if(old('driving_licence') ?? $volunteer?->driving_licence) selected @endif>Yes</option>
-                                <option value="0" @if(old('driving_licence') ?? $volunteer?->driving_licence) selected @endif>No</option>
+                                <option value="1" @if(!empty(old('driving_licence')) || $volunteer?->driving_licence =="1") selected @endif>Yes</option>
+                                <option value="0" @if(!empty(old('driving_licence')) || $volunteer?->driving_licence =="0") selected @endif>No</option>
                             </select>
                             <img for="license" class="selectArr selectArrComponents" src="{{ asset('images/selectArr.svg') }}" alt="" />
                             <div class="mt-3">
