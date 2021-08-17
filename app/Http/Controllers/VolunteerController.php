@@ -118,7 +118,7 @@ class VolunteerController extends Controller
         ]);
     }
 
-    public function update(Volunteer $volunteer, VolunteerRegister $request)
+    public function update(VolunteerRegister $request)
     {
         // $volunteer->disciplines()->sync(array_keys($discipline));
         // $volunteer->continents()->sync(array_keys($continent));
