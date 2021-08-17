@@ -6,8 +6,9 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Edit Volunteer</h1>
         </div>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" action=" {{ route('volunteer.update') }} ">
             @csrf
+            @method("PATCH")
             <input type="hidden" name="id" value="">
 
             <div class="row">
@@ -30,7 +31,7 @@
                         <x-person.countries-form :volunteer=$volunteer/>
 
                         <div class="form-group">
-                            <input disabled id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') ?? $volunteer?->email }}" size="15">
+                            <input id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') ?? $volunteer?->email }}" size="15">
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('email') as $message)
@@ -75,8 +76,8 @@
                                 @if(!old('driving_licence'))
                                     <option disabled selected="" value="">International driving license? *</option>
                                 @endif
-                                <option value="1" @if(!empty(old('driving_licence')) || $volunteer?->driving_licence =="1") selected @endif>Yes</option>
-                                <option value="0" @if(!empty(old('driving_licence')) || $volunteer?->driving_licence =="0") selected @endif>No</option>
+                                <option value="1" @if(!empty(old('driving_licence')) == "1" || $volunteer?->driving_licence =="1") selected @endif>Yes</option>
+                                <option value="0" @if(!empty(old('driving_licence')) == "1" || $volunteer?->driving_licence =="0") selected @endif>No</option>
                             </select>
                             <img for="license" class="selectArr selectArrComponents" src="{{ asset('images/selectArr.svg') }}" alt="" />
                             <div class="mt-3">
@@ -198,7 +199,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') ?: $volunteer->nickname }}</textarea>
+                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') ?: $volunteer->expectation }}</textarea>
                         <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                     </div>
                     <input class="ml-auto" type="submit" value="Safe changes">
