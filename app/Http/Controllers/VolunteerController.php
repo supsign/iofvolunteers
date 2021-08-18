@@ -149,15 +149,17 @@ class VolunteerController extends Controller
         $volunteer->update($data);
 
         foreach ($language as $key => $value) {
-            $volunteer->languages()->sync($key, ['language_proficiency_id' => $value]);
+            $languagesForSync[$key] = ['language_proficiency_id' => $value];
         }
+
+        $volunteer->languages()->sync($languagesForSync);
 
         $volunteer->disciplines()->sync(array_keys($discipline));
         $volunteer->continents()->sync(array_keys($continent));
         $volunteer->skills()->sync(array_keys($skill));
 
         foreach ($duty as $key => $values) {
-            $volunteer->duties()->sync(array_keys($values), ['duty_type_id' => $key]);
+            $volunteer->duties()->syncWithPivotValues(array_keys($values), ['duty_type_id' => $key]);
         }
 
         return redirect()->route('volunteer.list');
