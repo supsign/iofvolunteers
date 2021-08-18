@@ -9,37 +9,35 @@ use Illuminate\Http\Request;
 
 class HostController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware('auth');
     }
-	
-	public function registerForm() 
-	{
-		return view('host.register', ['countries' => Country::all()]);
-	}
+    
+    public function registerForm()
+    {
+        return view('host.register', ['countries' => Country::all()]);
+    }
 
-	public function searchForm() 
-	{
-		return view('host.search');
-	}
+    public function searchForm()
+    {
+        return view('host.search');
+    }
 
-	public function register(HostRegister $request) 
-	{
-		die();
+    public function register(HostRegister $request)
+    {
+        exit();
 
-		return Host::create($request->validated());
-	}
+        return Host::create($request->validated());
+    }
 
-	public function update(Host $host, HostRegister $request)
-	{
-		die();
+    public function update(Host $host, HostRegister $request)
+    {
+        exit();
+        return Host::update($request->validated());
+    }
 
-		return Host::update($request->validated());
-	}
-
-	public function search() 
-	{
-
-	}
+    public function search()
+    {
+    }
 }
