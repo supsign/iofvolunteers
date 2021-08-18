@@ -12,7 +12,7 @@ class CompetitorExperienceForm extends Component
      * @return void
      */
 
-    public function __construct()
+    public function __construct(public $volunteer = null)
     {
 
     }

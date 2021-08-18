@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VolunteerRegister extends FormRequest
+class VolunteerEdit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -49,7 +49,6 @@ class VolunteerRegister extends FormRequest
             'duty' => '',
             'help' => '',
             'expectation' => '',
-            'agb' => 'required|boolean',
         ];
     }
 }

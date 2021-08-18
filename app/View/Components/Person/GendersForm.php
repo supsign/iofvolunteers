@@ -3,6 +3,7 @@
 namespace App\View\Components\Person;
 
 use App\Models\Gender;
+use App\Models\Volunteer;
 use Illuminate\View\Component;
 
 class GendersForm extends Component
@@ -15,9 +16,10 @@ class GendersForm extends Component
 
     public $genders;
 
-    public function __construct(public bool $isSearch = false)
+    public function __construct(public bool $isSearch = false, public $volunteer = null)
     {
         $this->genders = Gender::all();
+
     }
 
     /**

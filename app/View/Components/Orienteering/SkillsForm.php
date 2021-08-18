@@ -17,7 +17,7 @@ class SkillsForm extends Component
     public $skilltypes;
     public $skills;
 
-    public function __construct()
+    public function __construct(public $volunteer = null)
     {
         $this->skilltypes = SkillType::all();
         $this->skills = Skill::all();

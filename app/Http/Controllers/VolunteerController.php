@@ -8,6 +8,7 @@ use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Volunteer;
+use App\Http\Requests\VolunteerEdit;
 use App\Http\Requests\VolunteerRegister;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -106,17 +107,63 @@ class VolunteerController extends Controller
 
     public function edit(Volunteer $volunteer)
     {
-        abort(501);
+        if (!Auth::user()->volunteer) {
+            return redirect()->route('volunteer.registerForm');
+        }
+
+        return view('volunteer.edit',[
+            'volunteer' => $volunteer,
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyTypes::all(),
+            'duties' => Duty::all()
+        ]);
     }
 
-    public function update(Volunteer $volunteer, VolunteerRegister $request)
+    public function update(Volunteer $volunteer, VolunteerEdit $request)
     {
-        exit();
-        // $volunteer->disciplines()->sync(array_keys($discipline));
-        // $volunteer->continents()->sync(array_keys($continent));
-        // $volunteer->skills()->sync(array_keys($skill));
+        $data = $request->all();
 
-        return;
+        unset($data['_token']);
+        unset($data['agb']);
+
+
+        foreach (['o_experience', 'o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+            $$key = Helper::exractElementByKey($data, $key);
+        }
+
+        foreach ($o_experience as $key => $value) {
+            $data[$key.'_experience_id'] = $value;
+        }
+
+        if (isset($o_work_expirence[1])) {
+            $data['o_work_expirence_local'] = $o_work_expirence[1];
+        }
+
+        if (isset($o_work_expirence[2])) {
+            $data['o_work_expirence_international'] = $o_work_expirence[2];
+        }
+
+        if (empty($data['nickname'])) {
+            $data['nickname'] = $data['name'];
+        }
+
+        $volunteer->update($data);
+
+        foreach ($language as $key => $value) {
+            $languagesForSync[$key] = ['language_proficiency_id' => $value];
+        }
+
+        $volunteer->languages()->sync($languagesForSync);
+
+        $volunteer->disciplines()->sync(array_keys($discipline));
+        $volunteer->continents()->sync(array_keys($continent));
+        $volunteer->skills()->sync(array_keys($skill));
+
+        foreach ($duty as $key => $values) {
+            $volunteer->duties()->syncWithPivotValues(array_keys($values), ['duty_type_id' => $key]);
+        }
+
+        return redirect()->route('volunteer.list');
     }
 
 
