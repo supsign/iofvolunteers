@@ -9,6 +9,10 @@
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
         </div>
 
+        {{-- @dump($errors)
+        @dump(session()->getOldInput()) --}}
+        
+
         <form method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="">
@@ -22,15 +26,25 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" size="15" required>
-                            <label class="formGroupLabel" for="field_name">Name</label>
+                            <input id="field_name" placeholder=" " type="text" name="name" value="{{ old('name') }}" size="15" required>
+                            <label class="formGroupLabel" for="field_name">Name *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('name') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <x-person.countries-form />
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" size="15" required>
+                            <input id="field_email" placeholder=" " type="email" name="email" value="{{ old('email') }}" size="15" required>
                             <label class="formGroupLabel" for="field_email">E-mail *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('email') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         {{--
@@ -50,25 +64,43 @@
                         <x-person.genders-form />
 
                         <div class="form-group">
-                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
+                            <input id="field_birthdate" placeholder=" " type="text" name="birthdate" size="15" value="{{ old('birthdate') }}" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" required>
                             <label class="formGroupLabel" for="field_birthdate">Date of birth (yyyy-mm-dd) *</label>
                             <img for="field_birthdate" class="selectArr v2" src="{{ asset('images/calendarIcon.svg') }}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('birthdate') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
+
                         </div>
 
                         <div class="form-group">
-                            <input id="field_nickname" placeholder=" " type="text" name="nickname" size="15" value="">
+                            <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
                             <div class="warn">optional</div>
                             <div class="warn">if left blank, your name will be assumed as your nickname</div>
+                            <div class="mt-3">
+                                @foreach ($errors->get('nickname') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <select size="1" name="driving_licence" id="license" required>
-                                <option disabled selected="" value="">International driving license?</option>
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                @if(!old('driving_licence'))
+                                    <option disabled selected="" value="">International driving license? *</option>
+                                @endif
+                                <option value="1" @if(old('driving_licence') == "1") selected @endif>Yes</option>
+                                <option value="0" @if(old('driving_licence') == "0") selected @endif>No</option>
                             </select>
                             <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('driving_licence') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 
@@ -99,7 +131,7 @@
                         </x-slot>
                         <x-slot name="subtitle">
                             Do you have a preferred destination?
-                            <br>If not, just tick "Anywhere"
+                            <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
 
                     </x-person.continents-form>
@@ -114,8 +146,13 @@
                         </h3>
 
                         <div class="form-group">
-                            <input placeholder="" type="number" size="3" name="work_duration" id="work_duration" value="">
+                            <input placeholder="" type="number" size="3" name="work_duration" value="{{ old('work_duration') }}" id="work_duration" value="">
                             <label class="formGroupLabel" for="work_duration">weeks</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('work_duration') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 
@@ -136,13 +173,21 @@
                                     <option value="over 30">over 30</option>
                                 </select>
                                 <img for="" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
+                                {{-- @dump(old('o_work_expirence')[$dutyType->id])
+                                @dump($dutyType->id) --}}
                             </div>
 
                             <div class="form-group">
                                 <label class="formGroupLabelStatic">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
+                                        <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}"
+                                            @if(!empty(old('duty')[$dutyType->id][$duty->id]))
+                                                @if((old('duty')[$dutyType->id][$duty->id]) == "1") 
+                                                    checked="checked" 
+                                                @endif
+                                            @endif
+                                        >
                                         <label class="form-check-label" for="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}">
                                             {{ $duty->name }}
                                         </label>
@@ -191,12 +236,12 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="help" id="help" value="" required></textarea>
+                        <textarea placeholder="" rows="4" cols="30" name="help" id="help" required>{{ old('help') }}</textarea>
                         <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
                     </div>
 
                     <div class="form-group">
-                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation" value=""></textarea>
+                        <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') }}</textarea>
                         <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                     </div>
 

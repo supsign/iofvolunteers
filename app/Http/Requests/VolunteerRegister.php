@@ -24,7 +24,33 @@ class VolunteerRegister extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'int|nullable',
+            'name' => 'required|max:191',
+            'country_id' => 'int',
+            'email' => 'required|email:rfc,dns|max:191',
+            'gender_id' => 'int',
+            'birthdate' => 'required|date',
+            'nickname' => 'max:191',
+            'driving_licence' => 'required|boolean',
+            'discipline' => '',
+            'ol_duration' => 'int',
+            'club' => 'max:191',
+            'o_experience' => '',
+            'language' => '',
+            'continent' => '',
+            'work_duration' => 'int|nullable',
+            'skill' => '',
+            'skill_teaching' => '',
+            'skill_mapping' => '',
+            'skill_coaching' => '',
+            'skill_event_organising' => '',
+            'skill_it' => '',
+            'skill_other' => '',
+            'o_work_expirence' => '',
+            'duty' => '',
+            'help' => '',
+            'expectation' => '',
+            'agb' => 'required|boolean',
         ];
     }
 }

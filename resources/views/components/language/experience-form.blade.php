@@ -18,15 +18,27 @@
             @foreach ($languageProficiencies as $lp )
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="language[{{ $l->id }}]" value="{{ $lp->id }}" id="languages_{{ $l->id }}_{{ $lp->id }}"
-                        @if($lp->name === 'none' && !isset($langSelection))
-                        checked="checked"    
+                    @if(!empty(old('language')[$l->id]))
+                        @if((old('language')[$l->id]) == $lp->id) 
+                            checked="checked" 
                         @endif
+
+                    @else 
+                        @if($lp->name === 'none'))
+                            checked="checked"
+                        @endif
+                    @endif
+                                    
                     >
                     <label class="form-check-label" for="languages_{{ $l->id }}_{{ $lp->id }}">
                         {{$lp->name}}
                     </label>
+                      
                 </div>
             @endforeach
+            {{-- @dump(old('language')[$l->id])
+            @dump($lp->id) --}}
+
         </div>
     @endforeach
 
