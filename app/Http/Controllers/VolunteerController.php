@@ -8,6 +8,7 @@ use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Volunteer;
+use App\Http\Requests\VolunteerEdit;
 use App\Http\Requests\VolunteerRegister;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -118,12 +119,8 @@ class VolunteerController extends Controller
         ]);
     }
 
-    public function update(VolunteerRegister $request)
+    public function update(Volunteer $volunteer, VolunteerEdit $request)
     {
-        // $volunteer->disciplines()->sync(array_keys($discipline));
-        // $volunteer->continents()->sync(array_keys($continent));
-        // $volunteer->skills()->sync(array_keys($skill));
-
         $data = $request->all();
 
         unset($data['_token']);
@@ -149,21 +146,18 @@ class VolunteerController extends Controller
             $data['nickname'] = $data['name'];
         }
 
-        $volunteer = Volunteer::create($data);
-
-        Auth::user()->volunteer_id = $volunteer->id;
-        Auth::user()->save();
+        $volunteer->update($data);
 
         foreach ($language as $key => $value) {
-            $volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
+            $volunteer->languages()->sync($key, ['language_proficiency_id' => $value]);
         }
 
-        $volunteer->disciplines()->attach(array_keys($discipline));
-        $volunteer->continents()->attach(array_keys($continent));
-        $volunteer->skills()->attach(array_keys($skill));
+        $volunteer->disciplines()->sync(array_keys($discipline));
+        $volunteer->continents()->sync(array_keys($continent));
+        $volunteer->skills()->sync(array_keys($skill));
 
         foreach ($duty as $key => $values) {
-            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+            $volunteer->duties()->sync(array_keys($values), ['duty_type_id' => $key]);
         }
 
         return redirect()->route('volunteer.list');

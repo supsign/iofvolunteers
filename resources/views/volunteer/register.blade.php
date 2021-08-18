@@ -7,16 +7,11 @@
             <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65" height="65"> Volunteer Registration Form</h1>
 
             <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
-        </div>
-
-        {{-- @dump($errors)
-        @dump(session()->getOldInput()) --}}
-        
+        </div>        
 
         <form method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="">
-            {{-- <input type="hidden" name="MAX_FILE_SIZE" value="{{ MAX_FILE_SIZE }}" /> --}}
 
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -46,14 +41,6 @@
                                 @endforeach
                             </div>
                         </div>
-
-                        {{--
-                        <div class="form-group">
-                            <input id="field_phone" placeholder=" " type="text" name="phone" value="" size="15">
-                            <label class="formGroupLabel" for="field_phone">Phone </label>
-                            <div class="warn">(optional)</div>
-                        </div>
-                        --}}
                     </div>
 
                     <div class="formSection">
@@ -173,8 +160,6 @@
                                     <option value="over 30">over 30</option>
                                 </select>
                                 <img for="" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                                {{-- @dump(old('o_work_expirence')[$dutyType->id])
-                                @dump($dutyType->id) --}}
                             </div>
 
                             <div class="form-group">
@@ -208,13 +193,13 @@
                             <div class="warn">Required for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
 
-@if(isset($maps) && $maps)
-                                    <p>Already loaded maps:
-@foreach($maps AS $key => $map)
-                                            <a href="" target="_blank">Map {{ ++$key }}</a>
-                            @endforeach
-                            <br /><span class="warn">New maps will erase previously loaded</span>
-                            </p>
+                            @if(isset($maps) && $maps)
+                                <p>Already loaded maps:
+                                @foreach($maps AS $key => $map)
+                                    <a href="" target="_blank">Map {{ ++$key }}</a>
+                                @endforeach
+                                <br /><span class="warn">New maps will erase previously loaded</span>
+                                </p>
                             @endif
                         </div>
 

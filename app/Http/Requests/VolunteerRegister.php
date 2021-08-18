@@ -24,7 +24,6 @@ class VolunteerRegister extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'int|nullable',
             'name' => 'required|max:191',
             'country_id' => 'int',
             'email' => 'required|email:rfc,dns|max:191',

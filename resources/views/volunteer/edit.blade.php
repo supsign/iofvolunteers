@@ -6,10 +6,9 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Edit Volunteer</h1>
         </div>
 
-        <form method="POST" enctype="multipart/form-data" action=" {{ route('volunteer.update') }} ">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
             @csrf
             @method("PATCH")
-            <input type="hidden" name="id" value="">
 
             <div class="row">
                 <div class="col-12">
@@ -202,7 +201,7 @@
                         <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') ?: $volunteer->expectation }}</textarea>
                         <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
                     </div>
-                    <input class="ml-auto" type="submit" value="Safe changes">
+                    <input class="ml-auto" type="submit" value="Save changes">
                 </div>
             </div>
         </form>
