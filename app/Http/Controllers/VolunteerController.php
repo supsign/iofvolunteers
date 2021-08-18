@@ -60,7 +60,7 @@ class VolunteerController extends Controller
 
     public function register(VolunteerRegister $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         unset($data['_token']);
         unset($data['agb']);
@@ -121,7 +121,7 @@ class VolunteerController extends Controller
 
     public function update(Volunteer $volunteer, VolunteerEdit $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         unset($data['_token']);
         unset($data['agb']);
