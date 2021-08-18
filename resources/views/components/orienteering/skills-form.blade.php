@@ -5,7 +5,7 @@
             Details are <b>required</b> if skill is ticked)
         </div>
     </h3>
-    @dump($volunteer)
+
     @foreach($skilltypes as $skilltype)
         <div class="form-group">
 
@@ -35,16 +35,20 @@
                 </div>
             @endforeach
 
-            {{-- @php
+            @php
                 if(isset($volunteer)) {
                     $oldSkilltypeText= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : $volunteer->skilltypes->contains($skilltype);
+                    $fieldDB="skill_".$skilltype->snakeCaseName;
+                    $fieldQuery=$volunteer->$fieldDB;
+                    // @dump($volunteer->$fieldDB);
+                    // @dump($fieldDB);
                 }
                 else {
                     $oldSkilltypeText= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : null;
                 }
-            @endphp --}}
+            @endphp
             <div class="form-group">
-                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="skill_{{ $skilltype->snakeCaseName }}" value="">{{ old('skill_' . $skilltype->snakeCaseName)  }}</textarea> 
+                <textarea placeholder=" " rows="2" cols="30" name="skill_{{ $skilltype->snakeCaseName }}" id="skill_{{ $skilltype->snakeCaseName }}" value="">{{ $fieldQuery  }}</textarea> 
                 <label class="formGroupLabel" for="skill_{{ $skilltype->snakeCaseName }}">{{ $skilltype->text }}</label>
             </div>
         </div>
