@@ -44,7 +44,7 @@
                     // @dump($fieldDB);
                 }
                 else {
-                    $oldSkilltypeText= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : null;
+                    $fieldQuery= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : null;
                 }
             @endphp
             <div class="form-group">
