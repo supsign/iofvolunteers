@@ -172,7 +172,6 @@
 		padding: 0;
 		line-height: 1.3;
 		font-weight: 400;
-		min-height: 100vh;
 
 		-webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
 	}
@@ -824,15 +823,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 /********************default - end*******************/
-
-
-
-
-
-
-
-
-
-
-
-
