@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Orienteering;
 
+use App\Models\BaseModel;
 use Illuminate\View\Component;
 
 class CompetitorExperienceForm extends Component
@@ -12,7 +13,7 @@ class CompetitorExperienceForm extends Component
      * @return void
      */
 
-    public function __construct(public $volunteer = null)
+    public function __construct(public BaseModel|null $item = null)
     {
 
     }

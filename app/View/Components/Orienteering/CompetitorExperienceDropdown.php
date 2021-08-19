@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Orienteering;
 
+use App\Models\BaseModel;
 use App\Models\Experience;
 use Illuminate\View\Component;
 
@@ -15,7 +16,7 @@ class CompetitorExperienceDropdown extends Component
 
     public $experiences;
 
-    public function __construct()
+    public function __construct(public BaseModel|null $item = null)
     {
         $this->experiences = Experience::all();
     }
