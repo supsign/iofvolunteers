@@ -3,7 +3,7 @@
     <h3 class="formSectionTitle">
         {{ $title }}
         @isset($subtitle)
-            <div class="font-italic"> {{ $subtitle }}</div>
+            <div class="formSubtitle2"> {{ $subtitle }}</div>
         @endisset
     </h3>
     @endisset

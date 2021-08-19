@@ -1,7 +1,7 @@
 <div class="formSection">
     <h3 class="formSectionTitle">
         8. Skills
-        <div class="warn"> &nbsp;(Please tick all relevant to you.
+        <div class="warn">(Please tick all relevant to you.
             Details are <b>required</b> if skill is ticked)
         </div>
     </h3>
@@ -9,10 +9,11 @@
     @foreach($skilltypes as $skilltype)
         <div class="form-group">
 
-            <div class="formGroupLabelStatic">* {{ $skilltype->name }}</div>
-            @isset($skilltype->warn)
-                <div class="warn">{{ $skilltype->warn }}</div>
-            @endisset
+            <div class="formSubtitle2">{{ $skilltype->name }} *
+                @isset($skilltype->warn)
+                    <div class="font-weight-normal">{{ $skilltype->warn }}</div>
+                @endisset
+            </div>
 
             @foreach($skills->where('skill_type_id', $skilltype->id) as $skill )
             @php

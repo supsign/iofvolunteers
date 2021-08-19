@@ -65,8 +65,8 @@
                         <div class="form-group">
                             <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
-                            <div class="warn">optional</div>
-                            <div class="warn">if left blank, your name will be assumed as your nickname</div>
+                            <div class="font-weight-normal">optional</div>
+                            <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             <div class="mt-3">
                                 @foreach ($errors->get('nickname') as $message)
                                     <div class="alert alert-danger">{{ $message }} </div>
@@ -126,7 +126,7 @@
                     <div class="formSection">
                         <h3 class="formSectionTitle">
                             7. Timing
-                            <div class="font-italic">
+                            <div class="formSubtitle2">
                                 For how long can you work?
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </div>
@@ -163,7 +163,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="formGroupLabelStatic">Duties:</label>
+                                <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="1" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" id="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}"
@@ -189,7 +189,7 @@
 
                         <div class="form-group">
                             {{--
-                            <label class="formGroupLabelStatic">Skilled in mapping? Upload your "best" maps here...</label>
+                            <label class="formSubtitle2">Skilled in mapping? Upload your "best" maps here...</label>
                             <div class="warn">Required for mappers!
                                 <br>(At most 3 maps in PDF format, max file size is 2 Mb)
 
