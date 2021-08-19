@@ -6,7 +6,7 @@
             <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add3.svg')}}" width="65" height="65"> Project Registration Form</h1>
         </div>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" action="" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="">
 
