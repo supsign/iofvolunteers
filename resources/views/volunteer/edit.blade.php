@@ -10,6 +10,8 @@
             @csrf
             @method("PATCH")
 
+            @dump($errors)
+
             <div class="row">
                 <div class="col-12">
                     <div class="formSection">
@@ -93,7 +95,7 @@
                         </x-slot>
                     </x-orienteering.disciplines-form>
 
-                    <x-orienteering.competitor-experience-form :volunteer=$volunteer>
+                    <x-orienteering.competitor-experience-form :item=$volunteer>
                         <x-slot name="title">
                             4. O-Experience
                         </x-slot>
