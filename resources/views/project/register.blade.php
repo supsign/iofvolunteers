@@ -18,8 +18,8 @@
                         </h3>
 
                         <div class="form-group">
-                            <input id="field_name" placeholder=" " type="text" name="name" size="20">
-                            <label class="formGroupLabel"  for="field_name">Name of the organisation</label>
+                            <input id="field_name" placeholder=" " type="text" name="name" size="20" required>
+                            <label class="formGroupLabel"  for="field_name">Name of the organisation *</label>
                             <div class="mt-3">
                                 @foreach ($errors->get('name') as $message)
                                     <div class="alert alert-danger">{{ $message }} </div>
@@ -28,12 +28,18 @@
                         </div>
 
                         <div class="form-group">
-                            <select size="1" name="status">
-                                <option selected="" value="">Status</option>
+                            <select size="1" name="status" required>
+                                <option disabled selected="" value="">Status *</option>
                                 <option value="Federation">Federation</option>
                                 <option value="Club">Club</option>
                                 <option value="Informal Group">Informal Group</option>
                             </select>
+                            <img for="status" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('status') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -42,8 +48,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select size="1" name="region">
-                                <option selected="" value="">Region</option>
+                            <select size="1" name="region" required>
+                                <option disabled selected="" value="">Region *</option>
                                 <option value="North America"> North America</option>
                                 <option value="South America"> South America</option>
                                 <option value="Europe"> Europe</option>
@@ -51,41 +57,64 @@
                                 <option value="Africa"> Africa</option>
                                 <option value="Oceania"> Oceania</option>
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_contact" placeholder=" " type="text" name="contact" size="20" value="">
-                            <label class="formGroupLabel"  for="field_contact">Contact person</label>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_position" placeholder=" " type="text" name="position" size="20">
-                            <label class="formGroupLabel"  for="field_position">Position in the organisation</label>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="warn">Country</div>
-                            <select type="text" name="country" id="country" size="1" value="" required>
-                                @foreach($countries AS $country)
-                                    <option value="{{ $country->id }}">{{ ucfirst($country->name) }}</option>
+                            <img for="region" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            <div class="mt-3">
+                                @foreach ($errors->get('region') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
                                 @endforeach
-                            </select>
-                            <img for="country" class="selectArr selectArrComponents" src="{{asset('images/selectArr.svg')}}" alt="" />
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <input id="field_email" placeholder=" " type="text" name="email" size="20" value="">
-                            <label class="formGroupLabel"  for="field_email">E-mail</label>
+                            <input id="field_contact" placeholder=" " type="text" name="contact" size="20" value="" required>
+                            <label class="formGroupLabel"  for="field_contact">Contact person *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('contact') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <input id="field_phone" placeholder=" " type="text" name="phone" size="10">
-                            <label class="formGroupLabel"  for="field_phone">Phone</label>
+                            <input id="field_position" placeholder=" " type="text" name="position" size="20" required>
+                            <label class="formGroupLabel"  for="field_position">Position in the organisation *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('position') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <x-person.countries-form />
+                        
+                        <div class="form-group">
+                            <input id="field_email" placeholder=" " type="email" name="email" size="20" value="" required>
+                            <label class="formGroupLabel"  for="field_email">E-mail *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('email') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input id="field_phone" placeholder=" " type="text" name="phone" size="10" required>
+                            <label class="formGroupLabel"  for="field_phone">Phone *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('phone') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <input id="field_language" placeholder=" " type="text" name="language" size="20">
-                            <label class="formGroupLabel"  for="field_language">Native language(s)</label>
+                            <label class="formGroupLabel"  for="field_language">Native language(s) *</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('language') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 
@@ -95,12 +124,12 @@
                         </h3>
 
                         <div class="form-group">
-                            <input type="text" id="field_place" placeholder=" " name="place" size="30">
+                            <input type="text" id="field_place" placeholder=" " name="place" size="30" required>
                             <label class="formGroupLabel"  for="field_place">Where will the volunteer be working? *</label>
                         </div>
 
                         <div class="form-group">
-                            <input id="field_startDate" placeholder=" " type="text" name="startDate" size="10" >
+                            <input id="field_startDate" placeholder=" " type="text" name="startDate" size="10" required>
                             <label class="formGroupLabel"  for="field_startDate">When is the volunteer expected to start?</label>
                         </div>
 
@@ -138,7 +167,7 @@
                                 </label>
                             </div>
 
-                            <div class="mt-2 form-group">
+                            <div class="mt-3 form-group">
                                 <input id="field_offerother" placeholder=" " type="text" name="offer[other]" size="20">
                                 <label class="formGroupLabel"  for="field_offerother">Other (please state):</label>
                             </div>
@@ -178,7 +207,17 @@
                         </div>
                     </div>
 
-                    <div class="formSection">
+                    <x-base.skills-form>
+                        <x-slot name="title">
+                            4. Skills required
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            <div class="warn"> (Please tick all relevant to the project)</div>
+                        </x-slot>
+
+                    </x-base.skills-form>
+
+                    {{-- <div class="formSection">
                         <h3 class="formSectionTitle">
                             4. Skills required
                             <div class="warn">
@@ -301,7 +340,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
@@ -429,16 +468,10 @@
                     <div class="formSection">
                         <h3 class="formSectionTitle">
                             6. Personal details of Volunteer
-                            <div class="warn"> &nbsp;(Just skip if not important)</div>
+                            <div class="warn">(Just skip if not important)</div>
                         </h3>
 
-                        <div class="form-group">
-                            <select size="1" name="gender">
-                                <option selected="" value="">Gender</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                            </select>
-                        </div>
+                        <x-person.genders-form />
 
                         <div class="form-group">
                             <select size="1" name="age">
@@ -448,14 +481,18 @@
                                 <option value="36 - 50">36 - 50</option>
                                 <option value="Over 50">Over 50</option>
                             </select>
+                            <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
-                        <div class="form-group">
-                            <select size="1" name="license">
-                                <option selected="" value="">International driving license?</option>
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                       <div class="form-group">
+                            <select size="1" name="licence" id="license">
+                                @if(!old('licence'))
+                                    <option disabled selected="" value="">International driving license?</option>
+                                @endif
+                                <option value="1" @if(old('licence') == "1") selected @endif>Yes</option>
+                                <option value="0" @if(old('licence') == "0") selected @endif>No</option>
                             </select>
+                            <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div>
 
                         <div class="form-group">
@@ -464,38 +501,11 @@
                         </div>
                     </div>
 
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
+                     <x-orienteering.disciplines-form>
+                        <x-slot name="title">
                             7. Disciplines of experience
-                        </h3>
-
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="expectedDisciplines1" name="expectedDisciplines[footO]">
-                                <label class="form-check-label" for="expectedDisciplines1">
-                                    Foot-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="expectedDisciplines2" name="expectedDisciplines[mtbO]">
-                                <label class="form-check-label" for="expectedDisciplines2">
-                                    MTBO
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="expectedDisciplines3" name="expectedDisciplines[skiO]">
-                                <label class="form-check-label" for="expectedDisciplines3">
-                                    Ski-O
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="expectedDisciplines4" name="expectedDisciplines[trailO]">
-                                <label class="form-check-label" for="expectedDisciplines4">
-                                    Trail-O
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                        </x-slot>
+                    </x-orienteering.disciplines-form>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

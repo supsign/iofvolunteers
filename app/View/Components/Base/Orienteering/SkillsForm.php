@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Orienteering;
+namespace App\View\Components\Base\Orienteering;
 
 use App\Models\Skill;
 use App\Models\SkillType;
@@ -30,6 +30,6 @@ class SkillsForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.skills-form');
+        return view('components.base.orienteering.skills-form');
     }
 }

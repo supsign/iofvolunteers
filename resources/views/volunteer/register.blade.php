@@ -143,7 +143,7 @@
                         </div>
                     </div>
 
-                    <x-orienteering.skills-form />
+                    <x-volunteer.skills-form/>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

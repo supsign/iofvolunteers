@@ -141,7 +141,7 @@
                         </div>
                     </div>
 
-                    <x-orienteering.skills-form :volunteer=$volunteer/>
+                    <x-base.skills-form :volunteer=$volunteer/>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

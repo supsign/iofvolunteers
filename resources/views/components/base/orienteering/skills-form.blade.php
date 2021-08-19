@@ -1,10 +1,12 @@
 <div class="formSection">
+    @isset($title)
     <h3 class="formSectionTitle">
-        8. Skills
-        <div class="warn">(Please tick all relevant to you.
-            Details are <b>required</b> if skill is ticked)
-        </div>
+        {{ $title }}
+        @isset($subtitle)
+            <div class="formSubtitle2"> {{ $subtitle }}</div>
+        @endisset
     </h3>
+    @endisset
 
     @foreach($skilltypes as $skilltype)
         <div class="form-group">
@@ -41,8 +43,6 @@
                     $oldSkilltypeText= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : $volunteer->skilltypes->contains($skilltype);
                     $fieldDB="skill_".$skilltype->snakeCaseName;
                     $fieldQuery=$volunteer->$fieldDB;
-                    // @dump($volunteer->$fieldDB);
-                    // @dump($fieldDB);
                 }
                 else {
                     $fieldQuery= !empty(old('skill_')[$skilltype->snakeCaseName]) ? old('skill_')[$skilltype->snakeCaseName] : null;
