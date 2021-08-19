@@ -28,9 +28,9 @@ class CreateExpirence extends Migration
         ]);
 
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->foreignId('local_experience_id')->nullable()->after('country_id')->constrained('experiences');
-            $table->foreignId('national_experience_id')->nullable()->after('local_experience_id')->constrained('experiences');
-            $table->foreignId('international_experience_id')->nullable()->after('national_experience_id')->constrained('experiences');
+            $table->integer('local_experience')->nullable()->after('other_languages');
+            $table->integer('national_experience')->nullable()->after('local_experience');
+            $table->integer('international_experience')->nullable()->after('national_experience');
         });
     }
 
@@ -42,12 +42,9 @@ class CreateExpirence extends Migration
     public function down()
     {
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->dropForeign(['local_experience_id']);
-            $table->dropColumn('local_experience_id');
-            $table->dropForeign(['national_experience_id']);
-            $table->dropColumn('national_experience_id');
-            $table->dropForeign(['international_experience_id']);
-            $table->dropColumn('international_experience_id');
+            $table->dropColumn('local_experience');
+            $table->dropColumn('national_experience');
+            $table->dropColumn('international_experience');
         });
 
         Schema::dropIfExists('experiences');
