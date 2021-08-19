@@ -19,7 +19,7 @@
     <div class="form-group">
         <input id="field_club" placeholder=" " type="text" name="club" value="{{ old('club') ?? $volunteer?->club }}" size="20">
         <label class="formGroupLabel"  for="field_club">Your present club (if any)</label>
-        <div class="font-italic">
+        <div class="font-weight-normal">
             Experience as Competitor
         </div>
     </div>
