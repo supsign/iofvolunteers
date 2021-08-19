@@ -120,13 +120,6 @@ class VolunteerController extends Controller
         $data = $request->validated();
 
         unset($data['_token']);
-        // unset($data['agb']);
-
-        // var_dump(
-        //     $data
-        // );
-        // die();
-
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
