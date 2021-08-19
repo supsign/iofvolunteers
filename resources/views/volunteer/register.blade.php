@@ -143,7 +143,14 @@
                         </div>
                     </div>
 
-                    <x-volunteer.skills-form/>
+                    <x-volunteer.skills-form>
+                        <x-slot name="title">
+                            8. Skills
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            <div class="warn"> (Please tick all relevant to you. Details are required if skill is ticked)</div>
+                        </x-slot>
+                    </x-base.skills-form>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
