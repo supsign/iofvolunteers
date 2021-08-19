@@ -10,8 +10,6 @@
             @csrf
             @method("PATCH")
 
-            @dump($errors)
-
             <div class="row">
                 <div class="col-12">
                     <div class="formSection">
