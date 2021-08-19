@@ -122,7 +122,7 @@
                     <div class="formSection">
                         <h3 class="formSectionTitle">
                             7. Timing
-                            <div class="font-italic">
+                            <div class="formSubtitle2">
                                 For how long can you work?
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </div>
@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="formGroupLabelStatic">Duties:</label>
+                                <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
                                     @php
                                         if(isset($volunteer)) {
