@@ -65,8 +65,8 @@
                         <div class="form-group">
                             <input id="field_nickname" placeholder=" " type="text" name="nickname" value="{{ old('nickname') }}" size="15" value="">
                             <label class="formGroupLabel" for="field_nickname">Nickname </label>
-                            <div class="warn">optional</div>
-                            <div class="warn">if left blank, your name will be assumed as your nickname</div>
+                            <div class="font-weight-normal">optional</div>
+                            <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             <div class="mt-3">
                                 @foreach ($errors->get('nickname') as $message)
                                     <div class="alert alert-danger">{{ $message }} </div>
