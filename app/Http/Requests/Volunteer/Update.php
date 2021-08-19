@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Volunteer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VolunteerRegister extends FormRequest
+class Update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -49,7 +49,6 @@ class VolunteerRegister extends FormRequest
             'duty' => '',
             'help' => '',
             'expectation' => '',
-            'agb' => 'required|boolean',
         ];
     }
 }

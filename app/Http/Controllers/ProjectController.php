@@ -26,13 +26,17 @@ class ProjectController extends Controller
 
 	public function register(ProjectRegister $request) 
 	{
+		var_dump($request->all());
+
 		die();
 
 		return Project::create($request->validated());
 	}
 
-	public function update(Project $project, ProjectRegister $request) 
+	public function update(Project $project, ProjectUpdate $request)
 	{
+		var_dump($request->all());
+
 		die();
 
 		return Project::update($request->validated());

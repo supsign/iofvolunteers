@@ -8,8 +8,8 @@ use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Volunteer;
-use App\Http\Requests\VolunteerEdit;
-use App\Http\Requests\VolunteerRegister;
+use App\Http\Requests\Volunteer\Update;
+use App\Http\Requests\Volunteer\Register;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +58,7 @@ class VolunteerController extends Controller
         return view('volunteer.preview', ['volunteer' => $volunteer]);
     }
 
-    public function register(VolunteerRegister $request)
+    public function register(Register $request)
     {
         $data = $request->validated();
 
@@ -119,7 +119,7 @@ class VolunteerController extends Controller
         ]);
     }
 
-    public function update(Volunteer $volunteer, VolunteerEdit $request)
+    public function update(Volunteer $volunteer, Update $request)
     {
         $data = $request->validated();
 
