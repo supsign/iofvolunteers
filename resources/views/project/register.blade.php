@@ -14,12 +14,17 @@
                 <div class="col-12 col-md-6">
                     <div class="formSection">
                         <h3 class="formSectionTitle">
-                           1. Details of the Organisation<span class="warn">*</span>
+                           1. Details of the Organisation *</span>
                         </h3>
 
                         <div class="form-group">
                             <input id="field_name" placeholder=" " type="text" name="name" size="20">
                             <label class="formGroupLabel"  for="field_name">Name of the organisation</label>
+                            <div class="mt-3">
+                                @foreach ($errors->get('name') as $message)
+                                    <div class="alert alert-danger">{{ $message }} </div>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="form-group">
