@@ -665,11 +665,27 @@ form select {
 	margin-bottom: 8px;
 }
 
+.formSection .form-group .warn,
+.formSection .form-group .font-italic,
+.formSection .form-group .font-weight-normal {
+	font-size: 16px;
+	color: #AAAAAA;
+	margin: 6px 0 0 18px;
+}
+
 .formSection h3.formSectionTitle .font-italic,
 .formSection h3.formSectionTitle .font-weight-normal,
 .formSection h3.formSectionTitle .font-italic .warn,
 .formSection h3.formSectionTitle .font-weight-normal .warn {
 	color: black;
+}
+
+.formSection h3.formSectionTitle .warn,
+.formSection h3.formSectionTitle .font-italic,
+.formSection h3.formSectionTitle .font-weight-normal {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 .formSection .form-group textarea:not(:placeholder-shown) + label.formGroupLabel,
@@ -764,20 +780,6 @@ form select {
 .formSection .form-group input[type="text"],
 .formSection .form-group select {
 	width: 100% !important;
-}
-.formSection h3.formSectionTitle .warn,
-.formSection h3.formSectionTitle .font-italic,
-.formSection h3.formSectionTitle .font-weight-normal {
-	margin: 0;
-	font-size: 16px;
-	font-weight: 400;
-}
-.formSection .form-group .warn,
-.formSection .form-group .font-italic,
-.formSection .form-group .font-weight-normal {
-	font-size: 16px;
-	color: #AAAAAA;
-	margin: 6px 0 0 18px;
 }
 
 .formSection .form-group .formSubtitle2 .font-weight-normal {
