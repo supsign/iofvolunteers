@@ -39,6 +39,7 @@
                                     <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                                 </x-slot>
                             </x-base.input>
+                            <x-base.select id="license" name="driving_licence" label="Nickname"/>
                         </x-slot>
                     </x-form.section>
 

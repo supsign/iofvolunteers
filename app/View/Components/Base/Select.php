@@ -5,7 +5,7 @@ namespace App\View\Components\Base;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class InputField extends Component
+class Select extends Component
 {
     /**
      * Create a new component instance.
@@ -13,7 +13,7 @@ class InputField extends Component
      * @return void
      */
 
-    public function __construct(public Collection $options)
+    public function __construct(public Collection $options, public $value)
     {
         
     }

@@ -2,12 +2,13 @@
     <select 
         id="{{ $attributes->get('id') }}" 
         name="{{ $attributes->get('name') }}" 
+
     >
-        @if(!$oldCountry)
+        @if(!$value)
             <option selected disabled>Country</option>
         @endif
-        @foreach($countries AS $country)
-            <option value="{{ $country->id }}" @if($oldCountry == $country->id) selected @endif>{{ ucfirst($country->name) }}</option>
+        @foreach($options AS $option)
+            <option value="{{ $option->$attributes->get('id') }}" @if($value == $option->id) selected @endif>{{ ucfirst($option->$attributes->get('name')) }}</option>
         @endforeach
     </select>
         
