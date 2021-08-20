@@ -14,9 +14,12 @@ class Select extends Component
      * @return void
      */
 
-    public function __construct(public Collection $options, public BaseModel $value)
-    {
-        
+    public function __construct(
+        public Collection $options, 
+        public BaseModel $value,
+        public string|null $iconName = null
+    ) {
+
     }
 
     /**
