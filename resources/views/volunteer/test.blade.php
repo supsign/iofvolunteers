@@ -29,7 +29,7 @@
                         <x-slot name="title">
                             2. Personal Information
                         </x-slot>   
-                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'"/>               
+                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>               
                         <x-base.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
                         <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
                             <x-slot name="subtitle">
@@ -52,9 +52,7 @@
                         <x-slot name="title">
                             4. O-Experience
                         </x-slot>
-                        <x-base.select name="o_experience[local]" label="Local events" :iconName="'selectArr'"/>
-                        <x-base.select name="o_experience[national]" label="National Championships" :iconName="'selectArr'"/>
-                        <x-base.select name="o_experience[international]" label=">International Competitions" :iconName="'selectArr'"/>
+                        
                     </x-form.section>
 
                     <x-form.section>
@@ -110,6 +108,15 @@
                         <x-slot name="title">
                             10. Additional Information
                         </x-slot>
+                        <div class="form-group">
+                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" required>{{ old('help') }}</textarea>
+                            <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') }}</textarea>
+                            <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
+                        </div>
                     </x-form.section>
 
                 </div>

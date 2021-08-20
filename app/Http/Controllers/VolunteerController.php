@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Country;
+use App\Models\Gender;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
@@ -53,6 +54,7 @@ class VolunteerController extends Controller
     {
         return view('volunteer.test', [
             'countries' => Country::all(),
+            'genders' => Gender::all(),
         ]);
     }
 
