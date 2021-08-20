@@ -14,7 +14,7 @@
     </select>
 
     @isset($iconName)
-        <img for="{{ $attributes->get('name') }}" class="selectArr selectArrComponents" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" /> 
+        <img for="{{ $attributes->get('name') }}" class="selectArr" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" /> 
     @endisset
 
     <div class="mt-3">
