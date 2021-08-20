@@ -44,13 +44,16 @@
                     <x-form.section>
                         <x-slot name="title">
                             3. Disciplines of experience
-                        </x-slot>
+                        </x-slot>                       
                     </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             4. O-Experience
                         </x-slot>
+                        <x-base.select name="o_experience[local]" label="Local events" :iconName="'selectArr'"/>
+                        <x-base.select name="o_experience[national]" label="National Championships" :iconName="'selectArr'"/>
+                        <x-base.select name="o_experience[international]" label=">International Competitions" :iconName="'selectArr'"/>
                     </x-form.section>
 
                     <x-form.section>
