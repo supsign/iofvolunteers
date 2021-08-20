@@ -21,7 +21,7 @@
                             1. Contact Information
                         </x-slot>
                         <x-slot name="body">
-                            <x-base.input name="name" value="{{ old('name') }}" label="Name *" />
+                            <x-form.input name="name" value="{{ old('name') }}" label="Name *" />
                             {{-- <x-form.country /> --}}
                             <x-form.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" />
                         </x-slot>
@@ -32,7 +32,7 @@
                             2. Personal Information
                         </x-slot>
                         <x-slot name="body">
-                            Stuff here
+                            <x-form.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" />
                         </x-slot>
                     </x-form.section>
 

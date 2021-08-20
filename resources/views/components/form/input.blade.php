@@ -1,7 +1,7 @@
 <div class="form-group">
     <x-base.input 
         id="{{ $attributes->get('name') }}"
-        type="{{ $attributes->get('type') }}"
+        type="{{ $attributes->get('type') ?? 'text' }}"
         name="{{ $attributes->get('name') }}"
         label="{{ $attributes->get('label') }}"
         value="{{ old($attributes->get('name')) ?? $attributes->get('value') }}"
