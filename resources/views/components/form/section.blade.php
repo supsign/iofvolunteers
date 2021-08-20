@@ -1,13 +1,13 @@
 <div class="formSection">
-    @if($title)
+    @isset($title)
         <h3 class="formSectionTitle">{{ $title }}</h3>
         
         @isset($subtitle)
             <div class="warn">{{ $subtitle }}</div>
         @endisset
-    @endif
+    @endisset
 
-    @if($body)
+    @isset($body)
         {{ $body }}
-    @endif
+    @endisset
 </div>
