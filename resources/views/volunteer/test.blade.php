@@ -44,7 +44,8 @@
                     <x-form.section>
                         <x-slot name="title">
                             3. Disciplines of experience
-                        </x-slot>                       
+                        </x-slot>
+                        <x-base.checkbox name="disciplines" type="checkbox" class="form-check-input" value="1"/>               
                     </x-form.section>
 
                     <x-form.section>
@@ -73,6 +74,7 @@
                             Do you have a preferred destination?
                             <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
+                        <x-base.checkbox name="continents" type="checkbox" class="form-check-input" value="1"/>
                     </x-form.section>
 
                     <x-form.section>
