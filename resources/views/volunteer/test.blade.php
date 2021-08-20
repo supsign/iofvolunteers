@@ -45,7 +45,9 @@
                         <x-slot name="title">
                             3. Disciplines of experience
                         </x-slot>
-                        <x-base.checkbox name="disciplines" type="checkbox" class="form-check-input" value="1"/>               
+                        @foreach($disciplines AS $discipline)
+                            <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                        @endforeach
                     </x-form.section>
 
                     <x-form.section>

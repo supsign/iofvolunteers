@@ -1,15 +1,13 @@
 <div class="form-group">
     <div class="form-check">
         <input 
-            class= {{ $attributes->get('class') }}
-            id="checkbox_{{ $attributes->get('name') }}" 
-            name="{{ $attributes->get('name') }}"
-            type="{{ $attributes->get('type') }}"
-            value="{{ $attributes->get('value') }}"
-
-        >
-        <label class="form-check-label" for="checkbox_{{ $attributes->get('name') }}">
-            {{ $attributes->get('name') }}
+            type="checkbox"
+            id="{{ $attributes->get('name') }}"
+            value="{{ old($attributes->get('name')) ?? $attributes->get('value') }}"
+            {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label'])) }}
+        />
+        <label class="form-check-label" for="{{ $attributes->get('name') }}">
+            {{ $attributes->get('label') }}
         </label>
     </div>
 </div>
