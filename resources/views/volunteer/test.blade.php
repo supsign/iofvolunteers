@@ -54,7 +54,8 @@
                         <x-slot name="title">
                             4. O-Experience
                         </x-slot>
-                        
+                        <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="weeks" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="o_work_expirence[international]" value="{{ old('o_work_expirence[international]') }}" label="weeks" type="number" size="3" />
                     </x-form.section>
 
                     <x-form.section>
