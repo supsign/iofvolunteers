@@ -20,7 +20,7 @@
                         <x-slot name="title">
                             1. Contact Information
                         </x-slot>
-                        <x-slot name="body">
+                        <x-slot name="body"><
                             <x-base.input name="name" value="{{ old('name') }}" label="Name *" required />
                             {{-- <x-form.country /> --}}
                             <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
