@@ -53,6 +53,7 @@ class VolunteerController extends Controller
     {
         return view('volunteer.test', [
             'countries' => Country::all(),
+            'disciplines' => Discipline::all(),
         ]);
     }
 
