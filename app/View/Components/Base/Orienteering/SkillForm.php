@@ -6,7 +6,7 @@ use App\Models\Skill;
 use App\Models\SkillType;
 use Illuminate\View\Component;
 
-class SkillsForm extends Component
+class SkillForm extends Component
 {
     /**
      * Create a new component instance.
@@ -30,6 +30,6 @@ class SkillsForm extends Component
      */
     public function render()
     {
-        return view('components.base.orienteering.skills-form');
+        return view('components.base.orienteering.skill-form');
     }
 }

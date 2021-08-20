@@ -54,9 +54,7 @@
             </div>
         </div>
     @endforeach
-
-    <div class="form-group">
-        <textarea placeholder=" " rows="2" cols="30" name="skill_other" id="skill_other" value="">{{ old('skill_other') ?? $volunteer?->skill_other }}</textarea>
-        <label class="formGroupLabel" for="skill_other">* Other skills? Please explain...</label>
-    </div>
+    @isset($additionalFields)
+        <div class="form-group"> {{ $additionalFields }} </div>
+    @endisset
 </div>
