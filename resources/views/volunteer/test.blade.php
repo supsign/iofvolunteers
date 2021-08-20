@@ -19,17 +19,17 @@
                     <x-form.section>
                         <x-slot name="title">
                             1. Contact Information
-                        </x-slot>
-                    
+                        </x-slot>                       
                         <x-base.input name="name" value="{{ old('name') }}" label="Name *" required />
+                        <x-base.select name="country_id" label="Country" :iconName="'selectArr'"/>
                         <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
                     </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             2. Personal Information
-                        </x-slot>
-
+                        </x-slot>   
+                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'"/>               
                         <x-base.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
                         <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
                             <x-slot name="subtitle">
@@ -37,7 +37,8 @@
                                 <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             </x-slot>
                         </x-base.input>
-                         <x-base.select name="driving_licence" label="International driving license? *"/>
+                        <x-base.select name="driving_licence" label="International driving license? *" :iconName="'selectArr'"/>
+                        
                     </x-form.section>
 
                     <x-form.section>
@@ -107,33 +108,32 @@
                     </x-form.section>
 
                 </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="sticky">
-                    <div class="noteWrap">
-                        <h3 class="noteTitle">Disclaimer</h3>
-                        <p>I have filled in my details
-                            above as accurately as possible. By submitting this form, I state that I am a volunteer in
-                            developing orienteering. I understand that the IOF cannot be held responsible for my being or not
-                            being recruited as a volunteer. I also understand that should I choose to accept any offer
-                            requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
-                            as a volunteer.</p>
-                    </div>
-
-                    <div class="formSection">
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
-                                <label class="form-check-label" for="agb">
-                                    I have read and understood the above.
-                                </label>
-                                <div class="warn"> Mandatory: Please accept the disclaimer.</div>
-                            </div>
+                <div class="col-12 col-md-6">
+                    <div class="sticky">
+                        <div class="noteWrap">
+                            <h3 class="noteTitle">Disclaimer</h3>
+                            <p>I have filled in my details
+                                above as accurately as possible. By submitting this form, I state that I am a volunteer in
+                                developing orienteering. I understand that the IOF cannot be held responsible for my being or not
+                                being recruited as a volunteer. I also understand that should I choose to accept any offer
+                                requesting my assistance, the IOF cannot be held responsible for the terms under which I will work
+                                as a volunteer.</p>
                         </div>
 
-                        <div class="form-group d-flex">
-                            <input class="ml-auto" type="submit" value="Submit my details">
+                        <div class="formSection">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <label class="form-check-label" for="agb">
+                                        I have read and understood the above.
+                                    </label>
+                                    <div class="warn"> Mandatory: Please accept the disclaimer.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group d-flex">
+                                <input class="ml-auto" type="submit" value="Submit my details">
+                            </div>
                         </div>
                     </div>
                 </div>
