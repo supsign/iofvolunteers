@@ -62,3 +62,5 @@ Route::get('volunteer/search', [VolunteerController::class, 'searchForm'])->name
 Route::post('volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
 Route::post('volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');
 Route::patch('volunteer/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
+
+Route::get('volunteer/test', [VolunteerController::class, 'testForm'])->name('volunteer.testForm');
