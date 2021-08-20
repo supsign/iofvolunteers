@@ -7,7 +7,5 @@
         @endisset
     @endisset
 
-    @isset($body)
-        {{ $body }}
-    @endisset
+    {{ $slot }}
 </div>

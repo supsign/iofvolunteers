@@ -20,26 +20,23 @@
                         <x-slot name="title">
                             1. Contact Information
                         </x-slot>
-                        <x-slot name="body">
-                            <x-base.input name="name" value="{{ old('name') }}" label="Name *" required />
-                            {{-- <x-form.country /> --}}
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
-                        </x-slot>
+                    
+                        <x-base.input name="name" value="{{ old('name') }}" label="Name *" required />
+                        <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
                     </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             2. Personal Information
                         </x-slot>
-                        <x-slot name="body">
-                            <x-base.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" />
-                            <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
-                                <x-slot name="subtitle">
-                                    <div class="font-weight-normal">optional</div>
-                                    <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
-                                </x-slot>
-                            </x-base.input>
-                        </x-slot>
+
+                        <x-base.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
+                        <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
+                            <x-slot name="subtitle">
+                                <div class="font-weight-normal">optional</div>
+                                <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
+                            </x-slot>
+                        </x-base.input>
                     </x-form.section>
 
                     <x-form.section>
@@ -81,9 +78,8 @@
                             For how long can you work?
                             <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                         </x-slot>
-                        <x-slot name="body">
-                            <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks" type="number" size="3" />
-                        </x-slot>
+                        
+                        <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks" type="number" size="3" />
                     </x-form.section>
 
                     <x-form.section>
@@ -93,9 +89,8 @@
                         <x-slot name="subtitle">
                             <div class="warn"> (Please tick all relevant to you. Details are required if skill is ticked)</div>
                         </x-slot>
-                        <x-slot name="body">
-                            <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks" type="number" size="3" />
-                        </x-slot>
+                        
+                        
                     </x-form.section>
 
                     <x-form.section>
