@@ -12,4 +12,4 @@
             <div class="alert alert-danger">{{ $message }} </div>
         @endforeach
     </div>
-<div class="form-group">
+</div>
