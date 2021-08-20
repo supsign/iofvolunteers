@@ -1,5 +1,5 @@
 <div class="form-group">
-	<x-form.input 
+	<x-base.input 
        id="{{ $attributes->get('name') }}"
        type="{{ $attributes->get('type') }}"
        name="{{ $attributes->get('name') }}"

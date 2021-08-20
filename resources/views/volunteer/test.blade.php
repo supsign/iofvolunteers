@@ -32,7 +32,16 @@
                             2. Personal Information
                         </x-slot>
                         <x-slot name="body">
-                            Test
+                            Stuff here
+                        </x-slot>
+                    </x-form.section>
+
+                    <x-form.section>
+                        <x-slot name="title">
+                            3. Disciplines of experience
+                        </x-slot>
+                        <x-slot name="body">
+                            Stuff here
                         </x-slot>
                     </x-form.section>
 
