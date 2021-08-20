@@ -3,11 +3,9 @@
         <h3 class="formSectionTitle">{{ $title }}</h3>
         
         @isset($subtitle)
-            <div class="warn">{{ $subtitle }}</div>
+            {{ $subtitle }}
         @endisset
     @endisset
 
-    @isset($body)
-        {{ $body }}
-    @endisset
+    {{ $slot }}
 </div>

@@ -6,7 +6,7 @@ use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class Select extends Component
+class Input extends Component
 {
     /**
      * Create a new component instance.
@@ -14,7 +14,7 @@ class Select extends Component
      * @return void
      */
 
-    public function __construct(public Collection $options, public BaseModel $value)
+    public function __construct(public string|null $iconName = null)
     {
         
     }
@@ -26,6 +26,6 @@ class Select extends Component
      */
     public function render()
     {
-        return view('components.base.select'); 
+        return view('components.base.input'); 
     }
 }

@@ -7,6 +7,10 @@
     />
     <label class="formGroupLabel" for="field_{{ $attributes->get('name') }}">{{ $attributes->get('label') }}</label>
 
+    @isset($iconName)
+        <img for="field_{{ $attributes->get('name') }}" class="selectArr v2" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" />
+    @endisset
+
     @isset($subtitle)
         {{ $subtitle }}
     @endisset

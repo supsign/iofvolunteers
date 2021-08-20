@@ -1,6 +1,6 @@
 <div class="form-group">
     <select 
-        id="{{ $attributes->get('id') }}" 
+        id="{{ $attributes->get('name') }}" 
         name="{{ $attributes->get('name') }}" 
 
     >
@@ -12,7 +12,6 @@
         @endforeach
     </select>
         
-
     <div class="mt-3">
         @foreach ($errors->get($attributes->get('name')) as $message)
             <div class="alert alert-danger">{{ $message }} </div>
