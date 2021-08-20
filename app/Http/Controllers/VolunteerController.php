@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\Country;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
@@ -50,7 +51,9 @@ class VolunteerController extends Controller
 
     public function testForm()
     {
-        return view('volunteer.test');
+        return view('volunteer.test', [
+            'countries' => Country::all(),
+        ]);
     }
 
     public function searchForm()
