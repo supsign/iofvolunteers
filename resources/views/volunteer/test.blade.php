@@ -58,6 +58,9 @@
                         <x-slot name="title">
                             5. Languages
                         </x-slot>
+                        <x-slot name="subtitle">
+                            <div class="warn">(required, even if only listed in "other")</div>
+                        </x-slot>
                     </x-form.section>
 
                     <x-form.section>
@@ -80,6 +83,30 @@
                         </x-slot>
                         <x-slot name="body">
                             <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks" type="number" size="3" />
+                        </x-slot>
+                    </x-form.section>
+
+                    <x-form.section>
+                        <x-slot name="title">
+                            8. Skills
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            <div class="warn"> (Please tick all relevant to you. Details are required if skill is ticked)</div>
+                        </x-slot>
+                        <x-slot name="body">
+                            <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks" type="number" size="3" />
+                        </x-slot>
+                    </x-form.section>
+
+                    <x-form.section>
+                        <x-slot name="title">
+                            9. O-Work Experience
+                        </x-slot>
+                    </x-form.section>
+
+                    <x-form.section>
+                        <x-slot name="title">
+                            10. Additional Information
                         </x-slot>
                     </x-form.section>
 
