@@ -110,15 +110,8 @@
                         <x-slot name="title">
                             10. Additional Information
                         </x-slot>
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="help" id="help" required>{{ old('help') }}</textarea>
-                            <label class="formGroupLabel" for="help">Explain how you can help as a volunteer *</label>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea placeholder="" rows="4" cols="30" name="expectation" id="expectation">{{ old('expectation') }}</textarea>
-                            <label class="formGroupLabel" for="expectation">Expectations as a volunteer</label>
-                        </div>
+                        <x-base.textarea name="help" value="{{ old('help') }}" label="Explain how you can help as a volunteer *" required/>
+                        <x-base.textarea name="expectation" value="{{ old('expectation') }}" label="Expectations as a volunteer"/>
                     </x-form.section>
 
                 </div>
