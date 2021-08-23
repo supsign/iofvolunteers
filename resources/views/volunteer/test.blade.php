@@ -109,9 +109,12 @@
                             8. Skills
                         </x-slot>
                         <x-slot name="subtitle">
-                            <div class="warn"> (Please tick all relevant to you. Details are required if skill is ticked)</div>
+                            <div class="warn"> (Please tick all relevant to you. 
+                                Details are <b>required</b> if skill is ticked)
+                            </div>
                         </x-slot>
                         @foreach ($skillTypes AS $skillType)
+                        <div class="form-group">
                             <div class="formSubtitle2">{{ $skillType->name }} *
                                 @isset($skillType->warn)
                                     <div class="font-weight-normal">{{ $skillType->warn }}</div>
@@ -119,11 +122,10 @@
 
                                 @foreach($skillType->skills AS $skill)
                                     <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
-                                @endforeach
-                                
+                                @endforeach                    
                                 <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" label="{{ $skillType->text }}"/>
                             </div>
-
+                        </div>
                         @endforeach
                     </x-form.section>
 
