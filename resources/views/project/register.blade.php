@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <x-person.countries-form />
+                        <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
                         
                         <div class="form-group">
                             <input id="field_email" placeholder=" " type="email" name="email" size="20" value="" required>
@@ -207,7 +207,8 @@
                         </div>
                     </div>
 
-                    <x-volunteer.skills-form>
+                    <x-form.section>
+                        {{-- skills-blade --}}
                         <x-slot name="title">
                             4. Skills required
                         </x-slot>
@@ -215,7 +216,7 @@
                             <div class="warn"> (Please tick all relevant to the project)</div>
                         </x-slot>
 
-                    </x-volunteer.skills-form>
+                    </x-form.section>
 
                     {{-- <div class="formSection">
                         <h3 class="formSectionTitle">
@@ -471,7 +472,7 @@
                             <div class="warn">(Just skip if not important)</div>
                         </h3>
 
-                        <x-person.genders-form />
+                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>    
 
                         <div class="form-group">
                             <select size="1" name="age">
@@ -501,11 +502,12 @@
                         </div>
                     </div>
 
-                     <x-orienteering.disciplines-form>
+                    <x-form.section>
+                        {{-- disciplines-form --}}
                         <x-slot name="title">
                             7. Disciplines of experience
                         </x-slot>
-                    </x-orienteering.disciplines-form>
+                    </x-form.section>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">
