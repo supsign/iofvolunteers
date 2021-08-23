@@ -3,7 +3,7 @@
 namespace App\View\Components\Base;
 
 use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class Select extends Component
