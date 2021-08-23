@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group form-inline">
     <div class="form-check">
         <label class="form-check-label">
             {{ $attributes->get('label') }}
