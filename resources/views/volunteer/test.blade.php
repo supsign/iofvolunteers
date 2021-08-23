@@ -56,7 +56,8 @@
                             4. O-Experience
                         </x-slot>
                         <x-slot name="subtitle">
-                            State in the Textboxes below, how long your experience for each given Event-Type is.
+                            State below how long your experience for each given Event-Type is.
+                            <div class="warn">The number will be taken as years - 0 for no experience.</div>
                         </x-slot>
                         <x-base.input name="ol_duration" value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *" type="number" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
                         <x-base.input name="field_club" value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
