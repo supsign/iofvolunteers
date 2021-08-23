@@ -1,5 +1,6 @@
 <div class="form-group">
-     <div class="warn">{{$attributes->get('label')}}</div>
+    <div class="warn">{{$attributes->get('label')}}</div>
+    
     <select 
         id="{{ $attributes->get('name') }}" 
         name="{{ $attributes->get('name') }}" 
@@ -10,7 +11,7 @@
         @endif
 
         @foreach($options AS $option)
-            <option value="{{ $option->id }}" @if($value->id && $value->id === $option->id) selected @endif>{{ $option->name }}</option>
+            <option value="{{ $option->id }}" @if(old($attributes->get('name')) === $option->id OR $value->id && $value->id === $option->id) selected @endif>{{ $option->name }}</option>
         @endforeach
     </select>
 
