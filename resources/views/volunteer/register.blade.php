@@ -74,7 +74,7 @@
                             <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
                             @foreach($languages AS $language)                           
-                                <x-base.radio name="language[{{ $language->name }}]" label="{{ $language->name }}" :options="$languageProficiency" value="{{ old('language['.$language->name.']') ?? 4 }}" />                      
+                                <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency" value="{{ old('language['.$language->id.']') ?? 4 }}" />                      
                             @endforeach
                     </x-form.section>
 
