@@ -29,8 +29,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
-            $view->with('genders', Gender::all());
-            $view->with('countries', Country::all());
         });
     }
 }

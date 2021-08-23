@@ -6,6 +6,6 @@
         {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label'])) }}
     />
     <label class="form-check-label" for="{{ $attributes->get('name') }}">
-        {{ $attributes->get('label') }}
+        {!! $attributes->get('label') !!}
     </label>
 </div>
