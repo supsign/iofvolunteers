@@ -37,17 +37,18 @@
                                 <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             </x-slot>
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :iconName="'selectArr'"/>
-                        
+                        <x-base.select name="driving_licence" label="International driving license? *" :iconName="'selectArr'"/>            
                     </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             3. Disciplines of experience
                         </x-slot>
-                        @foreach($disciplines AS $discipline)
-                            <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
-                        @endforeach
+                        <div class="form-group">
+                            @foreach($disciplines AS $discipline)
+                                <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                            @endforeach
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
@@ -71,11 +72,11 @@
                         <x-slot name="subtitle">
                             <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
-
-                        @foreach($languages AS $language)
-                            <x-base.radio name="language[{{ $language->name }}]" label="{{ $language->name }}" :options="$languageProficiency" value="{{ old('language['.$language->name.']') ?? 4 }}" />
-                        @endforeach
-
+                        <div class="form-group">
+                            @foreach($languages AS $language)                           
+                                <x-base.radio name="language[{{ $language->name }}]" label="{{ $language->name }}" :options="$languageProficiency" value="{{ old('language['.$language->name.']') ?? 4 }}" />                      
+                            @endforeach
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
@@ -86,10 +87,12 @@
                             Do you have a preferred destination?
                             <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
-                        <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
-                         @foreach($continents AS $continent)
-                            <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
-                        @endforeach 
+                        <div class="form-group">
+                            <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
+                            @foreach($continents AS $continent)
+                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                            @endforeach 
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
@@ -121,7 +124,7 @@
                                 @endisset
 
                                 @foreach($skillType->skills AS $skill)
-                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="1"/>
                                 @endforeach                    
                                 <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" label="{{ $skillType->text }}"/>
                             </div>
@@ -133,12 +136,15 @@
                         <x-slot name="title">
                             9. O-Work Experience
                         </x-slot>
-                        @foreach($dutyTypes AS $dutyType)
-                            <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
-                            @foreach($duties AS $duty)
-                                <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
+                        <div class="form-group">
+                            @foreach($dutyTypes AS $dutyType)
+                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
+                                <label class="formSubtitle2">Duties:</label>
+                                @foreach($duties AS $duty)
+                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
+                                @endforeach
                             @endforeach
-                        @endforeach
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
