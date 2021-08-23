@@ -9,10 +9,11 @@
         <div class="form-check">
             <input
                 type="radio"
-                name="{{ $attributes->get('label') }}"      {{-- .'['.$option->id.']' --}}
-                value="{{ $option->id }}"
                 id="{{ $attributes->get('name') }}"
-                {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label'])) }}
+                name="{{ $attributes->get('name') }}"
+                value="{{ $option->id }}"
+                @if($option->id == $attributes->get('value')) checked @endif
+                {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
             >
             <label class="form-check-label" for="{{ $attributes->get('name') }}">
                 {{ $option->name }}
