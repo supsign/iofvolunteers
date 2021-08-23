@@ -37,7 +37,7 @@
                                 <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             </x-slot>
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :iconName="'selectArr'"/>            
+                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" required/>          
                     </x-form.section>
 
                     <x-form.section>
@@ -72,11 +72,9 @@
                         <x-slot name="subtitle">
                             <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
-                        <div class="form-group">
                             @foreach($languages AS $language)                           
                                 <x-base.radio name="language[{{ $language->name }}]" label="{{ $language->name }}" :options="$languageProficiency" value="{{ old('language['.$language->name.']') ?? 4 }}" />                      
                             @endforeach
-                        </div>
                     </x-form.section>
 
                     <x-form.section>
