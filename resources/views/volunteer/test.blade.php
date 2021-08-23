@@ -132,7 +132,7 @@
                             9. O-Work Experience
                         </x-slot>
                         @foreach($dutyTypes AS $dutyType)
-                            <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" value="{{ old('local_experience') }}" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
+                            <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                             @foreach($duties AS $duty)
                                 <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
                             @endforeach
