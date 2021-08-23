@@ -37,7 +37,7 @@
                                 <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
                             </x-slot>
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"/>
+                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" required/>
                     </x-form.section>
 
                     <x-form.section>
