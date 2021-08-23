@@ -63,6 +63,8 @@ class VolunteerController extends Controller
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
+            'duties' => Duty::all(),
+            'dutyTypes' => DutyTypes::all(),
         ]);
     }
 
