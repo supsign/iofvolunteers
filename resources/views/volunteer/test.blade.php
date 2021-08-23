@@ -88,7 +88,10 @@
                             Do you have a preferred destination?
                             <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
-                        <x-base.checkbox name="continents" type="checkbox" class="form-check-input" value="1"/>
+                        <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
+                         @foreach($continents AS $continent)
+                            <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                        @endforeach 
                     </x-form.section>
 
                     <x-form.section>

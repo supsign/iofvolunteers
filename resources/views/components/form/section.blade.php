@@ -1,10 +1,12 @@
 <div class="formSection">
     @isset($title)
-        <h3 class="formSectionTitle">{{ $title }}</h3>
-        
+        <h3 class="formSectionTitle">{{ $title }}      
         @isset($subtitle)
-            {{ $subtitle }}
-        @endisset
+            <div class="formSubtitle2">
+                {{ $subtitle }}
+            </div>
+        @endisset    
+        </h3>
     @endisset
 
     {{ $slot }}

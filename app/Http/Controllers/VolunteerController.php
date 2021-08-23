@@ -60,6 +60,7 @@ class VolunteerController extends Controller
             'disciplines' => Discipline::all(),
             'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
         ]);
     }
 
