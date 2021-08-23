@@ -133,7 +133,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($dutyTypes AS $dutyType)
-                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
+                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" value="{{ $volunteer->o_work_expirence_local }}" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
