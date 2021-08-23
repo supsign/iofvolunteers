@@ -11,6 +11,7 @@ use App\Models\Duty;
 use App\Models\DutyTypes;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
+use App\Models\SkillType;
 use App\Models\Volunteer;
 use App\Http\Requests\Volunteer\Update;
 use App\Http\Requests\Volunteer\Register;
@@ -61,6 +62,7 @@ class VolunteerController extends Controller
             'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
         ]);
     }
 

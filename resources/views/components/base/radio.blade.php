@@ -12,7 +12,7 @@
                 id="{{ $attributes->get('name') }}"
                 name="{{ $attributes->get('name') }}"
                 value="{{ $option->id }}"
-                @if($option->id == $attributes->get('value')) checked @endif
+                @if($option->id == old($attributes->get('name')) || $option->id == $attributes->get('value')) checked @endif
                 {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
             >
             <label class="form-check-label" for="{{ $attributes->get('name') }}">
