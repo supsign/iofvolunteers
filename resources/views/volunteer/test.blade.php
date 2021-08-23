@@ -54,6 +54,9 @@
                         <x-slot name="title">
                             4. O-Experience
                         </x-slot>
+                        <x-slot name="subtitle">
+                            Tell us in the dropdowns below, how much experience you have.
+                        </x-slot>
                         <x-base.input name="ol_duration" value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *" type="number" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
                         <x-base.input name="field_club" value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
                         <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
