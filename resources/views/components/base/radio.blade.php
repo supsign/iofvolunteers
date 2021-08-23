@@ -12,7 +12,7 @@
     @foreach($options AS $option)
         <div class="form-check">
             <input
-                {{-- class="form-check-input" --> für das richtige Styling--}}
+                class="form-check-input"
                 type="radio"
                 id="{{ $attributes->get('name') }}_{{ $i }}"
                 name="{{ $attributes->get('name') }}"

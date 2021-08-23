@@ -120,8 +120,14 @@
 
                                 @foreach($skillType->skills AS $skill)
                                     <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="1"/>
-                                @endforeach                    
-                                <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" label="{{ $skillType->text }}"/>
+                                @endforeach
+
+                                @php
+                                    $fieldDB="skill_".$skillType->snakeCaseName;
+                                    $fieldQuery=$volunteer->$fieldDB;                                       
+                                @endphp   
+      
+                                <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" label="{{ $skillType->text }}" value="{{ $fieldQuery }}"/>
                             </div>
                         </div>
                         @endforeach
@@ -146,8 +152,8 @@
                         <x-slot name="title">
                             10. Additional Information
                         </x-slot>
-                        <x-base.textarea name="help" value="{{ old('help') }}" label="Explain how you can help as a volunteer *" required/>
-                        <x-base.textarea name="expectation" value="{{ old('expectation') }}" label="Expectations as a volunteer"/>
+                        <x-base.textarea name="help" value="{{ $volunteer->help }}" label="Explain how you can help as a volunteer *" required/>
+                        <x-base.textarea name="expectation" value="{{ $volunteer->expectation }}" label="Expectations as a volunteer"/>
                     </x-form.section>
                     <input class="ml-auto" type="submit" value="Save changes">
                 </div>
