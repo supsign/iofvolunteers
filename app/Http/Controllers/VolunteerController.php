@@ -137,7 +137,13 @@ class VolunteerController extends Controller
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyTypes::all(),
-            'duties' => Duty::all()
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
         ]);
     }
 
