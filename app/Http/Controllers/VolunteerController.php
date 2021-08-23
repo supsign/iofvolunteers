@@ -9,6 +9,8 @@ use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
+use App\Models\Language;
+use App\Models\LanguageProficiency;
 use App\Models\Volunteer;
 use App\Http\Requests\Volunteer\Update;
 use App\Http\Requests\Volunteer\Register;
@@ -56,6 +58,8 @@ class VolunteerController extends Controller
             'countries' => Country::all(),
             'genders' => Gender::all(),
             'disciplines' => Discipline::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
         ]);
     }
 
