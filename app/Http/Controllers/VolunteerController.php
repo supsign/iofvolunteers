@@ -59,21 +59,6 @@ class VolunteerController extends Controller
         ]);
     }
 
-    public function testForm()
-    {
-        return view('volunteer.test', [
-            'countries' => Country::all(),
-            'genders' => Gender::all(),
-            'disciplines' => Discipline::all(),
-            'languages' => Language::all(),
-            'languageProficiency' => LanguageProficiency::all(),
-            'continents' => Continent::all(),
-            'skillTypes' => SkillType::with('skills')->get(),
-            'duties' => Duty::all(),
-            'dutyTypes' => DutyTypes::all(),
-        ]);
-    }
-
     public function searchForm()
     {
         return view('volunteer.search');
@@ -91,6 +76,8 @@ class VolunteerController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
+        var_dump($data);
+
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
@@ -106,6 +93,9 @@ class VolunteerController extends Controller
         if (empty($data['nickname'])) {
             $data['nickname'] = $data['name'];
         }
+
+        var_dump($data);
+        // die();
 
         $volunteer = Volunteer::create($data);
 

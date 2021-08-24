@@ -46,7 +46,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
                             @endforeach
                         </div>
                     </x-form.section>

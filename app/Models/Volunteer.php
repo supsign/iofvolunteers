@@ -85,6 +85,14 @@ class Volunteer extends BaseModel
         return Carbon::parse($this->birthdate)->age;
     }
 
+    public function getDrivingLicenceModelAttribute()
+    {
+        $model = new BaseModel;
+        $model->id = $this->driving_licence;
+
+        return $model;
+    }
+
     public function getLanguageInfoAttribute()
     {
         $res = [];

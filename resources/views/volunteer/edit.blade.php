@@ -28,11 +28,11 @@
                         <x-slot name="title">
                             2. Personal Information
                         </x-slot>   
-                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender"/>               
+                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender"/>
                         <x-base.input name="birthdate" value="{{ $volunteer->birthdate }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
                         <x-base.input name="nickname" value="{{ $volunteer->nickname }}" label="Nickname">
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" required/>          
+                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" :value="$volunteer->drivingLicenceModel" required/>          
                     </x-form.section>
 
                     <x-form.section>
@@ -41,7 +41,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                                <x-base.checkbox name="discipline[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
                             @endforeach
                         </div>
                     </x-form.section>
