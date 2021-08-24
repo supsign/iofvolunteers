@@ -12,8 +12,18 @@
 
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="formSection">
-                        <h3 class="formSectionTitle">
+                        <x-form.section>
+                            <x-slot name="title">
+                                1. Details of the Organisation *
+                            </x-slot>                       
+                            <x-base.input name="org_name" value="{{ old('name') }}" label="Name of the organisation *" required />
+                            <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} required/>
+                            <x-base.input name="org_webpage" value="{{ old('name') }}" label="Web page (if exists)" />
+                            <x-base.select name="region" label="Region *" :iconName="'selectArr'" {{-- :options="$regions"--}} required/>
+                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
+                        </x-form.section>
+
+                        {{-- <h3 class="formSectionTitle">
                            1. Details of the Organisation *</span>
                         </h3>
 
@@ -25,7 +35,7 @@
                                     <div class="alert alert-danger">{{ $message }} </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <select size="1" name="status" required>
@@ -34,17 +44,6 @@
                                 <option value="Club">Club</option>
                                 <option value="Informal Group">Informal Group</option>
                             </select>
-                            <img for="status" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
-                            <div class="mt-3">
-                                @foreach ($errors->get('status') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_webpage" placeholder=" " type="text" name="webpage" size="20">
-                            <label class="formGroupLabel"  for="field_webpage">Web page (if exists)</label>
                         </div>
 
                         <div class="form-group">
@@ -57,12 +56,6 @@
                                 <option value="Africa"> Africa</option>
                                 <option value="Oceania"> Oceania</option>
                             </select>
-                            <img for="region" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt="" />
-                            <div class="mt-3">
-                                @foreach ($errors->get('region') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
                         </div>
 
                         <div class="form-group">
@@ -116,7 +109,6 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>
 
                     <div class="formSection">
                         <h3 class="formSectionTitle">

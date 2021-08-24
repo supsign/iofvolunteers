@@ -14,7 +14,7 @@ use App\Models\Gender;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
 use Illuminate\Http\Request;
-use JetBrains\PhpStorm\Language;
+use App\Models\Language;
 
 class ProjectController extends Controller
 {
@@ -32,7 +32,7 @@ class ProjectController extends Controller
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
-            // 'languages' => Language::all(),
+            'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
