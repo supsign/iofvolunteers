@@ -1,4 +1,4 @@
-require("./bootstrap.min");
+require("./bootstrap");
 require("./datepicker.min");
 require("./main");
 import { flare } from "@flareapp/flare-client";
