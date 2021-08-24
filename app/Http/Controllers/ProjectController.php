@@ -20,15 +20,15 @@ use App\Models\Language;
 
 class ProjectController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware(['auth','verified']);
     }
-	
-	public function registerForm(Project $project) 
-	{
-		return view('project.register', [
-			'project' => $project,
+    
+    public function registerForm(Project $project)
+    {
+        return view('project.register', [
+            'project' => $project,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
@@ -40,17 +40,17 @@ class ProjectController extends Controller
             'skillTypes' => SkillType::with('skills')->get(),
             'stati' => ProjectStatus::all(),
             'offers' => ProjectOffer::all(),
-		]);
-	}
+        ]);
+    }
 
-	public function searchForm() 
-	{
-		return view('project.search');
-	}
+    public function searchForm()
+    {
+        return view('project.search');
+    }
 
-	public function register(Register $request) 
-	{
-		$data = $request->validated();
+    public function register(Register $request)
+    {
+        $data = $request->validated();
 
         unset($data['_token']);
         unset($data['agb']);
@@ -58,20 +58,18 @@ class ProjectController extends Controller
         Project::create($data);
 
         return redirect()->route('home');
-		return redirect()->route('project.list');	//	gibts noch nicht
-	}
+        return redirect()->route('project.list');	//	gibts noch nicht
+    }
 
-	public function update(Project $project, Update $request)
-	{
-		var_dump($request->all());
+    public function update(Project $project, Update $request)
+    {
+        var_dump($request->all());
 
-		die();
+        exit();
+        return Project::update($request->validated());
+    }
 
-		// return Project::update($request->validated());
-	}
-
-	public function search() 
-	{
-
-	}
+    public function search()
+    {
+    }
 }

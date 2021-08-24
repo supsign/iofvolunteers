@@ -1,11 +1,10 @@
 <div class="form-group">
-    <div class="warn">{{$attributes->get('label')}}</div>
-    
-    <select 
-        id="{{ $attributes->get('name') }}" 
-        name="{{ $attributes->get('name') }}" 
-        {{ $attributes }}
-    >
+    <label for="{{ $attributes->get('name') }}" class="warn">{{ $attributes->get('label') }}</label>
+
+    <select
+            id="{{ $attributes->get('name') }}"
+            name="{{ $attributes->get('name') }}"
+            {{ $attributes }}>
 
         @if(!$value || !$value->id)
             <option selected disabled>{{ $attributes->get('label') }}</option>
@@ -17,11 +16,11 @@
     </select>
 
     @isset($iconName)
-        <img for="{{ $attributes->get('name') }}" class="selectArr selectArrComponents" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" /> 
+        <img for="{{ $attributes->get('name') }}" class="selectArr selectArrComponents" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" />
     @endisset
 
     <div class="mt-3">
-        @foreach ($errors->get($attributes->get('name')) as $message)
+        @foreach($errors->get($attributes->get('name')) as $message)
             <div class="alert alert-danger">{{ $message }} </div>
         @endforeach
     </div>
