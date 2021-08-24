@@ -19,7 +19,7 @@
                             <x-base.input name="name" value="{{ old('name') }}" label="Name of the organisation *" required />
                             <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} required/>
                             <x-base.input name="webpage" value="{{ old('webpage') }}" label="Web page (if exists)" />
-                            <x-base.select name="region" label="Region *" :iconName="'selectArr'" {{-- :options="$regions"--}} required/>
+                            <x-base.select name="region" label="Region *" :iconName="'selectArr'" :options="$continents" required/>
                             <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
                             <x-base.input name="position" value="{{ old('position') }}" label="Position in the organisation *" required />
                             <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
@@ -71,10 +71,16 @@
                             <x-base.input name="place" value="{{ old('place') }}" label="Where will the volunteer be working? *" required />
                             <x-base.input name="startDate" value="{{ old('startDate') }}" label="When is the volunteer expected to start?" />
                             <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
+                            <div class="form-group">
+                                <label class="formSubtitle2">What can you offer the volunteer? *</label>
+                                {{-- @foreach($offers AS $offer)
+                                    <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" type="checkbox" class="form-check-input" value="1"/>
+                                @endforeach  --}}
+                            </div>
+                            <x-base.input name="offer" value="{{ old('offer') }}" label="Other (please state):" />
                         </x-form.section>
 
                         <div class="form-group">
-                            <label class="formGroupLabelStatic">What can you offer the volunteer? *</label>
 
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="1" name="offer[international_travel_expenses]" id="offer1">
