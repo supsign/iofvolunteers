@@ -337,14 +337,6 @@
                 <script language="javascript" type="text/javascript">
                     jQuery(document).ready(function ($) {
 
-                        // load countries list
-                        $.ajax({
-                            type: "GET",
-                            url: 'countries',
-                            success: function (data) {
-                                $('#country').empty().append(data);
-                            }
-                        });
 
                         $('#register').click(function () {
                             $('#register').hide();
@@ -363,22 +355,8 @@
 
                 </script>
             @endguest
-            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('js/datepicker.min.js') }}"></script>
 
             <script language="javascript" type="text/javascript">
-                $.fn.datepicker.language['en'] = {
-                    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                    daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    today: 'Today',
-                    clear: 'Clear',
-                    dateFormat: 'mm/dd/yyyy',
-                    timeFormat: 'hh:ii aa',
-                    firstDay: 0
-                };
 
             </script>
     </body>
