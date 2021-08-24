@@ -34,7 +34,7 @@
     </head>
 
     <body class="d-flex flex-column">
-        <div class="wrapper flex-grow-1">
+        <div class="wrapper flex-grow-1 d-flex flex-column">
             <header>
                 <div class="shadow container-fluid eltop">
                     <div class="row justify-content-between align-items-center">
@@ -208,7 +208,7 @@
 
 
 
-            <main>
+            <main class="flex-grow-1">
                 @yield('content')
                 <div class="clear"></div>
             </main>
