@@ -13,7 +13,21 @@
             <input type="hidden" name="id" value="">
 
             <div class="row">
+
+
+
                 <div class="col-12 col-md-8">
+
+
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <x-form.section>
                         <x-slot name="title">
@@ -58,10 +72,10 @@
                         </x-slot>
                         <x-base.input name="ol_duration" value="{{ $volunteer->ol_duration }}" label="Year you started orienteering (yyyy) *" type="number" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years"
                                       data-min-view="years" placeholder=" " required :iconName="'calendarIcon'" />
-                        <x-base.input name="field_club" value="{{ $volunteer->club }}" label="Your present club (if any)" type="text" />
-                        <x-base.input name="local_experience" value="{{ $volunteer->local_experience }}" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience" value="{{ $volunteer->national_experience }}" label="Exprience with national Events" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="international_experience" value="{{ $volunteer->international_experience }}" label="Exprience with international Events" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="club" value="{{ $volunteer->club }}" label="Your present club (if any)" type="text" />
+                        <x-base.input name="local_experience" value="{{ $volunteer->local_experience }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience" value="{{ $volunteer->national_experience }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="international_experience" value="{{ $volunteer->international_experience }}" label="Exprience with international (number) Events" type="number" size="3" min="0" step="1" />
                     </x-form.section>
 
                     <x-form.section>
@@ -124,7 +138,8 @@
                                     @endisset
 
                                     @foreach($skillType->skills AS $skill)
-                                        <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="{{ (int)$volunteer->skills->contains($skill) }}" />
+                                        <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skillType->id }}][{{ $skill->id }}]" type="checkbox" class="form-check-input"
+                                                         value="1" :checked="(int)$volunteer->skills->where('skill_type_id', $skillType->id)->first()?->id" />
                                     @endforeach
 
                                     @php

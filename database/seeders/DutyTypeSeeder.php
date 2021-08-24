@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 class DutyTypeSeeder extends Seeder
 {
     private $data = [
-		['id' => 1, 'name' => 'Local / National Events'],
-		['id' => 2, 'name' => 'International Events'],
-	];
+        ['id' => 1, 'name' => 'Local / National Events (number)'],
+        ['id' => 2, 'name' => 'International Events (number)'],
+    ];
 
     /**
      * Run the database seeds.
@@ -20,15 +20,15 @@ class DutyTypeSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-        	$data = array();
+            $data = array();
 
-        	foreach ($entry AS $key => $value) {
+            foreach ($entry as $key => $value) {
                 if ($key === 'id') {
                     continue;
                 }
 
-        		$data[$key] = $value;
-        	}
+                $data[$key] = $value;
+            }
 
             DB::table('duty_types')->updateOrInsert(['id' => $entry['id']], $data);
         }
