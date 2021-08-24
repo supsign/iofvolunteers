@@ -29,7 +29,6 @@ class Update extends FormRequest
             'email' => 'required|email:rfc,dns|max:191',
             'gender_id' => 'int',
             'birthdate' => 'required|date',
-            'nickname' => 'max:191',
             'driving_licence' => 'required|boolean',
             'discipline' => '',
             'ol_duration' => 'int',

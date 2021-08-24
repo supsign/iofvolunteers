@@ -11,10 +11,7 @@
 
         <table class="table">
             <tbody>
-                <tr>
-                    <td>Nickname</td>
-                    <td>{{ $volunteer->nickname }}</td>
-                </tr>
+
                 <tr>
                     <td>Name</td>
                     <td>{{ $volunteer->name }}</td>
