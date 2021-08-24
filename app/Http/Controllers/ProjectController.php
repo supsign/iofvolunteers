@@ -9,7 +9,7 @@ use App\Http\Requests\Project\Update;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
-use App\Models\DutyTypes;
+use App\Models\DutyType;
 use App\Models\Gender;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
@@ -28,7 +28,7 @@ class ProjectController extends Controller
 		return view('project.register', [
 			'project' => $project,
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),

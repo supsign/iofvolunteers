@@ -6,7 +6,8 @@
         name="{{ $attributes->get('name') }}" 
         {{ $attributes }}
     >
-        @if(!$value)
+
+        @if(!$value || !$value->id)
             <option selected disabled>{{ $attributes->get('label') }}</option>
         @endif
 
