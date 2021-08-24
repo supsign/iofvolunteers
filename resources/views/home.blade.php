@@ -17,12 +17,12 @@
                     <div class="p-4 NI_details">
                         <h3 class="subtitle">
                             @if($user?->volunteer)
-                                <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50">
+                                <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="add">
                                 <a href="{{ route('volunteer.edit', $user->volunteer) }}">
                                     Edit Volunteer
                                 </a>
                             @else
-                                <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50">
+                                <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="add">
                                 <a href="{{ route('volunteer.register') }}">
                                     Register as a Volunteer
                                 </a>
