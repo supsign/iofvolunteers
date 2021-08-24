@@ -16,7 +16,7 @@ class Select extends Component
 
     public function __construct(
         public Collection $options, 
-        public BaseModel $value,
+        public BaseModel|null $value = null,
         public string|null $iconName = null
     ) {
 
