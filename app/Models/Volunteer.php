@@ -21,6 +21,13 @@ class Volunteer extends BaseModel
         return $this->morphToMany(Duty::class, 'duty_model');
     }
 
+    public function dutyVolunteer()
+    {
+        return $this
+            ->hasMany(DutyModel::class, 'duty_model_id')
+            ->where('duty_model_type', self::class);
+    }
+
     public function continents()
     {
         return $this->morphToMany(Continent::class, 'continent_model');

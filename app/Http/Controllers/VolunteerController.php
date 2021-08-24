@@ -8,7 +8,7 @@ use App\Models\Gender;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
-use App\Models\DutyTypes;
+use App\Models\DutyType;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
@@ -48,7 +48,7 @@ class VolunteerController extends Controller
 
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
@@ -76,8 +76,6 @@ class VolunteerController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        var_dump($data);
-
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
@@ -93,9 +91,6 @@ class VolunteerController extends Controller
         if (empty($data['nickname'])) {
             $data['nickname'] = $data['name'];
         }
-
-        var_dump($data);
-        // die();
 
         $volunteer = Volunteer::create($data);
 
@@ -126,7 +121,7 @@ class VolunteerController extends Controller
         return view('volunteer.edit',[
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
