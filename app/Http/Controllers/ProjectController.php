@@ -58,7 +58,7 @@ class ProjectController extends Controller
         Project::create($data);
 
         return redirect()->route('home');
-        return redirect()->route('project.list');	//	gibts noch nicht
+        return redirect()->route('project.list');
     }
 
     public function update(Project $project, Update $request)
