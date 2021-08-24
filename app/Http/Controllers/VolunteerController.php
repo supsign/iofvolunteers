@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Schema;
+use Alert;
 
 class VolunteerController extends Controller
 {
@@ -31,19 +32,12 @@ class VolunteerController extends Controller
     {
     }
 
-    public function list()
-    {
-        if (!Auth::user()->volunteer) {
-            return redirect()->route('volunteer.registerForm');
-        }
-
-        return view('volunteer.list');
-    }
 
     public function registerForm()
     {
+        $user = Auth::user();
         if (Auth::user()->volunteer) {
-            return redirect()->route('volunteer.list');
+            return redirect()->route('volunteer.edit', $user->volunteer);
         }
 
         return view('volunteer.register', [
@@ -61,7 +55,17 @@ class VolunteerController extends Controller
 
     public function searchForm()
     {
-        return view('volunteer.search');
+        return view('volunteer.search', [
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+        ]);
     }
 
     public function show(Volunteer $volunteer)
@@ -109,7 +113,8 @@ class VolunteerController extends Controller
             $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
-        return redirect()->route('volunteer.list');
+        Alert::toast('Saved', 'success');
+        return redirect()->route('home');
     }
 
     public function edit(Volunteer $volunteer)
@@ -118,7 +123,7 @@ class VolunteerController extends Controller
             return redirect()->route('volunteer.registerForm');
         }
 
-        return view('volunteer.edit',[
+        return view('volunteer.edit', [
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
@@ -156,6 +161,7 @@ class VolunteerController extends Controller
 
         $volunteer->update($data);
 
+        $languagesForSync = [];
         foreach ($language as $key => $value) {
             $languagesForSync[$key] = ['language_proficiency_id' => $value];
         }
@@ -171,7 +177,8 @@ class VolunteerController extends Controller
             $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
-        return redirect()->route('volunteer.list');
+        Alert::toast('Saved', 'success');
+        return redirect()->route('home');
     }
 
 

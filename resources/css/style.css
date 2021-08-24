@@ -659,6 +659,7 @@ form select {
 }
 
 .form-group .formSubtitle2,
+.formSection .formSubtitle2,
 .formSection .formSectionTitle .formSubtitle2 {
 	font-weight: 600;
 	font-size: 19px;

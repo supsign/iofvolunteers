@@ -34,6 +34,7 @@
     </head>
 
     <body class="d-flex flex-column">
+        @include('sweetalert::alert')
         <div class="wrapper flex-grow-1 d-flex flex-column">
             <header>
                 <div class="shadow container-fluid eltop">
@@ -70,10 +71,10 @@
                                                     <li class="menu-item">
                                                         @if(isset($user) && $user->volunteer)
                                                             <a href="{{ route('volunteer.edit', $user->volunteer) }}">
-                                                                Edit your Volunteer
+                                                                Edit Volunteer
                                                             </a>
                                                         @else
-                                                            <a href="{{ route('volunteer.list') }}">
+                                                            <a href="{{ route('volunteer.register') }}">
                                                                 Register as a Volunteer
                                                             </a>
                                                         @endif
@@ -351,12 +352,11 @@
                             $('#signInBlock').show();
                             $('#signIn').hide();
                         });
+
                     });
 
                 </script>
             @endguest
-
-            <script language="javascript" type="text/javascript">
 
             </script>
     </body>

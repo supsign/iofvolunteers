@@ -55,4 +55,18 @@ jQuery(document).ready(function ($) {
             $("#continentsCheckboxesTrigger").prop("checked", false);
         }
     });
+
+    $("#register").click(function () {
+        $("#register").hide();
+        $("#registerBlock").show();
+        $("#signInBlock").hide();
+        $("#signIn").show();
+    });
+
+    $("#signIn").click(function () {
+        $("#registerBlock").hide();
+        $("#register").show();
+        $("#signInBlock").show();
+        $("#signIn").hide();
+    });
 });

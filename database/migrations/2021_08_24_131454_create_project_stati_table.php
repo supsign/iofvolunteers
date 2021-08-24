@@ -25,7 +25,7 @@ class CreateProjectStatiTable extends Migration
         ]);
 
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId('project_status_id')->after('country_id')->constrained('project_stati');
+            $table->foreignId('project_status_id')->after('country_id')->nullable()->constrained('project_stati');
         });
     }
 
