@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class DutyTypes extends BaseModel
+class DutyType extends BaseModel
 {
 
 }

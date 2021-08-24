@@ -83,8 +83,9 @@
                         </x-slot>
                         <div class="form-group">
                             <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
+
                             @foreach($continents AS $continent)
-                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="{{ (int)$volunteer->continents->contains($continent) }}"/>
                             @endforeach 
                         </div>
                     </x-form.section>
@@ -118,7 +119,7 @@
                                 @endisset
 
                                 @foreach($skillType->skills AS $skill)
-                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="{{ (int)$volunteer->skills->contains($skill) }}"/>
                                 @endforeach
 
                                 @php
@@ -141,7 +142,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" value="{{ $volunteer->o_work_expirence_local }}" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" type="checkbox" class="form-check-input" value="{{ $volunteer->dutyVolunteer->where('duty_type_id', $dutyType->id)->where('duty_id', $duty->id)->count() }}"/>
                                 @endforeach
                             @endforeach
                         </div>

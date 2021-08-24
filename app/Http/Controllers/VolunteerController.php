@@ -8,7 +8,7 @@ use App\Models\Gender;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
-use App\Models\DutyTypes;
+use App\Models\DutyType;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
@@ -48,7 +48,7 @@ class VolunteerController extends Controller
 
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
@@ -126,7 +126,7 @@ class VolunteerController extends Controller
         return view('volunteer.edit',[
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
@@ -142,6 +142,8 @@ class VolunteerController extends Controller
         $data = $request->validated();
 
         unset($data['_token']);
+
+
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
@@ -171,9 +173,15 @@ class VolunteerController extends Controller
         $volunteer->continents()->sync(array_keys($continent));
         $volunteer->skills()->sync(array_keys($skill));
 
+        var_dump(
+            $duty
+        );        
+
         foreach ($duty as $key => $values) {
             $volunteer->duties()->syncWithPivotValues(array_keys($values), ['duty_type_id' => $key]);
         }
+
+        die();
 
         return redirect()->route('volunteer.list');
     }
