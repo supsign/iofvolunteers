@@ -8,7 +8,7 @@ use App\Models\Gender;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
-use App\Models\DutyTypes;
+use App\Models\DutyType;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
@@ -48,7 +48,7 @@ class VolunteerController extends Controller
 
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
@@ -56,21 +56,6 @@ class VolunteerController extends Controller
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
-        ]);
-    }
-
-    public function testForm()
-    {
-        return view('volunteer.test', [
-            'countries' => Country::all(),
-            'genders' => Gender::all(),
-            'disciplines' => Discipline::all(),
-            'languages' => Language::all(),
-            'languageProficiency' => LanguageProficiency::all(),
-            'continents' => Continent::all(),
-            'skillTypes' => SkillType::with('skills')->get(),
-            'duties' => Duty::all(),
-            'dutyTypes' => DutyTypes::all(),
         ]);
     }
 
@@ -136,12 +121,12 @@ class VolunteerController extends Controller
         return view('volunteer.edit',[
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
             'languages' => Language::all(),
-            'languageProficiency' => LanguageProficiency::all(),
+            'languageProficiencies' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
         ]);
@@ -176,13 +161,14 @@ class VolunteerController extends Controller
         }
 
         $volunteer->languages()->sync($languagesForSync);
-
         $volunteer->disciplines()->sync(array_keys($discipline));
         $volunteer->continents()->sync(array_keys($continent));
         $volunteer->skills()->sync(array_keys($skill));
 
+        $volunteer->dutyVolunteer()->delete();
+
         foreach ($duty as $key => $values) {
-            $volunteer->duties()->syncWithPivotValues(array_keys($values), ['duty_type_id' => $key]);
+            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
         return redirect()->route('volunteer.list');

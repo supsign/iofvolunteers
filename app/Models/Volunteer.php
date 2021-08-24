@@ -21,6 +21,13 @@ class Volunteer extends BaseModel
         return $this->morphToMany(Duty::class, 'duty_model');
     }
 
+    public function dutyVolunteer()
+    {
+        return $this
+            ->hasMany(DutyModel::class, 'duty_model_id')
+            ->where('duty_model_type', self::class);
+    }
+
     public function continents()
     {
         return $this->morphToMany(Continent::class, 'continent_model');
@@ -29,21 +36,6 @@ class Volunteer extends BaseModel
     public function country()
     {
         return $this->belongsTo(Country::class);
-    }
-
-    public function expirenceLocal()
-    {
-        return $this->belongsTo(Experience::class, 'local_experience_id');
-    }
-
-    public function expirenceNational()
-    {
-        return $this->belongsTo(Experience::class, 'national_experience_id');
-    }
-
-    public function expirenceInternational()
-    {
-        return $this->belongsTo(Experience::class, 'international_experience_id');
     }
 
     public function gender()
@@ -83,6 +75,14 @@ class Volunteer extends BaseModel
     public function getAgeAttribute()
     {
         return Carbon::parse($this->birthdate)->age;
+    }
+
+    public function getDrivingLicenceModelAttribute()
+    {
+        $model = new BaseModel;
+        $model->id = $this->driving_licence;
+
+        return $model;
     }
 
     public function getLanguageInfoAttribute()
