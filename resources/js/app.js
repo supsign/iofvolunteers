@@ -1,7 +1,7 @@
-require("./jquery-2.2.4.min");
-require("./bootstrap.min");
+require("./bootstrap");
 require("./datepicker.min");
 require("./main");
+
 import { flare } from "@flareapp/flare-client";
 
 // only launch in production, we don't want to waste your quota while you're developing.
