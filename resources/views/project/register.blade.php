@@ -33,7 +33,8 @@
                             2. Details of the Project
                         </x-slot>
                         <x-base.input name="place" value="{{ old('place') }}" label="Where will the volunteer be working? *" required />
-                        <x-base.input name="startDate" value="{{ old('startDate') }}" label="When is the volunteer expected to start?" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
+                        <x-base.input name="startDate" value="{{ old('startDate') }}"
+                                      label="When is the volunteer expected to start?" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
                         <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
                         <div class="form-group">
@@ -107,7 +108,10 @@
                         </x-slot>
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
                         <x-base.select name="age" label="Age" :iconName="'selectArr'" {{-- :options="$ages" --}} />
-                        <x-base.select name="driving_licence" label="International driving license?" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" />
+                        <x-base.select name="driving_licence"
+                                       label="International driving license?"
+                                       :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
+                                       :iconName="'selectArr'" />
                         <x-base.input name="expectedLanguage" value="{{ old('expectedLanguage') }}" label="Language expectations" />
                     </x-form.section>
 
@@ -138,9 +142,12 @@
                 <x-slot name="title">
                     8. O-Experience
                 </x-slot>
-                <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
-                <x-base.input name="national_experience" value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
-                <x-base.input name="international_experience" value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
+                <x-base.input name="local_experience"
+                              value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                <x-base.input name="national_experience"
+                              value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                <x-base.input name="international_experience"
+                              value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
             </x-form.section>
     </div>
 

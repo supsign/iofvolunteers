@@ -43,11 +43,15 @@
                             2. Personal Information
                         </x-slot>
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender" />
-                        <x-base.input name="birthdate" value="{{ $volunteer->birthdate }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
+                        <x-base.input name="birthdate"
+                                      value="{{ $volunteer->birthdate }}"
+                                      label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
                         <x-base.input name="nickname" value="{{ $volunteer->nickname }}" label="Nickname">
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"
+                        <x-base.select name="driving_licence"
+                                       label="International driving license? *"
+                                       :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"
                                        :value="$volunteer->drivingLicenceModel" required />
                     </x-form.section>
 
@@ -57,7 +61,9 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]"
+                                                 label="{{ $discipline->name }}"
+                                                 class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -70,12 +76,18 @@
                             State below how long your experience for each given Event-Type is.
                             <div class="warn">The number will be taken as years - 0 for no experience.</div>
                         </x-slot>
-                        <x-base.input name="ol_duration" value="{{ $volunteer->ol_duration }}" label="Year you started orienteering (yyyy) *" type="number" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years"
+                        <x-base.input name="ol_duration"
+                                      value="{{ $volunteer->ol_duration }}" label="Year you started orienteering (yyyy) *"
+                                      type="number" class="datepicker-here" data-language='en' data-date-format="yyyy" data-view="years"
                                       data-min-view="years" placeholder=" " required :iconName="'calendarIcon'" />
-                        <x-base.input name="club" value="{{ $volunteer->club }}" label="Your present club (if any)" type="text" />
-                        <x-base.input name="local_experience" value="{{ $volunteer->local_experience }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience" value="{{ $volunteer->national_experience }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="international_experience" value="{{ $volunteer->international_experience }}" label="Exprience with international (number) Events" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="club"
+                                      value="{{ $volunteer->club }}" label="Your present club (if any)" type="text" />
+                        <x-base.input name="local_experience"
+                                      value="{{ $volunteer->local_experience }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience"
+                                      value="{{ $volunteer->national_experience }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="international_experience"
+                                      value="{{ $volunteer->international_experience }}" label="Exprience with international (number) Events" type="number" size="3" min="0" step="1" />
                     </x-form.section>
 
                     <x-form.section>
