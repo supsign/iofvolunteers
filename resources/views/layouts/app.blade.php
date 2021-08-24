@@ -29,12 +29,12 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
-        <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 
     </head>
 
     <body class="d-flex flex-column">
-        <div class="wrapper flex-grow-1">
+        <div class="wrapper flex-grow-1 d-flex flex-column">
             <header>
                 <div class="shadow container-fluid eltop">
                     <div class="row justify-content-between align-items-center">
@@ -67,17 +67,17 @@
                                             <li class="menu-item">
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"> 
-                                                        @if (isset($user) && $user->volunteer)
-                                                        <a href="{{ route('volunteer.edit', $user->volunteer) }}">
-                                                            Edit your Volunteer
-                                                        </a>
+                                                    <li class="menu-item">
+                                                        @if(isset($user) && $user->volunteer)
+                                                            <a href="{{ route('volunteer.edit', $user->volunteer) }}">
+                                                                Edit your Volunteer
+                                                            </a>
                                                         @else
-                                                        <a href="{{ route('volunteer.list') }}">
-                                                            Register as a Volunteer
-                                                        </a>
+                                                            <a href="{{ route('volunteer.list') }}">
+                                                                Register as a Volunteer
+                                                            </a>
                                                         @endif
-                                                        
+
                                                     </li>
                                                 </ul>
                                             </li>
@@ -208,7 +208,7 @@
 
 
 
-            <main>
+            <main class="flex-grow-1">
                 @yield('content')
                 <div class="clear"></div>
             </main>
@@ -223,7 +223,7 @@
                                 <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
                         </aside>
                         <aside>
-                            <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200"/>
+                            <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200" />
                         </aside>
                     </div>
                 </div>
@@ -260,10 +260,10 @@
                                         <button type="submit" class="btn btn-primary w-100">Sign in!</button>
                                         <a href="register">
                                             Register
-                                        </a>  
+                                        </a>
                                         <a href="restore">
                                             Restore password
-                                        </a>                                                                                                     
+                                        </a>
                                     </div>
                                 </form>
 
@@ -381,7 +381,6 @@
                 };
 
             </script>
-            <script src="{{ asset('js/main.js') }}"></script>
     </body>
 
 </html>

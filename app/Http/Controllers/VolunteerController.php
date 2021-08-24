@@ -24,7 +24,7 @@ class VolunteerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     public function contact()
@@ -161,13 +161,14 @@ class VolunteerController extends Controller
         }
 
         $volunteer->languages()->sync($languagesForSync);
-
         $volunteer->disciplines()->sync(array_keys($discipline));
         $volunteer->continents()->sync(array_keys($continent));
         $volunteer->skills()->sync(array_keys($skill));
 
+        $volunteer->dutyVolunteer()->delete();
+
         foreach ($duty as $key => $values) {
-            $volunteer->duties()->syncWithPivotValues(array_keys($values), ['duty_type_id' => $key]);
+            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
         return redirect()->route('volunteer.list');
