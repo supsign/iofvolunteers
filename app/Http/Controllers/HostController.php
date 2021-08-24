@@ -26,8 +26,6 @@ class HostController extends Controller
 
     public function register(HostRegister $request)
     {
-        exit();
-
         return Host::create($request->validated());
     }
 

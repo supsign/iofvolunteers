@@ -143,11 +143,17 @@
                     8. O-Experience
                 </x-slot>
                 <x-base.input name="local_experience"
-                              value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                              value="{{ old('local_experience') }}"
+                              label="Exprience with local Events (number)"
+                              type="number" size="3" min="0" step="1" />
                 <x-base.input name="national_experience"
-                              value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                              value="{{ old('national_experience') }}"
+                              label="Exprience with national Events (number)"
+                              type="number" size="3" min="0" step="1" />
                 <x-base.input name="international_experience"
-                              value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
+                              value="{{ old('international_experience') }}"
+                              label="Exprience with international Events (number)"
+                              type="number" size="3" min="0" step="1" />
             </x-form.section>
     </div>
 
