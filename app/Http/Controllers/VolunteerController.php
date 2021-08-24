@@ -171,8 +171,6 @@ class VolunteerController extends Controller
             $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
-        return $this->edit($volunteer);
-
         return redirect()->route('volunteer.list');
     }
 
