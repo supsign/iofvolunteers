@@ -25,10 +25,9 @@ class ProjectController extends Controller
         $this->middleware(['auth','verified']);
     }
 	
-	public function registerForm(Project $project) 
+	public function registerForm() 
 	{
 		return view('project.register', [
-			'project' => $project,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),

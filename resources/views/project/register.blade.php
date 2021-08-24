@@ -16,32 +16,32 @@
                         <x-slot name="title">
                             1. Details of the Organisation *
                         </x-slot>                       
-                        <x-base.input name="organisation_name" value="{{ old('organisation_name') }}" label="Name of the organisation *" required />
-                        <x-base.select name="status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required/>
-                        <x-base.input name="organisation_webpage" value="{{ old('organisation_webpage') }}" label="Web page (if exists)" />
+                        <x-base.input name="organisation_name" label="Name of the organisation *" required />
+                        <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required/>
+                        <x-base.input name="organisation_webpage" label="Web page (if exists)" />
                         <x-base.select name="region_id" label="Region *" :iconName="'selectArr'" :options="$continents" required/>
-                        <x-base.input name="organisation_contact" value="{{ old('organisation_contact') }}" label="Contact person *" required />
-                        <x-base.input name="organisation_contact_position" value="{{ old('organisation_contact_position') }}" label="Position in the organisation *" required />
+                        <x-base.input name="organisation_contact" label="Contact person *" required />
+                        <x-base.input name="organisation_contact_position" label="Position in the organisation *" required />
                         <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
-                        <x-base.input name="organisation_email" value="{{ old('organisation_email') }}" label="E-mail *" type="email" required />
-                        <x-base.input name="organisation_phone" value="{{ old('organisation_phone') }}" label="Phone *" required />
-                        {{-- <x-base.input name="organisation_language_id" value="{{ old('organisation_language_id') }}" label="Native language(s) *" required /> --}}
+                        <x-base.input name="organisation_email" label="E-mail *" type="email" required />
+                        <x-base.input name="organisation_phone" label="Phone *" required />
+                        {{-- <x-base.input name="organisation_language_id" label="Native language(s) *" required /> --}}
                     </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             2. Details of the Project
                         </x-slot>                       
-                        <x-base.input name="place" value="{{ old('place') }}" label="Where will the volunteer be working? *" required />
-                        <x-base.input name="startDate" value="{{ old('startDate') }}" label="When is the volunteer expected to start?" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
-                        <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
+                        <x-base.input name="place" label="Where will the volunteer be working? *" required />
+                        <x-base.input name="startDate" label="When is the volunteer expected to start?" class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
+                        <x-base.input name="contact" label="Contact person *" required />
                         <div class="form-group">
                             <label class="formSubtitle2">What can you offer the volunteer? *</label>
                             @foreach($offers AS $offer)
                                 <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" class="form-check-input"/>
                             @endforeach 
                         </div>
-                        <x-base.input name="offer_text" value="{{ old('offer_text') }}" label="Other (please state):" />
+                        <x-base.input name="offer_text" label="Other (please state):" />
                     </x-form.section>
 
                     <x-form.section>
@@ -93,8 +93,8 @@
                                 @endforeach
                             @endforeach
                         </div>
-                        <x-base.input name="oWorkInternationalExpinfo" value="{{ old('oWorkInternationalExpinfo') }}" label="Other duties? State below..." />
-                        <x-base.input name="exprience_details" value="{{ old('exprience_details') }}" label="Details of the work to be done *" required/>
+                        <x-base.input name="oWorkInternationalExpinfo" label="Other duties? State below..." />
+                        <x-base.input name="exprience_details" label="Details of the work to be done *" required/>
                     </x-form.section>
 
                     <x-form.section>
@@ -107,7 +107,7 @@
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/> 
                         <x-base.select name="age" label="Age" :iconName="'selectArr'" {{-- :options="$ages" --}}/>  
                         <x-base.select name="driving_licence" label="International driving license?" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"/>
-                        <x-base.input name="expectedLanguage" value="{{ old('expectedLanguage') }}" label="Language expectations"/>
+                        <x-base.input name="expectedLanguage" label="Language expectations"/>
                     </x-form.section>
 
                         {{-- Hier sind die alten Select-Optionen für age --}}
@@ -137,9 +137,9 @@
                         <x-slot name="title">
                             8. O-Experience
                         </x-slot>
-                        <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience" value="{{ old('national_experience') }}" label="Exprience with national Events" type="number" size="3" min="0" step="1"/>
-                        <x-base.input name="international_experience" value="{{ old('international_experience') }}" label="Exprience with international Events" type="number" size="3" min="0" step="1"/>
+                        <x-base.input name="local_experience" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience" label="Exprience with national Events" type="number" size="3" min="0" step="1"/>
+                        <x-base.input name="international_experience" label="Exprience with international Events" type="number" size="3" min="0" step="1"/>
                     </x-form.section>
                 </div>
 
