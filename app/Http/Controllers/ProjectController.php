@@ -13,6 +13,7 @@ use App\Models\DutyType;
 use App\Models\Gender;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
+use App\Models\ProjectStatus;
 use Illuminate\Http\Request;
 use App\Models\Language;
 
@@ -36,6 +37,7 @@ class ProjectController extends Controller
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
+            'stati' => ProjectStatus::all(),
 		]);
 	}
 
@@ -46,7 +48,15 @@ class ProjectController extends Controller
 
 	public function register(Register $request) 
 	{
-		var_dump($request->all());
+		$data = $request->all();
+
+
+        unset($data['_token']);
+        unset($data['agb']);
+
+
+
+        var_dump($data);
 
 		die();
 

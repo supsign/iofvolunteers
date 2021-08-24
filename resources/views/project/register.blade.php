@@ -17,7 +17,7 @@
                             1. Details of the Organisation *
                         </x-slot>                       
                         <x-base.input name="name" value="{{ old('name') }}" label="Name of the organisation *" required />
-                        <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} {{-- required --}}/>
+                        <x-base.select name="status" label="Status *" :iconName="'selectArr'" :options="$stati" required/>
                         <x-base.input name="webpage" value="{{ old('webpage') }}" label="Web page (if exists)" />
                         <x-base.select name="region" label="Region *" :iconName="'selectArr'" :options="$continents" required/>
                         <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
