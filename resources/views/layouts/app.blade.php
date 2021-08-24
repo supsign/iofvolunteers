@@ -71,10 +71,10 @@
                                                     <li class="menu-item">
                                                         @if(isset($user) && $user->volunteer)
                                                             <a href="{{ route('volunteer.edit', $user->volunteer) }}">
-                                                                Edit your Volunteer
+                                                                Edit Volunteer
                                                             </a>
                                                         @else
-                                                            <a href="{{ route('volunteer.list') }}">
+                                                            <a href="{{ route('volunteer.register') }}">
                                                                 Register as a Volunteer
                                                             </a>
                                                         @endif
