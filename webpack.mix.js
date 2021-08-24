@@ -1,4 +1,5 @@
 const mix = require("laravel-mix");
+const FlareWebpackPluginSourcemap = require("@flareapp/flare-webpack-plugin-sourcemap");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,8 +12,6 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.copy("resources/js/", "public/js/");
-
 mix.copy("resources/css/bootstrap.min.css", "public/css/");
 mix.copy("resources/css/datepicker.min.css", "public/css/");
 mix.copy("resources/css/local.css", "public/css/");
@@ -21,3 +20,13 @@ mix.copy("resources/css/style.css", "public/css/");
 
 mix.copy("resources/images/", "public/images/");
 mix.copy("resources/fonts/", "public/fonts/");
+
+mix.js("resources/js/app.js", "public/js/app.js");
+
+mix.webpackConfig({
+    plugins: [
+        new FlareWebpackPluginSourcemap({
+            key: "NHWV9EAtBn10wB8cXdBqKnuWwcS8cJpn",
+        }),
+    ],
+}).sourceMaps(true, "hidden-source-map");
