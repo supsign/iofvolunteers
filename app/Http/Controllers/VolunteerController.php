@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Schema;
+use Alert;
 
 class VolunteerController extends Controller
 {
@@ -31,14 +32,6 @@ class VolunteerController extends Controller
     {
     }
 
-    public function list()
-    {
-        if (!Auth::user()->volunteer) {
-            return redirect()->route('volunteer.registerForm');
-        }
-
-        return view('volunteer.list');
-    }
 
     public function registerForm()
     {
@@ -109,7 +102,8 @@ class VolunteerController extends Controller
             $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
         }
 
-        return redirect()->route('volunteer.list');
+        Alert::toast('saved', 'success');
+        return redirect()->route('home');
     }
 
     public function edit(Volunteer $volunteer)
@@ -118,7 +112,7 @@ class VolunteerController extends Controller
             return redirect()->route('volunteer.registerForm');
         }
 
-        return view('volunteer.edit',[
+        return view('volunteer.edit', [
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
