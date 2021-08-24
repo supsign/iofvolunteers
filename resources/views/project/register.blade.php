@@ -16,11 +16,16 @@
                             <x-slot name="title">
                                 1. Details of the Organisation *
                             </x-slot>                       
-                            <x-base.input name="org_name" value="{{ old('name') }}" label="Name of the organisation *" required />
+                            <x-base.input name="name" value="{{ old('name') }}" label="Name of the organisation *" required />
                             <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} required/>
-                            <x-base.input name="org_webpage" value="{{ old('name') }}" label="Web page (if exists)" />
+                            <x-base.input name="webpage" value="{{ old('webpage') }}" label="Web page (if exists)" />
                             <x-base.select name="region" label="Region *" :iconName="'selectArr'" {{-- :options="$regions"--}} required/>
+                            <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
+                            <x-base.input name="position" value="{{ old('position') }}" label="Position in the organisation *" required />
+                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
                             <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
+                            <x-base.input name="phone" value="{{ old('phone') }}" label="Phone *" required />
+                            <x-base.input name="language" value="{{ old('language') }}" label="Native language(s) *" required />
                         </x-form.section>
 
                         {{-- <h3 class="formSectionTitle">
@@ -58,72 +63,15 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <input id="field_contact" placeholder=" " type="text" name="contact" size="20" value="" required>
-                            <label class="formGroupLabel"  for="field_contact">Contact person *</label>
-                            <div class="mt-3">
-                                @foreach ($errors->get('contact') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_position" placeholder=" " type="text" name="position" size="20" required>
-                            <label class="formGroupLabel"  for="field_position">Position in the organisation *</label>
-                            <div class="mt-3">
-                                @foreach ($errors->get('position') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
-                        
-                        <div class="form-group">
-                            <input id="field_email" placeholder=" " type="email" name="email" size="20" value="" required>
-                            <label class="formGroupLabel"  for="field_email">E-mail *</label>
-                            <div class="mt-3">
-                                @foreach ($errors->get('email') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_phone" placeholder=" " type="text" name="phone" size="10" required>
-                            <label class="formGroupLabel"  for="field_phone">Phone *</label>
-                            <div class="mt-3">
-                                @foreach ($errors->get('phone') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_language" placeholder=" " type="text" name="language" size="20">
-                            <label class="formGroupLabel"  for="field_language">Native language(s) *</label>
-                            <div class="mt-3">
-                                @foreach ($errors->get('language') as $message)
-                                    <div class="alert alert-danger">{{ $message }} </div>
-                                @endforeach
-                            </div>
-                        </div>
-
                     <div class="formSection">
-                        <h3 class="formSectionTitle">
-                            2. Details of the Project
-                        </h3>
-
-                        <div class="form-group">
-                            <input type="text" id="field_place" placeholder=" " name="place" size="30" required>
-                            <label class="formGroupLabel"  for="field_place">Where will the volunteer be working? *</label>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="field_startDate" placeholder=" " type="text" name="startDate" size="10" required>
-                            <label class="formGroupLabel"  for="field_startDate">When is the volunteer expected to start?</label>
-                        </div>
+                        <x-form.section>
+                            <x-slot name="title">
+                                2. Details of the Project
+                            </x-slot>                       
+                            <x-base.input name="place" value="{{ old('place') }}" label="Where will the volunteer be working? *" required />
+                            <x-base.input name="startDate" value="{{ old('startDate') }}" label="When is the volunteer expected to start?" />
+                            <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
+                        </x-form.section>
 
                         <div class="form-group">
                             <label class="formGroupLabelStatic">What can you offer the volunteer? *</label>
