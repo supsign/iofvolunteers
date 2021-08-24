@@ -170,7 +170,7 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="agb" id="agb" required>
+                                    <input class="form-check-input" type="checkbox" name="agb" id="agb" value="1" required>
                                     <label class="form-check-label" for="agb">
                                         I have read and understood the above.
                                     </label>

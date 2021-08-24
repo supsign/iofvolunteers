@@ -76,8 +76,6 @@ class VolunteerController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        var_dump($data);
-
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
@@ -93,9 +91,6 @@ class VolunteerController extends Controller
         if (empty($data['nickname'])) {
             $data['nickname'] = $data['name'];
         }
-
-        var_dump($data);
-        // die();
 
         $volunteer = Volunteer::create($data);
 
