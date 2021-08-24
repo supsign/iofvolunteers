@@ -139,15 +139,6 @@ class VolunteerController extends Controller
 
     public function update(Volunteer $volunteer, Update $request)
     {
-        echo '<pre>';
-        var_dump($request->validated());
-        echo '</pre>';
-        echo '<pre>';
-
-        var_dump($request->all());
-        echo '</pre>';
-
-        // die();
         $data = $request->validated();
 
 
@@ -157,12 +148,8 @@ class VolunteerController extends Controller
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
-            echo '<pre>';
-
-            var_dump($data, $key);
-            echo '</pre>';
         }
-        die();
+      
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
