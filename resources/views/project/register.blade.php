@@ -17,7 +17,7 @@
                             1. Details of the Organisation *
                         </x-slot>                       
                         <x-base.input name="name" value="{{ old('name') }}" label="Name of the organisation *" required />
-                        <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} required/>
+                        <x-base.select name="status" label="Status *" :iconName="'selectArr'" {{-- :options="$statuses"--}} {{-- required --}}/>
                         <x-base.input name="webpage" value="{{ old('webpage') }}" label="Web page (if exists)" />
                         <x-base.select name="region" label="Region *" :iconName="'selectArr'" :options="$continents" required/>
                         <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label class="formSubtitle2">What can you offer the volunteer? *</label>
                             {{-- @foreach($offers AS $offer)
-                                <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" type="checkbox" class="form-check-input" value="1" required/>
+                                <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" class="form-check-input" value="1" required/>
                             @endforeach  --}}
                         </div>
                         <x-base.input name="offer" value="{{ old('offer') }}" label="Other (please state):" />
@@ -92,7 +92,7 @@
                         </x-slot> 
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" required/>
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input"/>
                             @endforeach
                         </div>                    
                     </x-form.section>
@@ -112,7 +112,7 @@
                                 @endisset
 
                                 @foreach($skillType->skills AS $skill)
-                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input"/>
+                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" class="form-check-input"/>
                                 @endforeach
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input"/>
+                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" class="form-check-input"/>
                                 @endforeach
                             @endforeach
                         </div>
@@ -164,7 +164,7 @@
                             <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                         </div> --}}
 
-                    <x-form.section>
+{{--                     <x-form.section>
                         <x-slot name="title">
                             7. Disciplines of experience
                         </x-slot>
@@ -173,7 +173,7 @@
                                 <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" required/>
                             @endforeach
                         </div>  
-                    </x-form.section>
+                    </x-form.section> --}}
 
                     <x-form.section>
                         <x-slot name="title">
@@ -201,8 +201,8 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms" id="iAgreeWithTerms" required>
-                                    <label class="form-check-label" for="iAgreeWithTerms">
+                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <label class="form-check-label" for="agb">
                                         I have read and understood the above. *
                                     </label>
                                     <div class="warn">Mandatory: Please accept the disclaimer.</div>
