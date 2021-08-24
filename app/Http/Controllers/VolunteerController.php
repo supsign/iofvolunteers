@@ -131,7 +131,7 @@ class VolunteerController extends Controller
             'countries' => Country::all(),
             'genders' => Gender::all(),
             'languages' => Language::all(),
-            'languageProficiency' => LanguageProficiency::all(),
+            'languageProficiencies' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
         ]);

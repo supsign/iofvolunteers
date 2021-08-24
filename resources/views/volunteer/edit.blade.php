@@ -41,7 +41,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="discipline[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -68,8 +68,8 @@
                         <x-slot name="subtitle">
                             <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
-                            @foreach($languages AS $language)                           
-                                <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency" />                      
+                            @foreach($languages AS $language)
+                                <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiencies" value="{{ $volunteer->languageVolunteers->where('language_id', $language->id)->first()->languageProficiency->id }}" />                      
                             @endforeach
                     </x-form.section>
 

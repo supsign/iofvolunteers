@@ -31,21 +31,6 @@ class Volunteer extends BaseModel
         return $this->belongsTo(Country::class);
     }
 
-    public function expirenceLocal()
-    {
-        return $this->belongsTo(Experience::class, 'local_experience_id');
-    }
-
-    public function expirenceNational()
-    {
-        return $this->belongsTo(Experience::class, 'national_experience_id');
-    }
-
-    public function expirenceInternational()
-    {
-        return $this->belongsTo(Experience::class, 'international_experience_id');
-    }
-
     public function gender()
     {
         return $this->belongsTo(Gender::class);
