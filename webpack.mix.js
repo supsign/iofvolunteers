@@ -1,4 +1,5 @@
 const mix = require("laravel-mix");
+const webpack = require("webpack");
 const FlareWebpackPluginSourcemap = require("@flareapp/flare-webpack-plugin-sourcemap");
 
 /*
@@ -27,6 +28,11 @@ mix.webpackConfig({
     plugins: [
         new FlareWebpackPluginSourcemap({
             key: "NHWV9EAtBn10wB8cXdBqKnuWwcS8cJpn",
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
         }),
     ],
 }).sourceMaps(true, "hidden-source-map");
