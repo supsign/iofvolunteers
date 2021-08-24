@@ -46,7 +46,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -87,9 +87,9 @@
                             <div class="warn">If not, just tick "Anywhere"</div>
                         </x-slot>
                         <div class="form-group">
-                            <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
+                            <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes"/>
                             @foreach($continents AS $continent)
-                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes"/>
                             @endforeach 
                         </div>
                     </x-form.section>
@@ -123,7 +123,7 @@
                                 @endisset
 
                                 @foreach($skillType->skills AS $skill)
-                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input"/>
                                 @endforeach                    
                                 <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" label="{{ $skillType->text }}"/>
                             </div>
@@ -140,7 +140,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input"/>
                                 @endforeach
                             @endforeach
                         </div>
@@ -170,7 +170,7 @@
                         <div class="formSection">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <input class="form-check-input" type="checkbox" name="agb" id="agb" required>
                                     <label class="form-check-label" for="agb">
                                         I have read and understood the above.
                                     </label>
