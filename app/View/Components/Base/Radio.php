@@ -1,11 +1,12 @@
 <?php
 
-namespace App\View\Components\Person;
+namespace App\View\Components\Base;
 
-use App\Models\Country;
+use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class CountriesForm extends Component
+class Radio extends Component
 {
     /**
      * Create a new component instance.
@@ -13,11 +14,8 @@ class CountriesForm extends Component
      * @return void
      */
 
-    public $countries;
+    public function __construct(public Collection $options) {
 
-    public function __construct(public $volunteer = null)
-    {
-        $this->countries = Country::all();
     }
 
     /**
@@ -27,6 +25,6 @@ class CountriesForm extends Component
      */
     public function render()
     {
-        return view('components.person.countries-form');
+        return view('components.base.radio');
     }
 }

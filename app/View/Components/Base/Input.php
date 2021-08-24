@@ -1,10 +1,12 @@
 <?php
 
-namespace App\View\Components\Orienteering;
+namespace App\View\Components\Base;
 
+use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class CompetitorExperienceForm extends Component
+class Input extends Component
 {
     /**
      * Create a new component instance.
@@ -12,9 +14,9 @@ class CompetitorExperienceForm extends Component
      * @return void
      */
 
-    public function __construct(public $volunteer = null)
+    public function __construct(public string|null $iconName = null)
     {
-
+        
     }
 
     /**
@@ -24,6 +26,6 @@ class CompetitorExperienceForm extends Component
      */
     public function render()
     {
-        return view('components.orienteering.competitor-experience-form');
+        return view('components.base.input'); 
     }
 }

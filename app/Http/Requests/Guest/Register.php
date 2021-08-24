@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Guest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectRegister extends FormRequest
+class Register extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class ProjectRegister extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'int',
+            'country_id' => 'int',
+            'name' => 'string',
+            'gender_id' => 'int',
+            'email' => 'email',
+            
         ];
     }
 }

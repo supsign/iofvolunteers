@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\Country;
+use App\Models\Gender;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyTypes;
+use App\Models\Language;
+use App\Models\LanguageProficiency;
+use App\Models\SkillType;
 use App\Models\Volunteer;
-use App\Http\Requests\VolunteerEdit;
-use App\Http\Requests\VolunteerRegister;
+use App\Http\Requests\Volunteer\Update;
+use App\Http\Requests\Volunteer\Register;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +49,28 @@ class VolunteerController extends Controller
         return view('volunteer.register', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyTypes::all(),
-            'duties' => Duty::all()
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+        ]);
+    }
+
+    public function testForm()
+    {
+        return view('volunteer.test', [
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'disciplines' => Discipline::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+            'duties' => Duty::all(),
+            'dutyTypes' => DutyTypes::all(),
         ]);
     }
 
@@ -58,19 +84,15 @@ class VolunteerController extends Controller
         return view('volunteer.preview', ['volunteer' => $volunteer]);
     }
 
-    public function register(VolunteerRegister $request)
+    public function register(Register $request)
     {
         $data = $request->validated();
 
         unset($data['_token']);
         unset($data['agb']);
 
-        foreach (['o_experience', 'o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+        foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
-        }
-
-        foreach ($o_experience as $key => $value) {
-            $data[$key.'_experience_id'] = $value;
         }
 
         if (isset($o_work_expirence[1])) {
@@ -115,24 +137,24 @@ class VolunteerController extends Controller
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyTypes::all(),
-            'duties' => Duty::all()
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
         ]);
     }
 
-    public function update(Volunteer $volunteer, VolunteerEdit $request)
+    public function update(Volunteer $volunteer, Update $request)
     {
         $data = $request->validated();
 
         unset($data['_token']);
-        unset($data['agb']);
 
-
-        foreach (['o_experience', 'o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+        foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
-        }
-
-        foreach ($o_experience as $key => $value) {
-            $data[$key.'_experience_id'] = $value;
         }
 
         if (isset($o_work_expirence[1])) {

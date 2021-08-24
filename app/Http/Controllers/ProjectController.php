@@ -4,8 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Project;
-use App\Http\Requests\ProjectRegister;
+use App\Http\Requests\Project\Register;
+use App\Http\Requests\Project\Update;
+use App\Models\Continent;
+use App\Models\Discipline;
+use App\Models\Duty;
+use App\Models\DutyTypes;
+use App\Models\Gender;
+use App\Models\LanguageProficiency;
+use App\Models\SkillType;
 use Illuminate\Http\Request;
+use JetBrains\PhpStorm\Language;
 
 class ProjectController extends Controller
 {
@@ -14,9 +23,20 @@ class ProjectController extends Controller
         $this->middleware('auth');
     }
 	
-	public function registerForm() 
+	public function registerForm(Project $project) 
 	{
-		return view('project.register', ['countries' => Country::all()]);
+		return view('project.register', [
+			'project' => $project,
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyTypes::all(),
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            // 'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+		]);
 	}
 
 	public function searchForm() 
@@ -24,18 +44,22 @@ class ProjectController extends Controller
 		return view('project.search');
 	}
 
-	public function register(ProjectRegister $request) 
+	public function register(Register $request) 
 	{
+		var_dump($request->all());
+
 		die();
 
-		return Project::create($request->validated());
+		// return Project::create($request->validated());
 	}
 
-	public function update(Project $project, ProjectRegister $request) 
+	public function update(Project $project, Update $request)
 	{
+		var_dump($request->all());
+
 		die();
 
-		return Project::update($request->validated());
+		// return Project::update($request->validated());
 	}
 
 	public function search() 

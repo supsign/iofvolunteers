@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Volunteer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VolunteerRegister extends FormRequest
+class Update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,7 +34,9 @@ class VolunteerRegister extends FormRequest
             'discipline' => '',
             'ol_duration' => 'int',
             'club' => 'max:191',
-            'o_experience' => '',
+            'local_experience' => 'nullable|int',
+            'national_experience' => 'nullable|int',
+            'international_experience' => 'nullable|int',
             'language' => '',
             'continent' => '',
             'work_duration' => 'int|nullable',
@@ -49,7 +51,6 @@ class VolunteerRegister extends FormRequest
             'duty' => '',
             'help' => '',
             'expectation' => '',
-            'agb' => 'required|boolean',
         ];
     }
 }
