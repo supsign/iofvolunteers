@@ -47,9 +47,9 @@
                         <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *" required />
                         <div class="form-group">
                             <label class="formSubtitle2">What can you offer the volunteer? *</label>
-                            {{-- @foreach($offers AS $offer)
-                                <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" class="form-check-input" value="1" required/>
-                            @endforeach  --}}
+                            @foreach($offers AS $offer)
+                                <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]" class="form-check-input"/>
+                            @endforeach 
                         </div>
                         <x-base.input name="offer" value="{{ old('offer') }}" label="Other (please state):" />
                     </x-form.section>

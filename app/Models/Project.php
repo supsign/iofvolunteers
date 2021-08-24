@@ -9,6 +9,11 @@ class Project extends BaseModel
     	return $this->belongsTo(User::class);
     }
 
+    public function projectOffer()
+    {
+        return $this->belongsToMany(ProjectOffer::class);
+    }
+
     public function projectStatus()
     {
         return $this->belongsTo(ProjectStatus::class);
