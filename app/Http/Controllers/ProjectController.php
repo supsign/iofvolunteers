@@ -50,19 +50,15 @@ class ProjectController extends Controller
 
 	public function register(Register $request) 
 	{
-		$data = $request->all();
-
+		$data = $request->validated();
 
         unset($data['_token']);
         unset($data['agb']);
 
+        Project::create($data);
 
-
-        var_dump($data);
-
-		die();
-
-		// return Project::create($request->validated());
+        return redirect()->route('home');
+		return redirect()->route('project.list');	//	gibts noch nicht
 	}
 
 	public function update(Project $project, Update $request)

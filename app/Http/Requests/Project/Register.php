@@ -24,7 +24,19 @@ class Register extends FormRequest
     public function rules()
     {
         return [
-            //
+            'organisation_name' => 'string',
+            'organisation_webpage' => 'string',
+            'organisation_contact' => 'string',
+            'organisation_contact_position' => 'string',
+            'organisation_email' => 'string',
+            'organisation_phone' => 'string',
+            'organisation_language_id' => 'int',
+            'place' => 'string',
+            'start_date' => 'date',
+            'contact' => 'string',
+            'driving_licence' => 'boolean',
+            'offer_text' => 'string',
+            'exprience_details' => 'string',
         ];
     }
 }
