@@ -9,18 +9,18 @@ use App\Http\Requests\Project\Update;
 use App\Models\Continent;
 use App\Models\Discipline;
 use App\Models\Duty;
-use App\Models\DutyTypes;
+use App\Models\DutyType;
 use App\Models\Gender;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
 use Illuminate\Http\Request;
-use JetBrains\PhpStorm\Language;
+use App\Models\Language;
 
 class ProjectController extends Controller
 {
     public function __construct() 
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 	
 	public function registerForm(Project $project) 
@@ -28,11 +28,11 @@ class ProjectController extends Controller
 		return view('project.register', [
 			'project' => $project,
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyTypes::all(),
+            'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
             'genders' => Gender::all(),
-            // 'languages' => Language::all(),
+            'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),

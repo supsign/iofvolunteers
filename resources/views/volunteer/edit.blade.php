@@ -28,11 +28,11 @@
                         <x-slot name="title">
                             2. Personal Information
                         </x-slot>   
-                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender"/>               
+                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender"/>
                         <x-base.input name="birthdate" value="{{ $volunteer->birthdate }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" :iconName="'calendarIcon'" />
                         <x-base.input name="nickname" value="{{ $volunteer->nickname }}" label="Nickname">
                         </x-base.input>
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" required/>          
+                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" :value="$volunteer->drivingLicenceModel" required/>
                     </x-form.section>
 
                     <x-form.section>
@@ -41,7 +41,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="disciplines[{{ $discipline->name }}]" label="{{ $discipline->name }}" class="form-check-input" value="1" />
+                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -68,8 +68,8 @@
                         <x-slot name="subtitle">
                             <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
-                            @foreach($languages AS $language)                           
-                                <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency" />                      
+                            @foreach($languages AS $language)
+                                <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiencies" value="{{ $volunteer->languageVolunteers->where('language_id', $language->id)->first()->languageProficiency->id }}" />                      
                             @endforeach
                     </x-form.section>
 
@@ -83,8 +83,9 @@
                         </x-slot>
                         <div class="form-group">
                             <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox" class="form-check-input  continentsCheckboxes" value="1"/>
+
                             @foreach($continents AS $continent)
-                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="1"/>
+                                <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes" value="{{ (int)$volunteer->continents->contains($continent) }}"/>
                             @endforeach 
                         </div>
                     </x-form.section>
@@ -118,7 +119,7 @@
                                 @endisset
 
                                 @foreach($skillType->skills AS $skill)
-                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input" value="{{ (int)$volunteer->skills->contains($skill) }}"/>
                                 @endforeach
 
                                 @php
@@ -141,7 +142,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" value="{{ $volunteer->o_work_expirence_local }}" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" value="1"/>
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" type="checkbox" class="form-check-input" value="{{ $volunteer->dutyVolunteer->where('duty_type_id', $dutyType->id)->where('duty_id', $duty->id)->count() }}"/>
                                 @endforeach
                             @endforeach
                         </div>

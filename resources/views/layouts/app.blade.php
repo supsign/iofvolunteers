@@ -29,13 +29,13 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
-        <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 
     </head>
 
     <body class="d-flex flex-column">
         @include('sweetalert::alert')
-        <div class="wrapper flex-grow-1">
+        <div class="wrapper flex-grow-1 d-flex flex-column">
             <header>
                 <div class="shadow container-fluid eltop">
                     <div class="row justify-content-between align-items-center">
@@ -209,7 +209,7 @@
 
 
 
-            <main>
+            <main class="flex-grow-1">
                 @yield('content')
                 <div class="clear"></div>
             </main>
@@ -382,7 +382,6 @@
                 };
 
             </script>
-            <script src="{{ asset('js/main.js') }}"></script>
     </body>
 
 </html>
