@@ -2,13 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Experience;
-use App\Models\Language;
-use App\Models\Volunteer;
-use App\Models\Skill;
-use App\Models\SkillType;
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -16,7 +9,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     /**
      * Show the application dashboard.

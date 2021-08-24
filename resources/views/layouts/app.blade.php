@@ -34,6 +34,7 @@
     </head>
 
     <body class="d-flex flex-column">
+        @include('sweetalert::alert')
         <div class="wrapper flex-grow-1 d-flex flex-column">
             <header>
                 <div class="shadow container-fluid eltop">
