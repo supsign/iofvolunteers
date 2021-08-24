@@ -34,6 +34,7 @@
     </head>
 
     <body class="d-flex flex-column">
+        @include('sweetalert::alert')
         <div class="wrapper flex-grow-1">
             <header>
                 <div class="shadow container-fluid eltop">
@@ -67,17 +68,17 @@
                                             <li class="menu-item">
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"> 
-                                                        @if (isset($user) && $user->volunteer)
-                                                        <a href="{{ route('volunteer.edit', $user->volunteer) }}">
-                                                            Edit your Volunteer
-                                                        </a>
+                                                    <li class="menu-item">
+                                                        @if(isset($user) && $user->volunteer)
+                                                            <a href="{{ route('volunteer.edit', $user->volunteer) }}">
+                                                                Edit your Volunteer
+                                                            </a>
                                                         @else
-                                                        <a href="{{ route('volunteer.list') }}">
-                                                            Register as a Volunteer
-                                                        </a>
+                                                            <a href="{{ route('volunteer.list') }}">
+                                                                Register as a Volunteer
+                                                            </a>
                                                         @endif
-                                                        
+
                                                     </li>
                                                 </ul>
                                             </li>
@@ -223,7 +224,7 @@
                                 <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
                         </aside>
                         <aside>
-                            <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200"/>
+                            <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200" />
                         </aside>
                     </div>
                 </div>
@@ -260,10 +261,10 @@
                                         <button type="submit" class="btn btn-primary w-100">Sign in!</button>
                                         <a href="register">
                                             Register
-                                        </a>  
+                                        </a>
                                         <a href="restore">
                                             Restore password
-                                        </a>                                                                                                     
+                                        </a>
                                     </div>
                                 </form>
 
