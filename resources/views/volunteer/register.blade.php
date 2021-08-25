@@ -63,8 +63,8 @@
                                       label="Year you started orienteering (yyyy) *"
                                       type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
-                        <x-base.input name="field_club"
-                                      label="Your present club (if any)" type="text" />
+                        <x-base.input name="club"
+                                      label="Your present club (if any)"  />
                         <x-base.input name="local_experience"
                                       label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="national_experience"

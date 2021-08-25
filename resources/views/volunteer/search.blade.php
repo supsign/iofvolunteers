@@ -52,7 +52,9 @@
                         </x-slot>
                         <x-base.input name="ol_duration" value="{{ old('ol_duration') }}" label='Years in orienteering (at least "" years)' type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" :iconName="'calendarIcon'" />
-                        <label class="formSubtitle2">Experience as Competitor</label>
+                        <div class="form-group">
+                            <label class="formSubtitle2">Experience as Competitor</label>
+                        </div>
                         <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="national_experience" value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="international_experience" value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
@@ -74,6 +76,9 @@
                     <x-form.section>
                         <x-slot name="title">
                             5. Timing
+                        </x-slot>
+                        <x-slot name="subtitle">
+                            Define the start-time and how long the Volunteer should be able to work.
                         </x-slot>
                         <div class="mx-0 row">
                             <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pr-sm-2">
