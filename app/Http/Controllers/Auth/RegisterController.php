@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use App\Models\Country;
 
 class RegisterController extends Controller
 {
@@ -42,6 +43,12 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register', ['countries' => Country::all()]);
+    }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -84,5 +91,4 @@ class RegisterController extends Controller
            // ?: redirect($this->redirectPath());
           ?: redirect()->route('home')->with('success', 'You are successfully Registered!');
     }
-
 }
