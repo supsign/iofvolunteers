@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Mail\ContactVolunteerMail;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Continent;
@@ -12,12 +13,14 @@ use App\Models\DutyType;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
+use App\Models\Project;
 use App\Models\Volunteer;
 use App\Http\Requests\Volunteer\Update;
 use App\Http\Requests\Volunteer\Register;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Schema;
 use Alert;
 use Illuminate\Validation\ValidationException;
@@ -29,10 +32,14 @@ class VolunteerController extends Controller
         $this->middleware(['auth','verified']);
     }
 
-    public function contact()
+    public function contact(Volunteer $volunteer, Request $request)
     {
-    }
+        if (!$project = Project::find($request->project_id)) {
+            abort(404);
+        }
 
+        Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+    }
 
     public function registerForm()
     {
