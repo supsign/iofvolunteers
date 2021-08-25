@@ -136,6 +136,9 @@
                                 </div>
                             </div>
                         @endforeach
+                        <div class="form-group">
+                                <x-base.textarea name="skill_other" label="Other skills? Please explain..." />
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
