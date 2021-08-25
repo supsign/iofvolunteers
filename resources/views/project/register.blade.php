@@ -95,13 +95,8 @@
                                 @endforeach
                             @endforeach
                         </div>
-<<<<<<< HEAD
                         <x-base.input name="oWorkInternationalExpinfo" label="Other duties? State below..." />
-                        <x-base.input name="exprience_details" label="Details of the work to be done *" required/>
-=======
-                        <x-base.input name="oWorkInternationalExpinfo" value="{{ old('oWorkInternationalExpinfo') }}" label="Other duties? State below..." />
-                        <x-base.input name="exprience_details" value="{{ old('exprience_details') }}" label="Details of the work to be done *" required />
->>>>>>> 53a34f561eed8d2f166c48fc9d32b86ecb791ee4
+                        <x-base.input name="exprience_details" label="Details of the work to be done *" required />
                     </x-form.section>
 
                     <x-form.section>
@@ -111,20 +106,14 @@
                         <x-slot name="subtitle">
                             <div class="warn">(Just skip if not important)</div>
                         </x-slot>
-<<<<<<< HEAD
-                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/> 
-                        <x-base.select name="age" label="Age" :iconName="'selectArr'" {{-- :options="$ages" --}}/>  
-                        <x-base.select name="driving_licence" label="International driving license?" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"/>
-                        <x-base.input name="expectedLanguage" label="Language expectations"/>
-=======
+
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
                         <x-base.select name="age" label="Age" :iconName="'selectArr'" {{-- :options="$ages" --}} />
                         <x-base.select name="driving_licence"
                                        label="International driving license?"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
                                        :iconName="'selectArr'" />
-                        <x-base.input name="expectedLanguage" value="{{ old('expectedLanguage') }}" label="Language expectations" />
->>>>>>> 53a34f561eed8d2f166c48fc9d32b86ecb791ee4
+                        <x-base.input name="expectedLanguage" label="Language expectations" />
                     </x-form.section>
 
                     {{-- Hier sind die alten Select-Optionen für age --}}
@@ -139,84 +128,68 @@
                             <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
                 </div> --}}
 
-                {{-- <x-form.section>
+                    <x-form.section>
                         <x-slot name="title">
                             7. Disciplines of experience
                         </x-slot>
                         <div class="form-group">
-@foreach($disciplines AS $discipline)
+                        @foreach($disciplines AS $discipline)
                                 <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" required/>
-<<<<<<< HEAD
-                            @endforeach
-                        </div>  
-                    </x-form.section> --}}
+                        @endforeach
+                        </div>
+                    </x-form.section>
 
                     <x-form.section>
                         <x-slot name="title">
                             8. O-Experience
                         </x-slot>
-                        <x-base.input name="local_experience" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience" label="Exprience with national Events" type="number" size="3" min="0" step="1"/>
-                        <x-base.input name="international_experience" label="Exprience with international Events" type="number" size="3" min="0" step="1"/>
+                        <x-base.input name="local_experience"
+                                      value="{{ old('local_experience') }}"
+                                      label="Exprience with local Events (number)"
+                                      type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience"
+                                      value="{{ old('national_experience') }}"
+                                      label="Exprience with national Events (number)"
+                                      type="number" size="3" min="0" step="1" />
+                        <x-base.input name="international_experience"
+                                      value="{{ old('international_experience') }}"
+                                      label="Exprience with international Events (number)"
+                                      type="number" size="3" min="0" step="1" />
                     </x-form.section>
                 </div>
-=======
-                @endforeach
-            </div>
-            </x-form.section> --}}
->>>>>>> 53a34f561eed8d2f166c48fc9d32b86ecb791ee4
 
-            <x-form.section>
-                <x-slot name="title">
-                    8. O-Experience
-                </x-slot>
-                <x-base.input name="local_experience"
-                              value="{{ old('local_experience') }}"
-                              label="Exprience with local Events (number)"
-                              type="number" size="3" min="0" step="1" />
-                <x-base.input name="national_experience"
-                              value="{{ old('national_experience') }}"
-                              label="Exprience with national Events (number)"
-                              type="number" size="3" min="0" step="1" />
-                <x-base.input name="international_experience"
-                              value="{{ old('international_experience') }}"
-                              label="Exprience with international Events (number)"
-                              type="number" size="3" min="0" step="1" />
-            </x-form.section>
-    </div>
+                <div class="col-12 col-md-6">
+                    <div class="sticky">
+                        <div class="noteWrap">
+                            <h3 class="noteTitle">Disclaimer</h3>
+                            <p>
+                                The details above are as accurate as possible. We understand that
+                                the
+                                IOF cannot be held responsible for our finding or not finding a suitable volunteer. We also
+                                understand that should we choose to recruit a volunteer through this database, the IOF cannot be
+                                held responsible for the terms or quality of work produced.
+                            </p>
+                        </div>
 
-    <div class="col-12 col-md-6">
-        <div class="sticky">
-            <div class="noteWrap">
-                <h3 class="noteTitle">Disclaimer</h3>
-                <p>
-                    The details above are as accurate as possible. We understand that
-                    the
-                    IOF cannot be held responsible for our finding or not finding a suitable volunteer. We also
-                    understand that should we choose to recruit a volunteer through this database, the IOF cannot be
-                    held responsible for the terms or quality of work produced.
-                </p>
-            </div>
+                        <div class="formSection">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
+                                    <label class="form-check-label" for="agb">
+                                        I have read and understood the above. *
+                                    </label>
+                                    <div class="warn">Mandatory: Please accept the disclaimer.</div>
+                                </div>
+                            </div>
 
-            <div class="formSection">
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb" required>
-                        <label class="form-check-label" for="agb">
-                            I have read and understood the above. *
-                        </label>
-                        <div class="warn">Mandatory: Please accept the disclaimer.</div>
+                            <div class="form-group d-flex">
+                                <input class="ml-auto" type="submit" value="Submit our request">
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group d-flex">
-                    <input class="ml-auto" type="submit" value="Submit our request">
-                </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </form>
+        </form>
     </div>
 </section>
 @endsection
