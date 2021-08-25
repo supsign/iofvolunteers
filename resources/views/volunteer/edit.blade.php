@@ -10,7 +10,6 @@
         <form method="POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
             @csrf
             @method("PATCH")
-            <input type="hidden" name="id" value="">
 
             <div class="row">
 
@@ -47,7 +46,7 @@
                                       value="{{ $volunteer->birthdate }}"
                                       label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-                        </x-base.input>
+
                         <x-base.select name="driving_licence"
                                        label="International driving license? *"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"
@@ -62,7 +61,7 @@
                             @foreach($disciplines AS $discipline)
                                 <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                  label="{{ $discipline->name }}"
-                                                 class="form-check-input" value="{{ (int)$volunteer->disciplines->contains($discipline) }}" />
+                                                 class="form-check-input" :checked="(int)$volunteer->disciplines->contains($discipline)" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -115,7 +114,7 @@
 
                             @foreach($continents AS $continent)
                                 <x-base.checkbox label="{{ $continent->name }}" name="continent[{{ $continent->id }}]" type="checkbox" class="form-check-input continentsCheckboxes"
-                                                 value="{{ (int)$volunteer->continents->contains($continent) }}" />
+                                                 :checked="$volunteer->continents->contains($continent)" />
                             @endforeach
                         </div>
                     </x-form.section>
@@ -149,8 +148,8 @@
                                     @endisset
 
                                     @foreach($skillType->skills AS $skill)
-                                        <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skillType->id }}][{{ $skill->id }}]" type="checkbox" class="form-check-input"
-                                                         value="1" :checked="(int)$volunteer->skills->where('skill_type_id', $skillType->id)->first()?->id" />
+                                        <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]" type="checkbox" class="form-check-input"
+                                                         :checked="$volunteer->skills->contains($skill)" />
                                     @endforeach
 
                                     @php
@@ -170,11 +169,13 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($dutyTypes AS $dutyType)
-                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" value="{{ $volunteer->o_work_expirence_local }}" size="3" min="0" step="1" />
+                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number"
+                                              value="{{ $volunteer->getAttribute($dutyType->id === 1 ? 'o_work_expirence_local' : 'o_work_expirence_international') }}" size="3"
+                                              min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" type="checkbox" class="form-check-input"
-                                                     value="{{ $volunteer->dutyVolunteer->where('duty_type_id', $dutyType->id)->where('duty_id', $duty->id)->count() }}" />
+                                                     :checked="$volunteer->hasDuty($duty, $dutyType)" />
                                 @endforeach
                             @endforeach
                         </div>

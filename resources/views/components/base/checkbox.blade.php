@@ -11,7 +11,9 @@
            id="{{ $attributes->get('name') }}"
            name="{{ $attributes->get('name') }}"
            value="1"
-           @if(old($attributes->get('name')) || $checked) checked @endif
+           @if(
+    old(str_replace(['[', ']'], ['.',''],$attributes->get('name'))
+    ) || $checked) checked @endif
     class="{{ $attributes->get('class') }}"
     />
     <label class="form-check-label" for="{{ $attributes->get('name') }}">
