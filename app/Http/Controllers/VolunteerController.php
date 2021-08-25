@@ -141,12 +141,15 @@ class VolunteerController extends Controller
     {
         $data = $request->validated();
 
+
+
+
         unset($data['_token']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
-
+      
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
