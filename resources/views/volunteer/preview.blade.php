@@ -8,7 +8,6 @@
 
         <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results" />
 
-
         <table class="table">
             <tbody>
 
@@ -30,7 +29,7 @@
                 </tr>
                 <tr>
                     <td class="font-weight-bold">Age</td>
-                    <td>{{ $volunteer->age }}</td>
+                    <td>{{ $volunteer->age }} years</td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold">Experience</td>
@@ -49,7 +48,6 @@
                             @endif
 
                             {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br />
-
                         @endforeach
                     </td>
                 </tr>
@@ -63,23 +61,27 @@
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td class="font-weight-bold">O-Experience</td>
+                    <td class="font-weight-bold">Disciplines of Experience</td>
                     <td>
                         <ul>
                             @foreach($volunteer->disciplines AS $discipline)
                                 <li>{{ $discipline->name }}</li>
                             @endforeach
                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">O-Experience (in years)</td>
+                    <td>
                         <ul>
                             <li>Local: {{ $volunteer->local_experience }}</li>
-                            <li> National: {{ $volunteer->national_experience }}</li>
+                            <li>National: {{ $volunteer->national_experience }}</li>
                             <li>International: {{ $volunteer->international_experience }}</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold">O-Work Experience</td>
+                    <td class="font-weight-bold">O-Work Experience (in years)</td>
                     <td>
                         <ul>
                             <li>Local: {{ $volunteer->o_work_expirence_local }}</li>
@@ -87,8 +89,6 @@
                         </ul>
                     </td>
                 </tr>
-
-
                 <tr>
                     <td class="font-weight-bold">My benefits</td>
                     <td>{{ $volunteer->help }}</td>
@@ -112,15 +112,6 @@
             <br>
             Contacts: {{ $volunteer->email }} {{--, {{ $volunteer->phone }} --}}
         @endif
-
-        <br>
-        <b></b>
-        <br>
-
-        <br>
-        <b></b>
-        <br>
-
 
         @if(false)
             <div class="mt-3">
