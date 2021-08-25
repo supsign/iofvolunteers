@@ -91,59 +91,12 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" class="form-check-input" />
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" class="form-check-input" />
                                 @endforeach
                             @endforeach
                         </div>
                         <x-base.input name="oWorkInternationalExpinfo" label="Other duties? State below..." />
                         <x-base.input name="exprience_details" label="Details of the work to be done *" required />
-                    </x-form.section>
-
-                    <x-form.section>
-                        <x-slot name="title">
-                            6. Personal details of Volunteer
-                        </x-slot>
-                        <x-slot name="subtitle">
-                            <div class="warn">(Just skip if not important)</div>
-                        </x-slot>
-
-                        <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
-                        <x-base.input name="min_age" label="minimum age" />
-                        <x-base.input name="max_age" label="maximum age" />
-                        <x-base.select name="driving_licence"
-                                       label="International driving license?"
-                                       :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
-                                       :iconName="'selectArr'" />
-                        <x-base.input name="expectedLanguage" label="Language expectations" />
-                    </x-form.section>
-{{-- 
-                    <x-form.section>
-                        <x-slot name="title">
-                            7. Disciplines of experience
-                        </x-slot>
-                        <div class="form-group">
-                        @foreach($disciplines AS $discipline)
-                                <x-base.checkbox name="discipline[{{ $discipline->id }}]" label="{{ $discipline->name }}" class="form-check-input" required/>
-                        @endforeach
-                        </div>
-                    </x-form.section>
- --}}
-                    <x-form.section>
-                        <x-slot name="title">
-                            8. O-Experience
-                        </x-slot>
-                        <x-base.input name="local_experience"
-                                      value="{{ old('local_experience') }}"
-                                      label="Exprience with local Events (number)"
-                                      type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience"
-                                      value="{{ old('national_experience') }}"
-                                      label="Exprience with national Events (number)"
-                                      type="number" size="3" min="0" step="1" />
-                        <x-base.input name="international_experience"
-                                      value="{{ old('international_experience') }}"
-                                      label="Exprience with international Events (number)"
-                                      type="number" size="3" min="0" step="1" />
                     </x-form.section>
                 </div>
 

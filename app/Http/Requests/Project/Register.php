@@ -42,6 +42,9 @@ class Register extends FormRequest
             'country_id' => 'nullable|int',
             'organisation_language_id' => 'nullable|int',
             'offer' => 'array',
+            'discipline' => 'array',
+            'skill' => 'array',
+            'duty' => 'array',
         ];
     }
 }
