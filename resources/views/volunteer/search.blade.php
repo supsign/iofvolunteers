@@ -20,13 +20,13 @@
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
                         <div class="mx-0 row">
                             <div class="pl-0 pr-0 mt-0 form-group col-12 col-sm-6 pr-sm-2">
-                                <x-base.input name="minage" value="{{ old('minage') }}" label="Age (at least)" type="number" />
+                                <x-base.input name="minage" label="Age (at least)" type="number" />
                                 <div class="font-weight-normal">
                                     Note that volunteers under 18 are not allowed to register on the Platform
                                 </div>
                             </div>
                             <div class="pl-0 pr-0 mt-0 form-group col-12 col-sm-6 pl-sm-2">
-                                <x-base.input name="maxage" value="{{ old('maxage') }}" label="Age (at most)" type="number" />
+                                <x-base.input name="maxage" label="Age (at most)" type="number" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,14 +50,14 @@
                         <x-slot name="title">
                             3. O-Experience
                         </x-slot>
-                        <x-base.input name="ol_duration" value="{{ old('ol_duration') }}" label='Years in orienteering (at least "" years)' type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
+                        <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)' type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" :iconName="'calendarIcon'" />
                         <div class="form-group">
                             <label class="formSubtitle2">Experience as Competitor</label>
                         </div>
-                        <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="national_experience" value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
-                        <x-base.input name="international_experience" value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="local_experience" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="international_experience" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
                     </x-form.section>
 
                     <x-form.section>
@@ -82,11 +82,11 @@
                         </x-slot>
                         <div class="mx-0 row">
                             <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pr-sm-2">
-                                <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="When to start?" type="number" size="3" />
+                                <x-base.input name="work_duration" label="When to start?" type="number" size="3" />
                             </div>
 
                             <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pl-sm-2">
-                                <x-base.input name="work_duration" value="{{ old('work_duration') }}" label='Must stay for at least "" weeks' type="number" size="3" />
+                                <x-base.input name="work_duration" label='Must stay for at least "" weeks' type="number" size="3" />
                             </div>
                         </div>
                     </x-form.section>
@@ -96,7 +96,7 @@
                             6. Skills required
                         </x-slot>
                         @foreach($skillTypes AS $skillType)
-                            <x-base.checkbox label="{{ $skillType->name }}" name="skill[{{ $skillType->id }}]" type="checkbox" class="form-check-input" />
+                            <x-base.checkbox label="{{ $skillType->name }}" name="skill[{{ $skillType->id }}]" class="form-check-input" />
                         @endforeach
                     </x-form.section>
                 </div>
