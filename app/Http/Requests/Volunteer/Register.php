@@ -47,7 +47,7 @@ class Register extends FormRequest
             'skill_it' => '',
             'skill_other' => '',
             'o_work_expirence' => '',
-            'duty' => '',
+            'duty' => 'array',
             'help' => '',
             'expectation' => '',
             'agb' => 'required|boolean',

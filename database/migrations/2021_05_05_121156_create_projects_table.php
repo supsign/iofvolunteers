@@ -28,7 +28,7 @@ class CreateProjectsTable extends Migration
             $table->timestampTz('start_date')->nullable();
             $table->string('contact');
             $table->string('place');
-            $table->boolean('driving_licence');
+            // $table->boolean('driving_licence');
             $table->string('offer_text')->nullable();
             $table->string('exprience_details');
 
