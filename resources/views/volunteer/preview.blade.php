@@ -8,7 +8,6 @@
 
         <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results" />
 
-
         <table class="table">
             <tbody>
 
@@ -91,8 +90,6 @@
                         </ul>
                     </td>
                 </tr>
-
-
                 <tr>
                     <td class="font-weight-bold">My benefits</td>
                     <td>{{ $volunteer->help }}</td>
@@ -124,7 +121,6 @@
         <br>
         <b></b>
         <br>
-
 
         @if(false)
             <div class="mt-3">
