@@ -12,17 +12,20 @@
     @foreach($options AS $option)
         <div class="form-check">
             <input
-                class="form-check-input"
-                type="radio"
-                id="{{ $attributes->get('name') }}_{{ $i }}"
-                name="{{ $attributes->get('name') }}"
-                value="{{ $option->id }}"
-                @if($option->id == old($attributes->get('name')) || $option->id == $attributes->get('value')) checked @endif
-                {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
+                   class="form-check-input"
+                   type="radio"
+                   id="{{ $attributes->get('name') }}_{{ $i }}"
+                   name="{{ $attributes->get('name') }}"
+                   value="{{ $option->id }}"
+                   @if($option->id == old($attributes->get('name')) || $option->id == $attributes->get('value')) checked @endif
+            {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
             >
-            <label class="form-check-label" for="{{ $attributes->get('name') }}_{{ $i++ }}">
+            <label class="form-check-label" for="{{ $attributes->get('name') }}_{{ $i }}">
                 {{ $option->name }}
             </label>
         </div>
+        @php
+            $i++
+        @endphp
     @endforeach
 </div>

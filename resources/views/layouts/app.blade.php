@@ -248,13 +248,13 @@
                                     <div class="form-group row desc">
                                         <label class="col-3 col-form-label col-form-label-sm" for="email">E-mail: </label>
                                         <div class="col-9">
-                                            <input class="form-control form-control-sm" type="text" name="email" size="20" required="">
+                                            <input class="form-control form-control-sm" type="text" id="email" name="email" size="20" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row desc">
                                         <label class="col-3 col-form-label col-form-label-sm" for="password">Password: </label>
                                         <div class="col-9">
-                                            <input class="form-control form-control-sm" type="password" name="password" size="20" required="">
+                                            <input class="form-control form-control-sm" type="password" id="password" name="password" size="20" required="">
                                         </div>
                                     </div>
                                     <div class="mx-0 form-group row d-flex justify-content-between">
@@ -343,11 +343,7 @@
 
                 </script>
             @endguest
-
-            <script language="javascript" type="text/javascript">
-
-
-            </script>
+        </div>
     </body>
 
 </html>
