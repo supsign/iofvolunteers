@@ -55,12 +55,16 @@ class VolunteerController extends Controller
 
     public function searchForm()
     {
+        $extraGenderOption = (new Gender);
+        $extraGenderOption->id = 3;
+        $extraGenderOption->name = 'doesn\'t matter';
+
         return view('volunteer.search', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
             'countries' => Country::all(),
-            'genders' => Gender::all(),
+            'genders' => Gender::all()->push($extraGenderOption),
             'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
@@ -199,39 +203,52 @@ class VolunteerController extends Controller
 
     public function search(Request $request)
     {
-        $columns = array_flip(Schema::getColumnListing('volunteers'));
-        $volunteerData = array_intersect_key($request->all(), $columns);
-        $otherData = array_diff_key($request->all(), $columns);
+        $data = $request->all(); 
+        $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
+        $volunteerData = array_intersect_key($data, $columns);
+        $relationData = array_diff_key($data, $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
-        foreach ($volunteerData as $key => $value) {
+        unset($relationData['_token']);
+
+        foreach ($volunteerData AS $key => $value) {
             if (!$value) {
                 continue;
             }
 
             switch ($key) {
+                case 'gender_id': if ($value != 3) { $volunteers->where($key, $value); } break;
+                case 'minage': $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value)); break;
+                case 'maxage': $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value)); break;
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
+                case 'work_duration': $volunteers->whereNull($key)->orWhere($key, '>=', $value); break;
+                case 'local_experience':
+                case 'national_experience':
+                case 'international_experience': $volunteers->where($key, '>=', $value); break;
+
                 default: $volunteers->where($key, $value); break;
             }
         }
 
         $volunteers = $volunteers->get();
+        
+        // foreach ($relationData as $key => $value) {
+        //     if (!$value) {
+        //         continue;
+        //     }
 
-        foreach ($otherData as $key => $value) {
-            if (!$value) {
-                continue;
-            }
+        //     switch ($key) {
+        //         case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
+        //         // case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+        //         // case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
+        //         default: break;
+        //     }
+        // }
 
-            switch ($key) {
-                case 'minage': $volunteers = $volunteers->where('age', '>=', $value); break;
-                case 'maxage': $volunteers = $volunteers->where('age', '<=', $value); break;
-                case 'max_work_duration': $volunteers = $volunteers->where('work_duration', '<=', $value); break;
-                case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
-                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
-                case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
-                default: break;
-            }
-        }
+        // var_dump(
+        //     // $relationData,
+        //     $volunteers->count()
+        // );
 
         return view('volunteer.searchList', ['volunteers' => $volunteers]);
     }

@@ -51,7 +51,7 @@
                             3. O-Experience
                         </x-slot>
                         <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)' type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
-                                      data-view="years" data-min-view="years" placeholder=" " value="" :iconName="'calendarIcon'" />
+                                      data-view="years" data-min-view="years" :iconName="'calendarIcon'" />
                         <div class="form-group">
                             <label class="formSubtitle2">Experience as Competitor</label>
                         </div>
@@ -81,10 +81,6 @@
                             Define the start-time and how long the Volunteer should be able to work.
                         </x-slot>
                         <div class="mx-0 row">
-                            <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pr-sm-2">
-                                <x-base.input name="work_duration" label="When to start?" type="number" size="3" />
-                            </div>
-
                             <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pl-sm-2">
                                 <x-base.input name="work_duration" label='Must stay for at least "" weeks' type="number" size="3" />
                             </div>
