@@ -45,6 +45,7 @@
                                 <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
                                 <div class="col-md-6">
                                     <select type="text" name="country" id="country" required="">
+                                        <option selected disabled>-</option>
                                         @foreach($countries as $country )
                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                                         @endforeach
