@@ -72,9 +72,9 @@
                             @endforeach
                         </ul>
                         <ul>
-                            <li>Local: {{ $volunteer->expirenceLocal->value ?? '' }}</li>
-                            <li> National: {{ $volunteer->expirenceNational->value ?? '' }}</li>
-                            <li>International: {{ $volunteer->expirenceInternational->value ?? '' }}</li>
+                            <li>Local: {{ $volunteer->local_experience }}</li>
+                            <li> National: {{ $volunteer->national_experience }}</li>
+                            <li>International: {{ $volunteer->international_experience }}</li>
                         </ul>
                     </td>
                 </tr>
@@ -82,17 +82,8 @@
                     <td>O-Work Experience</td>
                     <td>
                         <ul>
-                            @foreach($volunteer->skillTypes AS $skillType)
-                                <li>{{ $skillType->name }}</li>
-                                <ul>
-                                    @foreach($volunteer->skills AS $skill)
-                                        @if($skill->skill_type_id !== $skillType->id)
-                                            @continue;
-                                        @endif
-                                        <li>{{ $skill->name }}</li>
-                                    @endforeach
-                                </ul>
-                            @endforeach
+                            <li>Local: {{ $volunteer->o_work_expirence_local }}</li>
+                            <li>International: {{ $volunteer->o_work_expirence_international }}</li>
                         </ul>
                     </td>
                 </tr>
@@ -119,7 +110,7 @@
         </table>
         @if(false)
             <br>
-            Contacts: {{ $volunteer->email }}, {{ $volunteer->phone }}
+            Contacts: {{ $volunteer->email }} {{--, {{ $volunteer->phone }} --}}
         @endif
 
         <br>
