@@ -41,7 +41,7 @@ class Register extends FormRequest
             'gender_id' => 'nullable|int',
             'country_id' => 'nullable|int',
             'organisation_language_id' => 'nullable|int',
-            'offer' => '',
+            'offer' => 'array',
         ];
     }
 }

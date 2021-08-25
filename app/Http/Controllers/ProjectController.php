@@ -54,8 +54,11 @@ class ProjectController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        Project::create($data);
+        var_dump($data);
 
+        $project = Project::create($data);
+
+        return $this->registerForm();
         return redirect()->route('home');
         return redirect()->route('project.list');
     }

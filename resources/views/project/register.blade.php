@@ -17,7 +17,7 @@
                             1. Details of the Organisation *
                         </x-slot>
                         <x-base.input name="organisation_name" label="Name of the organisation *" required />
-                        <x-base.select name="status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required />
+                        <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required />
                         <x-base.input name="organisation_webpage" label="Web page (if exists)" />
                         <x-base.select name="region_id" label="Region *" :iconName="'selectArr'" :options="$continents" required />
                         <x-base.input name="organisation_contact" label="Contact person *" required />
@@ -108,26 +108,15 @@
                         </x-slot>
 
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
-                        <x-base.select name="age" label="Age" :iconName="'selectArr'" {{-- :options="$ages" --}} />
+                        <x-base.input name="min_age" label="minimum age" />
+                        <x-base.input name="max_age" label="maximum age" />
                         <x-base.select name="driving_licence"
                                        label="International driving license?"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
                                        :iconName="'selectArr'" />
                         <x-base.input name="expectedLanguage" label="Language expectations" />
                     </x-form.section>
-
-                    {{-- Hier sind die alten Select-Optionen für age --}}
-                    {{-- <div class="form-group">
-                            <select size="1" name="age">
-                                <option selected="" value="">Age</option>
-                                <option value="Under 25">Under 25</option>
-                                <option value="25 - 35">25 - 35</option>
-                                <option value="36 - 50">36 - 50</option>
-                                <option value="Over 50">Over 50</option>
-                            </select>
-                            <img for="license" class="selectArr" src="{{ asset('images/selectArr.svg') }}" alt="" />
-                </div> --}}
-
+{{-- 
                     <x-form.section>
                         <x-slot name="title">
                             7. Disciplines of experience
@@ -138,7 +127,7 @@
                         @endforeach
                         </div>
                     </x-form.section>
-
+ --}}
                     <x-form.section>
                         <x-slot name="title">
                             8. O-Experience
