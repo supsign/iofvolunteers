@@ -61,24 +61,24 @@
                         </ul>
                     </td>
                 </tr>
-                    <td class="font-weight-bold">Disciplines of Experience</td>
-                    <td>
-                        <ul>
-                            @foreach($volunteer->disciplines AS $discipline)
-                                <li>{{ $discipline->name }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
+                <td class="font-weight-bold">Disciplines of Experience</td>
+                <td>
+                    <ul>
+                        @foreach($volunteer->disciplines AS $discipline)
+                            <li>{{ $discipline->name }}</li>
+                        @endforeach
+                    </ul>
+                </td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold">O-Experience (in years)</td>
                     <td>
                         <ul>
-                            <li><strong>Local:</strong> 
+                            <li><strong>Local:</strong>
                                 {{ $volunteer->local_experience }}</li>
-                            <li><strong>National:</strong> 
+                            <li><strong>National:</strong>
                                 {{ $volunteer->national_experience }}</li>
-                            <li><strong>International:</strong> 
+                            <li><strong>International:</strong>
                                 {{ $volunteer->international_experience }}</li>
                         </ul>
                     </td>
@@ -87,24 +87,24 @@
                     <td class="font-weight-bold">O-Work Experience (in years)</td>
                     <td>
                         <ul>
-                            <li><strong>Local:</strong> 
+                            <li><strong>Local:</strong>
                                 {{ $volunteer->o_work_expirence_local }}</li>
-                            <li><strong>International:</strong> 
+                            <li><strong>International:</strong>
                                 {{ $volunteer->o_work_expirence_international }}</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold">Skills</td>
+                    <td class="font-weight-bold">{{ __('Skills') }}</td>
                     <td>
                         <ul>
                             @foreach($volunteer->skillTypes AS $skillType)
-                                <strong>{{ $skillType->name }}</strong><br/>
-                                    @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
-                                        {{ $skill->name }}<br/>
-                                     @endforeach
+                                <strong>{{ $skillType->name }}</strong><br />
+                                @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
+                                    {{ $skill->name }}<br />
+                                @endforeach
                             @endforeach
-                                <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
+                            <strong>Other:</strong><br /> {{ $volunteer->skill_other }}
                         </ul>
                     </td>
                 </tr>
