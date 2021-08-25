@@ -13,35 +13,35 @@
             <tbody>
 
                 <tr>
-                    <td>Name</td>
+                    <td class="font-weight-bold">Name</td>
                     <td>{{ $volunteer->name }}</td>
                 </tr>
 
                 <tr>
-                    <td>Sex</td>
+                    <td class="font-weight-bold">Sex</td>
                     <td>{{ $volunteer->gender->name ?? 'none' }}</td>
                 </tr>
                 <tr>
-                    <td>Country & Club</td>
+                    <td class="font-weight-bold">Country & Club</td>
                     <td>
                         {{ $volunteer->country->name }}<br>
                         {{ $volunteer->club }}
                     </td>
                 </tr>
                 <tr>
-                    <td>Age</td>
+                    <td class="font-weight-bold">Age</td>
                     <td>{{ $volunteer->age }}</td>
                 </tr>
                 <tr>
-                    <td>Experience</td>
+                    <td class="font-weight-bold">Experience</td>
                     <td>since {{ $volunteer->ol_duration }}</td>
                 </tr>
                 <tr>
-                    <td>Driving license:</td>
+                    <td class="font-weight-bold">Driving license:</td>
                     <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
                 </tr>
                 <tr>
-                    <td>Languages</td>
+                    <td class="font-weight-bold">Languages</td>
                     <td>
                         @foreach($volunteer->languageVolunteers AS $languageVolunteer)
                             @if($languageVolunteer->language_proficiency_id === 4)
@@ -54,7 +54,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Prefered destinations:</td>
+                    <td class="font-weight-bold">Prefered destinations:</td>
                     <td>
                         <ul>
                             @foreach($volunteer->continents AS $continent)
@@ -64,7 +64,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>O-Experience</td>
+                    <td class="font-weight-bold">O-Experience</td>
                     <td>
                         <ul>
                             @foreach($volunteer->disciplines AS $discipline)
@@ -79,7 +79,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>O-Work Experience</td>
+                    <td class="font-weight-bold">O-Work Experience</td>
                     <td>
                         <ul>
                             <li>Local: {{ $volunteer->o_work_expirence_local }}</li>
@@ -90,21 +90,21 @@
 
 
                 <tr>
-                    <td>My benefits</td>
+                    <td class="font-weight-bold">My benefits</td>
                     <td>{{ $volunteer->help }}</td>
                 </tr>
                 <tr>
-                    <td>Expectations</td>
+                    <td class="font-weight-bold">Expectations</td>
                     <td>{{ $volunteer->expectation }}
                 </tr>
                 <tr>
-                    <td>Experiences</td>
+                    <td class="font-weight-bold">Experiences</td>
                     <td>{{ $volunteer->experience }}</td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>Education / Seminars</td>
                     <td>{{ $volunteer->education }}</td>
-                </tr>
+                </tr> --}}
 
             </tbody>
         </table>
