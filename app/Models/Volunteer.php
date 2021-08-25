@@ -104,7 +104,7 @@ class Volunteer extends BaseModel
             $skillTypes->push($skill->skillType);
         }
 
-        return $skillTypes;
+        return $skillTypes->unique();
     }
 
     public function hasDuty(Duty $duty, DutyType $dutyType)

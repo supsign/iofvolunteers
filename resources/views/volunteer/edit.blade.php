@@ -161,6 +161,9 @@
                                 </div>
                             </div>
                         @endforeach
+                        <div class="form-group">
+                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." value="{{ $volunteer->skill_other }}"/>
+                        </div>
                     </x-form.section>
 
                     <x-form.section>
