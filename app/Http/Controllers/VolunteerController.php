@@ -94,10 +94,6 @@ class VolunteerController extends Controller
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
-        if (empty($data['nickname'])) {
-            $data['nickname'] = $data['name'];
-        }
-
         $volunteer = Volunteer::create($data);
 
         Auth::user()->volunteer_id = $volunteer->id;
@@ -176,10 +172,6 @@ class VolunteerController extends Controller
 
         if (isset($o_work_expirence[2])) {
             $data['o_work_expirence_international'] = $o_work_expirence[2];
-        }
-
-        if (empty($data['nickname'])) {
-            $data['nickname'] = $data['name'];
         }
 
         $volunteer->update($data);
