@@ -34,7 +34,6 @@
                                       value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *"
                                       type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-                        <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
                             <x-slot name="subtitle">
                                 <div class="font-weight-normal">optional</div>
                                 <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
