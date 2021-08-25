@@ -130,22 +130,50 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\DutyTypes
+ * App\Models\DutyModel
+ *
+ * @property int $id
+ * @property int $duty_id
+ * @property int $duty_type_id
+ * @property int $duty_model_id
+ * @property string $duty_model_type
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Duty $duty
+ * @property-read \App\Models\DutyType $dutyType
+ * @property-read mixed $snake_case_name
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereDutyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereDutyModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereDutyModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereDutyTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereUpdatedAt($value)
+ */
+	class DutyModel extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\DutyType
  *
  * @property int $id
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $snake_case_name
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes query()
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|DutyTypes whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereUpdatedAt($value)
  */
-	class DutyTypes extends \Eloquent {}
+	class DutyType extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -328,21 +356,124 @@ namespace App\Models{
  * @property int|null $gender_id
  * @property int|null $user_id
  * @property int|null $country_id
+ * @property int|null $project_status_id
+ * @property int|null $organisation_language_id
+ * @property string $organisation_name
+ * @property string|null $organisation_webpage
+ * @property string $organisation_contact
+ * @property string $organisation_contact_position
+ * @property string $organisation_email
+ * @property string $organisation_phone
+ * @property string|null $start_date
+ * @property string $contact
+ * @property string $place
+ * @property string|null $offer_text
+ * @property string $exprience_details
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discipline[] $disciplines
+ * @property-read int|null $disciplines_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Duty[] $duties
+ * @property-read int|null $duties_count
  * @property-read mixed $snake_case_name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProjectOffer[] $projectOffer
+ * @property-read int|null $project_offer_count
+ * @property-read \App\Models\ProjectStatus|null $projectStatus
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
+ * @property-read int|null $skills_count
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Project newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereContact($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereExprienceDetails($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGenderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOfferText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationContact($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationContactPosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationLanguageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationWebpage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project wherePlace($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereProjectStatusId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereStartDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUserId($value)
  */
 	class Project extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProjectOffer
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $snake_case_name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
+ * @property-read int|null $projects_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereUpdatedAt($value)
+ */
+	class ProjectOffer extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProjectProjectOffer
+ *
+ * @property int $id
+ * @property int $project_id
+ * @property int $project_offer_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $snake_case_name
+ * @property-read \App\Models\Project $project
+ * @property-read \App\Models\ProjectOffer $projectOffer
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereProjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereProjectOfferId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereUpdatedAt($value)
+ */
+	class ProjectProjectOffer extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProjectStatus
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $snake_case_name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
+ * @property-read int|null $projects_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereUpdatedAt($value)
+ */
+	class ProjectStatus extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -379,6 +510,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $snake_case_name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
+ * @property-read int|null $skills_count
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType query()
@@ -432,7 +565,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereVolunteerId($value)
  */
-	class User extends \Eloquent {}
+	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
 }
 
 namespace App\Models{
@@ -442,12 +575,8 @@ namespace App\Models{
  * @property int $id
  * @property int|null $gender_id
  * @property int|null $country_id
- * @property int|null $local_experience_id
- * @property int|null $national_experience_id
- * @property int|null $international_experience_id
  * @property int $active
  * @property string|null $name
- * @property string|null $nickname
  * @property string|null $birthdate
  * @property string|null $email
  * @property int|null $driving_licence
@@ -455,9 +584,11 @@ namespace App\Models{
  * @property int|null $ol_duration
  * @property int|null $work_duration
  * @property string|null $club
- * @property string|null $other_languages
- * @property string|null $o_work_expirence_local
- * @property string|null $o_work_expirence_international
+ * @property int|null $local_experience
+ * @property int|null $national_experience
+ * @property int|null $international_experience
+ * @property int|null $o_work_expirence_local
+ * @property int|null $o_work_expirence_international
  * @property string|null $skill_mapping
  * @property string|null $skill_coaching
  * @property string|null $skill_it
@@ -475,11 +606,11 @@ namespace App\Models{
  * @property-read int|null $disciplines_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Duty[] $duties
  * @property-read int|null $duties_count
- * @property-read \App\Models\Experience|null $expirenceInternational
- * @property-read \App\Models\Experience|null $expirenceLocal
- * @property-read \App\Models\Experience|null $expirenceNational
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DutyModel[] $dutyVolunteer
+ * @property-read int|null $duty_volunteer_count
  * @property-read \App\Models\Gender|null $gender
  * @property-read mixed $age
+ * @property-read mixed $driving_licence_model
  * @property-read mixed $language_info
  * @property-read mixed $skill_types
  * @property-read mixed $snake_case_name
@@ -508,15 +639,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereGenderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereHelp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereInternationalExperienceId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereLocalExperienceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereInternationalExperience($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereLocalExperience($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereNationalExperienceId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereNickname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereNationalExperience($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOWorkExpirenceInternational($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOWorkExpirenceLocal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOlDuration($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOtherLanguages($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillCoaching($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillEventOrganising($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillIt($value)
