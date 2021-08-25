@@ -77,12 +77,14 @@ class VolunteerController extends Controller
     {
         $data = $request->validated();
 
-        unset($data['_token']);
         unset($data['agb']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
+
+        
+
 
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
@@ -101,12 +103,30 @@ class VolunteerController extends Controller
             $volunteer->languages()->attach($key, ['language_proficiency_id' => $value]);
         }
 
-        $volunteer->disciplines()->attach(array_keys($discipline));
-        $volunteer->continents()->attach(array_keys($continent));
-        $volunteer->skills()->attach(array_keys($skill));
+        foreach ($discipline as $key => $value) {
+            if ($value) {
+                $volunteer->disciplines()->attach($key);
+            }
+        }
 
-        foreach ($duty as $key => $values) {
-            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        foreach ($continent as $key => $value) {
+            if ($value) {
+                $volunteer->continents()->attach($key);
+            }
+        }
+
+        foreach ($skill as $key => $value) {
+            if ($value) {
+                $volunteer->skills()->attach($key);
+            }
+        }
+
+        foreach ($duty as $typeId => $content) {
+            foreach ($content as $dutyId => $value) {
+                if ($value) {
+                    $volunteer->duties()->attach($dutyId, ['duty_type_id' => $typeId]);
+                }
+            }
         }
 
         Alert::toast('Saved', 'success');

@@ -34,12 +34,6 @@
                                       value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *"
                                       type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-                        <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
-                            <x-slot name="subtitle">
-                                <div class="font-weight-normal">optional</div>
-                                <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
-                            </x-slot>
-                        </x-base.input>
                         <x-base.select name="driving_licence"
                                        label="International driving license? *"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
@@ -84,7 +78,6 @@
                             5. Languages
                         </x-slot>
                         <x-slot name="subtitle">
-                            <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
                         @foreach($languages AS $language)
                             <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency"
@@ -154,7 +147,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" />
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" class="form-check-input" />
                                 @endforeach
                             @endforeach
                         </div>
