@@ -1,6 +1,7 @@
 <div class="form-check">
     <input
            hidden
+           id="{{ $attributes->get('name') }}_hidden_false"
            type="checkbox"
            name="{{ $attributes->get('name') }}"
            value="0"

@@ -77,7 +77,6 @@ class VolunteerController extends Controller
     {
         $data = $request->validated();
 
-        unset($data['_token']);
         unset($data['agb']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
@@ -119,7 +118,6 @@ class VolunteerController extends Controller
                 $volunteer->continents()->attach($key);
             }
         }
-
 
         foreach ($skill as $key => $value) {
             if ($value) {
