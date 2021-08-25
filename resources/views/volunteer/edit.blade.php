@@ -47,7 +47,6 @@
                                       value="{{ $volunteer->birthdate }}"
                                       label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-                        <x-base.input name="nickname" value="{{ $volunteer->nickname }}" label="Nickname">
                         </x-base.input>
                         <x-base.select name="driving_licence"
                                        label="International driving license? *"
