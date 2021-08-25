@@ -61,5 +61,6 @@ Route::post('volunteer/contact/{volunteer}', [VolunteerController::class, 'conta
 Route::post('volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
 Route::post('volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');
 Route::patch('volunteer/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
+Route::delete('volunteer/update/{volunteer}', [VolunteerController::class, 'delete'])->name('volunteer.delete');
 
 Route::get('volunteer/test', [VolunteerController::class, 'testForm'])->name('volunteer.testForm');
