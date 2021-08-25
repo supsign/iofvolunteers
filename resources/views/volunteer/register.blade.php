@@ -69,7 +69,7 @@
                                       value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *"
                                       type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
-                        <x-base.input name="field_club"
+                        <x-base.input name="club"
                                       value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
                         <x-base.input name="local_experience"
                                       value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />

@@ -47,15 +47,11 @@
                                       value="{{ $volunteer->birthdate }}"
                                       label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-<<<<<<< HEAD
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"
-=======
                         <x-base.input name="nickname" value="{{ $volunteer->nickname }}" label="Nickname">
                         </x-base.input>
                         <x-base.select name="driving_licence"
                                        label="International driving license? *"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'"
->>>>>>> 53a34f561eed8d2f166c48fc9d32b86ecb791ee4
                                        :value="$volunteer->drivingLicenceModel" required />
                     </x-form.section>
 
