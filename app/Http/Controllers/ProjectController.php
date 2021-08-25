@@ -56,8 +56,6 @@ class ProjectController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        var_dump($data);
-
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
