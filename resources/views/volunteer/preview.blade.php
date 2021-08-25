@@ -48,7 +48,6 @@
                             @endif
 
                             {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br />
-
                         @endforeach
                     </td>
                 </tr>
@@ -113,14 +112,6 @@
             <br>
             Contacts: {{ $volunteer->email }} {{--, {{ $volunteer->phone }} --}}
         @endif
-
-        <br>
-        <b></b>
-        <br>
-
-        <br>
-        <b></b>
-        <br>
 
         @if(false)
             <div class="mt-3">
