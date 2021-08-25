@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Schema;
 use Alert;
+use App\Services\Volunteer\VolunteerService;
 use Illuminate\Validation\ValidationException;
 
 class VolunteerController extends Controller
@@ -232,7 +233,7 @@ class VolunteerController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->all(); 
+        $data = $request->all();
         $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
@@ -240,13 +241,15 @@ class VolunteerController extends Controller
 
         unset($relationData['_token']);
 
-        foreach ($volunteerData AS $key => $value) {
+        foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
             }
 
             switch ($key) {
-                case 'gender_id': if ($value != 3) { $volunteers->where($key, $value); } break;
+                case 'gender_id': if ($value != 3) {
+                    $volunteers->where($key, $value);
+                } break;
                 case 'minage': $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value)); break;
                 case 'maxage': $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value)); break;
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
@@ -275,5 +278,18 @@ class VolunteerController extends Controller
         }
         
         return view('volunteer.searchList', ['volunteers' => $volunteers]);
+    }
+
+    public function delete(Volunteer $volunteer, VolunteerService $volunteerService)
+    {
+        $user =  Auth::user();
+
+        if ($user->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
+        $volunteerService->delete($volunteer);
+
+        return redirect()->route('home');
     }
 }
