@@ -12,19 +12,19 @@
             <tbody>
 
                 <tr>
-                    <td class="font-weight-bold">Name</td>
+                    <td class="font-weight-bold">Name:</td>
                     <td>{{ $volunteer->name }}</td>
                 </tr>
 
                 <tr>
-                    <td class="font-weight-bold">Sex</td>
+                    <td class="font-weight-bold">Sex:</td>
                     <td>{{ $volunteer->gender->name ?? 'none' }}</td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold">Country & Club</td>
+                    <td class="font-weight-bold">Country & Club:</td>
                     <td>
-                        {{ $volunteer->country->name }}<br>
-                        {{ $volunteer->club }}
+                        Country: {{ $volunteer->country->name }}<br>
+                        Club: {{ $volunteer->club }}
                     </td>
                 </tr>
                 <tr>
@@ -47,7 +47,7 @@
                                 @continue;
                             @endif
 
-                            {{ $languageVolunteer->language->name }}: {{ $languageVolunteer->languageProficiency->name }}<br />
+                            <strong>{{ $languageVolunteer->language->name }}:</strong> {{ $languageVolunteer->languageProficiency->name }}<br />
                         @endforeach
                     </td>
                 </tr>
@@ -74,9 +74,12 @@
                     <td class="font-weight-bold">O-Experience (in years)</td>
                     <td>
                         <ul>
-                            <li>Local: {{ $volunteer->local_experience }}</li>
-                            <li>National: {{ $volunteer->national_experience }}</li>
-                            <li>International: {{ $volunteer->international_experience }}</li>
+                            <li><strong>Local:</strong> 
+                                {{ $volunteer->local_experience }}</li>
+                            <li><strong>National:</strong> 
+                                {{ $volunteer->national_experience }}</li>
+                            <li><strong>International:</strong> 
+                                {{ $volunteer->international_experience }}</li>
                         </ul>
                     </td>
                 </tr>
@@ -84,8 +87,24 @@
                     <td class="font-weight-bold">O-Work Experience (in years)</td>
                     <td>
                         <ul>
-                            <li>Local: {{ $volunteer->o_work_expirence_local }}</li>
-                            <li>International: {{ $volunteer->o_work_expirence_international }}</li>
+                            <li><strong>Local:</strong> 
+                                {{ $volunteer->o_work_expirence_local }}</li>
+                            <li><strong>International:</strong> 
+                                {{ $volunteer->o_work_expirence_international }}</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Skills</td>
+                    <td>
+                        <ul>
+                            @foreach($volunteer->skillTypes AS $skillType)
+                                <strong>{{ $skillType->name }}</strong><br/>
+                                    @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
+                                        {{ $skill->name }}<br/>
+                                     @endforeach
+                            @endforeach
+                                <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
                         </ul>
                     </td>
                 </tr>
@@ -97,20 +116,12 @@
                     <td class="font-weight-bold">Expectations</td>
                     <td>{{ $volunteer->expectation }}
                 </tr>
-                <tr>
-                    <td class="font-weight-bold">Experiences</td>
-                    <td>{{ $volunteer->experience }}</td>
-                </tr>
-                {{-- <tr>
-                    <td>Education / Seminars</td>
-                    <td>{{ $volunteer->education }}</td>
-                </tr> --}}
 
             </tbody>
         </table>
         @if(false)
             <br>
-            Contacts: {{ $volunteer->email }} {{--, {{ $volunteer->phone }} --}}
+            Contacts: {{ $volunteer->email }}
         @endif
 
         @if(false)
