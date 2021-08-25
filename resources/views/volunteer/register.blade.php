@@ -34,12 +34,6 @@
                                       value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *"
                                       type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-                        <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
-                            <x-slot name="subtitle">
-                                <div class="font-weight-normal">optional</div>
-                                <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
-                            </x-slot>
-                        </x-base.input>
                         <x-base.select name="driving_licence"
                                        label="International driving license? *"
                                        :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
@@ -66,17 +60,17 @@
                             <div class="warn">The number will be taken as years - 0 for no experience.</div>
                         </x-slot>
                         <x-base.input name="ol_duration"
-                                      value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *"
+                                      label="Year you started orienteering (yyyy) *"
                                       type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
                         <x-base.input name="club"
-                                      value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
+                                      label="Your present club (if any)"  />
                         <x-base.input name="local_experience"
-                                      value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                                      label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="national_experience"
-                                      value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                                      label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="international_experience"
-                                      value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
+                                      label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
                     </x-form.section>
 
                     <x-form.section>
@@ -84,7 +78,6 @@
                             5. Languages
                         </x-slot>
                         <x-slot name="subtitle">
-                            <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
                         @foreach($languages AS $language)
                             <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency"
@@ -154,7 +147,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" />
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" class="form-check-input" />
                                 @endforeach
                             @endforeach
                         </div>

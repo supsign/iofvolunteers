@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Project;
+use App\Helpers\Helper;
 use App\Http\Requests\Project\Register;
 use App\Http\Requests\Project\Update;
 use App\Models\Continent;
@@ -11,12 +12,13 @@ use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyType;
 use App\Models\Gender;
+use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
 use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
-use App\Models\Language;
+
 
 class ProjectController extends Controller
 {
@@ -24,11 +26,10 @@ class ProjectController extends Controller
     {
         $this->middleware(['auth','verified']);
     }
-    
-    public function registerForm(Project $project)
-    {
-        return view('project.register', [
-            'project' => $project,
+	
+	public function registerForm() 
+	{
+		return view('project.register', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
@@ -55,11 +56,23 @@ class ProjectController extends Controller
         unset($data['_token']);
         unset($data['agb']);
 
-        Project::create($data);
+        foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
+            $$key = Helper::exractElementByKey($data, $key);
+        }
+
+        $project = Project::create($data);
+
+        $project->projectOffer()->attach(array_keys($offer));
+        $project->disciplines()->attach(array_keys($discipline));
+        $project->skills()->attach(array_keys($skill));
+
+        foreach ($duty as $key => $values) {
+            $project->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        }
 
         return redirect()->route('home');
-        return redirect()->route('project.list');
-    }
+		return redirect()->route('project.list');	//	gibts noch nicht
+	}
 
     public function update(Project $project, Update $request)
     {
