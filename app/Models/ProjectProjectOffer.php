@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class ProjectProjectOffer extends Model
+class ProjectProjectOffer extends BaseModel
 {
     protected $table = 'project_project_offer';
 

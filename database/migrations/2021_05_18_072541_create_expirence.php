@@ -28,7 +28,7 @@ class CreateExpirence extends Migration
         ]);
 
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->integer('local_experience')->nullable()->after('other_languages');
+            $table->integer('local_experience')->nullable()->after('club');
             $table->integer('national_experience')->nullable()->after('local_experience');
             $table->integer('international_experience')->nullable()->after('national_experience');
         });
