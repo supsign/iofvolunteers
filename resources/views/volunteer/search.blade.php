@@ -77,6 +77,9 @@
                         <x-slot name="title">
                             5. Timing
                         </x-slot>
+                        <x-slot name="subtitle">
+                            Define the start-time and how long the Volunteer should be able to work.
+                        </x-slot>
                         <div class="mx-0 row">
                             <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pr-sm-2">
                                 <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="When to start?" type="number" size="3" />
