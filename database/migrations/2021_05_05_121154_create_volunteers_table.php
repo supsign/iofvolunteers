@@ -19,7 +19,6 @@ class CreateVolunteersTable extends Migration
             $table->foreignId('country_id')->nullable()->constrained();
             $table->boolean('active')->default(true);
             $table->string('name')->nullable();
-            $table->string('nickname')->nullable();
             $table->timestampTz('birthdate')->nullable();
             $table->string('email')->nullable();
             $table->boolean('driving_licence')->default(false)->nullable();

@@ -7,7 +7,6 @@
             <h1 class="title">
                 <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
                 Search Volunteers </h1>
-            {{-- <div class="title-desc">Click on Volunteer Nickname for more details</div> --}}
         </div>
 
 
@@ -16,22 +15,13 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td class="big-desc">Nickname</td>
                     <td class="big-desc">Name</td>
                     <td class="big-desc">Duration available</td>
                     <td class="big-desc"></td>
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>
-                        <td>
-                            @if(false)
-                                {{ $volunteer->nickname ?? '' }}
-                            @else
-                                <a href="{{ route('volunteer.show', $volunteer ) }}">
-                                    {{ $volunteer->nickname ?? '' }}
-                                </a>
-                            @endif
-                        </td>
+
                         <td class="desc"> {{ $volunteer->name }}</td>
                         <td class="desc">{{ $volunteer->work_duration }} weeks</td>
                         <td class="desc">
