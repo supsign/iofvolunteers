@@ -20,7 +20,7 @@
                         <x-slot name="title">
                             1. Contact Information
                         </x-slot>
-                        <x-base.input name="name" value="{{ old('name') }}" label="Name *" required />
+                        <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *" required />
                         <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries" />
                         <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email" required />
                     </x-form.section>
@@ -64,7 +64,7 @@
                                       type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
                         <x-base.input name="club"
-                                      label="Your present club (if any)"  />
+                                      label="Your present club (if any)" />
                         <x-base.input name="local_experience"
                                       label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="national_experience"
@@ -137,7 +137,7 @@
                             </div>
                         @endforeach
                         <div class="form-group">
-                                <x-base.textarea name="skill_other" label="Other skills? Please explain..." />
+                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." />
                         </div>
                     </x-form.section>
 

@@ -31,7 +31,6 @@ class HostController extends Controller
 
     public function update(Host $host, HostRegister $request)
     {
-        exit();
         return Host::update($request->validated());
     }
 
