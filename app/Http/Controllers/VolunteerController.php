@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Mail\ContactVolunteerMail;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Continent;
@@ -18,6 +19,7 @@ use App\Http\Requests\Volunteer\Register;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Schema;
 use Alert;
 
@@ -28,10 +30,10 @@ class VolunteerController extends Controller
         $this->middleware(['auth','verified']);
     }
 
-    public function contact()
+    public function contact(Volunteer $volunteer)
     {
+        Mail::to($volunteer)->send(new ContactVolunteerMail);
     }
-
 
     public function registerForm()
     {
