@@ -37,7 +37,7 @@ class Register extends FormRequest
             'driving_licence' => 'boolean',
             'offer_text' => 'nullable|string',
             'exprience_details' => 'nullable|string',
-            'status_id' => 'nullable|int',
+            'project_status_id' => 'nullable|int',
             'gender_id' => 'nullable|int',
             'country_id' => 'nullable|int',
             'organisation_language_id' => 'nullable|int',
