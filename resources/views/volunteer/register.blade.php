@@ -84,7 +84,6 @@
                             5. Languages
                         </x-slot>
                         <x-slot name="subtitle">
-                            <div class="warn">(required, even if only listed in "other")</div>
                         </x-slot>
                         @foreach($languages AS $language)
                             <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}" :options="$languageProficiency"
@@ -154,7 +153,7 @@
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
-                                    <x-base.checkbox label="{{ $duty->name }}" name="{{ $dutyType->snakeCaseName.'_'.$duty->snakeCaseName }}" type="checkbox" class="form-check-input" />
+                                    <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" class="form-check-input" />
                                 @endforeach
                             @endforeach
                         </div>

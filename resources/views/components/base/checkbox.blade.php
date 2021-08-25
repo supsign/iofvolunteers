@@ -1,10 +1,17 @@
 <div class="form-check">
     <input
+           hidden
+           type="checkbox"
+           name="{{ $attributes->get('name') }}"
+           value="0"
+           checked />
+    <input
            type="checkbox"
            id="{{ $attributes->get('name') }}"
-           value="{{ old($attributes->get('name')) ?? $attributes->get('value') }}"
+           name="{{ $attributes->get('name') }}"
+           value="1"
            @if(old($attributes->get('name')) || $checked) checked @endif
-    {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label'])) }}
+    class="{{ $attributes->get('class') }}"
     />
     <label class="form-check-label" for="{{ $attributes->get('name') }}">
         {!! $attributes->get('label') !!}
