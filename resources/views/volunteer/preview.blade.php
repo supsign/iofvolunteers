@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td class="font-weight-bold">Age</td>
-                    <td>{{ $volunteer->age }}</td>
+                    <td>{{ $volunteer->age }} years</td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold">Experience</td>
@@ -63,23 +63,27 @@
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td class="font-weight-bold">O-Experience</td>
+                    <td class="font-weight-bold">Disciplines of Experience</td>
                     <td>
                         <ul>
                             @foreach($volunteer->disciplines AS $discipline)
                                 <li>{{ $discipline->name }}</li>
                             @endforeach
                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">O-Experience (in years)</td>
+                    <td>
                         <ul>
                             <li>Local: {{ $volunteer->local_experience }}</li>
-                            <li> National: {{ $volunteer->national_experience }}</li>
+                            <li>National: {{ $volunteer->national_experience }}</li>
                             <li>International: {{ $volunteer->international_experience }}</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold">O-Work Experience</td>
+                    <td class="font-weight-bold">O-Work Experience (in years)</td>
                     <td>
                         <ul>
                             <li>Local: {{ $volunteer->o_work_expirence_local }}</li>
