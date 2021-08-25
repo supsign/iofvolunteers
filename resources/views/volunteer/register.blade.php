@@ -30,10 +30,20 @@
                             2. Personal Information
                         </x-slot>
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" />
-                        <x-base.input name="birthdate" value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
+                        <x-base.input name="birthdate"
+                                      value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *"
+                                      type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
-
-                        <x-base.select name="driving_licence" label="International driving license? *" :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])" :iconName="'selectArr'" required />
+                        <x-base.input name="nickname" value="{{ old('nickname') }}" label="Nickname">
+                            <x-slot name="subtitle">
+                                <div class="font-weight-normal">optional</div>
+                                <div class="font-weight-normal">if left blank, your name will be assumed as your nickname</div>
+                            </x-slot>
+                        </x-base.input>
+                        <x-base.select name="driving_licence"
+                                       label="International driving license? *"
+                                       :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
+                                       :iconName="'selectArr'" required />
                     </x-form.section>
 
                     <x-form.section>
@@ -55,12 +65,27 @@
                             State below how long your experience for each given Event-Type is.
                             <div class="warn">The number will be taken as years - 0 for no experience.</div>
                         </x-slot>
+<<<<<<< HEAD
                         <x-base.input name="ol_duration" value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *" type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
                                       data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
                         <x-base.input name="field_club" value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
                         <x-base.input name="local_experience" value="{{ old('local_experience') }}" label="Exprience with local Events" type="number" size="3" min="0" step="1" />
                         <x-base.input name="national_experience" value="{{ old('national_experience') }}" label="Exprience with national Events" type="number" size="3" min="0" step="1" />
                         <x-base.input name="international_experience" value="{{ old('international_experience') }}" label="Exprience with international Events" type="number" size="3" min="0" step="1" />
+=======
+                        <x-base.input name="ol_duration"
+                                      value="{{ old('ol_duration') }}" label="Year you started orienteering (yyyy) *"
+                                      type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
+                                      data-view="years" data-min-view="years" placeholder=" " value="" required :iconName="'calendarIcon'" />
+                        <x-base.input name="field_club"
+                                      value="{{ old('field_club') }}" label="Your present club (if any)" type="text" />
+                        <x-base.input name="local_experience"
+                                      value="{{ old('local_experience') }}" label="Exprience with local Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="national_experience"
+                                      value="{{ old('national_experience') }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
+                        <x-base.input name="international_experience"
+                                      value="{{ old('international_experience') }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
+>>>>>>> 53a34f561eed8d2f166c48fc9d32b86ecb791ee4
                     </x-form.section>
 
                     <x-form.section>
