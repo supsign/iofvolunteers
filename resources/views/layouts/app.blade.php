@@ -300,17 +300,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group row desc">
-                                        <label class="col-3 col-form-label col-form-label-sm" for="name">Country<span class="warn-title">*</span>: </label>
-                                        <div class="col-9">
-                                            <select type="text" name="country" id="country" required="">
-                                                <option selected disabled>-</option>
-                                                @foreach($countries as $country )
-                                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row desc">
                                         <label class="col-3 col-form-label col-form-label-sm" for="name">E-mail<span class="warn-title">*</span>: </label>
                                         <div class="col-9">
                                             <input class="form-control form-control-sm" type="text" name="email" size="20" required="">

@@ -40,7 +40,7 @@ class CreateVolunteersTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('volunteer_id')->after('country_id')->nullable()->constrained();
+            $table->foreignId('volunteer_id')->after('lastname')->nullable()->constrained();
         });
     }
 
