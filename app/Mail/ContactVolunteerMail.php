@@ -2,6 +2,9 @@
 
 namespace App\Mail;
 
+use App\Models\Project;
+use App\Models\User;
+use App\Models\Volunteer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,7 +19,7 @@ class ContactVolunteerMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public Volunteer $volunteer, public User $user, public Project $project)
     {
         //
     }

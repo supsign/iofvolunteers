@@ -13,6 +13,7 @@ use App\Models\DutyType;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\SkillType;
+use App\Models\Project;
 use App\Models\Volunteer;
 use App\Http\Requests\Volunteer\Update;
 use App\Http\Requests\Volunteer\Register;
@@ -30,9 +31,13 @@ class VolunteerController extends Controller
         $this->middleware(['auth','verified']);
     }
 
-    public function contact(Volunteer $volunteer)
+    public function contact(Volunteer $volunteer, Request $request)
     {
-        Mail::to($volunteer)->send(new ContactVolunteerMail);
+        if (!$project = Project::find($request->project_id)) {
+            abort(404);
+        }
+
+        Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
     }
 
     public function registerForm()

@@ -1,12 +1,10 @@
 @component('mail::message')
-# Introduction
+Dear {{ $volunteer->name }}
 
-The body of your message.
+{{ $user->firstname }} {{ $user->lastname }} is looking for your help at {{ $projekt->name }}.<br/>
+You can simply reply to this e-mail to get in contact with the organisation.<br/><br/>
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+Kind Regards,<br/><br/>
 
-Thanks,<br>
-{{ config('app.name') }}
+iof volunteers
 @endcomponent
