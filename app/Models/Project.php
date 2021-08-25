@@ -4,9 +4,14 @@ namespace App\Models;
 
 class Project extends BaseModel
 {
-    public function user() 
+    public function disciplines()
     {
-    	return $this->belongsTo(User::class);
+        return $this->morphToMany(Discipline::class, 'discipline_model');
+    }
+
+    public function duties()
+    {
+        return $this->morphToMany(Duty::class, 'duty_model');
     }
 
     public function projectOffer()
@@ -17,5 +22,15 @@ class Project extends BaseModel
     public function projectStatus()
     {
         return $this->belongsTo(ProjectStatus::class);
+    }
+
+    public function skills()
+    {
+        return $this->morphToMany(Skill::class, 'skill_model');
+    }
+
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
     }
 }
