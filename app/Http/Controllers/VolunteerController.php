@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Schema;
 use Alert;
+use Illuminate\Validation\ValidationException;
 
 class VolunteerController extends Controller
 {
@@ -161,43 +162,64 @@ class VolunteerController extends Controller
     {
         $data = $request->validated();
 
-
-
-
-        unset($data['_token']);
+        unset($data['agb']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
-      
-        if (isset($o_work_expirence[1])) {
+
+        if (array_key_exists(1, $o_work_expirence)) {
+            if ($o_work_expirence[1] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
 
-        if (isset($o_work_expirence[2])) {
+
+        if (array_key_exists(2, $o_work_expirence)) {
+            if ($o_work_expirence[2] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+
         $volunteer->update($data);
 
-        $languagesForSync = [];
-        foreach ($language as $key => $value) {
-            $languagesForSync[$key] = ['language_proficiency_id' => $value];
-        }
+        $languageSync = array_map(function ($value) {
+            return  ['language_proficiency_id' => $value];
+        }, $language);
+        $volunteer->languages()->sync($languageSync);
 
-        $volunteer->languages()->sync($languagesForSync);
-        $volunteer->disciplines()->sync(array_keys($discipline));
-        $volunteer->continents()->sync(array_keys($continent));
-        $volunteer->skills()->sync(array_keys($skill));
+
+        $disciplineSync = array_filter($discipline, function ($value) {
+            return $value;
+        });
+        $volunteer->disciplines()->sync(array_keys($disciplineSync));
+ 
+
+        $continentSync = array_filter($continent, function ($value) {
+            return $value;
+        });
+        $volunteer->continents()->sync(array_keys($continentSync));
+
+        $skillSync = array_filter($skill, function ($value) {
+            return $value;
+        });
+        $volunteer->skills()->sync(array_keys($skillSync));
 
         $volunteer->dutyVolunteer()->delete();
-
-        foreach ($duty as $key => $values) {
-            $volunteer->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+        foreach ($duty as $typeId => $content) {
+            foreach ($content as $dutyId => $value) {
+                if ($value) {
+                    $volunteer->duties()->attach($dutyId, ['duty_type_id' => $typeId]);
+                }
+            }
         }
 
         Alert::toast('Saved', 'success');
-        return redirect()->route('home');
+        return redirect()->route('volunteer.edit', $volunteer);
     }
 
 
