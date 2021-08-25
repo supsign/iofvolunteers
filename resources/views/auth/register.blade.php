@@ -40,20 +40,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
-                                <div class="col-md-6">
-                                    <select type="text" name="country" id="country" required="">
-                                        <option selected disabled>-</option>
-                                        @foreach($countries as $country )
-                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
