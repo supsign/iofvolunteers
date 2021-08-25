@@ -232,24 +232,19 @@ class VolunteerController extends Controller
 
         $volunteers = $volunteers->get();
         
-        // foreach ($relationData as $key => $value) {
-        //     if (!$value) {
-        //         continue;
-        //     }
+        foreach ($relationData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
 
-        //     switch ($key) {
-        //         case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
-        //         // case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
-        //         // case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
-        //         default: break;
-        //     }
-        // }
-
-        // var_dump(
-        //     // $relationData,
-        //     $volunteers->count()
-        // );
-
+            switch ($key) {
+                case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
+                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
+                case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
+                default: break;
+            }
+        }
+        
         return view('volunteer.searchList', ['volunteers' => $volunteers]);
     }
 }
