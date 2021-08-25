@@ -21,8 +21,15 @@
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>
-
-                        <td class="desc"> {{ $volunteer->name }}</td>
+                        <td>
+                            @if(false)
+                                {{ $volunteer->name ?? '' }}
+                            @else
+                                <a href="{{ route('volunteer.show', $volunteer ) }}">
+                                    {{ $volunteer->name ?? '' }}
+                                </a>
+                            @endif
+                        </td>
                         <td class="desc">{{ $volunteer->work_duration }} weeks</td>
                         <td class="desc">
                         </td>
