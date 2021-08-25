@@ -43,7 +43,7 @@
                         </x-slot>
                         <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders" :value="$volunteer->gender" />
                         <x-base.input name="birthdate"
-                                      value="{{ $volunteer->birthdate }}"
+                                      value="{{ date_format(new datetime($volunteer->birthdate), 'Y-m-d') }}"
                                       label="Date of birth (yyyy-mm-dd) *" type="text" required class="datepicker-here" data-language='en' data-date-format="yyyy-mm-dd"
                                       :iconName="'calendarIcon'" />
 
