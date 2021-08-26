@@ -18,6 +18,7 @@ use App\Models\SkillType;
 use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -58,6 +59,8 @@ class ProjectController extends Controller
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
+
+        $data['user_id'] = Auth::user()->id;
 
         $project = Project::create($data);
 
