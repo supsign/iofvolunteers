@@ -60,6 +60,8 @@ class ProjectController extends Controller
             $$key = Helper::exractElementByKey($data, $key);
         }
 
+        $data['user_id'] = Auth::user()->id;
+
         $project = Project::create($data);
 
         $project->projectOffer()->attach(array_keys($offer));
