@@ -262,7 +262,7 @@
                                         <a href="register">
                                             Register
                                         </a>
-                                        <a href="restore">
+                                        <a href="password/reset">
                                             Restore password
                                         </a>
                                     </div>
