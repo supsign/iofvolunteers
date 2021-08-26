@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "@flareapp/flare-client": "^2.0.0",
-        "@flareapp/flare-webpack-plugin-sourcemap": "^1.1.3"
+        "@flareapp/flare-webpack-plugin-sourcemap": "^1.1.3",
+        "sweetalert2": "^11.1.4"
     }
 }
