@@ -87,7 +87,7 @@
                         <x-base.input name="national_experience"
                                       value="{{ $volunteer->national_experience }}" label="Exprience with national Events (number)" type="number" size="3" min="0" step="1" />
                         <x-base.input name="international_experience"
-                                      value="{{ $volunteer->international_experience }}" label="Exprience with international (number) Events" type="number" size="3" min="0" step="1" />
+                                      value="{{ $volunteer->international_experience }}" label="Exprience with international Events (number)" type="number" size="3" min="0" step="1" />
                     </x-form.section>
 
                     <x-form.section>
@@ -174,7 +174,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($dutyTypes AS $dutyType)
-                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number"
+                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }} (number)" type="number"
                                               value="{{ $volunteer->getAttribute($dutyType->id === 1 ? 'o_work_expirence_local' : 'o_work_expirence_international') }}" size="3"
                                               min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>

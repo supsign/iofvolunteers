@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 class DutyTypeSeeder extends Seeder
 {
     private $data = [
-        ['id' => 1, 'name' => 'Local / National Events (number)'],
-        ['id' => 2, 'name' => 'International Events (number)'],
+        ['id' => 1, 'name' => 'Local / National Events'],
+        ['id' => 2, 'name' => 'International Events'],
     ];
 
     /**

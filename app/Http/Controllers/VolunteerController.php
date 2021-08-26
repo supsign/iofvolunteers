@@ -22,8 +22,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Schema;
-use Alert;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VolunteerController extends Controller
 {
@@ -274,6 +274,10 @@ class VolunteerController extends Controller
             }
         }
         
-        return view('volunteer.searchList', ['volunteers' => $volunteers]);
+        return view('volunteer.searchList', [
+            'volunteers' => $volunteers,
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+        ]);
     }
 }
