@@ -7,6 +7,18 @@
             <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Edit Volunteer</h1>
         </div>
 
+        <div class="row pb-3">
+            <div class="col-12 col-md-8">
+                <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST" onclick="return confirm('Delete Volunteer?')">
+                    @method('DELETE')
+                    @csrf
+
+                    <button type="submit" class="float-right">Delete</button>
+
+                </form>
+            </div>
+        </div>
+
         <form method="POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
             @csrf
             @method("PATCH")
@@ -162,7 +174,7 @@
                             </div>
                         @endforeach
                         <div class="form-group">
-                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." value="{{ $volunteer->skill_other }}"/>
+                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." value="{{ $volunteer->skill_other }}" />
                         </div>
                     </x-form.section>
 
