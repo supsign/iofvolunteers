@@ -115,5 +115,4 @@ class Volunteer extends BaseModel
             }
         );
     }
-    
 }
