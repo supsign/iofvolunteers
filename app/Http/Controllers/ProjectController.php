@@ -19,17 +19,16 @@ use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
 
-
 class ProjectController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth','verified']);
     }
-	
-	public function registerForm() 
-	{
-		return view('project.register', [
+    
+    public function registerForm()
+    {
+        return view('project.register', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
@@ -73,14 +72,11 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('home');
-		return redirect()->route('project.list');	//	gibts noch nicht
-	}
+        return redirect()->route('project.list');	//	gibts noch nicht
+    }
 
     public function update(Project $project, Update $request)
     {
-        var_dump($request->all());
-
-        exit();
         return Project::update($request->validated());
     }
 

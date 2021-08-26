@@ -2,6 +2,8 @@
 @section('content')
 <section class="default">
 
+
+
     <div class="container">
         <div class="titleWrap">
             <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Edit Volunteer</h1>
@@ -162,7 +164,7 @@
                             </div>
                         @endforeach
                         <div class="form-group">
-                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." value="{{ $volunteer->skill_other }}"/>
+                            <x-base.textarea name="skill_other" label="Other skills? Please explain..." value="{{ $volunteer->skill_other }}" />
                         </div>
                     </x-form.section>
 
