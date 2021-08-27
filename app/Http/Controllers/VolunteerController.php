@@ -149,7 +149,7 @@ class VolunteerController extends Controller
         return redirect()->route('home');
     }
 
-    public function edit(Volunteer $volunteer)
+    public function editForm(Volunteer $volunteer)
     {
         if (!Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');

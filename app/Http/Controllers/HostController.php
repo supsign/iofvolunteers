@@ -16,11 +16,13 @@ class HostController extends Controller
     
     public function registerForm()
     {
+        return (new HomeController)->underConstruction();
         return view('host.register', ['countries' => Country::all()]);
     }
 
     public function searchForm()
     {
+        return (new HomeController)->underConstruction();
         return view('host.search');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class HomeController extends Controller
 {
     /**
@@ -21,5 +23,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function underConstruction()
+    {
+        Alert::toast('Unavialible - Under Construction', 'error');
+        return redirect()->route('home');
     }
 }
