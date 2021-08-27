@@ -15,7 +15,6 @@
                     <td class="font-weight-bold">Name:</td>
                     <td>{{ $volunteer->name }}</td>
                 </tr>
-
                 <tr>
                     <td class="font-weight-bold">Sex:</td>
                     <td>{{ $volunteer->gender->name ?? '-' }}</td>
@@ -23,8 +22,10 @@
                 <tr>
                     <td class="font-weight-bold">Country & Club:</td>
                     <td>
-                        Country: {{ $volunteer->country->name }}<br>
-                        Club: {{ $volunteer->club }}
+                        <strong>Country:</strong> {{ $volunteer->country->name }}<br>
+                        @if($volunteer->club)
+                            <strong>Club:</strong> {{ $volunteer->club }}
+                        @endif
                     </td>
                 </tr>
                 <tr>
@@ -39,86 +40,129 @@
                     <td class="font-weight-bold">Driving license:</td>
                     <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
                 </tr>
-                <tr>
-                    <td class="font-weight-bold">Languages</td>
-                    <td>
-                        @foreach($volunteer->languageVolunteers AS $languageVolunteer)
-                            @if($languageVolunteer->language_proficiency_id === 4)
-                                @continue;
-                            @endif
 
-                            <strong>{{ $languageVolunteer->language->name }}:</strong> {{ $languageVolunteer->languageProficiency->name }}<br />
-                        @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Prefered destinations:</td>
-                    <td>
-                        <ul>
-                            @foreach($volunteer->continents AS $continent)
-                                <li> {{ $continent->name }}</li>
+                @if($volunteer->continents->count())
+                    <tr>
+                        <td class="font-weight-bold">Languages</td>
+                        <td>
+                            @foreach($volunteer->languageVolunteers AS $languageVolunteer)
+                                @if($languageVolunteer->language_proficiency_id === 4)
+                                    @continue;
+                                @endif
+
+                                <strong>{{ $languageVolunteer->language->name }}:</strong> {{ $languageVolunteer->languageProficiency->name }}<br />
                             @endforeach
-                        </ul>
-                    </td>
-                </tr>
-                <td class="font-weight-bold">Disciplines of Experience</td>
-                <td>
-                    <ul>
-                        @foreach($volunteer->disciplines AS $discipline)
-                            <li>{{ $discipline->name }}</li>
-                        @endforeach
-                    </ul>
-                </td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">O-Experience (in years)</td>
-                    <td>
-                        <ul>
-                            <li><strong>Local:</strong>
-                                {{ $volunteer->local_experience }}</li>
-                            <li><strong>National:</strong>
-                                {{ $volunteer->national_experience }}</li>
-                            <li><strong>International:</strong>
-                                {{ $volunteer->international_experience }}</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">O-Work Experience (in years)</td>
-                    <td>
-                        <ul>
-                            <li><strong>Local:</strong>
-                                {{ $volunteer->o_work_expirence_local }}</li>
-                            <li><strong>International:</strong>
-                                {{ $volunteer->o_work_expirence_international }}</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">{{ __('Skills') }}</td>
-                    <td>
-                        <ul>
-                            @foreach($volunteer->skillTypes AS $skillType)
-                                <strong>{{ $skillType->name }}</strong><br />
-                                @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
-                                    {{ $skill->name }}<br />
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->continents->count())
+                    <tr>
+                        <td class="font-weight-bold">Prefered destinations:</td>
+                        <td>
+                            <ul>
+                                @foreach($volunteer->continents AS $continent)
+                                    <li>{{ $continent->name }}</li>
                                 @endforeach
-                            @endforeach
-                            <strong>Other:</strong><br /> {{ $volunteer->skill_other }}
-                        </ul>
-                    </td>
-                </tr>
+                            </ul>
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->disciplines->count())
+                    <tr>
+                        <td class="font-weight-bold">Disciplines of Experience</td>
+                        <td>
+                            <ul>
+                                @foreach($volunteer->disciplines AS $discipline)
+                                    <li>{{ $discipline->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->local_experience || $volunteer->national_experience || $volunteer->international_experience)
+                    <tr>
+                        <td class="font-weight-bold">O-Experience (in years)</td>
+                        <td>
+                            <ul>
+                                @if($volunteer->local_experience)
+                                    <li><strong>Local:</strong>                             
+                                        {{ $volunteer->local_experience }}
+                                    </li>
+                                @endif
+
+                                @if($volunteer->national_experience)                           
+                                    <li><strong>National:</strong>                             
+                                        {{ $volunteer->national_experience }}
+                                    </li>
+                                @endif
+
+                                @if($volunteer->international_experience)
+                                    <li><strong>International:</strong>
+                                        {{ $volunteer->international_experience }}
+                                    </li>
+                                @endif
+                            </ul>
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->o_work_expirence_local || $volunteer->o_work_expirence_international)
+                    <tr>
+                        <td class="font-weight-bold">O-Work Experience (in years)</td>
+                        <td>
+                            <ul>
+                                @if($volunteer->o_work_expirence_local)
+                                    <li><strong>Local:</strong>
+                                        {{ $volunteer->o_work_expirence_local }}
+                                    </li>
+                                @endif
+
+                                @if($volunteer->o_work_expirence_international)
+                                    <li><strong>International:</strong>
+                                        {{ $volunteer->o_work_expirence_international }}
+                                    </li>
+                                @endif
+                            </ul>
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->skillTypes->count())
+                    <tr>
+                        <td class="font-weight-bold">{{ __('Skills') }}</td>
+                        <td>
+                            <ul>
+                                @foreach($volunteer->skillTypes AS $skillType)
+                                    <strong>{{ $skillType->name }}</strong><br />
+                                    @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
+                                        {{ $skill->name }}<br />
+                                    @endforeach
+                                @endforeach
+
+                                @if($volunteer->skill_other)
+                                    <strong>Other:</strong><br /> {{ $volunteer->skill_other }}
+                                @endif
+                            </ul>
+                        </td>
+                    </tr>
+                @endif
                 <tr>
                     <td class="font-weight-bold">My benefits</td>
                     <td>{{ $volunteer->help }}</td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold">Expectations</td>
-                    <td>{{ $volunteer->expectation }}
+                    @if($volunteer->expectation)
+                        <td class="font-weight-bold">Expectations</td>
+                        <td>{{ $volunteer->expectation }}
+                    @endif
                 </tr>
 
             </tbody>
         </table>
+        
         @if(false)
             <br>
             Contacts: {{ $volunteer->email }}
