@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <form method=" POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
             @csrf
             @method("PATCH")
 
