@@ -63,12 +63,12 @@ class ProjectController extends Controller
 
         $project = Project::create($data);
 
-        $project->projectOffer()->attach(array_keys($offer));
-        $project->disciplines()->attach(array_keys($discipline));
-        $project->skills()->attach(array_keys($skill));
+        $project->projectOffer()->attach(array_keys(array_filter($offer)));
+        $project->disciplines()->attach(array_keys(array_filter($discipline)));
+        $project->skills()->attach(array_keys(array_filter($skill)));
 
         foreach ($duty as $key => $values) {
-            $project->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+            $project->duties()->attach(array_keys(array_filter($values)), ['duty_type_id' => $key]);
         }
 
         return redirect()->route('home');
