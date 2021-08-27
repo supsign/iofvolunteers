@@ -26,6 +26,11 @@ class ProjectController extends Controller
     {
         $this->middleware(['auth','verified']);
     }
+
+    public function editForm()
+    {
+        return (new HomeController)->underConstruction();
+    }
     
     public function registerForm()
     {
@@ -46,6 +51,7 @@ class ProjectController extends Controller
 
     public function searchForm()
     {
+        return (new HomeController)->underConstruction();
         return view('project.search');
     }
 
@@ -82,5 +88,6 @@ class ProjectController extends Controller
 
     public function search()
     {
+
     }
 }
