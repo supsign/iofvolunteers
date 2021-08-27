@@ -11,7 +11,7 @@
         @endif
 
         @foreach($options AS $option)
-            <option value="{{ $option->id }}" @if(old($attributes->get('name')) == $option->id OR $value && $value->id === $option->id) selected @endif>{{ $option->name }}</option>
+            <option value="{{ $option->id }}" @if(!is_null(old($attributes->get('name'))) && old($attributes->get('name')) == $option->id OR $value && $value->id === $option->id) selected @endif>{{ $option->name }}</option>
         @endforeach
     </select>
 
