@@ -31,6 +31,6 @@ class ContactVolunteerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.volunteer.contact');
+        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo('iof@volunteers.org')->from('iof@volunteers.org');
     }
 }

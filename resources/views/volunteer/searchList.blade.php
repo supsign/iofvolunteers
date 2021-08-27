@@ -37,21 +37,6 @@
                 @endforeach
             </tbody>
         </table>
-
-        @if($user->projects()->count())
-            <div class="mt-3">
-                <form class="d-flex flex-column align-items-start" method="POST" action="volunteer/contactall" enctype="multipart/form-data">
-                    <input type="hidden" name="list" value="">
-                    <p>Invite all volunteers to project:</p>
-                    <div class="selectWrap">
-                        <select size="1" name="project">
-                            -Project-
-                        </select>
-                    </div>
-                    <input class="mt-3" type="submit" value="Contact volunteers" />
-                </form>
-            </div>
-        @endif
     </div>
 </section>
 
