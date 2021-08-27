@@ -36,7 +36,11 @@
                                 <li>
                                     @foreach($dutyTypes AS $dutyType)
                                         <strong>{{ $dutyType->name . ':'}}</strong>
-                                            {{ $dutyType->id === 1 ? $volunteer->o_work_expirence_local : $volunteer->o_work_expirence_international}}<br />
+                                        @if($dutyType->id === 1 ? $volunteer->o_work_expirence_local : $volunteer->o_work_expirence_international)
+                                            {{ $dutyType->id === 1 ? $volunteer->o_work_expirence_local : $volunteer->o_work_expirence_international }}<br />
+                                        @else
+                                            No Experience<br />
+                                        @endif
                                                 @foreach($volunteer->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
                                                     {{ $duty->name }} <br />
                                                 @endforeach
