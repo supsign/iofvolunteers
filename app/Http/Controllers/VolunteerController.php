@@ -99,9 +99,6 @@ class VolunteerController extends Controller
             $$key = Helper::exractElementByKey($data, $key);
         }
 
-        
-
-
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
@@ -109,6 +106,8 @@ class VolunteerController extends Controller
         if (isset($o_work_expirence[2])) {
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
+
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer = Volunteer::create($data);
 
@@ -195,6 +194,7 @@ class VolunteerController extends Controller
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer->update($data);
 
