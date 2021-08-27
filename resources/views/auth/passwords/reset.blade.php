@@ -17,7 +17,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" hidden>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $email }}" required hidden>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
