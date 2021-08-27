@@ -12,7 +12,7 @@
                 <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST" onclick="return confirm('Are You Sure?')">
                     @method('DELETE')
                     @csrf
-                    <input class="ml-auto float-md-right m_red" type="submit" value="Delete Volunteer">
+                    <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Volunteer">
                 </form>
             </div>
         </div>
