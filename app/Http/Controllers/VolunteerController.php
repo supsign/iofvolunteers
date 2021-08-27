@@ -157,6 +157,10 @@ class VolunteerController extends Controller
             return redirect()->route('volunteer.registerForm');
         }
 
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
         return view('volunteer.edit', [
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
@@ -173,6 +177,10 @@ class VolunteerController extends Controller
 
     public function update(Volunteer $volunteer, Update $request)
     {
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
         $data = $request->validated();
 
         unset($data['agb']);
@@ -292,9 +300,7 @@ class VolunteerController extends Controller
 
     public function delete(Volunteer $volunteer, VolunteerService $volunteerService)
     {
-        $user =  Auth::user();
-
-        if ($user->volunteer_id !== $volunteer->id) {
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
             abort(403);
         }
 
