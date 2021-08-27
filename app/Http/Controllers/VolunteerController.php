@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Schema;
 use Alert;
+use App\Services\Volunteer\VolunteerService;
+use Illuminate\Validation\ValidationException;
 
 class VolunteerController extends Controller
 {
@@ -99,9 +101,6 @@ class VolunteerController extends Controller
             $$key = Helper::exractElementByKey($data, $key);
         }
 
-        
-
-
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
@@ -109,6 +108,8 @@ class VolunteerController extends Controller
         if (isset($o_work_expirence[2])) {
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
+
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer = Volunteer::create($data);
 
@@ -149,7 +150,7 @@ class VolunteerController extends Controller
         return redirect()->route('home');
     }
 
-    public function edit(Volunteer $volunteer)
+    public function editForm(Volunteer $volunteer)
     {
         if (!Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');
@@ -195,6 +196,7 @@ class VolunteerController extends Controller
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer->update($data);
 
@@ -281,5 +283,18 @@ class VolunteerController extends Controller
         }
         
         return view('volunteer.searchList', ['volunteers' => $volunteers]);
+    }
+
+    public function delete(Volunteer $volunteer, VolunteerService $volunteerService)
+    {
+        $user =  Auth::user();
+
+        if ($user->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
+        $volunteerService->delete($volunteer);
+
+        return redirect()->route('home');
     }
 }
