@@ -28,6 +28,11 @@ class ProjectController extends Controller
         $this->middleware(['auth','verified']);
     }
 
+    public function list()
+    {
+        return (new HomeController)->underConstruction();
+    }
+
     public function editForm()
     {
         return (new HomeController)->underConstruction();
