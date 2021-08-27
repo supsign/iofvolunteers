@@ -88,13 +88,13 @@
                         <td>
                             <ul>
                                 @if($volunteer->local_experience)
-                                    <li><strong>Local:</strong>                             
+                                    <li><strong>Local:</strong>
                                         {{ $volunteer->local_experience }}
                                     </li>
                                 @endif
 
-                                @if($volunteer->national_experience)                           
-                                    <li><strong>National:</strong>                             
+                                @if($volunteer->national_experience)
+                                    <li><strong>National:</strong>
                                         {{ $volunteer->national_experience }}
                                     </li>
                                 @endif
