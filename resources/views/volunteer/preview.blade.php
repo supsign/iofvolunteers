@@ -124,19 +124,18 @@
             Contacts: {{ $volunteer->email }}
         @endif
 
-        @if(false)
-            <div class="mt-3">
-                <form class="d-flex flex-column align-items-start" method="POST" action="/volunteer/contact" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="{{ $volunteer->id }}">
-                    <p>Invite volunteer to project:</p>
-                    <div class="selectWrap">
-                        <select size="1" name="project">
-                            Projects
-                        </select>
-                    </div>
-                    <input class="mt-3" type="submit" value="Contact volunteer" />
-                </form>
-            </div>
+        @if(true)
+            <form class="d-flex flex-column align-items-start" onsubmit="return searchVolunteer(event)" enctype="multipart/form-data">
+                @csrf
+                <x-form.section>
+                    <x-slot name="title">
+                        Invite volunteer to your project
+                    </x-slot>
+                    <x-base.select name="project_id" label="Project" :iconName="'selectArr'" :options="$projects" required />
+                    <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
+                    <input class="mt-3" type="submit" name="submitButton" value="Contact volunteer" />
+                </x-form.section>
+            </form>
         @endif
     </div>
 </section>

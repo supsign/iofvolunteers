@@ -25,6 +25,7 @@ use Schema;
 use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class VolunteerController extends Controller
 {
     public function __construct()
@@ -38,7 +39,11 @@ class VolunteerController extends Controller
             abort(404);
         }
 
-        Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        try {
+            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        } catch (\Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function registerForm()
@@ -82,7 +87,8 @@ class VolunteerController extends Controller
 
     public function show(Volunteer $volunteer)
     {
-        return view('volunteer.preview', ['volunteer' => $volunteer]);
+        $projects = Auth::user()->projects;
+        return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
     }
 
     public function register(Register $request)
@@ -232,7 +238,7 @@ class VolunteerController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->all(); 
+        $data = $request->all();
         $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
@@ -240,13 +246,15 @@ class VolunteerController extends Controller
 
         unset($relationData['_token']);
 
-        foreach ($volunteerData AS $key => $value) {
+        foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
             }
 
             switch ($key) {
-                case 'gender_id': if ($value != 3) { $volunteers->where($key, $value); } break;
+                case 'gender_id': if ($value != 3) {
+                    $volunteers->where($key, $value);
+                } break;
                 case 'minage': $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value)); break;
                 case 'maxage': $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value)); break;
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;

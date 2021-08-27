@@ -16,6 +16,7 @@
                         <x-slot name="title">
                             1. Details of the Organisation *
                         </x-slot>
+                        <x-base.input name="name" label="Name of your project *" required />
                         <x-base.input name="organisation_name" label="Name of the organisation *" required />
                         <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required />
                         <x-base.input name="organisation_webpage" label="Web page (if exists)" />
