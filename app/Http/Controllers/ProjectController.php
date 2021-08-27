@@ -19,6 +19,7 @@ use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProjectController extends Controller
 {
@@ -77,6 +78,7 @@ class ProjectController extends Controller
             $project->duties()->attach(array_keys(array_filter($values)), ['duty_type_id' => $key]);
         }
 
+        Alert::toast('Saved', 'success');
         return redirect()->route('home');
         return redirect()->route('project.list');	//	gibts noch nicht
     }
