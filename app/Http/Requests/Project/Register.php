@@ -24,6 +24,7 @@ class Register extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'string',
             'organisation_name' => 'string',
             'organisation_webpage' => 'nullable|string',
             'organisation_contact' => 'string',

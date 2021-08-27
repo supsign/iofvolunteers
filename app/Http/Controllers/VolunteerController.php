@@ -39,7 +39,11 @@ class VolunteerController extends Controller
             abort(404);
         }
 
-        Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        try {
+            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        } catch (\Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function registerForm()
@@ -83,7 +87,8 @@ class VolunteerController extends Controller
 
     public function show(Volunteer $volunteer)
     {
-        return view('volunteer.preview', ['volunteer' => $volunteer]);
+        $projects = Auth::user()->projects;
+        return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
     }
 
     public function register(Register $request)

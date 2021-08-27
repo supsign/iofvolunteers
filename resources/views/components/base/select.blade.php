@@ -1,13 +1,16 @@
 <div class="form-group">
-    <label for="{{ $attributes->get('name') }}" class="warn">{{ $attributes->get('label') }}</label>
+    <label for="{{ $attributes->get('name') }}" class="select label">{{ $attributes->get('label') }}</label>
 
     <select
             id="{{ $attributes->get('name') }}"
             name="{{ $attributes->get('name') }}"
-            {{ $attributes }}>
-
+            {{ $attributes }}
+            @if($required)
+        required
+        @endif
+        >
         @if(!$value || !$value->id)
-            <option selected disabled>{{ $attributes->get('label') }}</option>
+            <option selected disabled value="">-</option>
         @endif
 
         @foreach($options AS $option)

@@ -15,11 +15,11 @@ class Select extends Component
      */
 
     public function __construct(
-        public Collection $options, 
+        public Collection $options,
         public BaseModel|null $value = null,
-        public string|null $iconName = null
+        public string|null $iconName = null,
+        public bool $required = false
     ) {
-
     }
 
     /**
@@ -29,6 +29,6 @@ class Select extends Component
      */
     public function render()
     {
-        return view('components.base.select'); 
+        return view('components.base.select');
     }
 }

@@ -18,7 +18,7 @@ use App\Models\SkillType;
 use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -26,10 +26,10 @@ class ProjectController extends Controller
     {
         $this->middleware(['auth','verified']);
     }
-	
-	public function registerForm() 
-	{
-		return view('project.register', [
+    
+    public function registerForm()
+    {
+        return view('project.register', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
@@ -53,12 +53,13 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        unset($data['_token']);
         unset($data['agb']);
 
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
+
+        $data['user_id'] = Auth::user()->id;
 
         $project = Project::create($data);
 
@@ -71,14 +72,11 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('home');
-		return redirect()->route('project.list');	//	gibts noch nicht
-	}
+        return redirect()->route('project.list');	//	gibts noch nicht
+    }
 
     public function update(Project $project, Update $request)
     {
-        var_dump($request->all());
-
-        exit();
         return Project::update($request->validated());
     }
 
