@@ -25,7 +25,7 @@ class Register extends FormRequest
     {
         return [
             'name' => 'required|max:191',
-            'country_id' => 'int',
+            'country_id' => 'required|int',
             'email' => 'required|email:rfc,dns|max:191',
             'gender_id' => 'int',
             'birthdate' => 'required|date',

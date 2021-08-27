@@ -18,7 +18,7 @@
 
                 <tr>
                     <td class="font-weight-bold">Sex:</td>
-                    <td>{{ $volunteer->gender->name ?? 'none' }}</td>
+                    <td>{{ $volunteer->gender->name ?? '-' }}</td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold">Country & Club:</td>
