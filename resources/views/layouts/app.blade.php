@@ -262,7 +262,7 @@
                                         <a href="register">
                                             Register
                                         </a>
-                                        <a href="{{ route('password.update') }}">
+                                        <a href="{{ route('password.request') }}">
                                             Restore password
                                         </a>
                                     </div>
