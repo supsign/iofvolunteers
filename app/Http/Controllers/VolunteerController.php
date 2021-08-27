@@ -295,12 +295,13 @@ class VolunteerController extends Controller
         $user =  Auth::user();
 
         if ($user->volunteer_id !== $volunteer->id) {
+            Alert::toast('Unauthorized', 'error');
             abort(403);
         }
 
         $volunteerService->delete($volunteer);
-        Alert::toast('Volunteer deleted', 'success');
 
+        Alert::toast('Volunteer deleted', 'success');
         return redirect()->route('home');
     }
 }
