@@ -299,6 +299,7 @@ class VolunteerController extends Controller
         }
 
         $volunteerService->delete($volunteer);
+        Alert::toast('Volunteer deleted', 'success');
 
         return redirect()->route('home');
     }
