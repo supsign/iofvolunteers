@@ -6,19 +6,25 @@
 
     <div class="container">
         <div class="titleWrap">
-            <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Edit Volunteer</h1>
+            <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="search icon"> Edit Volunteer</h1>
         </div>
 
-        <form method="POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
+        <div class="row pb-3">
+            <div class="col-12 col-md-8">
+                <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST" onclick="return confirm('Are You Sure?')">
+                    @method('DELETE')
+                    @csrf
+                    <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Volunteer">
+                </form>
+            </div>
+        </div>
+
+        <form method=" POST" enctype="multipart/form-data" action="{{ route('volunteer.update', $volunteer->id) }}">
             @csrf
             @method("PATCH")
 
             <div class="row">
-
-
-
                 <div class="col-12 col-md-8">
-
 
                     @if($errors->any())
                         <div class="alert alert-danger">
@@ -176,6 +182,7 @@
                             @foreach($dutyTypes AS $dutyType)
                                 <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }} (number)" type="number"
                                               value="{{ $volunteer->getAttribute($dutyType->id === 1 ? 'o_work_expirence_local' : 'o_work_expirence_international') }}" size="3"
+
                                               min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
