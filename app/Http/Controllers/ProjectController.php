@@ -53,7 +53,6 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        unset($data['_token']);
         unset($data['agb']);
 
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
