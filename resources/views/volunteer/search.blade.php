@@ -50,8 +50,7 @@
                         <x-slot name="title">
                             3. O-Experience
                         </x-slot>
-                        <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)' type="number" class="datepicker-here" data-language='en' data-date-format="yyyy"
-                                      data-view="years" data-min-view="years" :iconName="'calendarIcon'" />
+                        <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)' type="number" />
                         <div class="form-group">
                             <label class="formSubtitle2">Experience as Competitor</label>
                         </div>

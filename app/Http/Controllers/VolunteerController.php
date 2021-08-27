@@ -22,9 +22,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Schema;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Services\Volunteer\VolunteerService;
 use Illuminate\Validation\ValidationException;
+
 
 class VolunteerController extends Controller
 {
@@ -282,7 +283,11 @@ class VolunteerController extends Controller
             }
         }
         
-        return view('volunteer.searchList', ['volunteers' => $volunteers]);
+        return view('volunteer.searchList', [
+            'volunteers' => $volunteers,
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+        ]);
     }
 
     public function delete(Volunteer $volunteer, VolunteerService $volunteerService)

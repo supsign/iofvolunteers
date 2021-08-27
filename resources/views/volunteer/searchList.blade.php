@@ -15,9 +15,9 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td class="big-desc">Name</td>
-                    <td class="big-desc">Duration available</td>
-                    <td class="big-desc"></td>
+                    <td class="big-desc">Name & Age</td>
+                    <td class="big-desc">Country</td>
+                    <td class="big-desc">OL-Work-Experience (in years)</td>
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>
@@ -26,12 +26,28 @@
                                 {{ $volunteer->name ?? '' }}
                             @else
                                 <a href="{{ route('volunteer.show', $volunteer ) }}">
-                                    {{ $volunteer->name ?? '' }}
+                                    {{ $volunteer->name . ' (' . $volunteer->age .' years)' ?? '' }}
                                 </a>
                             @endif
                         </td>
-                        <td class="desc">{{ $volunteer->work_duration }} weeks</td>
+                        <td class="desc">{{ $volunteer->country->name }}</td>
                         <td class="desc">
+                            <ul>
+                                <li>
+                                    @foreach($dutyTypes AS $dutyType)
+                                        <strong>{{ $dutyType->name . ':'}}</strong>
+                                        @if($dutyType->id === 1 ? $volunteer->o_work_expirence_local : $volunteer->o_work_expirence_international)
+                                            {{ $dutyType->id === 1 ? $volunteer->o_work_expirence_local : $volunteer->o_work_expirence_international }}<br />
+                                        @else
+                                            No Experience<br />
+                                        @endif
+                                                @foreach($volunteer->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
+                                                    {{ $duty->name }} <br />
+                                                @endforeach
+                                    @endforeach
+                                </li>
+                            </ul>
+                        </td>
                         </td>
                     </tr>
                 @endforeach
