@@ -4,10 +4,13 @@
     <select
             id="{{ $attributes->get('name') }}"
             name="{{ $attributes->get('name') }}"
-            {{ $attributes }}>
-
+            {{ $attributes }}
+            @if($required)
+        required
+        @endif
+        >
         @if(!$value || !$value->id)
-            <option selected disabled>-</option>
+            <option selected disabled value="">-</option>
         @endif
 
         @foreach($options AS $option)
