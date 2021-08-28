@@ -70,7 +70,7 @@ class VolunteerController extends Controller
 
     public function searchForm()
     {
-        $extraGenderOption = (new Gender);
+        $extraGenderOption = (new Gender());
         $extraGenderOption->id = 3;
         $extraGenderOption->name = 'doesn\'t matter';
 

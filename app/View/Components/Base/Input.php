@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Base;
 
+use Closure;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Input extends Component
@@ -14,13 +16,12 @@ class Input extends Component
 
     public function __construct(public string|null $iconName = null)
     {
-
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|Closure|string
      */
     public function render()
     {

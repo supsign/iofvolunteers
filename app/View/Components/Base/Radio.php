@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Base;
 
+use Closure;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
@@ -15,13 +17,12 @@ class Radio extends Component
 
     public function __construct(public Collection $options)
     {
-
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|Closure|string
      */
     public function render()
     {

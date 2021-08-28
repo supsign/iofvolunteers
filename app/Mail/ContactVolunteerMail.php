@@ -11,7 +11,8 @@ use Illuminate\Queue\SerializesModels;
 
 class ContactVolunteerMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -30,6 +31,8 @@ class ContactVolunteerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo($this->user->email)->from('iof@volunteers.org');
+        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo(
+            $this->user->email
+        )->from('iof@volunteers.org');
     }
 }
