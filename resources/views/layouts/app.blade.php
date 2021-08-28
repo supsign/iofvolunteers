@@ -103,9 +103,15 @@
                                                 <a href="#">Column 1</a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="{{ route('project.registerForm') }}">
-                                                            Register a Project
-                                                        </a>
+                                                        @if(isset($user) && $user->projects)
+                                                            <a href="{{ route('project.list') }}">
+                                                                List Projects
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ route('project.register') }}">
+                                                                Register a Project
+                                                            </a>
+                                                        @endif
                                                     </li>
                                                 </ul>
                                             </li>
@@ -262,7 +268,7 @@
                                         <a href="register">
                                             Register
                                         </a>
-                                        <a href="restore">
+                                        <a href="{{ route('password.request') }}">
                                             Restore password
                                         </a>
                                     </div>

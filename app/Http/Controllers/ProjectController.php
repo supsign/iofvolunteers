@@ -18,7 +18,8 @@ use App\Models\SkillType;
 use App\Models\ProjectStatus;
 use App\Models\ProjectOffer;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProjectController extends Controller
 {
@@ -26,10 +27,20 @@ class ProjectController extends Controller
     {
         $this->middleware(['auth','verified']);
     }
-	
-	public function registerForm() 
-	{
-		return view('project.register', [
+
+    public function list()
+    {
+        return (new HomeController)->underConstruction();
+    }
+
+    public function editForm()
+    {
+        return (new HomeController)->underConstruction();
+    }
+    
+    public function registerForm()
+    {
+        return view('project.register', [
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
@@ -46,6 +57,7 @@ class ProjectController extends Controller
 
     public function searchForm()
     {
+        return (new HomeController)->underConstruction();
         return view('project.search');
     }
 
@@ -53,36 +65,36 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        unset($data['_token']);
         unset($data['agb']);
 
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::exractElementByKey($data, $key);
         }
 
+        $data['user_id'] = Auth::user()->id;
+
         $project = Project::create($data);
 
-        $project->projectOffer()->attach(array_keys($offer));
-        $project->disciplines()->attach(array_keys($discipline));
-        $project->skills()->attach(array_keys($skill));
+        $project->projectOffer()->attach(array_keys(array_filter($offer)));
+        $project->disciplines()->attach(array_keys(array_filter($discipline)));
+        $project->skills()->attach(array_keys(array_filter($skill)));
 
         foreach ($duty as $key => $values) {
-            $project->duties()->attach(array_keys($values), ['duty_type_id' => $key]);
+            $project->duties()->attach(array_keys(array_filter($values)), ['duty_type_id' => $key]);
         }
 
+        Alert::toast('Saved', 'success');
         return redirect()->route('home');
-		return redirect()->route('project.list');	//	gibts noch nicht
-	}
+        return redirect()->route('project.list');	//	gibts noch nicht
+    }
 
     public function update(Project $project, Update $request)
     {
-        var_dump($request->all());
-
-        exit();
         return Project::update($request->validated());
     }
 
     public function search()
     {
+
     }
 }

@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('country_id')->nullable()->constrained();
             $table->foreignId('organisation_language_id')->nullable()->constrained('languages');
+            $table->string('name');
             $table->string('organisation_name');
             $table->string('organisation_webpage')->nullable();
             $table->string('organisation_contact');
@@ -28,7 +29,6 @@ class CreateProjectsTable extends Migration
             $table->timestampTz('start_date')->nullable();
             $table->string('contact');
             $table->string('place');
-            // $table->boolean('driving_licence');
             $table->string('offer_text')->nullable();
             $table->string('exprience_details');
 

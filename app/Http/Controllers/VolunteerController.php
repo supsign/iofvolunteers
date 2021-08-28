@@ -22,8 +22,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Schema;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Services\Volunteer\VolunteerService;
 use Illuminate\Validation\ValidationException;
+
 
 class VolunteerController extends Controller
 {
@@ -38,7 +40,11 @@ class VolunteerController extends Controller
             abort(404);
         }
 
-        Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        try {
+            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        } catch (\Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function registerForm()
@@ -82,7 +88,8 @@ class VolunteerController extends Controller
 
     public function show(Volunteer $volunteer)
     {
-        return view('volunteer.preview', ['volunteer' => $volunteer]);
+        $projects = Auth::user()->projects;
+        return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
     }
 
     public function register(Register $request)
@@ -95,9 +102,6 @@ class VolunteerController extends Controller
             $$key = Helper::exractElementByKey($data, $key);
         }
 
-        
-
-
         if (isset($o_work_expirence[1])) {
             $data['o_work_expirence_local'] = $o_work_expirence[1];
         }
@@ -105,6 +109,8 @@ class VolunteerController extends Controller
         if (isset($o_work_expirence[2])) {
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
+
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer = Volunteer::create($data);
 
@@ -145,10 +151,14 @@ class VolunteerController extends Controller
         return redirect()->route('home');
     }
 
-    public function edit(Volunteer $volunteer)
+    public function editForm(Volunteer $volunteer)
     {
         if (!Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');
+        }
+
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
+            abort(403);
         }
 
         return view('volunteer.edit', [
@@ -167,6 +177,10 @@ class VolunteerController extends Controller
 
     public function update(Volunteer $volunteer, Update $request)
     {
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
         $data = $request->validated();
 
         unset($data['agb']);
@@ -191,6 +205,7 @@ class VolunteerController extends Controller
             $data['o_work_expirence_international'] = $o_work_expirence[2];
         }
 
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
 
         $volunteer->update($data);
 
@@ -232,7 +247,7 @@ class VolunteerController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->all(); 
+        $data = $request->all();
         $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
@@ -240,13 +255,15 @@ class VolunteerController extends Controller
 
         unset($relationData['_token']);
 
-        foreach ($volunteerData AS $key => $value) {
+        foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
             }
 
             switch ($key) {
-                case 'gender_id': if ($value != 3) { $volunteers->where($key, $value); } break;
+                case 'gender_id': if ($value != 3) {
+                    $volunteers->where($key, $value);
+                } break;
                 case 'minage': $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value)); break;
                 case 'maxage': $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value)); break;
                 case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
@@ -274,6 +291,22 @@ class VolunteerController extends Controller
             }
         }
         
-        return view('volunteer.searchList', ['volunteers' => $volunteers]);
+        return view('volunteer.searchList', [
+            'volunteers' => $volunteers,
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+        ]);
+    }
+
+    public function delete(Volunteer $volunteer, VolunteerService $volunteerService)
+    {
+        if (Auth::user()->volunteer_id !== $volunteer->id) {
+            abort(403);
+        }
+
+        $volunteerService->delete($volunteer);
+
+        Alert::toast('Volunteer deleted', 'success');
+        return redirect()->route('home');
     }
 }

@@ -16,6 +16,7 @@
                         <x-slot name="title">
                             1. Details of the Organisation *
                         </x-slot>
+                        <x-base.input name="name" label="Name of your project *" required />
                         <x-base.input name="organisation_name" label="Name of the organisation *" required />
                         <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'" :options="$stati" required />
                         <x-base.input name="organisation_webpage" label="Web page (if exists)" />
@@ -88,7 +89,7 @@
                         </x-slot>
                         <div class="form-group">
                             @foreach($dutyTypes AS $dutyType)
-                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }}" type="number" size="3" min="0" step="1" />
+                                <x-base.input name="o_work_expirence[{{ $dutyType->id }}]" label="{{ $dutyType->name }} (number)" type="number" size="3" min="0" step="1" />
                                 <label class="formSubtitle2">Duties:</label>
                                 @foreach($duties AS $duty)
                                     <x-base.checkbox label="{{ $duty->name }}" name="duty[{{ $dutyType->id }}][{{ $duty->id }}]" class="form-check-input" />

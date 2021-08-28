@@ -47,6 +47,7 @@ Route::post('host/register', [HostController::class, 'register'])->name('host.re
 Route::post('host/search', [HostController::class, 'search'])->name('host.search');
 
 Route::get('project/register', [ProjectController::class, 'registerForm'])->name('project.registerForm');
+Route::get('project/list', [ProjectController::class, 'list'])->name('project.list');
 Route::get('project/edit/{project}', [ProjectController::class, 'editForm'])->name('project.editForm');
 Route::get('project/search', [ProjectController::class, 'searchForm'])->name('project.searchForm');
 Route::post('project/register', [ProjectController::class, 'register'])->name('project.register');
@@ -54,12 +55,13 @@ Route::post('project/search', [ProjectController::class, 'search'])->name('proje
 Route::patch('project/update/{project}', [ProjectController::class, 'update'])->name('project.update');
 
 Route::get('volunteer/show/{volunteer}', [VolunteerController::class, 'show'])->name('volunteer.show');
-Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'edit'])->name('volunteer.edit');
+Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.edit');
 Route::get('volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
 Route::get('volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
 Route::post('volunteer/contact/{volunteer}', [VolunteerController::class, 'contact'])->name('volunteer.contact');
 Route::post('volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
 Route::post('volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');
 Route::patch('volunteer/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
+Route::delete('volunteer/update/{volunteer}', [VolunteerController::class, 'delete'])->name('volunteer.delete');
 
 Route::get('volunteer/test', [VolunteerController::class, 'testForm'])->name('volunteer.testForm');

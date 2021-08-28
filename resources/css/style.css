@@ -593,6 +593,16 @@ form input[type="submit"]:hover {
   cursor: pointer;
 }
 
+form .delete-btn {
+  background: #e30420 !important;
+  border: 1px solid #e30420 !important;
+}
+
+form .delete-btn:hover {
+  color: #e30420 !important;
+  background: #fff !important;
+}
+
 form select {
   padding-right: 56px !important;
 }
@@ -642,6 +652,12 @@ form select {
 }
 form select {
   padding: 10px 20px;
+}
+
+.form-group > .select.label {
+  font-size: 16px;
+  color: #aaaaaa;
+  margin: 6px 0 0 4px;
 }
 
 .formSection .form-group {
