@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperContinent
+ */
 class Continent extends BaseModel
 {
     public function volunteers()

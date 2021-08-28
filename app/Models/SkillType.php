@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperSkillType
+ */
 class SkillType extends BaseModel
 {
     public function skills()

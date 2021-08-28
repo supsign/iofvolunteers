@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperProjectOffer
+ */
 class ProjectOffer extends BaseModel
 {
     public function projects()

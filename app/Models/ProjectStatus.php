@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperProjectStatus
+ */
 class ProjectStatus extends BaseModel
 {
     protected $table = 'project_stati';

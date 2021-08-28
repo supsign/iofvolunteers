@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Carbon\Carbon;
 
+/**
+ * @mixin IdeHelperVolunteer
+ */
 class Volunteer extends BaseModel
 {
     public function user()

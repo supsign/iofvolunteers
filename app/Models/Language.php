@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperLanguage
+ */
 class Language extends BaseModel
 {
     public function volunteers()

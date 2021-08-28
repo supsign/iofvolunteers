@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperProjectProjectOffer
+ */
 class ProjectProjectOffer extends BaseModel
 {
     protected $table = 'project_project_offer';

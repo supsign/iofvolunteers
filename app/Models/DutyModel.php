@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperDutyModel
+ */
 class DutyModel extends BaseModel
 {
     public function duty()

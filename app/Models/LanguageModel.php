@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperLanguageModel
+ */
 class LanguageModel extends BaseModel
 {
     public function language()

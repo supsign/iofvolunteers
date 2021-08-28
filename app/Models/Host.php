@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperHost
+ */
 class Host extends BaseModel
 {
     public function user() 

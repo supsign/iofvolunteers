@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @mixin IdeHelperDiscipline
+ */
 class Discipline extends BaseModel
 {
     public function volunteers()
