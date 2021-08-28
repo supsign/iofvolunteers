@@ -14,12 +14,13 @@ namespace App\Models{
 /**
  * App\Models\BaseModel
  *
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModel newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModel query()
+ * @mixin \Eloquent
  */
-	class BaseModel extends \Eloquent {}
+	class IdeHelperBaseModel extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -29,15 +30,16 @@ namespace App\Models{
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Contact extends \Eloquent {}
+	class IdeHelperContact extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -48,7 +50,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\VolunteerCollection|\App\Models\Volunteer[] $volunteers
  * @property-read int|null $volunteers_count
  * @method static \Illuminate\Database\Eloquent\Builder|Continent newModelQuery()
@@ -58,8 +60,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Continent whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Continent whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Continent whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Continent extends \Eloquent {}
+	class IdeHelperContinent extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -72,7 +75,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|Country newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Country newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Country query()
@@ -82,8 +85,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Country whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Country whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Country whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Country extends \Eloquent {}
+	class IdeHelperCountry extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -94,7 +98,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\VolunteerCollection|\App\Models\Volunteer[] $volunteers
  * @property-read int|null $volunteers_count
  * @method static \Illuminate\Database\Eloquent\Builder|Discipline newModelQuery()
@@ -104,8 +108,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Discipline whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discipline whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discipline whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Discipline extends \Eloquent {}
+	class IdeHelperDiscipline extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -116,7 +121,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|Duty newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Duty newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Duty query()
@@ -124,8 +129,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Duty whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duty whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duty whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Duty extends \Eloquent {}
+	class IdeHelperDuty extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -141,7 +147,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Duty $duty
  * @property-read \App\Models\DutyType $dutyType
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel query()
@@ -152,8 +158,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereDutyTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DutyModel whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class DutyModel extends \Eloquent {}
+	class IdeHelperDutyModel extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -164,7 +171,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType query()
@@ -172,8 +179,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DutyType whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class DutyType extends \Eloquent {}
+	class IdeHelperDutyType extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -187,7 +195,7 @@ namespace App\Models{
  * @property int $international
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \App\Models\ExperienceCollection|static[] all($columns = ['*'])
  * @method static \App\Models\ExperienceCollection|static[] get($columns = ['*'])
  * @method static \Illuminate\Database\Eloquent\Builder|Experience newModelQuery()
@@ -200,8 +208,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Experience whereNational($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Experience whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Experience whereValue($value)
+ * @mixin \Eloquent
  */
-	class Experience extends \Eloquent {}
+	class IdeHelperExperience extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -214,7 +223,7 @@ namespace App\Models{
  * @property string $short_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|Gender newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Gender newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Gender query()
@@ -224,8 +233,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereSalutation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereShortName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Gender extends \Eloquent {}
+	class IdeHelperGender extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -238,7 +248,7 @@ namespace App\Models{
  * @property int|null $country_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Guest newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Guest newQuery()
@@ -249,8 +259,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Guest whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Guest whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Guest whereUserId($value)
+ * @mixin \Eloquent
  */
-	class Guest extends \Eloquent {}
+	class IdeHelperGuest extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -262,7 +273,7 @@ namespace App\Models{
  * @property int|null $country_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Host newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Host newQuery()
@@ -272,8 +283,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Host whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Host whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Host whereUserId($value)
+ * @mixin \Eloquent
  */
-	class Host extends \Eloquent {}
+	class IdeHelperHost extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -284,7 +296,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\VolunteerCollection|\App\Models\Volunteer[] $volunteers
  * @property-read int|null $volunteers_count
  * @method static \Illuminate\Database\Eloquent\Builder|Language newModelQuery()
@@ -294,8 +306,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Language whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Language whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Language whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Language extends \Eloquent {}
+	class IdeHelperLanguage extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -311,7 +324,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $language_name
  * @property-read mixed $language_proficiency_name
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\Language $language
  * @property-read \App\Models\LanguageProficiency|null $languageProficiency
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageModel newModelQuery()
@@ -324,8 +337,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageModel whereLanguageModelType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageModel whereLanguageProficiencyId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageModel whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class LanguageModel extends \Eloquent {}
+	class IdeHelperLanguageModel extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -336,7 +350,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency query()
@@ -344,8 +358,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class LanguageProficiency extends \Eloquent {}
+	class IdeHelperLanguageProficiency extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -375,7 +390,7 @@ namespace App\Models{
  * @property-read int|null $disciplines_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Duty[] $duties
  * @property-read int|null $duties_count
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProjectOffer[] $projectOffer
  * @property-read int|null $project_offer_count
  * @property-read \App\Models\ProjectStatus|null $projectStatus
@@ -404,8 +419,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereStartDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUserId($value)
+ * @mixin \Eloquent
  */
-	class Project extends \Eloquent {}
+	class IdeHelperProject extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -416,7 +432,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
  * @property-read int|null $projects_count
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer newModelQuery()
@@ -426,8 +442,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectOffer whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class ProjectOffer extends \Eloquent {}
+	class IdeHelperProjectOffer extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -439,7 +456,7 @@ namespace App\Models{
  * @property int $project_offer_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\Project $project
  * @property-read \App\Models\ProjectOffer $projectOffer
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer newModelQuery()
@@ -450,8 +467,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereProjectId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereProjectOfferId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectProjectOffer whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class ProjectProjectOffer extends \Eloquent {}
+	class IdeHelperProjectProjectOffer extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -462,7 +480,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
  * @property-read int|null $projects_count
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus newModelQuery()
@@ -472,8 +490,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProjectStatus whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class ProjectStatus extends \Eloquent {}
+	class IdeHelperProjectStatus extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -485,7 +504,7 @@ namespace App\Models{
  * @property int $skill_type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \App\Models\SkillType $skillType
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newQuery()
@@ -495,8 +514,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Skill whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Skill whereSkillTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Skill whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Skill extends \Eloquent {}
+	class IdeHelperSkill extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -509,7 +529,7 @@ namespace App\Models{
  * @property string|null $text
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
  * @property-read int|null $skills_count
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType newModelQuery()
@@ -521,8 +541,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereWarn($value)
+ * @mixin \Eloquent
  */
-	class SkillType extends \Eloquent {}
+	class IdeHelperSkillType extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -532,11 +553,10 @@ namespace App\Models{
  * @property int $id
  * @property string $firstname
  * @property string $lastname
+ * @property int|null $volunteer_id
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
- * @property int|null $country_id
- * @property int|null $volunteer_id
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -553,7 +573,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
@@ -564,8 +583,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereVolunteerId($value)
+ * @mixin \Eloquent
  */
-	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
+	class IdeHelperUser extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
 }
 
 namespace App\Models{
@@ -613,7 +633,7 @@ namespace App\Models{
  * @property-read mixed $driving_licence_model
  * @property-read mixed $language_info
  * @property-read mixed $skill_types
- * @property-read mixed $snake_case_name
+ * @property-read array|string $snake_case_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LanguageProficiency[] $languageProficiencies
  * @property-read int|null $language_proficiencies_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LanguageModel[] $languageVolunteers
@@ -655,7 +675,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereStartYear($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereWorkDuration($value)
+ * @mixin \Eloquent
  */
-	class Volunteer extends \Eloquent {}
+	class IdeHelperVolunteer extends \Eloquent {}
 }
 

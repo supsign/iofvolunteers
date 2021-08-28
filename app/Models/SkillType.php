@@ -2,14 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+/**
+ * @mixin IdeHelperSkillType
+ */
 class SkillType extends BaseModel
 {
-    public function skills()
+    public function skills(): HasMany
     {
         return $this->hasMany(Skill::class);
     }
 
-	public function getSnakeCaseNameAttribute()
+	public function getSnakeCaseNameAttribute(): string | array
     {
     	$name = parent::getSnakeCaseNameAttribute();
 

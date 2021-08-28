@@ -22,20 +22,20 @@
             }
             else {
             $v = null;
-            };
+            }
         @endphp
 
 
 
         <div class="form-check">
             <input
-                   class="form-check-input"
-                   type="radio"
-                   id="{{ $attributes->get('name') }}_{{ $i }}"
-                   name="{{ $attributes->get('name') }}"
-                   value="{{ $option->id }}"
-                   @if($option->id == $v) checked @endif
-            {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
+                class="form-check-input"
+                type="radio"
+                id="{{ $attributes->get('name') }}_{{ $i }}"
+                name="{{ $attributes->get('name') }}"
+                value="{{ $option->id }}"
+                @if($option->id == $v) checked @endif
+                {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label', 'value'])) }}
             >
             <label class="form-check-label" for="{{ $attributes->get('name') }}_{{ $i }}">
                 {{ $option->name }}

@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @mixin IdeHelperBaseModel
+ */
 class BaseModel extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function getSnakeCaseNameAttribute()
+    public function getSnakeCaseNameAttribute(): array|string
     {
     	return str_replace([' ', '/'], ['_', ''], strtolower($this->name));
     }

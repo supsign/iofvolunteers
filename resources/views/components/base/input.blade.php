@@ -1,13 +1,14 @@
 <div class="form-group">
     <input
-           id="field_{{ $attributes->get('name') }}"
-           type="{{ $attributes->get('type') ?? 'text' }}"
-           value="{{ old(str_replace(['[', ']'], ['.',''],$attributes->get('name'))) ?? $attributes->get('value') }}"
-           {{ $attributes->filter(fn ($value, $key) => !in_array($key, ['label'])) }} />
+        id="field_{{ $attributes->get('name') }}"
+        type="{{ $attributes->get('type') ?? 'text' }}"
+        value="{{ old(str_replace(['[', ']'], ['.',''],$attributes->get('name'))) ?? $attributes->get('value') }}"
+        {{ $attributes->filter(fn ($value, $key) => $key != 'label') }} />
     <label class="formGroupLabel" for="field_{{ $attributes->get('name') }}">{{ $attributes->get('label') }}</label>
 
     @isset($iconName)
-        <img for="field_{{ $attributes->get('name') }}" class="selectArr v2" src="{{ asset('images/'.$iconName.'.svg') }}" alt="" />
+        <img class="selectArr v2"
+             src="{{ asset('images/'.$iconName.'.svg') }}" alt=""/>
     @endisset
 
     @isset($subtitle)
