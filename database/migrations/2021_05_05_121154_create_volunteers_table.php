@@ -26,8 +26,8 @@ class CreateVolunteersTable extends Migration
             $table->unsignedSmallInteger('ol_duration')->nullable();
             $table->unsignedSmallInteger('work_duration')->nullable();
             $table->string('club')->nullable();
-            $table->unsignedSmallInteger('o_work_expirence_local')->nullable();
-            $table->unsignedSmallInteger('o_work_expirence_international')->nullable();
+            $table->unsignedSmallInteger('o_work_experience_local')->nullable();
+            $table->unsignedSmallInteger('o_work_experience_international')->nullable();
             $table->text('skill_mapping')->nullable();
             $table->text('skill_coaching')->nullable();
             $table->text('skill_it')->nullable();

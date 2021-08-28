@@ -3,35 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Http\Requests\Volunteer\Register;
+use App\Http\Requests\Volunteer\Update;
 use App\Mail\ContactVolunteerMail;
-use App\Models\Country;
-use App\Models\Gender;
 use App\Models\Continent;
+use App\Models\Country;
 use App\Models\Discipline;
 use App\Models\Duty;
 use App\Models\DutyType;
+use App\Models\Gender;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
-use App\Models\SkillType;
 use App\Models\Project;
+use App\Models\SkillType;
 use App\Models\Volunteer;
-use App\Http\Requests\Volunteer\Update;
-use App\Http\Requests\Volunteer\Register;
+use App\Services\Volunteer\VolunteerService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Schema;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Services\Volunteer\VolunteerService;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
+use Schema;
+use Throwable;
 
 
 class VolunteerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth', 'verified']);
     }
 
     public function contact(Volunteer $volunteer, Request $request)
@@ -42,7 +43,7 @@ class VolunteerController extends Controller
 
         try {
             Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             abort(500, 'Not able to send email');
         }
     }
@@ -98,16 +99,16 @@ class VolunteerController extends Controller
 
         unset($data['agb']);
 
-        foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+        foreach (['o_work_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
-        if (isset($o_work_expirence[1])) {
-            $data['o_work_expirence_local'] = $o_work_expirence[1];
+        if (isset($o_work_experience[1])) {
+            $data['o_work_experience_local'] = $o_work_experience[1];
         }
 
-        if (isset($o_work_expirence[2])) {
-            $data['o_work_expirence_international'] = $o_work_expirence[2];
+        if (isset($o_work_experience[2])) {
+            $data['o_work_experience_international'] = $o_work_experience[2];
         }
 
         $data['birthdate'] = Carbon::parse($data['birthdate']);
@@ -185,24 +186,24 @@ class VolunteerController extends Controller
 
         unset($data['agb']);
 
-        foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
+        foreach (['o_work_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
-        if (array_key_exists(1, $o_work_expirence)) {
-            if ($o_work_expirence[1] > 1000) {
+        if (array_key_exists(1, $o_work_experience)) {
+            if ($o_work_experience[1] > 1000) {
                 throw ValidationException::withMessages([]);
             }
-            $data['o_work_expirence_local'] = $o_work_expirence[1];
+            $data['o_work_experience_local'] = $o_work_experience[1];
         }
 
 
-        if (array_key_exists(2, $o_work_expirence)) {
-            if ($o_work_expirence[2] > 1000) {
+        if (array_key_exists(2, $o_work_experience)) {
+            if ($o_work_experience[2] > 1000) {
                 throw ValidationException::withMessages([]);
             }
 
-            $data['o_work_expirence_international'] = $o_work_expirence[2];
+            $data['o_work_experience_international'] = $o_work_experience[2];
         }
 
         $data['birthdate'] = Carbon::parse($data['birthdate']);
@@ -210,7 +211,7 @@ class VolunteerController extends Controller
         $volunteer->update($data);
 
         $languageSync = array_map(function ($value) {
-            return  ['language_proficiency_id' => $value];
+            return ['language_proficiency_id' => $value];
         }, $language);
         $volunteer->languages()->sync($languageSync);
 
@@ -261,18 +262,32 @@ class VolunteerController extends Controller
             }
 
             switch ($key) {
-                case 'gender_id': if ($value != 3) {
-                    $volunteers->where($key, $value);
-                } break;
-                case 'minage': $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value)); break;
-                case 'maxage': $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value)); break;
-                case 'ol_duration': $volunteers->where($key, '<=', Carbon::now()->year - $value); break;
-                case 'work_duration': $volunteers->whereNull($key)->orWhere($key, '>=', $value); break;
+                case 'gender_id':
+                    if ($value != 3) {
+                        $volunteers->where($key, $value);
+                    }
+                    break;
+                case 'minage':
+                    $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value));
+                    break;
+                case 'maxage':
+                    $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value));
+                    break;
+                case 'ol_duration':
+                    $volunteers->where($key, '<=', Carbon::now()->year - $value);
+                    break;
+                case 'work_duration':
+                    $volunteers->whereNull($key)->orWhere($key, '>=', $value);
+                    break;
                 case 'local_experience':
                 case 'national_experience':
-                case 'international_experience': $volunteers->where($key, '>=', $value); break;
+                case 'international_experience':
+                    $volunteers->where($key, '>=', $value);
+                    break;
 
-                default: $volunteers->where($key, $value); break;
+                default:
+                    $volunteers->where($key, $value);
+                    break;
             }
         }
 
@@ -284,10 +299,17 @@ class VolunteerController extends Controller
             }
 
             switch ($key) {
-                case 'discipline': $volunteers = $volunteers->filterByDisciplines($value); break;
-                case 'language': $volunteers = $volunteers->filterByLanguages($value); break;
-                case 'skillType': $volunteers = $volunteers->filterBySkillType($value); break;
-                default: break;
+                case 'discipline':
+                    $volunteers = $volunteers->filterByDisciplines($value);
+                    break;
+                case 'language':
+                    $volunteers = $volunteers->filterByLanguages($value);
+                    break;
+                case 'skillType':
+                    $volunteers = $volunteers->filterBySkillType($value);
+                    break;
+                default:
+                    break;
             }
         }
 

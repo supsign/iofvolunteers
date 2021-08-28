@@ -10,7 +10,7 @@
             <div class="row pb-3">
                 <div class="col-12 col-md-8">
                     <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST"
-                          onclick="return confirm('Are You Sure?')">
+                          onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
                         @csrf
                         <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Volunteer">
@@ -92,7 +92,7 @@
                                 value="{{ $volunteer->ol_duration }}"
                                 label="Year you started orienteering (yyyy) *"
                                 type="number" class="datepicker-here"
-                                data-language='en'
+                                data-language="en"
                                 data-date-format="yyyy"
                                 data-view="years"
                                 data-min-view="years"
@@ -106,15 +106,16 @@
                                 type="text"/>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
-                                          label="Exprience with local Events (number)" type="number" size="3" min="0"
+                                          label="Experiences with local Events (number)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="national_experience"
                                           value="{{ $volunteer->national_experience }}"
-                                          label="Exprience with national Events (number)" type="number" size="3" min="0"
+                                          label="Experiences with national Events (number)" type="number" size="3"
+                                          min="0"
                                           step="1"/>
                             <x-base.input name="international_experience"
                                           value="{{ $volunteer->international_experience }}"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Experiences with international Events (number)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
@@ -130,7 +131,7 @@
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
                                               :options="$languageProficiencies"
-                                              value="{{ $volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id }}"/>
+                                              value="{{$volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
                         </x-form.section>
 
@@ -174,7 +175,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (Please tick all relevant to you.
-                                    Details are <b>required</b> if skill is ticked)
+                                    Details are <strong>required</strong> if skill is ticked)
                                 </div>
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
@@ -212,9 +213,12 @@
                             </x-slot>
                             <div class="form-group">
                                 @foreach($dutyTypes AS $dutyType)
-                                    <x-base.input name="o_work_expirence[{{ $dutyType->id }}]"
+                                    <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
                                                   label="{{ $dutyType->name }} (number)" type="number"
-                                                  value="{{ $volunteer->getAttribute($dutyType->id === 1 ? 'o_work_expirence_local' : 'o_work_expirence_international') }}"
+                                                  value="{{ $volunteer->getAttribute($dutyType->id === 1
+                                                            ? 'o_work_experience_local'
+                                                            : 'o_work_experience_international')
+                                                             }}"
                                                   size="3"
 
                                                   min="0" step="1"/>

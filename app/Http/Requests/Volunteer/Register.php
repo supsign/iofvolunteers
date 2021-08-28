@@ -46,7 +46,7 @@ class Register extends FormRequest
             'skill_event_organising' => 'nullable|string',
             'skill_it' => 'nullable|string',
             'skill_other' => 'nullable|string',
-            'o_work_expirence' => 'nullable|array',
+            'o_work_experience' => 'nullable|array',
             'duty' => 'nullable|array',
             'help' => 'string',
             'expectation' => 'nullable|string',
