@@ -99,7 +99,7 @@ class VolunteerController extends Controller
         unset($data['agb']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
-            $$key = Helper::exractElementByKey($data, $key);
+            $$key = Helper::extractElementByKey($data, $key);
         }
 
         if (isset($o_work_expirence[1])) {
@@ -186,7 +186,7 @@ class VolunteerController extends Controller
         unset($data['agb']);
 
         foreach (['o_work_expirence', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
-            $$key = Helper::exractElementByKey($data, $key);
+            $$key = Helper::extractElementByKey($data, $key);
         }
 
         if (array_key_exists(1, $o_work_expirence)) {
@@ -219,7 +219,7 @@ class VolunteerController extends Controller
             return $value;
         });
         $volunteer->disciplines()->sync(array_keys($disciplineSync));
- 
+
 
         $continentSync = array_filter($continent, function ($value) {
             return $value;
@@ -277,7 +277,7 @@ class VolunteerController extends Controller
         }
 
         $volunteers = $volunteers->get();
-        
+
         foreach ($relationData as $key => $value) {
             if (!$value) {
                 continue;
@@ -290,7 +290,7 @@ class VolunteerController extends Controller
                 default: break;
             }
         }
-        
+
         return view('volunteer.searchList', [
             'volunteers' => $volunteers,
             'dutyTypes' => DutyType::all(),

@@ -37,7 +37,7 @@ class ProjectController extends Controller
     {
         return (new HomeController)->underConstruction();
     }
-    
+
     public function registerForm()
     {
         return view('project.register', [
@@ -68,7 +68,7 @@ class ProjectController extends Controller
         unset($data['agb']);
 
         foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
-            $$key = Helper::exractElementByKey($data, $key);
+            $$key = Helper::extractElementByKey($data, $key);
         }
 
         $data['user_id'] = Auth::user()->id;

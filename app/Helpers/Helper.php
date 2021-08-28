@@ -4,8 +4,8 @@ namespace App\Helpers;
 
 class Helper
 {
-	public static function exractElementByKey(array &$array, string $key)
-	{
+    public static function extractElementByKey(array &$array, string $key)
+    {
 		if (!array_key_exists($key, $array)) {
 			return [];
 		}
