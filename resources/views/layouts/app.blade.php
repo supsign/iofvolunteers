@@ -1,5 +1,5 @@
 @php
-    $countries = App\Models\Country::all();
+    $countries = App\Models\Country::all()
 @endphp
 
     <!doctype html>
@@ -12,9 +12,9 @@
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon"/>
 
-    <!--[if IE]>
+    <!-- [if IE] >
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
+    <! [endif] -->
 
 
     <!-- CSRF Token -->
@@ -221,7 +221,7 @@
     <footer>
         <div class="container">
             <div class="row d-flex justify-content-between">
-                <aside>
+                <aside aria-label="Footer">
                     <h4>International Orienteering Federation</h4>
                     <p>Drottninggatan 47 31/2 tr<br>
                         SE-65225 Karlstad<br>
@@ -298,7 +298,8 @@
                                 <label class="col-3 col-form-label col-form-label-sm" for="firstname">Firstname<span
                                         class="warn-title">*</span>: </label>
                                 <div class="col-9">
-                                    <input class="form-control form-control-sm" type="text" name="firstname" size="20"
+                                    <input id="firstname" class="form-control form-control-sm" type="text"
+                                           name="firstname" size="20"
                                            required="">
                                 </div>
                             </div>
@@ -306,7 +307,8 @@
                                 <label class="col-3 col-form-label col-form-label-sm" for="lastname">Lastname<span
                                         class="warn-title">*</span>: </label>
                                 <div class="col-9">
-                                    <input class="form-control form-control-sm" type="text" name="lastname" size="20"
+                                    <input id="lastname" class="form-control form-control-sm" type="text"
+                                           name="lastname" size="20"
                                            required="">
                                 </div>
                             </div>
@@ -314,7 +316,8 @@
                                 <label class="col-3 col-form-label col-form-label-sm" for="name">E-mail<span
                                         class="warn-title">*</span>: </label>
                                 <div class="col-9">
-                                    <input class="form-control form-control-sm" type="text" name="email" size="20"
+                                    <input id="email" class="form-control form-control-sm" type="text" name="email"
+                                           size="20"
                                            required="">
                                 </div>
                             </div>
@@ -322,15 +325,17 @@
                                 <label class="col-3 col-form-label col-form-label-sm" for="name">Password<span
                                         class="warn-title">*</span>: </label>
                                 <div class="col-9">
-                                    <input class="form-control form-control-sm" type="password" name="password"
+                                    <input id="password" class="form-control form-control-sm" type="password"
+                                           name="password"
                                            size="20" required="">
                                 </div>
                             </div>
                             <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="name">Password
+                                <label class="col-3 col-form-label col-form-label-sm" for="password_confirmation">Password
                                     Confirmation<span class="warn-title">*</span>: </label>
                                 <div class="col-9">
-                                    <input class="form-control form-control-sm" type="password"
+                                    <input id="password_confirmation" class="form-control form-control-sm"
+                                           type="password"
                                            name="password_confirmation" size="20" required="">
                                 </div>
                             </div>
@@ -341,14 +346,6 @@
                 </div>
             </div>
         </div>
-
-        <script language="javascript" type="text/javascript">
-            jQuery(document).ready(function ($) {
-
-
-            });
-
-        </script>
     @endguest
 </div>
 </body>

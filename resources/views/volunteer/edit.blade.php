@@ -119,7 +119,6 @@
                                           min="0" step="1"/>
                         </x-form.section>
 
-                        @dump($test)
 
                         <x-form.section>
                             <x-slot name="title">
