@@ -2,8 +2,6 @@
 
 namespace App\View\Components\Base;
 
-use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
 class Input extends Component
@@ -16,7 +14,7 @@ class Input extends Component
 
     public function __construct(public string|null $iconName = null)
     {
-        
+
     }
 
     /**
@@ -26,6 +24,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('components.base.input'); 
+        return view('components.base.input');
     }
 }

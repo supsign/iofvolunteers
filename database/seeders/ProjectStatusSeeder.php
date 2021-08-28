@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\DB;
 class ProjectStatusSeeder extends Seeder
 {
     private $data = [
-		['id' => 1, 'name' => 'Federation'],
-		['id' => 2, 'name' => 'Club'],
-		['id' => 3, 'name' => 'Informal Group'],
+        ['id' => 1, 'name' => 'Federation'],
+        ['id' => 2, 'name' => 'Club'],
+        ['id' => 3, 'name' => 'Informal Group'],
     ];
+
     /**
      * Run the database seeds.
      *
@@ -20,15 +21,15 @@ class ProjectStatusSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-        	$data = array();
+            $data = array();
 
-        	foreach ($entry AS $key => $value) {
+            foreach ($entry as $key => $value) {
                 if ($key === 'id') {
                     continue;
                 }
 
-        		$data[$key] = $value;
-        	}
+                $data[$key] = $value;
+            }
 
             DB::table('project_stati')->updateOrInsert(['id' => $entry['id']], $data);
         }

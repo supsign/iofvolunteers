@@ -15,11 +15,12 @@ class Select extends Component
      */
 
     public function __construct(
-        public Collection $options,
+        public Collection     $options,
         public BaseModel|null $value = null,
-        public string|null $iconName = null,
-        public bool $required = false
-    ) {
+        public string|null    $iconName = null,
+        public bool           $required = false
+    )
+    {
     }
 
     /**

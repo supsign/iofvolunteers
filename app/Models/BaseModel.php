@@ -16,6 +16,6 @@ class BaseModel extends Model
 
     public function getSnakeCaseNameAttribute(): array|string
     {
-    	return str_replace([' ', '/'], ['_', ''], strtolower($this->name));
+        return str_replace([' ', '/'], ['_', ''], strtolower($this->name));
     }
 }

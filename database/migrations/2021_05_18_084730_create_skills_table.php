@@ -1,5 +1,7 @@
 <?php
 
+use Database\Seeders\SkillSeeder;
+use Database\Seeders\SkillTypeSeeder;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;

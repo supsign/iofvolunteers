@@ -29,7 +29,7 @@ class Register extends FormRequest
             'name' => 'string',
             'gender_id' => 'int',
             'email' => 'email',
-            
+
         ];
     }
 }

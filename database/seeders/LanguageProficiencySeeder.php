@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\DB;
 class LanguageProficiencySeeder extends Seeder
 {
     private $data = [
-		['id' => 1, 'name' => 'Excellent'],
-		['id' => 2, 'name' => 'Ok'],
-		['id' => 3, 'name' => 'Poor'],
-        ['id' => 4, 'name'  => 'none']
+        ['id' => 1, 'name' => 'Excellent'],
+        ['id' => 2, 'name' => 'Ok'],
+        ['id' => 3, 'name' => 'Poor'],
+        ['id' => 4, 'name' => 'none']
     ];
+
     /**
      * Run the database seeds.
      *
@@ -21,15 +22,15 @@ class LanguageProficiencySeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-        	$data = array();
+            $data = array();
 
-        	foreach ($entry AS $key => $value) {
+            foreach ($entry as $key => $value) {
                 if ($key === 'id') {
                     continue;
                 }
 
-        		$data[$key] = $value;
-        	}
+                $data[$key] = $value;
+            }
 
             DB::table('language_proficiencies')->updateOrInsert(['id' => $entry['id']], $data);
         }

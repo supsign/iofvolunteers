@@ -11,21 +11,21 @@ class LanguageModel extends BaseModel
 {
     public function language(): BelongsTo
     {
-    	return $this->belongsTo(Language::class);
+        return $this->belongsTo(Language::class);
     }
 
     public function languageProficiency(): BelongsTo
     {
-    	return $this->belongsTo(LanguageProficiency::class);
+        return $this->belongsTo(LanguageProficiency::class);
     }
 
     public function getLanguageNameAttribute(): string
     {
-    	return $this->language->name;
+        return $this->language->name;
     }
 
     public function getLanguageProficiencyNameAttribute(): string
     {
-    	return $this->languageProficiency->name;
+        return $this->languageProficiency->name;
     }
 }

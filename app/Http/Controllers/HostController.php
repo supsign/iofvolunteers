@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HostRegister;
 use App\Models\Country;
 use App\Models\Host;
-use App\Http\Requests\HostRegister;
-use Illuminate\Http\Request;
 
 class HostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth', 'verified']);
     }
-    
+
     public function registerForm()
     {
         return (new HomeController)->underConstruction();

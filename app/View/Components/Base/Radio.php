@@ -2,7 +2,6 @@
 
 namespace App\View\Components\Base;
 
-use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
@@ -14,7 +13,8 @@ class Radio extends Component
      * @return void
      */
 
-    public function __construct(public Collection $options) {
+    public function __construct(public Collection $options)
+    {
 
     }
 

@@ -1,10 +1,11 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width: 1200px) {
     ul#menu-main-menu {
         display: none;
     }
+
     ul#menu-main-menu:before,
     ul#menu-top-external-links-menu:before {
         content: '';
@@ -15,6 +16,7 @@
         height: 3px;
         box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
     }
+
     .main_menu_burger {
         display: block;
     }
@@ -27,6 +29,7 @@
         top: 110px;
         z-index: 3;
     }
+
     header nav .main .main_menu > li a {
         font-weight: 400;
         margin: 0;
@@ -34,9 +37,11 @@
         padding: 12px 15px;
         border-bottom: 1px solid #DEDEDE;
     }
+
     header nav .main .main_menu > li > ul.sub-menu:before {
         content: none;
     }
+
     header nav .main .main_menu > li ul.sub-menu {
         position: relative;
         top: 0;
@@ -47,6 +52,7 @@
         padding: 0;
         margin: 0;
     }
+
     header nav .main .main_menu > li > ul.sub-menu > li {
         width: 100%;
         display: block;
@@ -62,6 +68,7 @@
     header nav .main .main_menu li.menu-item-has-children {
         position: relative;
     }
+
     header nav .main .main_menu > li.menu-item-has-children > a:before {
         content: '';
         position: absolute;
@@ -74,9 +81,11 @@
         cursor: pointer;
         background-size: 20px;
     }
+
     header nav .main .main_menu > li.menu-item-has-children.active > a:before {
         background: url(../images/sub_menu_iconactive.svg) no-repeat center center;
     }
+
     header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li a {
         font-size: 16px;
         font-weight: 400;
@@ -86,7 +95,7 @@
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 991px) {
+@media only screen and (max-width: 991px) {
     .NI_image {
         height: 200px;
     }
@@ -95,21 +104,24 @@
         height: 45px;
         width: auto;
     }
+
     header nav > .main {
         padding-top: 7px;
         padding-bottom: 7px;
     }
+
     ul.main_menu {
         top: 95px;
     }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
     section.page_img .page_img-title,
     .subtitle {
         font-size: 24px;
     }
+
     .subtitle img {
         width: 30px;
         height: 30px;
@@ -118,8 +130,8 @@
 
 /*==========  Mobile First Method  ==========*/
 
- /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
     .container {
         max-width: 1200px;
     }
@@ -128,26 +140,31 @@
         color: #fff;
         background: #307EA1;
     }
+
     header nav .main .main_menu > li.m_blue.current-menu-item > a,
     header nav .main .main_menu > li.m_blue > a:hover {
         color: #307EA1;
         border-color: #307EA1;
         background: #fff;
     }
+
     header nav .main .main_menu > li.m_red > a {
         color: #fff;
         background: #E30420;
     }
+
     header nav .main .main_menu > li.m_red.current-menu-item > a,
     header nav .main .main_menu > li.m_red > a:hover {
         color: #E30420;
         border-color: #E30420;
         background: #fff;
     }
+
     header nav .main .main_menu > li.m_green > a {
         color: #fff;
         background: #008356;
     }
+
     header nav .main .main_menu > li.m_green.current-menu-item > a,
     header nav .main .main_menu > li.m_green > a:hover {
         color: #008356;

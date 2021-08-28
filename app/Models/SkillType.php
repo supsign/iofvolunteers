@@ -14,14 +14,17 @@ class SkillType extends BaseModel
         return $this->hasMany(Skill::class);
     }
 
-	public function getSnakeCaseNameAttribute(): string | array
+    public function getSnakeCaseNameAttribute(): string|array
     {
-    	$name = parent::getSnakeCaseNameAttribute();
+        $name = parent::getSnakeCaseNameAttribute();
 
-    	switch ($name) {
-    		case 'it_&_time-keeping':   return 'it';
-    		case 'teaching_experience': return 'teaching';
-    		default: return $name;
-    	}
+        switch ($name) {
+            case 'it_&_time-keeping':
+                return 'it';
+            case 'teaching_experience':
+                return 'teaching';
+            default:
+                return $name;
+        }
     }
 }

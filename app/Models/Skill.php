@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Skill extends BaseModel
 {
-	public function skillType(): BelongsTo
+    public function skillType(): BelongsTo
     {
-		return $this->belongsTo(SkillType::class);
-	}
+        return $this->belongsTo(SkillType::class);
+    }
 }

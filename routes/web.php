@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ContinentController;
-use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HostController;

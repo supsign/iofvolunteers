@@ -2,8 +2,6 @@
 
 namespace App\View\Components\Base;
 
-use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
 class Checkbox extends Component
@@ -14,7 +12,7 @@ class Checkbox extends Component
      * @return void
      */
 
-    public function __construct(public bool $checked=false)
+    public function __construct(public bool $checked = false)
     {
     }
 

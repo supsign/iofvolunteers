@@ -8,14 +8,15 @@ use Illuminate\Support\Facades\DB;
 class LanguageSeeder extends Seeder
 {
     private $data = [
-		['id' => 1, 'name' => 'English'],
-		['id' => 2, 'name' => 'French'],
-		['id' => 3, 'name' => 'Spanish'],
-		['id' => 4, 'name' => 'German'],
-		['id' => 5, 'name' => 'Italian'],
-		['id' => 6, 'name' => 'Portuguese'],
-		['id' => 7, 'name' => 'Scandinavian'],
+        ['id' => 1, 'name' => 'English'],
+        ['id' => 2, 'name' => 'French'],
+        ['id' => 3, 'name' => 'Spanish'],
+        ['id' => 4, 'name' => 'German'],
+        ['id' => 5, 'name' => 'Italian'],
+        ['id' => 6, 'name' => 'Portuguese'],
+        ['id' => 7, 'name' => 'Scandinavian'],
     ];
+
     /**
      * Run the database seeds.
      *
@@ -24,15 +25,15 @@ class LanguageSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-        	$data = array();
+            $data = array();
 
-        	foreach ($entry AS $key => $value) {
+            foreach ($entry as $key => $value) {
                 if ($key === 'id') {
                     continue;
                 }
 
-        		$data[$key] = $value;
-        	}
+                $data[$key] = $value;
+            }
 
             DB::table('languages')->updateOrInsert(['id' => $entry['id']], $data);
         }
