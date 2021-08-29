@@ -14,7 +14,6 @@ class Radio extends Component
      *
      * @return void
      */
-
     public function __construct(public Collection $options)
     {
     }

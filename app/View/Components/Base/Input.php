@@ -13,8 +13,7 @@ class Input extends Component
      *
      * @return void
      */
-
-    public function __construct(public string|null $iconName = null)
+    public function __construct(public string | null $iconName = null)
     {
     }
 

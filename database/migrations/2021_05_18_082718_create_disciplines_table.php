@@ -21,7 +21,7 @@ class CreateDisciplinesTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => DisciplineSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('discipline_models', function (Blueprint $table) {

@@ -26,7 +26,7 @@ class CreateSkillsTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => SkillTypeSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('skills', function (Blueprint $table) {
@@ -38,7 +38,7 @@ class CreateSkillsTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => SkillSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('skill_models', function (Blueprint $table) {

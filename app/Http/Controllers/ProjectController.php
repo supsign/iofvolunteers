@@ -57,6 +57,7 @@ class ProjectController extends Controller
     public function searchForm()
     {
         return (new HomeController())->underConstruction();
+
         return view('project.search');
     }
 
@@ -83,7 +84,9 @@ class ProjectController extends Controller
         }
 
         Alert::toast('Saved', 'success');
+
         return redirect()->route('home');
+
         return redirect()->route('project.list');    //	gibts noch nicht
     }
 

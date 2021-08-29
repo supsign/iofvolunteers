@@ -29,6 +29,7 @@ class HomeController extends Controller
     public function underConstruction()
     {
         Alert::toast('Unavailable - Under Construction', 'error');
+
         return redirect()->route('home');
     }
 }

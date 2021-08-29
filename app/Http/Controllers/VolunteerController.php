@@ -27,7 +27,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
 use Throwable;
 
-
 class VolunteerController extends Controller
 {
     public function __construct()
@@ -37,7 +36,7 @@ class VolunteerController extends Controller
 
     public function contact(Volunteer $volunteer, Request $request)
     {
-        if (!$project = Project::find($request->project_id)) {
+        if (! $project = Project::find($request->project_id)) {
             abort(404);
         }
 
@@ -90,6 +89,7 @@ class VolunteerController extends Controller
     public function show(Volunteer $volunteer)
     {
         $projects = Auth::user()->projects;
+
         return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
     }
 
@@ -149,12 +149,13 @@ class VolunteerController extends Controller
         }
 
         Alert::toast('Saved', 'success');
+
         return redirect()->route('home');
     }
 
     public function editForm(Volunteer $volunteer)
     {
-        if (!Auth::user()->volunteer) {
+        if (! Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');
         }
 
@@ -197,7 +198,6 @@ class VolunteerController extends Controller
             $data['o_work_experience_local'] = $o_work_experience[1];
         }
 
-
         if (array_key_exists(2, $o_work_experience)) {
             if ($o_work_experience[2] > 1000) {
                 throw ValidationException::withMessages([]);
@@ -215,12 +215,10 @@ class VolunteerController extends Controller
         }, $language);
         $volunteer->languages()->sync($languageSync);
 
-
         $disciplineSync = array_filter($discipline, function ($value) {
             return $value;
         });
         $volunteer->disciplines()->sync(array_keys($disciplineSync));
-
 
         $continentSync = array_filter($continent, function ($value) {
             return $value;
@@ -242,9 +240,9 @@ class VolunteerController extends Controller
         }
 
         Alert::toast('Saved', 'success');
+
         return redirect()->route('volunteer.edit', $volunteer);
     }
-
 
     public function search(Request $request)
     {
@@ -257,7 +255,7 @@ class VolunteerController extends Controller
         unset($relationData['_token']);
 
         foreach ($volunteerData as $key => $value) {
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 
@@ -294,7 +292,7 @@ class VolunteerController extends Controller
         $volunteers = $volunteers->get();
 
         foreach ($relationData as $key => $value) {
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 
@@ -329,6 +327,7 @@ class VolunteerController extends Controller
         $volunteerService->delete($volunteer);
 
         Alert::toast('Volunteer deleted', 'success');
+
         return redirect()->route('home');
     }
 }

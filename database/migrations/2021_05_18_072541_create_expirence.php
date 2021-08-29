@@ -24,7 +24,7 @@ class Createexperience extends Migration
 
         Artisan::call('db:seed', [
             '--class' => ExperienceSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::table('volunteers', function (Blueprint $table) {
