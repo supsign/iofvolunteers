@@ -15,6 +15,7 @@ function searchVolunteer(event) {
         return;
     }
     axios
+
         .post("/volunteer/contact/" + volunteer_id, { project_id })
         .then(() => {
             Swal.fire({
@@ -25,6 +26,7 @@ function searchVolunteer(event) {
         .catch((e) => {
             Swal.fire({
                 title: e.response?.data?.message || e?.message,
+
                 icon: "error",
             });
         });

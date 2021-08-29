@@ -21,7 +21,7 @@ class ProjectStatusSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-            $data = array();
+            $data = [];
 
             foreach ($entry as $key => $value) {
                 if ($key === 'id') {

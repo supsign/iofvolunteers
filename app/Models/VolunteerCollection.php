@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class VolunteerCollection extends Collection
 {
-
     public function filterByLanguages($languageArray): VolunteerCollection
     {
         return $this->filter(function ($volunteer) use ($languageArray) {
@@ -15,6 +14,7 @@ class VolunteerCollection extends Collection
                     return false;
                 }
             }
+
             return true;
         });
     }
@@ -23,10 +23,11 @@ class VolunteerCollection extends Collection
     {
         return $this->filter(function ($volunteer) use ($disciplinesArray) {
             foreach (array_keys(array_filter($disciplinesArray)) as $discipline) {
-                if (!$volunteer->disciplines->contains('id', $discipline)) {
+                if (! $volunteer->disciplines->contains('id', $discipline)) {
                     return false;
                 }
             }
+
             return true;
         });
     }
@@ -35,10 +36,11 @@ class VolunteerCollection extends Collection
     {
         return $this->filter(function ($volunteer) use ($skillTypeArray) {
             foreach (array_keys(array_filter($skillTypeArray)) as $skillType) {
-                if (!$volunteer->skillTypes->contains('id', $skillType)) {
+                if (! $volunteer->skillTypes->contains('id', $skillType)) {
                     return false;
                 }
             }
+
             return true;
         });
     }

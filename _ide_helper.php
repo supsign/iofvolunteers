@@ -1,4 +1,5 @@
 <?php
+
 // @formatter:off
 
 /**
@@ -14,8 +15,6 @@
 namespace Illuminate\Support\Facades {
 
     /**
-     *
-     *
      * @see \Illuminate\Contracts\Foundation\Application
      */
     class App
@@ -610,8 +609,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * {@inheritdoc}
-         *
          * @static
          */
         public static function handle($request, $type = 1, $catch = true)
@@ -1589,12 +1586,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Foundation\Application $instance */
             $instance->offsetUnset($key);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Contracts\Console\Kernel
      */
     class Artisan
@@ -1732,12 +1726,9 @@ namespace Illuminate\Support\Facades {
             /** @var \App\Console\Kernel $instance */
             $instance->setArtisan($artisan);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Auth\AuthManager
      * @see \Illuminate\Contracts\Auth\Factory
      * @see \Illuminate\Contracts\Auth\Guard
@@ -2431,12 +2422,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Auth\SessionGuard::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\View\Compilers\BladeCompiler
      */
     class Blade
@@ -2889,12 +2877,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
             return $instance->applyEchoHandler($value);
         }
-
     }
 
     /**
-     *
-     *
      * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(string $channel, callable|string $callback, array $options = [])
      * @method static mixed auth(\Illuminate\Http\Request $request)
      * @see \Illuminate\Contracts\Broadcasting\Factory
@@ -3067,12 +3052,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
             return $instance->forgetDrivers();
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Contracts\Bus\Dispatcher
      */
     class Bus
@@ -3511,12 +3493,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
             return $instance->recordPendingBatch($pendingBatch);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Cache\CacheManager
      * @see \Illuminate\Cache\Repository
      */
@@ -4194,12 +4173,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Cache\NullStore $instance */
             return $instance->getPrefix();
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Config\Repository
      */
     class Config
@@ -4350,12 +4326,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Config\Repository $instance */
             $instance->offsetUnset($key);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Cookie\CookieJar
      */
     class Cookie
@@ -4582,12 +4555,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Cookie\CookieJar::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Encryption\Encrypter
      */
     class Crypt
@@ -4686,12 +4656,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Encryption\Encrypter $instance */
             return $instance->getKey();
         }
-
     }
 
     /**
-     *
-     *
      * @see https://carbon.nesbot.com/docs/
      * @see https://github.com/briannesbitt/Carbon/blob/master/src/Carbon/Factory.php
      * @method static \Illuminate\Support\Carbon create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $tz = null)
@@ -4827,12 +4794,9 @@ namespace Illuminate\Support\Facades {
         {
             \Illuminate\Support\DateFactory::useFactory($factory);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Database\DatabaseManager
      * @see \Illuminate\Database\Connection
      */
@@ -5954,12 +5918,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Database\MySqlConnection $instance */
             $instance->afterCommit($callback);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Events\Dispatcher
      */
     class Event
@@ -6285,12 +6246,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
             return $instance->hasDispatched($event);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Filesystem\Filesystem
      */
     class File
@@ -6928,12 +6886,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Filesystem\Filesystem::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Contracts\Auth\Access\Gate
      */
     class Gate
@@ -7224,12 +7179,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Auth\Access\Gate $instance */
             return $instance->setContainer($container);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Hashing\HashManager
      */
     class Hash
@@ -7414,12 +7366,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Hashing\HashManager $instance */
             return $instance->forgetDrivers();
         }
-
     }
 
     /**
-     *
-     *
      * @method static \Illuminate\Http\Client\PendingRequest accept(string $contentType)
      * @method static \Illuminate\Http\Client\PendingRequest acceptJson()
      * @method static \Illuminate\Http\Client\PendingRequest asForm()
@@ -7695,12 +7644,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Http\Client\Factory $instance */
             return $instance->macroCall($method, $parameters);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Translation\Translator
      */
     class Lang
@@ -8001,12 +7947,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Translation\Translator::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @method static \Illuminate\Log\Logger withContext(array $context = [])
      * @method static \Illuminate\Log\Logger withoutContext()
      * @method static void write(string $level, string $message, array $context = [])
@@ -8056,8 +7999,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @return array
          * @static
          */
@@ -8256,12 +8197,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Log\LogManager $instance */
             $instance->log($level, $message, $context);
         }
-
     }
 
     /**
-     *
-     *
      * @method static mixed laterOn(string $queue, \DateTimeInterface|\DateInterval|int $delay, \Illuminate\Contracts\Mail\Mailable|string|array $view)
      * @method static mixed queueOn(string $queue, \Illuminate\Contracts\Mail\Mailable|string|array $view)
      * @method static void plain(string $view, array $data, $callback)
@@ -8655,12 +8593,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Support\Testing\Fakes\MailFake $instance */
             return $instance->failures();
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Notifications\ChannelManager
      */
     class Notification
@@ -8974,12 +8909,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Support\Testing\Fakes\NotificationFake::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @method static mixed reset(array $credentials, \Closure $callback)
      * @method static string sendResetLink(array $credentials, \Closure $callback = null)
      * @method static \Illuminate\Contracts\Auth\CanResetPassword getUser(array $credentials)
@@ -9028,12 +8960,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Auth\Passwords\PasswordBrokerManager $instance */
             $instance->setDefaultDriver($name);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Queue\QueueManager
      * @see \Illuminate\Queue\Queue
      */
@@ -9562,12 +9491,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Queue\SyncQueue $instance */
             $instance->setContainer($container);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Routing\Redirector
      */
     class Redirect
@@ -9834,12 +9760,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\Redirector::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @method static mixed filterFiles(mixed $files)
      * @see \Illuminate\Http\Request
      */
@@ -10653,8 +10576,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function setSession($session)
@@ -10664,8 +10585,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @internal
          * @static
          */
@@ -11268,8 +11187,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @return bool
          * @static
          */
@@ -12002,8 +11919,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @param  array  $rules
          * @param  mixed  $params
          * @static
@@ -12015,8 +11930,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @param  string  $errorBag
          * @param  array  $rules
          * @param  mixed  $params
@@ -12029,8 +11942,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @param  mixed  $absolute
          * @static
          * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
@@ -12041,8 +11952,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @static
          */
@@ -12050,12 +11959,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Http\Request::hasValidRelativeSignature();
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Contracts\Routing\ResponseFactory
      */
     class Response
@@ -12317,12 +12223,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\ResponseFactory::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @method static \Illuminate\Routing\RouteRegistrar as(string $value)
      * @method static \Illuminate\Routing\RouteRegistrar domain(string $value)
      * @method static \Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
@@ -13264,8 +13167,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @param  mixed  $options
          * @static
          * @see \Laravel\Ui\AuthRouteMethods::auth()
@@ -13276,8 +13177,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::resetPassword()
          * @static
          */
@@ -13287,8 +13186,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::confirmPassword()
          * @static
          */
@@ -13298,8 +13195,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::emailVerification()
          * @static
          */
@@ -13307,12 +13202,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\Router::emailVerification();
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Database\Schema\Builder
      */
     class Schema
@@ -13668,12 +13560,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
             $instance->blueprintResolver($resolver);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Session\SessionManager
      * @see \Illuminate\Session\Store
      */
@@ -14382,12 +14271,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Session\Store $instance */
             $instance->setRequestOnHandler($request);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Filesystem\FilesystemManager
      */
     class Storage
@@ -15109,12 +14995,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
             return $instance->macroCall($method, $parameters);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Routing\UrlGenerator
      */
     class URL
@@ -15634,12 +15517,9 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\UrlGenerator::hasMacro($name);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\Validation\Factory
      */
     class Validator
@@ -15822,12 +15702,9 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\Validation\Factory $instance */
             return $instance->setContainer($container);
         }
-
     }
 
     /**
-     *
-     *
      * @see \Illuminate\View\Factory
      */
     class View
@@ -16739,39 +16616,22 @@ namespace Illuminate\Support\Facades {
             /** @var \Illuminate\View\Factory $instance */
             return $instance->renderTranslation();
         }
-
     }
 }
 
 namespace Illuminate\Support {
 
-    /**
-     *
-     *
-     */
     class Arr
     {
-
     }
 
-    /**
-     *
-     *
-     */
     class Str
     {
-
     }
 
-    /**
-     *
-     *
-     */
     class Collection
     {
         /**
-         *
-         *
          * @see \Barryvdh\Debugbar\ServiceProvider::register()
          * @static
          */
@@ -16779,15 +16639,12 @@ namespace Illuminate\Support {
         {
             return \Illuminate\Support\Collection::debug();
         }
-
     }
 }
 
 namespace Barryvdh\Debugbar {
 
     /**
-     *
-     *
      * @method static void alert(mixed $message)
      * @method static void critical(mixed $message)
      * @method static void debug(mixed $message)
@@ -16813,7 +16670,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Boot the debugbar (add collectors, renderer and listener)
+         * Boot the debugbar (add collectors, renderer and listener).
          *
          * @static
          */
@@ -16824,8 +16681,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function shouldCollect($name, $default = false)
@@ -16835,7 +16690,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Adds a data collector
+         * Adds a data collector.
          *
          * @param  \DebugBar\DataCollector\DataCollectorInterface  $collector
          * @return \Barryvdh\Debugbar\LaravelDebugbar
@@ -16849,7 +16704,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Handle silenced errors
+         * Handle silenced errors.
          *
          * @param $level
          * @param $message
@@ -16866,7 +16721,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Starts a measure
+         * Starts a measure.
          *
          * @param  string  $name  Internal name, used to stop the measure
          * @param  string  $label  Public name
@@ -16879,7 +16734,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Stops a measure
+         * Stops a measure.
          *
          * @param  string  $name
          * @static
@@ -16891,7 +16746,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Adds an exception to be profiled in the debug bar
+         * Adds an exception to be profiled in the debug bar.
          *
          * @param  \Exception  $e
          * @deprecated in favor of addThrowable
@@ -16904,7 +16759,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Adds an exception to be profiled in the debug bar
+         * Adds an exception to be profiled in the debug bar.
          *
          * @param  \Exception  $e
          * @static
@@ -16916,7 +16771,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns a JavascriptRenderer for this instance
+         * Returns a JavascriptRenderer for this instance.
          *
          * @param  string  $baseUrl
          * @param  string  $basePathng
@@ -16930,7 +16785,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Modify the response and inject the debugbar (or data in headers)
+         * Modify the response and inject the debugbar (or data in headers).
          *
          * @param  \Symfony\Component\HttpFoundation\Request  $request
          * @param  \Symfony\Component\HttpFoundation\Response  $response
@@ -16944,9 +16799,9 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Check if the Debugbar is enabled
+         * Check if the Debugbar is enabled.
          *
-         * @return boolean
+         * @return bool
          * @static
          */
         public static function isEnabled()
@@ -16956,7 +16811,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Collects the data from the collectors
+         * Collects the data from the collectors.
          *
          * @return array
          * @static
@@ -16981,7 +16836,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Disable the Debugbar
+         * Disable the Debugbar.
          *
          * @static
          */
@@ -16992,7 +16847,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Adds a measure
+         * Adds a measure.
          *
          * @param  string  $label
          * @param  float  $start
@@ -17006,7 +16861,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Utility function to measure the execution of a Closure
+         * Utility function to measure the execution of a Closure.
          *
          * @param  string  $label
          * @param  \Closure  $closure
@@ -17020,7 +16875,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Collect data in a CLI request
+         * Collect data in a CLI request.
          *
          * @return array
          * @static
@@ -17032,7 +16887,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Adds a message to the MessagesCollector
+         * Adds a message to the MessagesCollector.
          *
          * A message can be anything from an object to a string
          *
@@ -17047,10 +16902,10 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Checks if a data collector has been added
+         * Checks if a data collector has been added.
          *
          * @param  string  $name
-         * @return boolean
+         * @return bool
          * @static
          */
         public static function hasCollector($name)
@@ -17060,7 +16915,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns a data collector
+         * Returns a data collector.
          *
          * @param  string  $name
          * @return \DebugBar\DataCollector\DataCollectorInterface
@@ -17074,7 +16929,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns an array of all data collectors
+         * Returns an array of all data collectors.
          *
          * @return \DebugBar\array[DataCollectorInterface]
          * @static
@@ -17086,7 +16941,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Sets the request id generator
+         * Sets the request id generator.
          *
          * @param  \DebugBar\RequestIdGeneratorInterface  $generator
          * @return \Barryvdh\Debugbar\LaravelDebugbar
@@ -17099,8 +16954,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @return \DebugBar\RequestIdGeneratorInterface
          * @static
          */
@@ -17111,7 +16964,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns the id of the current request
+         * Returns the id of the current request.
          *
          * @return string
          * @static
@@ -17123,7 +16976,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Sets the storage backend to use to store the collected data
+         * Sets the storage backend to use to store the collected data.
          *
          * @param  \DebugBar\StorageInterface  $storage
          * @return \Barryvdh\Debugbar\LaravelDebugbar
@@ -17136,8 +16989,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @return \DebugBar\StorageInterface
          * @static
          */
@@ -17148,9 +16999,9 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Checks if the data will be persisted
+         * Checks if the data will be persisted.
          *
-         * @return boolean
+         * @return bool
          * @static
          */
         public static function isDataPersisted()
@@ -17160,7 +17011,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Sets the HTTP driver
+         * Sets the HTTP driver.
          *
          * @param  \DebugBar\HttpDriverInterface  $driver
          * @return \Barryvdh\Debugbar\LaravelDebugbar
@@ -17173,7 +17024,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns the HTTP driver
+         * Returns the HTTP driver.
          *
          * If no http driver where defined, a PhpHttpDriver is automatically created
          *
@@ -17187,7 +17038,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns collected data
+         * Returns collected data.
          *
          * Will collect the data if none have been collected yet
          *
@@ -17201,10 +17052,10 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns an array of HTTP headers containing the data
+         * Returns an array of HTTP headers containing the data.
          *
          * @param  string  $headerName
-         * @param  integer  $maxHeaderLength
+         * @param  int  $maxHeaderLength
          * @return array
          * @static
          */
@@ -17218,11 +17069,11 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Sends the data through the HTTP headers
+         * Sends the data through the HTTP headers.
          *
          * @param  bool  $useOpenHandler
          * @param  string  $headerName
-         * @param  integer  $maxHeaderLength
+         * @param  int  $maxHeaderLength
          * @return \Barryvdh\Debugbar\LaravelDebugbar
          * @static
          */
@@ -17236,7 +17087,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Stacks the data in the session for later rendering
+         * Stacks the data in the session for later rendering.
          *
          * @static
          */
@@ -17247,9 +17098,9 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Checks if there is stacked data in the session
+         * Checks if there is stacked data in the session.
          *
-         * @return boolean
+         * @return bool
          * @static
          */
         public static function hasStackedData()
@@ -17259,9 +17110,9 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns the data stacked in the session
+         * Returns the data stacked in the session.
          *
-         * @param  boolean  $delete  Whether to delete the data in the session
+         * @param  bool  $delete  Whether to delete the data in the session
          * @return array
          * @static
          */
@@ -17272,7 +17123,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Sets the key to use in the $_SESSION array
+         * Sets the key to use in the $_SESSION array.
          *
          * @param  string  $ns
          * @return \Barryvdh\Debugbar\LaravelDebugbar
@@ -17285,7 +17136,7 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         * Returns the key used in the $_SESSION array
+         * Returns the key used in the $_SESSION array.
          *
          * @return string
          * @static
@@ -17298,9 +17149,9 @@ namespace Barryvdh\Debugbar {
 
         /**
          * Sets whether to only use the session to store stacked data even
-         * if a storage is enabled
+         * if a storage is enabled.
          *
-         * @param  boolean  $enabled
+         * @param  bool  $enabled
          * @return \Barryvdh\Debugbar\LaravelDebugbar
          * @static
          */
@@ -17312,9 +17163,9 @@ namespace Barryvdh\Debugbar {
 
         /**
          * Checks if the session is always used to store stacked data
-         * even if a storage is enabled
+         * even if a storage is enabled.
          *
-         * @return boolean
+         * @return bool
          * @static
          */
         public static function isStackAlwaysUseSessionStorage()
@@ -17324,8 +17175,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function offsetSet($key, $value)
@@ -17335,8 +17184,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function offsetGet($key)
@@ -17346,8 +17193,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function offsetExists($key)
@@ -17357,8 +17202,6 @@ namespace Barryvdh\Debugbar {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function offsetUnset($key)
@@ -17366,7 +17209,6 @@ namespace Barryvdh\Debugbar {
             /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
             return $instance->offsetUnset($key);
         }
-
     }
 }
 
@@ -17380,8 +17222,6 @@ namespace Facade\Ignition\Facades {
     class Flare
     {
         /**
-         *
-         *
          * @static
          */
         public static function register($apiKey, $apiSecret = null, $contextDetector = null, $container = null)
@@ -17390,8 +17230,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function determineVersionUsing($determineVersionCallable)
@@ -17401,8 +17239,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function reportErrorLevels($reportErrorLevels)
@@ -17412,8 +17248,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function filterExceptionsUsing($filterExceptionsCallable)
@@ -17423,8 +17257,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @return null|string
          * @static
          */
@@ -17435,8 +17267,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function getMiddleware()
@@ -17446,8 +17276,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function registerFlareHandlers()
@@ -17457,8 +17285,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function registerExceptionHandler()
@@ -17468,8 +17294,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function registerErrorHandler()
@@ -17479,8 +17303,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function registerMiddleware($callable)
@@ -17490,8 +17312,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function getMiddlewares()
@@ -17501,8 +17321,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function glow($name, $messageLevel = 'info', $metaData = [])
@@ -17512,8 +17330,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function handleException($throwable)
@@ -17523,8 +17339,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function handleError($code, $message, $file = '', $line = 0)
@@ -17534,8 +17348,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function applicationPath($applicationPath)
@@ -17545,8 +17357,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function report($throwable, $callback = null)
@@ -17556,8 +17366,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function reportMessage($message, $logLevel, $callback = null)
@@ -17567,8 +17375,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function sendTestReport($throwable)
@@ -17578,8 +17384,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function reset()
@@ -17589,8 +17393,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function anonymizeIp()
@@ -17600,8 +17402,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function censorRequestBodyFields($fieldNames)
@@ -17611,8 +17411,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function createReport($throwable)
@@ -17622,8 +17420,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function createReportFromMessage($message, $logLevel)
@@ -17633,8 +17429,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function stage($stage)
@@ -17644,8 +17438,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function messageLevel($messageLevel)
@@ -17655,8 +17447,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function getGroup($groupName = 'context', $default = [])
@@ -17666,8 +17456,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function context($key, $value)
@@ -17677,8 +17465,6 @@ namespace Facade\Ignition\Facades {
         }
 
         /**
-         *
-         *
          * @static
          */
         public static function group($groupName, $properties)
@@ -17686,16 +17472,11 @@ namespace Facade\Ignition\Facades {
             /** @var \Facade\FlareClient\Flare $instance */
             return $instance->group($groupName, $properties);
         }
-
     }
 }
 
 namespace RealRashid\SweetAlert\Facades {
 
-    /**
-     *
-     *
-     */
     class Alert
     {
         /**
@@ -17803,8 +17584,8 @@ namespace RealRashid\SweetAlert\Facades {
          * @param  string  $title
          * @param  string  $text
          * @param  string  $imageUrl
-         * @param  integer  $imageWidth
-         * @param  integer  $imageHeight
+         * @param  int  $imageWidth
+         * @param  int  $imageHeight
          * @param  string  $imageAlt
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
@@ -17831,7 +17612,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Display a toast message
+         * Display a toast message.
          *
          * @param  string  $title
          * @param  string  $icon
@@ -17845,7 +17626,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Convert any alert modal to Toast
+         * Convert any alert modal to Toast.
          *
          * @param  string  $position
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -17858,7 +17639,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Convert any alert modal to html
+         * Convert any alert modal to html.
          *
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
@@ -17870,7 +17651,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Add a custom image to alert
+         * Add a custom image to alert.
          *
          * @param  string  $imageUrl
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -17883,7 +17664,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Add footer section to alert()
+         * Add footer section to alert().
          *
          * @param  string  $code
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -17896,7 +17677,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * positioned alert dialog
+         * positioned alert dialog.
          *
          * @param  string  $position
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -17961,7 +17742,7 @@ namespace RealRashid\SweetAlert\Facades {
          * focus the first element in tab
          * order instead of "Confirm"-button by default.
          *
-         * @param  boolean  $focus
+         * @param  bool  $focus
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
          */
@@ -17975,7 +17756,7 @@ namespace RealRashid\SweetAlert\Facades {
          * Set to true if you want to focus the
          * "Cancel"-button by default.
          *
-         * @param  boolean  $focus
+         * @param  bool  $focus
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
          */
@@ -17988,7 +17769,7 @@ namespace RealRashid\SweetAlert\Facades {
         /**
          * Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
          * CSS classes for animations when showing a popup (fade in):
-         * CSS classes for animations when hiding a popup (fade out):
+         * CSS classes for animations when hiding a popup (fade out):.
          *
          * @param  string  $showAnimation
          * @param  string  $hideAnimation
@@ -18002,10 +17783,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Persistent the alert modal
+         * Persistent the alert modal.
          *
-         * @param  boolean  $showConfirmBtn
-         * @param  boolean  $showCloseBtn
+         * @param  bool  $showConfirmBtn
+         * @param  bool  $showCloseBtn
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
          */
@@ -18017,9 +17798,9 @@ namespace RealRashid\SweetAlert\Facades {
 
         /**
          * auto close alert modal after
-         * specifid time
+         * specifid time.
          *
-         * @param  integer  $milliseconds
+         * @param  int  $milliseconds
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
          */
@@ -18030,7 +17811,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Display confirm button
+         * Display confirm button.
          *
          * @param  string  $btnText
          * @param  string  $btnColor
@@ -18044,7 +17825,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Display cancel button
+         * Display cancel button.
          *
          * @param  string  $btnText
          * @param  string  $btnColor
@@ -18058,7 +17839,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Display close button
+         * Display close button.
          *
          * @param  string  $closeButtonAriaLabel
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -18071,7 +17852,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Hide close button from alert or toast
+         * Hide close button from alert or toast.
          *
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
@@ -18088,7 +17869,7 @@ namespace RealRashid\SweetAlert\Facades {
          * If you want to use your own classes (e.g. Bootstrap classes)
          * set this parameter to false.
          *
-         * @param  boolean  $buttonsStyling
+         * @param  bool  $buttonsStyling
          * @author Rashid Ali <realrashid05@gmail.com>
          * @static
          */
@@ -18099,7 +17880,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Use any HTML inside icons (e.g. Font Awesome)
+         * Use any HTML inside icons (e.g. Font Awesome).
          *
          * @param  string  $iconHtml
          * @author Rashid Ali <realrashid05@gmail.com>
@@ -18126,7 +17907,7 @@ namespace RealRashid\SweetAlert\Facades {
         }
 
         /**
-         * Reverse buttons position
+         * Reverse buttons position.
          *
          * @author Faber44 <https://github.com/Faber44>
          * @static
@@ -18160,21 +17941,14 @@ namespace RealRashid\SweetAlert\Facades {
             /** @var \RealRashid\SweetAlert\Toaster $instance */
             return $instance->buildConfig();
         }
-
     }
 }
 
 namespace Illuminate\Http {
 
-    /**
-     *
-     *
-     */
     class Request
     {
         /**
-         *
-         *
          * @param  array  $rules
          * @param  mixed  $params
          * @static
@@ -18186,8 +17960,6 @@ namespace Illuminate\Http {
         }
 
         /**
-         *
-         *
          * @param  string  $errorBag
          * @param  array  $rules
          * @param  mixed  $params
@@ -18200,8 +17972,6 @@ namespace Illuminate\Http {
         }
 
         /**
-         *
-         *
          * @param  mixed  $absolute
          * @static
          * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
@@ -18212,8 +17982,6 @@ namespace Illuminate\Http {
         }
 
         /**
-         *
-         *
          * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @static
          */
@@ -18221,22 +17989,17 @@ namespace Illuminate\Http {
         {
             return \Illuminate\Http\Request::hasValidRelativeSignature();
         }
-
     }
 }
 
 namespace Illuminate\Routing {
 
     /**
-     *
-     *
      * @mixin \Illuminate\Routing\RouteRegistrar
      */
     class Router
     {
         /**
-         *
-         *
          * @param  mixed  $options
          * @static
          * @see \Laravel\Ui\AuthRouteMethods::auth()
@@ -18247,8 +18010,6 @@ namespace Illuminate\Routing {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::resetPassword()
          * @static
          */
@@ -18258,8 +18019,6 @@ namespace Illuminate\Routing {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::confirmPassword()
          * @static
          */
@@ -18269,8 +18028,6 @@ namespace Illuminate\Routing {
         }
 
         /**
-         *
-         *
          * @see \Laravel\Ui\AuthRouteMethods::emailVerification()
          * @static
          */
@@ -18278,10 +18035,8 @@ namespace Illuminate\Routing {
         {
             return \Illuminate\Routing\Router::emailVerification();
         }
-
     }
 }
-
 
 namespace {
 
@@ -21736,7 +21491,3 @@ namespace {
     {
     }
 }
-
-
-
-

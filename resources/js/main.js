@@ -1,72 +1,62 @@
 jQuery(document).ready(function ($) {
-    $(".default table.table").wrap('<div class="tableWrap"></div>');
+    $('.default table.table').wrap('<div class="tableWrap"></div>');
 
-    $(".main_menu_burger").click(function (e) {
+    $('.main_menu_burger').click(function (e) {
         e.preventDefault();
-        $("body").toggleClass("overlay");
+        $('body').toggleClass('overlay');
 
-        $(".main_menu").toggleClass("active").slideToggle("normal");
+        $('.main_menu').toggleClass('active').slideToggle('normal');
     });
 
-    $(".main_menu > li.menu-item-has-children > a").click(function (e) {
+    $('.main_menu > li.menu-item-has-children > a').click(function (e) {
         e.preventDefault();
 
-        $(".main_menu > li.menu-item-has-children > a")
+        $('.main_menu > li.menu-item-has-children > a')
             .not(this)
             .parent()
-            .removeClass("active")
-            .children("ul.sub-menu")
-            .slideUp("normal");
-        $(this)
-            .parent()
-            .toggleClass("active")
-            .children("ul.sub-menu")
-            .slideToggle("normal");
+            .removeClass('active')
+            .children('ul.sub-menu')
+            .slideUp('normal');
+        $(this).parent().toggleClass('active').children('ul.sub-menu').slideToggle('normal');
 
-        if (
-            $(".main_menu > li.menu-item-has-children").hasClass("active") ||
-            $(".main_menu").hasClass("active")
-        ) {
-            $("body").addClass("overlay");
+        if ($('.main_menu > li.menu-item-has-children').hasClass('active') || $('.main_menu').hasClass('active')) {
+            $('body').addClass('overlay');
         } else {
-            $("body").removeClass("overlay");
+            $('body').removeClass('overlay');
         }
     });
 
-    $("#continentsCheckboxesTrigger").on("click", function () {
+    $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
-            $(".continentsCheckboxes").each(function () {
+            $('.continentsCheckboxes').each(function () {
                 this.checked = true;
             });
         } else {
-            $(".continentsCheckboxes").each(function () {
+            $('.continentsCheckboxes').each(function () {
                 this.checked = false;
             });
         }
     });
 
-    $(".continentsCheckboxes").on("click", function () {
-        if (
-            $(".continentsCheckboxes:checked").length ==
-            $(".continentsCheckboxes").length
-        ) {
-            $("#continentsCheckboxesTrigger").prop("checked", true);
+    $('.continentsCheckboxes').on('click', function () {
+        if ($('.continentsCheckboxes:checked').length == $('.continentsCheckboxes').length) {
+            $('#continentsCheckboxesTrigger').prop('checked', true);
         } else {
-            $("#continentsCheckboxesTrigger").prop("checked", false);
+            $('#continentsCheckboxesTrigger').prop('checked', false);
         }
     });
 
-    $("#register").click(function () {
-        $("#register").hide();
-        $("#registerBlock").show();
-        $("#signInBlock").hide();
-        $("#signIn").show();
+    $('#register').click(function () {
+        $('#register').hide();
+        $('#registerBlock').show();
+        $('#signInBlock').hide();
+        $('#signIn').show();
     });
 
-    $("#signIn").click(function () {
-        $("#registerBlock").hide();
-        $("#register").show();
-        $("#signInBlock").show();
-        $("#signIn").hide();
+    $('#signIn').click(function () {
+        $('#registerBlock').hide();
+        $('#register').show();
+        $('#signInBlock').show();
+        $('#signIn').hide();
     });
 });

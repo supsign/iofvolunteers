@@ -21,7 +21,7 @@ class CreateLanguages extends Migration
 
         Artisan::call('db:seed', [
             '--class' => LanguageSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

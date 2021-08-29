@@ -28,7 +28,6 @@ class VolunteerServiceTest extends TestCase
 
         $this->volunteerService->delete($volunteer);
 
-
         $this->assertDatabaseMissing($volunteer, [
             'id' => $volunteer->id,
         ]);

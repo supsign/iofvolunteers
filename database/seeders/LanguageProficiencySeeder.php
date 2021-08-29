@@ -11,7 +11,7 @@ class LanguageProficiencySeeder extends Seeder
         ['id' => 1, 'name' => 'Excellent'],
         ['id' => 2, 'name' => 'Ok'],
         ['id' => 3, 'name' => 'Poor'],
-        ['id' => 4, 'name' => 'none']
+        ['id' => 4, 'name' => 'none'],
     ];
 
     /**
@@ -22,7 +22,7 @@ class LanguageProficiencySeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-            $data = array();
+            $data = [];
 
             foreach ($entry as $key => $value) {
                 if ($key === 'id') {

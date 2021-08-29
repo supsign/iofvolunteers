@@ -22,7 +22,7 @@ class CreateDutiesTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => DutySeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('duty_types', function (Blueprint $table) {
@@ -33,7 +33,7 @@ class CreateDutiesTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => DutyTypeSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('duty_models', function (Blueprint $table) {
