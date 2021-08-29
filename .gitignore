@@ -21,3 +21,4 @@ public/mix-manifest.json
 .idea/laravel-plugin.xml
 .idea/prettier.xml
 .idea/sonarlint/issuestore/
+.idea/sonarlint-state.xml
