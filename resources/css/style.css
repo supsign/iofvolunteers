@@ -1,34 +1,34 @@
 @font-face {
-    font-family: "Franklin Gothic";
-    src: url("../fonts/fgbook400.TTF") format("truetype");
-    font-style: normal;
-    font-weight: 400;
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/fgbook400.TTF') format('truetype');
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: "Franklin Gothic";
-    src: url("../fonts/fg500.TTF") format("truetype");
-    font-style: normal;
-    font-weight: 500;
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/fg500.TTF') format('truetype');
+  font-style: normal;
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: "Franklin Gothic";
-    src: url("../fonts/fg600.TTF") format("truetype");
-    font-style: normal;
-    font-weight: 600;
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/fg600.TTF') format('truetype');
+  font-style: normal;
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: "Franklin Gothic";
-    src: url("../fonts/fg900.TTF") format("truetype");
-    font-style: normal;
-    font-weight: 900;
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/fg900.TTF') format('truetype');
+  font-style: normal;
+  font-weight: 900;
 }
 
 /********************CSS reset - begin********************/
 * {
-    outline: none !important;
+  outline: none !important;
 }
 
 html,
@@ -78,47 +78,47 @@ thead,
 tr,
 th,
 td {
-    background: transparent;
-    border: 0;
-    font-size: 100%;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    vertical-align: baseline;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "";
-    content: none;
+  content: '';
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 table.vertical tbody tr > td:first-child > * {
-    display: inline-block;
-    position: relative;
-    top: 50px;
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+  display: inline-block;
+  position: relative;
+  top: 50px;
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 h1,
@@ -127,207 +127,207 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 h1 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 h2 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 h4 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 h5 {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 h6 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a,
 a:hover,
 a:visited {
-    color: #307ea1;
+  color: #307ea1;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 p {
-    margin: 0 0 18px 0;
+  margin: 0 0 18px 0;
 }
 
 p:last-child {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 img {
-    height: auto;
-    max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 a img {
-    border: none;
+  border: none;
 }
 
 .text ul {
-    font-size: 18px;
-    list-style: none;
-    margin-bottom: 15px;
-    padding-left: 0px;
+  font-size: 18px;
+  list-style: none;
+  margin-bottom: 15px;
+  padding-left: 0px;
 }
 
 .text ol {
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 15px;
-    padding-left: 0px;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding-left: 0px;
 }
 
 .text > ol,
 .text > ul {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .text ol:last-child,
 .text ul:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .text ol > li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .text ol > li > ol > li {
-    list-style-type: lower-alpha;
+  list-style-type: lower-alpha;
 }
 
 .text ol > li > ol > li > ol > li {
-    list-style-type: upper-roman;
+  list-style-type: upper-roman;
 }
 
 .text ul > li {
-    background: url(../images/li_bg.svg) no-repeat left 0px top 7px;
-    padding-left: 20px;
+  background: url(../images/li_bg.svg) no-repeat left 0px top 7px;
+  padding-left: 20px;
 }
 
 .hidden_block {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /********************CSS reset - end********************/
 
 /********************CSS base - begin*******************/
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background: #fff;
-    color: #212121;
-    font-family: "Franklin Gothic", sans-serif;
-    font-size: 20px;
-    -webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
-    font-weight: 400;
-    line-height: 1.3;
-    margin: 0;
-    min-height: 100%;
-    padding: 0;
-    position: relative;
+  background: #fff;
+  color: #212121;
+  font-family: 'Franklin Gothic', sans-serif;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  position: relative;
 
-    text-align: left;
+  text-align: left;
 }
 
 .clear {
-    clear: both;
+  clear: both;
 }
 
 ul.sub-menu {
-    display: none;
+  display: none;
 }
 
 .shadow {
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
 }
 
 .hover_in {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .hover_in img {
-    transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .title.v1 {
-    color: #212121;
-    font-size: 34px;
-    font-weight: 900;
-    margin-bottom: 20px;
+  color: #212121;
+  font-size: 34px;
+  font-weight: 900;
+  margin-bottom: 20px;
 }
 
 .text {
-    color: #212121;
-    font-size: 20px;
-    font-weight: 400;
+  color: #212121;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .block_title,
 .text h2 {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .text h3 {
-    font-size: 23px;
-    font-weight: 500;
-    margin-bottom: 5px;
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .text.v2,
 .subscribe_block {
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .text.v2 h3,
 .subscribe_block h3 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 18px;
 }
 
 main {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 body.overlay:after {
-    background: rgba(65, 65, 65, 0.71);
-    content: "";
-    height: 100%;
-    left: 0;
-    min-height: 100vh;
-    position: absolute;
-    top: -3px;
-    width: 100%;
-    z-index: 1;
+  background: rgba(65, 65, 65, 0.71);
+  content: '';
+  height: 100%;
+  left: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: -3px;
+  width: 100%;
+  z-index: 1;
 }
 
 /********************CSS base - end*******************/
@@ -335,170 +335,170 @@ body.overlay:after {
 /********************header - start*******************/
 
 header {
-    position: relative;
+  position: relative;
 }
 
 .logo {
-    width: 176px;
+  width: 176px;
 }
 
 .eltop {
-    background: white;
-    position: relative;
-    z-index: 2;
+  background: white;
+  position: relative;
+  z-index: 2;
 }
 
 header nav .child {
-    background: #307ea1;
-    border-bottom-left-radius: 25px;
-    border-top-left-radius: 25px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    position: static;
+  background: #307ea1;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  position: static;
 }
 
 header nav .child a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 header nav .child .top_menu a {
-    display: block;
-    font-size: 13px;
-    font-weight: 400;
-    margin-right: 25px;
-    padding: 0 10px;
-    position: relative;
-    text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 25px;
+  padding: 0 10px;
+  position: relative;
+  text-transform: uppercase;
 }
 
 header nav .child .top_menu a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-header nav .child .top_menu a[target="_blank"]:before {
-    background: url(../images/target.svg) no-repeat center center;
-    content: "";
-    height: 9px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 9px;
+header nav .child .top_menu a[target='_blank']:before {
+  background: url(../images/target.svg) no-repeat center center;
+  content: '';
+  height: 9px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 9px;
 }
 
 header nav .main .main_menu > li > a {
-    border: 1px solid transparent;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: #212121;
-    display: block;
-    font-size: 20px;
-    font-weight: 600;
-    margin: 15px 0px 15px 15px;
-    padding: 2px 10px;
-    position: relative;
-    text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #212121;
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0px 15px 15px;
+  padding: 2px 10px;
+  position: relative;
+  text-decoration: none;
 }
 
 header nav .main .main_menu li.current-menu-item > a,
 header nav .main .main_menu li > a:hover {
-    color: #307ea1;
+  color: #307ea1;
 }
 
 header nav .main .main_menu > li > ul.sub-menu {
-    background: #f9f9f9;
-    display: flex;
-    padding: 45px 45px 35px 45px;
+  background: #f9f9f9;
+  display: flex;
+  padding: 45px 45px 35px 45px;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 header nav .main .main_menu ul.sub-menu ul.sub-menu {
-    display: block;
+  display: block;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li {
-    box-sizing: border-box;
-    display: inline-block;
-    padding: 0 20px;
-    text-align: left;
-    vertical-align: top;
-    width: 32%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 20px;
+  text-align: left;
+  vertical-align: top;
+  width: 32%;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li > a {
-    display: none !important;
+  display: none !important;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li a {
-    color: #000;
-    font-size: 16px;
-    font-weight: 400;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 header nav .main .main_menu > li > ul.sub-menu {
-    background: white;
-    border-bottom: 4px solid #307ea1;
-    display: none;
-    left: 0;
-    position: absolute;
-    top: 104px;
-    top: 94px;
-    width: 100%;
-    z-index: 5;
+  background: white;
+  border-bottom: 4px solid #307ea1;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 104px;
+  top: 94px;
+  width: 100%;
+  z-index: 5;
 }
 
 header nav .main .main_menu > li > ul.sub-menu:before {
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
-    content: "";
-    height: 3px;
-    left: 0;
-    position: absolute;
-    top: -3px;
-    width: 100%;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: -3px;
+  width: 100%;
 }
 
 section.page_img {
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 }
 
 section.page_img img {
-    display: block;
-    height: auto;
-    min-height: 200px;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
+  display: block;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
 }
 
 section.page_img .page_img-link {
-    bottom: 0;
-    box-sizing: border-box;
-    left: 0;
-    padding: 35px;
-    position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  padding: 35px;
+  position: absolute;
 }
 
 section.page_img .page_img-title {
-    background: #fff;
-    box-sizing: border-box;
-    color: #212121;
-    display: inline-block;
-    font-size: 34px;
-    font-weight: 900;
-    padding: 20px 25px;
+  background: #fff;
+  box-sizing: border-box;
+  color: #212121;
+  display: inline-block;
+  font-size: 34px;
+  font-weight: 900;
+  padding: 20px 25px;
 }
 
 .main_menu_burger {
-    display: none;
+  display: none;
 }
 
 /********************header - end*******************/
@@ -506,23 +506,23 @@ section.page_img .page_img-title {
 /********************footer - start*******************/
 
 footer {
-    background: #307ea1;
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-    padding-bottom: 40px;
-    padding-top: 40px;
+  background: #307ea1;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 footer h4 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
 footer a {
-    color: white !important;
+  color: white !important;
 }
 
 /********************footer - end*******************/
@@ -531,44 +531,44 @@ footer a {
 
 section.default,
 .news_list {
-    background: #fff;
-    padding: 45px 0;
+  background: #fff;
+  padding: 45px 0;
 }
 
 .NI_wrap {
-    background: white;
-    min-height: 100%;
+  background: white;
+  min-height: 100%;
 }
 
 .NI_details p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-    align-items: center;
-    color: #212121;
-    display: flex;
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 30px;
+  align-items: center;
+  color: #212121;
+  display: flex;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .subtitle a {
-    color: #212121;
-    text-decoration: none;
+  color: #212121;
+  text-decoration: none;
 }
 
 .subtitle a:hover {
-    color: #307ea1;
+  color: #307ea1;
 }
 
 .subtitle img {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .warn {
-    color: #e30420;
-    font-size: 16px;
+  color: #e30420;
+  font-size: 16px;
 }
 
 /********************home - end*******************/
@@ -576,566 +576,566 @@ section.default,
 /********************default - start*******************/
 
 h1.title {
-    align-items: center;
-    display: flex;
-    font-size: 30px;
-    font-weight: 600;
-    padding: 15px 0;
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 15px 0;
 }
 
 .title-icon {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .titleWrap {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 .default div.tableWrap {
-    overflow: auto;
-    width: 100%;
+  overflow: auto;
+  width: 100%;
 }
 
-.default input[type="button"] {
-    background: #fff;
-    border: 1px solid #307ea1;
-    border-radius: 3px;
-    color: #307ea1;
-    font-size: 12px;
-    font-weight: 400;
-    margin: 0 5px 5px 0;
-    padding: 8px 10px;
-    text-transform: uppercase;
+.default input[type='button'] {
+  background: #fff;
+  border: 1px solid #307ea1;
+  border-radius: 3px;
+  color: #307ea1;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 5px 5px 0;
+  padding: 8px 10px;
+  text-transform: uppercase;
 }
 
-.default input[type="button"]:hover {
-    background: #307ea1;
-    color: #fff;
-    cursor: pointer;
+.default input[type='button']:hover {
+  background: #307ea1;
+  color: #fff;
+  cursor: pointer;
 }
 
 table.table {
-    border: 1px solid #e7e7e7;
+  border: 1px solid #e7e7e7;
 }
 
 table.table th,
 table.table td {
-    font-size: 18px;
-    padding: 20px 25px;
+  font-size: 18px;
+  padding: 20px 25px;
 }
 
 table.table tr:first-child td.big-desc,
 table.table th {
-    background: white;
-    border-top: 1px solid #e7e7e7;
-    color: #000000;
-    font-weight: 600;
+  background: white;
+  border-top: 1px solid #e7e7e7;
+  color: #000000;
+  font-weight: 600;
 }
 
 table.table td {
-    border-top: 1px solid #e7e7e7;
-    color: #707070;
-    font-weight: 400;
+  border-top: 1px solid #e7e7e7;
+  color: #707070;
+  font-weight: 400;
 }
 
 table.table tr:hover {
-    background: rgba(231, 231, 231, 0.5);
+  background: rgba(231, 231, 231, 0.5);
 }
 
 /*table.table a {
 	color: #707070;
 }*/
 table.withTables {
-    background: white;
-    border: none;
-    width: 100%;
+  background: white;
+  border: none;
+  width: 100%;
 }
 
-form input[type="submit"] {
-    background: #307ea1;
-    border: 1px solid #307ea1;
-    border-radius: 3px;
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-    min-width: 212px;
-    padding: 13px 15px;
-    text-transform: uppercase;
+form input[type='submit'] {
+  background: #307ea1;
+  border: 1px solid #307ea1;
+  border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  min-width: 212px;
+  padding: 13px 15px;
+  text-transform: uppercase;
 }
 
-form input[type="submit"]:hover {
-    background: #fff;
-    color: #307ea1;
-    cursor: pointer;
+form input[type='submit']:hover {
+  background: #fff;
+  color: #307ea1;
+  cursor: pointer;
 }
 
 form .delete-btn {
-    background: #e30420 !important;
-    border: 1px solid #e30420 !important;
+  background: #e30420 !important;
+  border: 1px solid #e30420 !important;
 }
 
 form .delete-btn:hover {
-    background: #fff !important;
-    color: #e30420 !important;
+  background: #fff !important;
+  color: #e30420 !important;
 }
 
 form select {
-    padding-right: 56px !important;
+  padding-right: 56px !important;
 }
 
 form .selectWrap {
-    max-width: 100%;
-    position: relative;
+  max-width: 100%;
+  position: relative;
 }
 
 form .selectWrap:after {
-    border-color: #707070 transparent transparent transparent;
-    border-style: solid;
-    border-width: 8px 7px 0 7px;
-    content: "";
-    height: 0;
-    position: absolute;
-    right: 22px;
-    top: 24px;
-    width: 0;
+  border-color: #707070 transparent transparent transparent;
+  border-style: solid;
+  border-width: 8px 7px 0 7px;
+  content: '';
+  height: 0;
+  position: absolute;
+  right: 22px;
+  top: 24px;
+  width: 0;
 }
 
 /* Firefox */
-input[type="number"] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 form textarea,
-form input[type="email"],
-form input[type="number"],
-form input[type="tel"],
-form input[type="date"],
-form input[type="password"],
-form input[type="text"],
+form input[type='email'],
+form input[type='number'],
+form input[type='tel'],
+form input[type='date'],
+form input[type='password'],
+form input[type='text'],
 form select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: #d9d9d9;
-    border: none;
-    border-bottom: 1px solid #707070;
-    border-radius: 0;
-    color: #000;
-    font-size: 18px;
-    font-weight: 400;
-    height: 55px;
-    margin: 0;
-    max-width: 100%;
-    outline: none;
-    padding: 20px 20px 0 20px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #d9d9d9;
+  border: none;
+  border-bottom: 1px solid #707070;
+  border-radius: 0;
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+  height: 55px;
+  margin: 0;
+  max-width: 100%;
+  outline: none;
+  padding: 20px 20px 0 20px;
 }
 
 form select {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .form-group > .select.label {
-    color: #aaaaaa;
-    font-size: 16px;
-    margin: 6px 0 0 4px;
+  color: #aaaaaa;
+  font-size: 16px;
+  margin: 6px 0 0 4px;
 }
 
 .formSection .form-group {
-    margin-top: 16px;
-    position: relative;
+  margin-top: 16px;
+  position: relative;
 }
 
 .formSection .form-group .form-check-input {
-    opacity: 0;
+  opacity: 0;
 }
 
 .formSection .form-group .form-check-label {
-    color: #707070;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1;
-    padding: 0 0 0 27px;
+  color: #707070;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 0 0 27px;
 }
 
 .formSection .form-group .form-check-input:checked + .form-check-label {
-    color: #000000;
+  color: #000000;
 }
 
 .formSection
-    .form-group
-    .form-check-input[type="checkbox"]
-    + .form-check-label {
-    background: url(../images/checkbox.svg) no-repeat left center;
+.form-group
+.form-check-input[type='checkbox']
++ .form-check-label {
+  background: url(../images/checkbox.svg) no-repeat left center;
 }
 
 .formSection
-    .form-group
-    .form-check-input[type="checkbox"]:checked
-    + .form-check-label {
-    background-image: url(../images/checkboxActive.svg);
+.form-group
+.form-check-input[type='checkbox']:checked
++ .form-check-label {
+  background-image: url(../images/checkboxActive.svg);
 }
 
-.formSection .form-group .form-check-input[type="radio"] + .form-check-label {
-    background: url(../images/radio.svg) no-repeat left center;
+.formSection .form-group .form-check-input[type='radio'] + .form-check-label {
+  background: url(../images/radio.svg) no-repeat left center;
 }
 
 .formSection
-    .form-group
-    .form-check-input[type="radio"]:checked
-    + .form-check-label {
-    background-image: url(../images/radioActive.svg);
+.form-group
+.form-check-input[type='radio']:checked
++ .form-check-label {
+  background-image: url(../images/radioActive.svg);
 }
 
 .form-group.form-inline {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .form-group.form-inline .form-check:first-child {
-    justify-content: left;
-    width: 150px;
+  justify-content: left;
+  width: 150px;
 }
 
 .form-group.form-inline .form-check:not(:last-child) {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .form-group .form-check {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .formSection .form-group label.formGroupLabelStatic {
-    display: block;
+  display: block;
 }
 
 .formSection .form-group label.formGroupLabel {
-    color: #aaaaaa;
-    font-size: 18px;
-    font-weight: 400;
-    left: 18px;
-    line-height: 1;
-    position: absolute;
-    top: 20px;
-    transition: 0.3s all ease-in-out;
+  color: #aaaaaa;
+  font-size: 18px;
+  font-weight: 400;
+  left: 18px;
+  line-height: 1;
+  position: absolute;
+  top: 20px;
+  transition: 0.3s all ease-in-out;
 }
 
 .form-group .formSubtitle2,
 .formSection .formSubtitle2,
 .formSection .formSectionTitle .formSubtitle2 {
-    font-size: 19px;
-    font-weight: 600;
-    margin-bottom: 8px;
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .formSection .form-group .warn,
 .formSection .form-group .font-italic,
 .formSection .form-group .font-weight-normal {
-    color: #aaaaaa;
-    font-size: 16px;
-    margin: 6px 0 0 18px;
+  color: #aaaaaa;
+  font-size: 16px;
+  margin: 6px 0 0 18px;
 }
 
 .formSection h3.formSectionTitle .font-italic,
 .formSection h3.formSectionTitle .font-weight-normal,
 .formSection h3.formSectionTitle .font-italic .warn,
 .formSection h3.formSectionTitle .font-weight-normal .warn {
-    color: black;
+  color: black;
 }
 
 .formSection h3.formSectionTitle .warn,
 .formSection h3.formSectionTitle .font-italic,
 .formSection h3.formSectionTitle .font-weight-normal {
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .formSection
-    .form-group
-    textarea:not(:placeholder-shown)
-    + label.formGroupLabel,
+.form-group
+textarea:not(:placeholder-shown)
++ label.formGroupLabel,
 .formSection .form-group input:not(:placeholder-shown) + label.formGroupLabel,
 .formSection .form-group textarea:focus + label.formGroupLabel,
 .formSection .form-group input:focus + label.formGroupLabel {
-    font-size: 12px;
-    top: 7px;
+  font-size: 12px;
+  top: 7px;
 }
 
 .formSection
-    .form-group
-    textarea:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+textarea:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    textarea:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+textarea:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='email']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='email']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='number']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='number']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='tel']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='tel']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='date']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='date']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='password']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='password']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='text']:invalid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn {
-    color: #e30420;
+.form-group
+input[type='text']:invalid:not(:focus):not(:placeholder-shown)
++ label
++ .warn {
+  color: #e30420;
 }
 
 .formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='email']:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='number']:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='tel']:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="date"]:invalid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='date']:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='password']:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="text"]:invalid:not(:focus):not(:placeholder-shown) {
-    border-bottom-color: #e30420;
+.form-group
+input[type='text']:invalid:not(:focus):not(:placeholder-shown) {
+  border-bottom-color: #e30420;
 }
 
 .formSection
-    .form-group
-    textarea:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+textarea:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    textarea:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+textarea:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='email']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='email']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='number']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='number']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='tel']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='tel']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='date']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='date']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='password']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn,
+.form-group
+input[type='password']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn,
 .formSection
-    .form-group
-    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
-    + label,
+.form-group
+input[type='text']:valid:not(:focus):not(:placeholder-shown)
++ label,
 .formSection
-    .form-group
-    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
-    + label
-    + .warn {
-    color: #307ea1;
+.form-group
+input[type='text']:valid:not(:focus):not(:placeholder-shown)
++ label
++ .warn {
+  color: #307ea1;
 }
 
 .formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="email"]:valid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='email']:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="number"]:valid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='number']:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="tel"]:valid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='tel']:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="date"]:valid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='date']:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="password"]:valid:not(:focus):not(:placeholder-shown),
+.form-group
+input[type='password']:valid:not(:focus):not(:placeholder-shown),
 .formSection
-    .form-group
-    input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
-    border-bottom-color: #307ea1;
+.form-group
+input[type='text']:valid:not(:focus):not(:placeholder-shown) {
+  border-bottom-color: #307ea1;
 }
 
 .selectArrComponents {
-    top: 50px !important;
+  top: 50px !important;
 }
 
 .formSection .form-group .selectArr {
-    position: absolute;
-    right: 21px;
-    top: 24px;
+  position: absolute;
+  right: 21px;
+  top: 24px;
 }
 
 .formSection .form-group .selectArr.v2 {
-    right: 19px;
-    top: 16px;
+  right: 19px;
+  top: 16px;
 }
 
 .formSection .form-group textarea {
-    font-family: inherit;
-    height: 190px;
-    padding-top: 20px;
-    resize: none;
+  font-family: inherit;
+  height: 190px;
+  padding-top: 20px;
+  resize: none;
 }
 
 .formSection .form-group .custom-file {
-    font-family: inherit;
-    font-size: 18px;
+  font-family: inherit;
+  font-size: 18px;
 }
 
 .formSection .form-group textarea,
-.formSection .form-group input[type="email"],
-.formSection .form-group input[type="number"],
-.formSection .form-group input[type="tel"],
-.formSection .form-group input[type="date"],
-.formSection .form-group input[type="password"],
-.formSection .form-group input[type="text"],
+.formSection .form-group input[type='email'],
+.formSection .form-group input[type='number'],
+.formSection .form-group input[type='tel'],
+.formSection .form-group input[type='date'],
+.formSection .form-group input[type='password'],
+.formSection .form-group input[type='text'],
 .formSection .form-group select {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .formSection .form-group .formSubtitle2 .font-weight-normal {
-    margin: 6px 0 6px 0;
+  margin: 6px 0 6px 0;
 }
 
 .formSection h3.formSectionTitle {
-    color: #000000;
-    font-size: 25px;
-    /*font-weight: 600;*/
-    margin-bottom: 16px;
-    margin-top: 25px;
+  color: #000000;
+  font-size: 25px;
+  /*font-weight: 600;*/
+  margin-bottom: 16px;
+  margin-top: 25px;
 }
 
 .formSection:first-child h3.formSectionTitle {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .noteWrap {
-    border: 1px solid #dadada;
-    border-radius: 3px;
-    box-sizing: border-box;
-    color: #212121;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 26px;
-    margin-bottom: 25px;
-    padding: 24px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #212121;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 25px;
+  padding: 24px;
 }
 
 .noteTitle {
-    color: #212121;
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 15px;
+  color: #212121;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 form a.resetPassword-link {
-    font-size: 16px;
-    margin: 9px 0 0 10px;
+  font-size: 16px;
+  margin: 9px 0 0 10px;
 }
 
 .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 /* No Arrows/Icons for Number- and Date-Input Field */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
-input[type="number"] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    -webkit-appearance: none;
-    display: none;
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
 }
 
 /********************default - end*******************/
