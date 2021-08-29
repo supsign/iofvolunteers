@@ -760,16 +760,12 @@ form select {
     color: #000000;
 }
 
-.formSection
-.form-group
-.form-check-input[type='checkbox']
+.formSection .form-group .form-check-input[type='checkbox']
 + .form-check-label {
     background: url(../images/checkbox.svg) no-repeat left center;
 }
 
-.formSection
-.form-group
-.form-check-input[type='checkbox']:checked
+.formSection .form-group .form-check-input[type='checkbox']:checked
 + .form-check-label {
     background-image: url(../images/checkboxActive.svg);
 }
@@ -778,10 +774,7 @@ form select {
     background: url(../images/radio.svg) no-repeat left center;
 }
 
-.formSection
-.form-group
-.form-check-input[type='radio']:checked
-+ .form-check-label {
+.formSection .form-group .form-check-input[type='radio']:checked + .form-check-label {
     background-image: url(../images/radioActive.svg);
 }
 
@@ -859,69 +852,20 @@ textarea:not(:placeholder-shown)
     top: 7px;
 }
 
-.formSection
-.form-group
-textarea:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-textarea:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='email']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='email']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='number']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='number']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='tel']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='tel']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='date']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='date']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='password']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='password']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
-.formSection
-.form-group
-input[type='text']:invalid:not(:focus):not(:placeholder-shown)
-+ label,
-.formSection
-.form-group
-input[type='text']:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn {
+.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='number']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='number']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='date']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='date']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='password']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='password']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
+.formSection .form-group input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label,
+.formSection .form-group input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label + .warn {
     color: #e30420;
 }
 

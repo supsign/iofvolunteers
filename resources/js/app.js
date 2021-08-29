@@ -1,15 +1,7 @@
 require("./bootstrap");
 require("./datepicker.min");
 $.fn.datepicker.language["en"] = {
-    days: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ],
+    days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",],
     daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     months: [
@@ -48,7 +40,7 @@ $.fn.datepicker.language["en"] = {
 };
 require("./main");
 require("./contactVoluteer");
-import { flare } from "@flareapp/flare-client";
+import {flare} from "@flareapp/flare-client";
 
 // only launch in production, we don't want to waste your quota while you're developing.
 if (process.env.NODE_ENV === "production") {
