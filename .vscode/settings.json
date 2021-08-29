@@ -1,63 +1,63 @@
 {
-  "editor.formatOnSave": true,
-  "git.confirmSync": false,
-  "git.autofetch": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "php.memoryLimit": "",
-  // "php.suggest.basic": false,
+    "editor.formatOnSave": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "php.memoryLimit": "",
+    // "php.suggest.basic": false,
 
-  "php-cs-fixer.lastDownload": 1604926011629,
-  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.rules": "@PSR2",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[php]": {
-    "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  },
-  "[blade]": {
-    "editor.defaultFormatter": "apility.beautify-blade"
-  },
-  "[ts]": {
-    "editor.defaultFormatter": "prettier"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "beautify.ignore": "./resources/views/mail/*.blade.php",
-  "editor.renderControlCharacters": false,
-  "editor.renderWhitespace": "none",
-  "editor.fontSize": 16,
-  "emmet.excludeLanguages": ["markdown"],
-  "emmet.includeLanguages": {
-    "blade": "html"
-  },
-  "beautify.language": {
-    "html": ["blade"]
-  },
-  "css.validate": false,
-  // Disable css built-in lint
-  "stylelint.enable": true,
-  // Enable sytlelint
+    "php-cs-fixer.lastDownload": 1604926011629,
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.rules": "@PSR2",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    "[blade]": {
+        "editor.defaultFormatter": "apility.beautify-blade"
+    },
+    "[ts]": {
+        "editor.defaultFormatter": "prettier"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "beautify.ignore": "./resources/views/mail/*.blade.php",
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "none",
+    "editor.fontSize": 16,
+    "emmet.excludeLanguages": ["markdown"],
+    "emmet.includeLanguages": {
+        "blade": "html"
+    },
+    "beautify.language": {
+        "html": ["blade"]
+    },
+    "css.validate": false,
+    // Disable css built-in lint
+    "stylelint.enable": true,
+    // Enable sytlelint
 
-  "css.lint.compatibleVendorPrefixes": "warning",
-  "css.lint.duplicateProperties": "error",
-  "css.lint.float": "warning",
-  "html.format.indentHandlebars": true,
-  "html.format.indentInnerHtml": true,
-  "html.format.wrapAttributes": "preserve-aligned",
-  "html.format.wrapLineLength": 250,
-  "html-css-class-completion.enableEmmetSupport": true,
-  "prettier.jsxBracketSameLine": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "window.zoomLevel": 0,
-  "intelephense.files.associations": ["*.php", "*.phtml"],
-  "blade.format.enable": true,
-  "editor.formatOnType": true,
-  "explorer.confirmDelete": false,
-  "atlascode.bitbucket.issues.createJiraEnabled": true,
-  "atlascode.helpExplorerEnabled": false,
-  "gitlens.defaultDateFormat": "DD.MM.YYYY, HH:MM",
-  "gitlens.defaultDateShortFormat": "DD.MM.YYYY",
-  "editor.formatOnPaste": true
-  // if you would like to enable blade format
+    "css.lint.compatibleVendorPrefixes": "warning",
+    "css.lint.duplicateProperties": "error",
+    "css.lint.float": "warning",
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.wrapAttributes": "preserve-aligned",
+    "html.format.wrapLineLength": 250,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "window.zoomLevel": 0,
+    "intelephense.files.associations": ["*.php", "*.phtml"],
+    "blade.format.enable": true,
+    "editor.formatOnType": true,
+    "explorer.confirmDelete": false,
+    "atlascode.bitbucket.issues.createJiraEnabled": true,
+    "atlascode.helpExplorerEnabled": false,
+    "gitlens.defaultDateFormat": "DD.MM.YYYY, HH:MM",
+    "gitlens.defaultDateShortFormat": "DD.MM.YYYY",
+    "editor.formatOnPaste": true
+    // if you would like to enable blade format
 }

@@ -88,22 +88,22 @@
                                 <div class="warn">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input
-                                name="ol_duration"
-                                value="{{ $volunteer->ol_duration }}"
-                                label="Year you started orienteering (yyyy) *"
-                                type="number" class="datepicker-here"
-                                data-language="en"
-                                data-date-format="yyyy"
-                                data-view="years"
-                                data-min-view="years"
-                                placeholder=" "
-                                required
-                                :iconName="'calendarIcon'"/>
+                                    name="ol_duration"
+                                    value="{{ $volunteer->ol_duration }}"
+                                    label="Year you started orienteering (yyyy) *"
+                                    type="number" class="datepicker-here"
+                                    data-language="en"
+                                    data-date-format="yyyy"
+                                    data-view="years"
+                                    data-min-view="years"
+                                    placeholder=" "
+                                    required
+                                    :iconName="'calendarIcon'"/>
                             <x-base.input
-                                name="club"
-                                value="{{ $volunteer->club }}"
-                                label="Your present club (if any)"
-                                type="text"/>
+                                    name="club"
+                                    value="{{ $volunteer->club }}"
+                                    label="Your present club (if any)"
+                                    type="text"/>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
                                           label="Experiences with local Events (number)" type="number" size="3" min="0"

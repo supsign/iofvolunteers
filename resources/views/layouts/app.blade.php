@@ -2,7 +2,7 @@
     $countries = App\Models\Country::all()
 @endphp
 
-    <!doctype html>
+        <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -296,7 +296,7 @@
                             <p class="big-desc">All fields are required!</p>
                             <div class="form-group row desc">
                                 <label class="col-3 col-form-label col-form-label-sm" for="firstname">Firstname<span
-                                        class="warn-title">*</span>: </label>
+                                            class="warn-title">*</span>: </label>
                                 <div class="col-9">
                                     <input id="firstname" class="form-control form-control-sm" type="text"
                                            name="firstname" size="20"
@@ -305,7 +305,7 @@
                             </div>
                             <div class="form-group row desc">
                                 <label class="col-3 col-form-label col-form-label-sm" for="lastname">Lastname<span
-                                        class="warn-title">*</span>: </label>
+                                            class="warn-title">*</span>: </label>
                                 <div class="col-9">
                                     <input id="lastname" class="form-control form-control-sm" type="text"
                                            name="lastname" size="20"
@@ -314,7 +314,7 @@
                             </div>
                             <div class="form-group row desc">
                                 <label class="col-3 col-form-label col-form-label-sm" for="name">E-mail<span
-                                        class="warn-title">*</span>: </label>
+                                            class="warn-title">*</span>: </label>
                                 <div class="col-9">
                                     <input id="email" class="form-control form-control-sm" type="text" name="email"
                                            size="20"
@@ -323,7 +323,7 @@
                             </div>
                             <div class="form-group row desc">
                                 <label class="col-3 col-form-label col-form-label-sm" for="name">Password<span
-                                        class="warn-title">*</span>: </label>
+                                            class="warn-title">*</span>: </label>
                                 <div class="col-9">
                                     <input id="password" class="form-control form-control-sm" type="password"
                                            name="password"
