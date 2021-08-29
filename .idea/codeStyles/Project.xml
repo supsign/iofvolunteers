@@ -30,9 +30,6 @@
       <option name="ENABLED" value="false" />
     </editorconfig>
     <codeStyleSettings language="CSS">
-      <indentOptions>
-        <option name="INDENT_SIZE" value="2" />
-      </indentOptions>
       <arrangement>
         <rules>
           <section>

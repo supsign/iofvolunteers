@@ -4,84 +4,84 @@ h3,
 h4,
 h5,
 label {
-  color: #376fa6;
+    color: #376fa6;
 }
 
 .desc {
-  color: #376fa6;
-  font-family: Verdana, Times, serif;
-  font-size: small;
+    color: #376fa6;
+    font-family: Verdana, Times, serif;
+    font-size: small;
 }
 
 .black-desc {
-  color: #000000;
-  font-family: Verdana, Times, serif;
-  font-size: small;
+    color: #000000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
 }
 
 .big-desc {
-  color: #376fa6;
-  font-family: Verdana, Times, serif;
-  font-size: small;
-  font-weight: bold;
+    color: #376fa6;
+    font-family: Verdana, Times, serif;
+    font-size: small;
+    font-weight: bold;
 }
 
 .maincol {
-  color: #bc0000;
-  font-family: Verdana, Times, serif;
-  font-size: small;
+    color: #bc0000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
 }
 
 .title {
-  color: #376fa6;
-  font-family: Verdana, Times, serif;
-  font-size: medium;
-  font-weight: bold;
+    color: #376fa6;
+    font-family: Verdana, Times, serif;
+    font-size: medium;
+    font-weight: bold;
 }
 
 .value {
-  color: #376fa6;
-  font-family: Verdana, Times, serif;
+    color: #376fa6;
+    font-family: Verdana, Times, serif;
 }
 
 .warn {
-  color: #b30000;
-  font-family: Verdana, Times, serif;
-  font-size: x-small;
+    color: #b30000;
+    font-family: Verdana, Times, serif;
+    font-size: x-small;
 }
 
 .warn-title {
-  color: #b30000;
-  font-family: Verdana, Times, serif;
-  font-size: small;
+    color: #b30000;
+    font-family: Verdana, Times, serif;
+    font-size: small;
 }
 
 .smradio {
-  color: #376fa6;
-  font-family: Verdana, Times, serif;
-  font-size: x-small;
+    color: #376fa6;
+    font-family: Verdana, Times, serif;
+    font-size: x-small;
 }
 
 a.main {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .custom-button {
-  background-color: #1d8eac;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Verdana, serif;
-  font-size: 30px;
-  font-weight: 100;
-  padding: 10px;
-  text-decoration: none;
+    background-color: #1d8eac;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Verdana, serif;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 10px;
+    text-decoration: none;
 }
 
 .custom-button:hover {
-  background: #78cae2;
-  text-decoration: none;
+    background: #78cae2;
+    text-decoration: none;
 }
