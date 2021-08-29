@@ -10,14 +10,13 @@
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  */
 
-
 namespace App\Models {
 
     use Eloquent;
     use Illuminate\Database\Eloquent\Builder;
 
     /**
-     * App\Models\BaseModel
+     * App\Models\BaseModel.
      *
      * @property-read array|string $snake_case_name
      * @method static Builder|BaseModel newModelQuery()
@@ -37,7 +36,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Contact
+     * App\Models\Contact.
      *
      * @property int $id
      * @property Carbon|null $created_at
@@ -63,7 +62,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Continent
+     * App\Models\Continent.
      *
      * @property int $id
      * @property string $name
@@ -93,7 +92,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Country
+     * App\Models\Country.
      *
      * @property int $id
      * @property int|null $continent_id
@@ -125,7 +124,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Discipline
+     * App\Models\Discipline.
      *
      * @property int $id
      * @property string $name
@@ -155,7 +154,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Duty
+     * App\Models\Duty.
      *
      * @property int $id
      * @property string $name
@@ -183,7 +182,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\DutyModel
+     * App\Models\DutyModel.
      *
      * @property int $id
      * @property int $duty_id
@@ -219,7 +218,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\DutyType
+     * App\Models\DutyType.
      *
      * @property int $id
      * @property string $name
@@ -247,7 +246,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Experience
+     * App\Models\Experience.
      *
      * @property int $id
      * @property string $value
@@ -283,7 +282,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Gender
+     * App\Models\Gender.
      *
      * @property int $id
      * @property string $name
@@ -315,7 +314,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Guest
+     * App\Models\Guest.
      *
      * @property int $id
      * @property int|null $gender_id
@@ -348,7 +347,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Host
+     * App\Models\Host.
      *
      * @property int $id
      * @property int|null $user_id
@@ -379,7 +378,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Language
+     * App\Models\Language.
      *
      * @property int $id
      * @property string $name
@@ -409,7 +408,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\LanguageModel
+     * App\Models\LanguageModel.
      *
      * @property int $id
      * @property int $language_id
@@ -447,7 +446,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\LanguageProficiency
+     * App\Models\LanguageProficiency.
      *
      * @property int $id
      * @property string $name
@@ -476,7 +475,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Project
+     * App\Models\Project.
      *
      * @property int $id
      * @property int|null $gender_id
@@ -545,7 +544,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\ProjectOffer
+     * App\Models\ProjectOffer.
      *
      * @property int $id
      * @property string $name
@@ -575,7 +574,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\ProjectProjectOffer
+     * App\Models\ProjectProjectOffer.
      *
      * @property int $id
      * @property int $project_id
@@ -608,7 +607,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\ProjectStatus
+     * App\Models\ProjectStatus.
      *
      * @property int $id
      * @property string $name
@@ -638,7 +637,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Skill
+     * App\Models\Skill.
      *
      * @property int $id
      * @property string $name
@@ -670,7 +669,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\SkillType
+     * App\Models\SkillType.
      *
      * @property int $id
      * @property string $name
@@ -709,7 +708,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\User
+     * App\Models\User.
      *
      * @property int $id
      * @property string $firstname
@@ -759,7 +758,7 @@ namespace App\Models {
     use Illuminate\Support\Carbon;
 
     /**
-     * App\Models\Volunteer
+     * App\Models\Volunteer.
      *
      * @property int $id
      * @property int|null $gender_id
@@ -850,4 +849,3 @@ namespace App\Models {
     {
     }
 }
-

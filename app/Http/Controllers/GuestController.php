@@ -15,12 +15,14 @@ class GuestController extends Controller
     public function registerForm()
     {
         return (new HomeController())->underConstruction();
+
         return view('guest.register', ['countries' => Country::all()]);
     }
 
     public function searchForm()
     {
         return (new HomeController())->underConstruction();
+
         return view('guest.search');
     }
 

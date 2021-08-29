@@ -13,7 +13,6 @@ class Checkbox extends Component
      *
      * @return void
      */
-
     public function __construct(public bool $checked = false)
     {
     }

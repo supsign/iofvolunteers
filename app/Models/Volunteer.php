@@ -45,7 +45,6 @@ class Volunteer extends BaseModel
         return $this->belongsTo(Country::class);
     }
 
-
     public function gender(): BelongsTo
     {
         return $this->belongsTo(Gender::class);

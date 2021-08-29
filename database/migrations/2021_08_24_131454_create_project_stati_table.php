@@ -21,7 +21,7 @@ class CreateProjectStatiTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => ProjectStatusSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::table('projects', function (Blueprint $table) {

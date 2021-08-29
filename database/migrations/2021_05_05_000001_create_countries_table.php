@@ -23,7 +23,7 @@ class CreateCountriesTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => CountrySeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

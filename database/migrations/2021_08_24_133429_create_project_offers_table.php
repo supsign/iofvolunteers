@@ -21,7 +21,7 @@ class CreateProjectOffersTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => ProjectOfferSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('project_project_offer', function (Blueprint $table) {

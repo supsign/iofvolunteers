@@ -14,8 +14,8 @@ class UserSeeder extends Seeder
             'lastname' => 'Ratz',
             'email' => 'florian.ratz@supsign.ch',
             'email_verified_at' => null,
-            'password' => '$2y$10$e8Sf1lEeD1MKpj0naOX4/uN0uSUhH2gUohU7vUfLqU7NhHqx0qxxK'
-        ]
+            'password' => '$2y$10$e8Sf1lEeD1MKpj0naOX4/uN0uSUhH2gUohU7vUfLqU7NhHqx0qxxK',
+        ],
     ];
 
     /**
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $entry) {
-            $data = array();
+            $data = [];
 
             foreach ($entry as $key => $value) {
                 switch ($key) {

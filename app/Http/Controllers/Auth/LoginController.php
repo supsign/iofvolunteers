@@ -45,7 +45,7 @@ class LoginController extends Controller
     {
         Alert::error('Login failed', [trans('auth.failed')]);
         throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')]
+            $this->username() => [trans('auth.failed')],
         ]);
     }
 }
