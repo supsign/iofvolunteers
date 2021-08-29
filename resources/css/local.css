@@ -67,18 +67,18 @@ a.main {
 }
 
 .custom-button {
-    -webkit-border-radius: 0px;
+    background-color: #1d8eac;
     -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
     border-radius: 0px;
     color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
     font-family: Verdana, serif;
     font-size: 30px;
     font-weight: 100;
     padding: 10px;
-    background-color: #1d8eac;
     text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
 }
 
 .custom-button:hover {

@@ -78,13 +78,13 @@ thead,
 tr,
 th,
 td {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
     background: transparent;
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
 
 ol,
@@ -111,14 +111,14 @@ table {
 }
 
 table.vertical tbody tr > td:first-child > * {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
     display: inline-block;
     position: relative;
     top: 50px;
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 h1,
@@ -177,8 +177,8 @@ p:last-child {
 }
 
 img {
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
 }
 
 a img {
@@ -186,17 +186,17 @@ a img {
 }
 
 .text ul {
-    list-style: none;
-    padding-left: 0px;
-    margin-bottom: 15px;
     font-size: 18px;
+    list-style: none;
+    margin-bottom: 15px;
+    padding-left: 0px;
 }
 
 .text ol {
-    margin: 0;
-    padding-left: 0px;
-    margin-bottom: 15px;
     font-size: 18px;
+    margin: 0;
+    margin-bottom: 15px;
+    padding-left: 0px;
 }
 
 .text > ol,
@@ -222,8 +222,8 @@ a img {
 }
 
 .text ul > li {
-    padding-left: 20px;
     background: url(../images/li_bg.svg) no-repeat left 0px top 7px;
+    padding-left: 20px;
 }
 
 .hidden_block {
@@ -238,19 +238,19 @@ html {
 }
 
 body {
-    position: relative;
-    min-height: 100%;
-    font-size: 20px;
-    font-family: "Franklin Gothic", sans-serif;
     background: #fff;
     color: #212121;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    line-height: 1.3;
-    font-weight: 400;
-
+    font-family: "Franklin Gothic", sans-serif;
+    font-size: 20px;
     -webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+
+    text-align: left;
 }
 
 .clear {
@@ -274,8 +274,8 @@ ul.sub-menu {
 }
 
 .title.v1 {
-    font-size: 34px;
     color: #212121;
+    font-size: 34px;
     font-weight: 900;
     margin-bottom: 20px;
 }
@@ -319,14 +319,14 @@ main {
 }
 
 body.overlay:after {
+    background: rgba(65, 65, 65, 0.71);
     content: "";
-    position: absolute;
+    height: 100%;
     left: 0;
+    min-height: 100vh;
+    position: absolute;
     top: -3px;
     width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    background: rgba(65, 65, 65, 0.71);
     z-index: 1;
 }
 
@@ -343,17 +343,17 @@ header {
 }
 
 .eltop {
+    background: white;
     position: relative;
     z-index: 2;
-    background: white;
 }
 
 header nav .child {
     background: #307ea1;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     position: static;
 }
 
@@ -363,13 +363,13 @@ header nav .child a {
 }
 
 header nav .child .top_menu a {
-    font-size: 13px;
-    text-transform: uppercase;
-    font-weight: 400;
     display: block;
-    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 400;
     margin-right: 25px;
+    padding: 0 10px;
     position: relative;
+    text-transform: uppercase;
 }
 
 header nav .child .top_menu a:hover {
@@ -377,25 +377,25 @@ header nav .child .top_menu a:hover {
 }
 
 header nav .child .top_menu a[target="_blank"]:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 9px;
-    height: 9px;
     background: url(../images/target.svg) no-repeat center center;
+    content: "";
+    height: 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 9px;
 }
 
 header nav .main .main_menu > li > a {
-    font-size: 20px;
-    font-weight: 600;
-    display: block;
-    color: #212121;
-    margin: 15px 0px 15px 15px;
-    padding: 2px 10px;
-    box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 4px;
+    box-sizing: border-box;
+    color: #212121;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0px 15px 15px;
+    padding: 2px 10px;
     position: relative;
     text-decoration: none;
 }
@@ -407,8 +407,8 @@ header nav .main .main_menu li > a:hover {
 
 header nav .main .main_menu > li > ul.sub-menu {
     background: #f9f9f9;
-    padding: 45px 45px 35px 45px;
     display: flex;
+    padding: 45px 45px 35px 45px;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li {
@@ -420,12 +420,12 @@ header nav .main .main_menu ul.sub-menu ul.sub-menu {
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li {
-    width: 32%;
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
     box-sizing: border-box;
+    display: inline-block;
     padding: 0 20px;
+    text-align: left;
+    vertical-align: top;
+    width: 32%;
 }
 
 header nav .main .main_menu > li > ul.sub-menu > li > a {
@@ -444,57 +444,57 @@ header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
 }
 
 header nav .main .main_menu > li > ul.sub-menu {
+    background: white;
+    border-bottom: 4px solid #307ea1;
     display: none;
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 104px;
     top: 94px;
-    background: white;
     width: 100%;
     z-index: 5;
-    border-bottom: 4px solid #307ea1;
 }
 
 header nav .main .main_menu > li > ul.sub-menu:before {
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
     content: "";
-    position: absolute;
+    height: 3px;
     left: 0;
+    position: absolute;
     top: -3px;
     width: 100%;
-    height: 3px;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
 }
 
 section.page_img {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 section.page_img img {
     display: block;
+    height: auto;
+    min-height: 200px;
     object-fit: cover;
     object-position: center center;
     width: 100%;
-    height: auto;
-    min-height: 200px;
 }
 
 section.page_img .page_img-link {
-    padding: 35px;
-    box-sizing: border-box;
-    position: absolute;
-    left: 0;
     bottom: 0;
+    box-sizing: border-box;
+    left: 0;
+    padding: 35px;
+    position: absolute;
 }
 
 section.page_img .page_img-title {
-    display: inline-block;
-    padding: 20px 25px;
-    box-sizing: border-box;
     background: #fff;
+    box-sizing: border-box;
+    color: #212121;
+    display: inline-block;
     font-size: 34px;
     font-weight: 900;
-    color: #212121;
+    padding: 20px 25px;
 }
 
 .main_menu_burger {
@@ -507,18 +507,18 @@ section.page_img .page_img-title {
 
 footer {
     background: #307ea1;
-    padding-top: 40px;
-    padding-bottom: 40px;
     color: white;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
+    padding-bottom: 40px;
+    padding-top: 40px;
 }
 
 footer h4 {
-    margin-bottom: 15px;
     font-size: 18px;
     font-weight: 500;
+    margin-bottom: 15px;
 }
 
 footer a {
@@ -531,8 +531,8 @@ footer a {
 
 section.default,
 .news_list {
-    padding: 45px 0;
     background: #fff;
+    padding: 45px 0;
 }
 
 .NI_wrap {
@@ -545,12 +545,12 @@ section.default,
 }
 
 .subtitle {
+    align-items: center;
+    color: #212121;
+    display: flex;
     font-size: 30px;
     font-weight: 600;
-    color: #212121;
     margin-bottom: 30px;
-    display: flex;
-    align-items: center;
 }
 
 .subtitle a {
@@ -576,11 +576,11 @@ section.default,
 /********************default - start*******************/
 
 h1.title {
-    padding: 15px 0;
-    display: flex;
     align-items: center;
+    display: flex;
     font-size: 30px;
     font-weight: 600;
+    padding: 15px 0;
 }
 
 .title-icon {
@@ -598,14 +598,14 @@ h1.title {
 
 .default input[type="button"] {
     background: #fff;
-    color: #307ea1;
     border: 1px solid #307ea1;
+    border-radius: 3px;
+    color: #307ea1;
     font-size: 12px;
     font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 3px;
-    text-transform: uppercase;
     margin: 0 5px 5px 0;
+    padding: 8px 10px;
+    text-transform: uppercase;
 }
 
 .default input[type="button"]:hover {
@@ -620,22 +620,22 @@ table.table {
 
 table.table th,
 table.table td {
-    padding: 20px 25px;
     font-size: 18px;
+    padding: 20px 25px;
 }
 
 table.table tr:first-child td.big-desc,
 table.table th {
-    border-top: 1px solid #e7e7e7;
-    font-weight: 600;
-    color: #000000;
     background: white;
+    border-top: 1px solid #e7e7e7;
+    color: #000000;
+    font-weight: 600;
 }
 
 table.table td {
+    border-top: 1px solid #e7e7e7;
     color: #707070;
     font-weight: 400;
-    border-top: 1px solid #e7e7e7;
 }
 
 table.table tr:hover {
@@ -646,20 +646,20 @@ table.table tr:hover {
 	color: #707070;
 }*/
 table.withTables {
+    background: white;
     border: none;
     width: 100%;
-    background: white;
 }
 
 form input[type="submit"] {
     background: #307ea1;
-    color: white;
     border: 1px solid #307ea1;
+    border-radius: 3px;
+    color: white;
     font-size: 16px;
     font-weight: 400;
-    padding: 13px 15px;
     min-width: 212px;
-    border-radius: 3px;
+    padding: 13px 15px;
     text-transform: uppercase;
 }
 
@@ -675,8 +675,8 @@ form .delete-btn {
 }
 
 form .delete-btn:hover {
-    color: #e30420 !important;
     background: #fff !important;
+    color: #e30420 !important;
 }
 
 form select {
@@ -684,20 +684,20 @@ form select {
 }
 
 form .selectWrap {
-    position: relative;
     max-width: 100%;
+    position: relative;
 }
 
 form .selectWrap:after {
-    content: "";
-    width: 0;
-    height: 0;
+    border-color: #707070 transparent transparent transparent;
     border-style: solid;
     border-width: 8px 7px 0 7px;
-    border-color: #707070 transparent transparent transparent;
+    content: "";
+    height: 0;
     position: absolute;
-    top: 24px;
     right: 22px;
+    top: 24px;
+    width: 0;
 }
 
 /* Firefox */
@@ -713,20 +713,20 @@ form input[type="date"],
 form input[type="password"],
 form input[type="text"],
 form select {
-    height: 55px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #d9d9d9;
     border: none;
     border-bottom: 1px solid #707070;
-    background: #d9d9d9;
-    padding: 20px 20px 0 20px;
-    outline: none;
     border-radius: 0;
-    margin: 0;
+    color: #000;
     font-size: 18px;
     font-weight: 400;
-    color: #000;
+    height: 55px;
+    margin: 0;
     max-width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    outline: none;
+    padding: 20px 20px 0 20px;
 }
 
 form select {
@@ -734,14 +734,14 @@ form select {
 }
 
 .form-group > .select.label {
-    font-size: 16px;
     color: #aaaaaa;
+    font-size: 16px;
     margin: 6px 0 0 4px;
 }
 
 .formSection .form-group {
-    position: relative;
     margin-top: 16px;
+    position: relative;
 }
 
 .formSection .form-group .form-check-input {
@@ -749,11 +749,11 @@ form select {
 }
 
 .formSection .form-group .form-check-label {
-    padding: 0 0 0 27px;
     color: #707070;
     font-size: 18px;
     font-weight: 400;
     line-height: 1;
+    padding: 0 0 0 27px;
 }
 
 .formSection .form-group .form-check-input:checked + .form-check-label {
@@ -761,16 +761,16 @@ form select {
 }
 
 .formSection
-.form-group
-.form-check-input[type="checkbox"]
-+ .form-check-label {
+    .form-group
+    .form-check-input[type="checkbox"]
+    + .form-check-label {
     background: url(../images/checkbox.svg) no-repeat left center;
 }
 
 .formSection
-.form-group
-.form-check-input[type="checkbox"]:checked
-+ .form-check-label {
+    .form-group
+    .form-check-input[type="checkbox"]:checked
+    + .form-check-label {
     background-image: url(../images/checkboxActive.svg);
 }
 
@@ -779,9 +779,9 @@ form select {
 }
 
 .formSection
-.form-group
-.form-check-input[type="radio"]:checked
-+ .form-check-label {
+    .form-group
+    .form-check-input[type="radio"]:checked
+    + .form-check-label {
     background-image: url(../images/radioActive.svg);
 }
 
@@ -790,8 +790,8 @@ form select {
 }
 
 .form-group.form-inline .form-check:first-child {
-    width: 150px;
     justify-content: left;
+    width: 150px;
 }
 
 .form-group.form-inline .form-check:not(:last-child) {
@@ -807,29 +807,29 @@ form select {
 }
 
 .formSection .form-group label.formGroupLabel {
-    position: absolute;
-    transition: 0.3s all ease-in-out;
-    left: 18px;
-    top: 20px;
+    color: #aaaaaa;
     font-size: 18px;
     font-weight: 400;
+    left: 18px;
     line-height: 1;
-    color: #aaaaaa;
+    position: absolute;
+    top: 20px;
+    transition: 0.3s all ease-in-out;
 }
 
 .form-group .formSubtitle2,
 .formSection .formSubtitle2,
 .formSection .formSectionTitle .formSubtitle2 {
-    font-weight: 600;
     font-size: 19px;
+    font-weight: 600;
     margin-bottom: 8px;
 }
 
 .formSection .form-group .warn,
 .formSection .form-group .font-italic,
 .formSection .form-group .font-weight-normal {
-    font-size: 16px;
     color: #aaaaaa;
+    font-size: 16px;
     margin: 6px 0 0 18px;
 }
 
@@ -843,15 +843,15 @@ form select {
 .formSection h3.formSectionTitle .warn,
 .formSection h3.formSectionTitle .font-italic,
 .formSection h3.formSectionTitle .font-weight-normal {
-    margin: 0;
     font-size: 16px;
     font-weight: 400;
+    margin: 0;
 }
 
 .formSection
-.form-group
-textarea:not(:placeholder-shown)
-+ label.formGroupLabel,
+    .form-group
+    textarea:not(:placeholder-shown)
+    + label.formGroupLabel,
 .formSection .form-group input:not(:placeholder-shown) + label.formGroupLabel,
 .formSection .form-group textarea:focus + label.formGroupLabel,
 .formSection .form-group input:focus + label.formGroupLabel {
@@ -860,178 +860,178 @@ textarea:not(:placeholder-shown)
 }
 
 .formSection
-.form-group
-textarea:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    textarea:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-textarea:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    textarea:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn {
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn {
     color: #e30420;
 }
 
 .formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="tel"]:invalid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="date"]:invalid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown) {
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown) {
     border-bottom-color: #e30420;
 }
 
 .formSection
-.form-group
-textarea:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    textarea:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-textarea:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    textarea:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="email"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="email"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="number"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="number"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="date"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="date"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="password"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="password"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn,
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
 .formSection
-.form-group
-input[type="text"]:valid:not(:focus):not(:placeholder-shown)
-+ label,
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
 .formSection
-.form-group
-input[type="text"]:valid:not(:focus):not(:placeholder-shown)
-+ label
-+ .warn {
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn {
     color: #307ea1;
 }
 
 .formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="email"]:valid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="number"]:valid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="tel"]:valid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="date"]:valid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="password"]:valid:not(:focus):not(:placeholder-shown),
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown),
 .formSection
-.form-group
-input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
     border-bottom-color: #307ea1;
 }
 
@@ -1051,10 +1051,10 @@ input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
 }
 
 .formSection .form-group textarea {
-    height: 190px;
-    resize: none;
     font-family: inherit;
+    height: 190px;
     padding-top: 20px;
+    resize: none;
 }
 
 .formSection .form-group .custom-file {
@@ -1081,8 +1081,8 @@ input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
     color: #000000;
     font-size: 25px;
     /*font-weight: 600;*/
-    margin-top: 25px;
     margin-bottom: 16px;
+    margin-top: 25px;
 }
 
 .formSection:first-child h3.formSectionTitle {
@@ -1090,15 +1090,15 @@ input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
 }
 
 .noteWrap {
-    box-sizing: border-box;
-    padding: 24px;
     border: 1px solid #dadada;
     border-radius: 3px;
-    margin-bottom: 25px;
+    box-sizing: border-box;
+    color: #212121;
     font-size: 20px;
     font-weight: 400;
     line-height: 26px;
-    color: #212121;
+    margin-bottom: 25px;
+    padding: 24px;
 }
 
 .noteTitle {
@@ -1109,8 +1109,8 @@ input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
 }
 
 form a.resetPassword-link {
-    margin: 9px 0 0 10px;
     font-size: 16px;
+    margin: 9px 0 0 10px;
 }
 
 .sticky {
@@ -1134,8 +1134,8 @@ input[type="number"] {
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
     -webkit-appearance: none;
+    display: none;
 }
 
 /********************default - end*******************/
