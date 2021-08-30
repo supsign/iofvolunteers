@@ -21,7 +21,7 @@
                                         </div>
 
                                         <div class="row justify-content-md-center">
-                                            <div class="col-md-7">                                                                       
+                                            <div class="col-md-7">                                                       
                                                 <x-base.input name="password" type="password" label="{{ __('Password:') }}"
                                                         value="{{ old('password') }}" required autocomplete="current-password"/>
                                             </div>

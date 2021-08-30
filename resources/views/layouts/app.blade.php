@@ -195,7 +195,7 @@
                                 </li>
                             @else
                                 <li class="ml-auto mr-3 m_red menu-item">
-                                    <a href="{{ route('logout') }}"                                      
+                                    <a href="{{ route('logout') }}"                              
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

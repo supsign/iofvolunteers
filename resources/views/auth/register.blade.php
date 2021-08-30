@@ -45,7 +45,6 @@
                                     </div>
 
                                     <div class="row justify-content-md-center">
-
                                         <div class="col-md-7">
                                             <x-base.input name="password_confirmation" type="password" label="{{__('Confirm Password') }}"
                                                         required autocomplete="new-password"/>
