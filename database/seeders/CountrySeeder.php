@@ -551,7 +551,7 @@ class CountrySeeder extends Seeder
             foreach ($stuff as $key => $value) {
                 $country = Country::where('alpha-2_code', $value)->first();
 
-                if (! $country) {
+                if (!$country) {
                     continue;
                 }
 
