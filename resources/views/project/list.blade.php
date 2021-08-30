@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title">
-                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
+                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="show">
                     List Projects 
                 </h1>
                 <div class="title-desc">Click on the Project Name for more details.</div>
@@ -14,10 +14,10 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td class="big-desc">Project Name</td>
-                        <td class="big-desc">Organisation Name</td>
-                        <td class="big-desc">Project Contact</td>
-                        <td class="big-desc"></td>
+                        <th class="big-desc">Project Name</td>
+                        <th class="big-desc">Organisation Name</td>
+                        <th class="big-desc">Project Contact</td>
+                        <th class="big-desc"></td>
                     </tr>                 
                     @foreach ($projects as $project)
                         <tr>
