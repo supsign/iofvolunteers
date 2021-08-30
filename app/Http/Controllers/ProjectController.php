@@ -33,6 +33,7 @@ class ProjectController extends Controller
 
         return view('project.list', [
             'projects' => Project::all(),
+            'continents' => Continent::all(),
         ]);
     }
 
@@ -91,7 +92,7 @@ class ProjectController extends Controller
 
         return redirect()->route('home');
 
-        return redirect()->route('project.list');    //	gibts noch nicht
+        return redirect()->route('project.list');
     }
 
     public function update(Project $project, Update $request)
