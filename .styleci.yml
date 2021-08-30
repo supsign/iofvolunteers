@@ -9,6 +9,8 @@ php:
     not-name:
       - index.php
       - server.php
+      - _ide_helper.php
+      - _ide_helper_models.php
 js:
   finder:
     not-name:
