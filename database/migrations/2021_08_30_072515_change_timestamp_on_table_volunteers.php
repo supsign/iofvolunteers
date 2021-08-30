@@ -25,6 +25,5 @@ class ChangeTimestampOnTableVolunteers extends Migration
      */
     public function down()
     {
-
     }
 }
