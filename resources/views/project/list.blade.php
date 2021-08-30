@@ -6,7 +6,7 @@
             <div class="titleWrap">
                 <h1 class="title">
                     <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="show">
-                    List Projects 
+                    List Projects
                 </h1>
                 <div class="title-desc">Click on the Project Name for more details.</div>
             </div>
@@ -18,7 +18,7 @@
                         <th class="big-desc">Organisation Name</td>
                         <th class="big-desc">Project Contact</td>
                         <th class="big-desc"></td>
-                    </tr>                 
+                    </tr>
                     @foreach ($projects as $project)
                         <tr>
                             <td class="desc">
