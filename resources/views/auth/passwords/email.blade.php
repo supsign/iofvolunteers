@@ -23,8 +23,8 @@
 
                                         <div class="col-md-7">
                                             <x-base.input name="email" type="email" label="{{ __('E-Mail Address') }}"
-                                                            value="{{ old('email') }}" required
-                                                            autocomplete="email" autofocus/>
+                                                        value="{{ old('email') }}" required
+                                                        autocomplete="email" autofocus/>
                                         </div>
                                     </div>
 

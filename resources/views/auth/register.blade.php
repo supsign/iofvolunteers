@@ -39,7 +39,7 @@
 
                                     <div class="row justify-content-md-center">
                                         <div class="col-md-7">
-                                            <x-base.input name="password" type="password" label="{{__('Password:') }}"
+                                            <x-base.input name="password" type="password" label="{{__('Password') }}"
                                                         required autocomplete="new-password"/>
                                         </div>
                                     </div>

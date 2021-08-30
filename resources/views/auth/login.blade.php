@@ -15,14 +15,14 @@
                                     <div>
                                         <div class="row justify-content-md-center">
                                             <div class="col-md-7">
-                                                <x-base.input name="email" type="email" label="{{ __('E-Mail Address:') }}"
+                                                <x-base.input name="email" type="email" label="{{ __('E-Mail Address') }}"
                                                         value="{{ old('email') }}" required autocomplete="email" autofocus/>
                                             </div>
                                         </div>
 
                                         <div class="row justify-content-md-center">
                                             <div class="col-md-7">
-                                                <x-base.input name="password" type="password" label="{{ __('Password:') }}"
+                                                <x-base.input name="password" type="password" label="{{ __('Password') }}"
                                                         value="{{ old('password') }}" required autocomplete="current-password"/>
                                             </div>
                                         </div>
