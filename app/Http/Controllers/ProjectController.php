@@ -29,11 +29,8 @@ class ProjectController extends Controller
 
     public function list(Project $projects)
     {
-        $projects = Project::all();
-
         return view('project.list', [
-            'projects' => Project::all(),
-            'continents' => Continent::all(),
+            'projects' => Auth::user()->projects,
         ]);
     }
 

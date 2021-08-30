@@ -33,8 +33,9 @@
                             <td class="desc">{{ $project->organisation_name }}</td>
                             <td class="desc">{{ $project->contact }}</td>
                             <td class="desc">
-                                <input type="button" onclick="location.href='{{ route('project.edit', $project ) }}'" value="Edit"/>
-                                <input type="button" onclick="location.href='{{ route('project.delete', $project ) }}" value="Delete"/>
+                                {{-- Edit-Delete Buttons für später (wenn benötigt)
+                                <input type="button" onclick="location.href='{{ route('project.edit', $project ) }}';" value="Edit"/>
+                                <input type="button" onclick="location.href='{{ route('project.delete', $project ) }}';" value="Delete"/> --}}
                             </td>
                         </tr>
                     @endforeach
