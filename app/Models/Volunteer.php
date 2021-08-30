@@ -92,6 +92,17 @@ class Volunteer extends BaseModel
         return $model;
     }
 
+    public function getSkillTypesAttribute()
+    {
+        $skillTypes = collect();
+
+        foreach ($this->skills as $skill) {
+            $skillTypes->push($skill->skillType);
+        }
+
+        return $skillTypes->unique();
+    }
+
     public function hasDuty(Duty $duty, DutyType $dutyType): bool
     {
         return $this->dutyVolunteer->contains(
