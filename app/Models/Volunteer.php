@@ -84,6 +84,25 @@ class Volunteer extends BaseModel
         return Carbon::parse($this->birthdate)->age;
     }
 
+    public function getDrivingLicenceModelAttribute()
+    {
+        $model = new BaseModel;
+        $model->id = $this->driving_licence;
+
+        return $model;
+    }
+
+    public function getSkillTypesAttribute()
+    {
+        $skillTypes = collect();
+
+        foreach ($this->skills as $skill) {
+            $skillTypes->push($skill->skillType);
+        }
+
+        return $skillTypes->unique();
+    }
+
     public function hasDuty(Duty $duty, DutyType $dutyType): bool
     {
         return $this->dutyVolunteer->contains(
