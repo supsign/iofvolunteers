@@ -14,7 +14,7 @@ class BaseModel extends Model
 
     protected $guarded = [];
 
-    public function getSnakeCaseNameAttribute(): array|string
+    public function getSnakeCaseNameAttribute(): string
     {
         return str_replace([' ', '/'], ['_', ''], strtolower($this->name));
     }

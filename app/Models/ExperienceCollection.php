@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ExperienceCollection extends Collection
 {
-    public function local(): ExperienceCollection
+    public function local(): self
     {
         return $this->filter(function ($experience) {
             return $experience->local;
