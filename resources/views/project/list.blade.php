@@ -14,10 +14,10 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <th class="big-desc">Project Name</td>
-                        <th class="big-desc">Organisation Name</td>
-                        <th class="big-desc">Project Contact</td>
-                        <th class="big-desc"></td>
+                        <th id="project_name" class="big-desc">Project Name</td>
+                        <th id="org_name" class="big-desc">Organisation Name</td>
+                        <th id="project_contact" class="big-desc">Project Contact</td>
+                        <th id="edit_delete_buttons" class="big-desc"></td>
                     </tr>
                     @foreach ($projects as $project)
                         <tr>
