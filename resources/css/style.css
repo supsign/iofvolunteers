@@ -1,27 +1,27 @@
 @font-face {
-    font-family: 'Franklin Gothic';
-    src: url('../fonts/fgbook400.TTF') format('truetype');
+    font-family: "Franklin Gothic";
+    src: url("../fonts/fgbook400.TTF") format("truetype");
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Franklin Gothic';
-    src: url('../fonts/fg500.TTF') format('truetype');
+    font-family: "Franklin Gothic";
+    src: url("../fonts/fg500.TTF") format("truetype");
     font-style: normal;
     font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Franklin Gothic';
-    src: url('../fonts/fg600.TTF') format('truetype');
+    font-family: "Franklin Gothic";
+    src: url("../fonts/fg600.TTF") format("truetype");
     font-style: normal;
     font-weight: 600;
 }
 
 @font-face {
-    font-family: 'Franklin Gothic';
-    src: url('../fonts/fg900.TTF') format('truetype');
+    font-family: "Franklin Gothic";
+    src: url("../fonts/fg900.TTF") format("truetype");
     font-style: normal;
     font-weight: 900;
 }
@@ -101,7 +101,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: '';
+    content: "";
     content: none;
 }
 
@@ -240,7 +240,7 @@ html {
 body {
     background: #fff;
     color: #212121;
-    font-family: 'Franklin Gothic', sans-serif;
+    font-family: "Franklin Gothic", sans-serif;
     font-size: 20px;
     -webkit-font-smoothing: antialiased; /*сглаживание шрифтов*/
     font-weight: 400;
@@ -320,7 +320,7 @@ main {
 
 body.overlay:after {
     background: rgba(65, 65, 65, 0.71);
-    content: '';
+    content: "";
     height: 100%;
     left: 0;
     min-height: 100vh;
@@ -376,9 +376,9 @@ header nav .child .top_menu a:hover {
     text-decoration: underline;
 }
 
-header nav .child .top_menu a[target='_blank']:before {
+header nav .child .top_menu a[target="_blank"]:before {
     background: url(../images/target.svg) no-repeat center center;
-    content: '';
+    content: "";
     height: 9px;
     position: absolute;
     right: 0;
@@ -457,7 +457,7 @@ header nav .main .main_menu > li > ul.sub-menu {
 
 header nav .main .main_menu > li > ul.sub-menu:before {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
-    content: '';
+    content: "";
     height: 3px;
     left: 0;
     position: absolute;
@@ -468,6 +468,11 @@ header nav .main .main_menu > li > ul.sub-menu:before {
 section.page_img {
     overflow: hidden;
     position: relative;
+}
+
+section.page_img .page_img-link .page_img-title .conn_worldwide {
+    height: auto;
+    min-height: 100px;
 }
 
 section.page_img img {
@@ -483,7 +488,7 @@ section.page_img .page_img-link {
     bottom: 0;
     box-sizing: border-box;
     left: 0;
-    padding: 35px;
+    padding: 15px 25px;
     position: absolute;
 }
 
@@ -596,7 +601,7 @@ h1.title {
     width: 100%;
 }
 
-.default input[type='button'] {
+.default input[type="button"] {
     background: #fff;
     border: 1px solid #307ea1;
     border-radius: 3px;
@@ -608,7 +613,7 @@ h1.title {
     text-transform: uppercase;
 }
 
-.default input[type='button']:hover {
+.default input[type="button"]:hover {
     background: #307ea1;
     color: #fff;
     cursor: pointer;
@@ -651,7 +656,7 @@ table.withTables {
     width: 100%;
 }
 
-form input[type='submit'] {
+form input[type="submit"] {
     background: #307ea1;
     border: 1px solid #307ea1;
     border-radius: 3px;
@@ -663,7 +668,7 @@ form input[type='submit'] {
     text-transform: uppercase;
 }
 
-form input[type='submit']:hover {
+form input[type="submit"]:hover {
     background: #fff;
     color: #307ea1;
     cursor: pointer;
@@ -692,7 +697,7 @@ form .selectWrap:after {
     border-color: #707070 transparent transparent transparent;
     border-style: solid;
     border-width: 8px 7px 0 7px;
-    content: '';
+    content: "";
     height: 0;
     position: absolute;
     right: 22px;
@@ -701,17 +706,17 @@ form .selectWrap:after {
 }
 
 /* Firefox */
-input[type='number'] {
+input[type="number"] {
     -moz-appearance: textfield;
 }
 
 form textarea,
-form input[type='email'],
-form input[type='number'],
-form input[type='tel'],
-form input[type='date'],
-form input[type='password'],
-form input[type='text'],
+form input[type="email"],
+form input[type="number"],
+form input[type="tel"],
+form input[type="date"],
+form input[type="password"],
+form input[type="text"],
 form select {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -760,19 +765,28 @@ form select {
     color: #000000;
 }
 
-.formSection .form-group .form-check-input[type='checkbox'] + .form-check-label {
+.formSection
+    .form-group
+    .form-check-input[type="checkbox"]
+    + .form-check-label {
     background: url(../images/checkbox.svg) no-repeat left center;
 }
 
-.formSection .form-group .form-check-input[type='checkbox']:checked + .form-check-label {
+.formSection
+    .form-group
+    .form-check-input[type="checkbox"]:checked
+    + .form-check-label {
     background-image: url(../images/checkboxActive.svg);
 }
 
-.formSection .form-group .form-check-input[type='radio'] + .form-check-label {
+.formSection .form-group .form-check-input[type="radio"] + .form-check-label {
     background: url(../images/radio.svg) no-repeat left center;
 }
 
-.formSection .form-group .form-check-input[type='radio']:checked + .form-check-label {
+.formSection
+    .form-group
+    .form-check-input[type="radio"]:checked
+    + .form-check-label {
     background-image: url(../images/radioActive.svg);
 }
 
@@ -839,7 +853,10 @@ form select {
     margin: 0;
 }
 
-.formSection .form-group textarea:not(:placeholder-shown) + label.formGroupLabel,
+.formSection
+    .form-group
+    textarea:not(:placeholder-shown)
+    + label.formGroupLabel,
 .formSection .form-group input:not(:placeholder-shown) + label.formGroupLabel,
 .formSection .form-group textarea:focus + label.formGroupLabel,
 .formSection .form-group input:focus + label.formGroupLabel {
@@ -847,57 +864,179 @@ form select {
     top: 7px;
 }
 
-.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='number']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='number']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='date']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='date']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='password']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='password']:invalid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label + .warn {
+.formSection
+    .form-group
+    textarea:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    textarea:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn {
     color: #e30420;
 }
 
 .formSection .form-group textarea:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='email']:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='number']:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='tel']:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='date']:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='password']:invalid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='text']:invalid:not(:focus):not(:placeholder-shown) {
+.formSection
+    .form-group
+    input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="tel"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="date"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="text"]:invalid:not(:focus):not(:placeholder-shown) {
     border-bottom-color: #e30420;
 }
 
-.formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='email']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='email']:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='number']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='number']:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='tel']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='tel']:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='date']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='date']:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='password']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='password']:valid:not(:focus):not(:placeholder-shown) + label + .warn,
-.formSection .form-group input[type='text']:valid:not(:focus):not(:placeholder-shown) + label,
-.formSection .form-group input[type='text']:valid:not(:focus):not(:placeholder-shown) + label + .warn {
+.formSection
+    .form-group
+    textarea:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    textarea:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn,
+.formSection
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
+    + label,
+.formSection
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown)
+    + label
+    + .warn {
     color: #307ea1;
 }
 
 .formSection .form-group textarea:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='email']:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='number']:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='tel']:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='date']:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='password']:valid:not(:focus):not(:placeholder-shown),
-.formSection .form-group input[type='text']:valid:not(:focus):not(:placeholder-shown) {
+.formSection
+    .form-group
+    input[type="email"]:valid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="number"]:valid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="tel"]:valid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="date"]:valid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="password"]:valid:not(:focus):not(:placeholder-shown),
+.formSection
+    .form-group
+    input[type="text"]:valid:not(:focus):not(:placeholder-shown) {
     border-bottom-color: #307ea1;
 }
 
@@ -929,12 +1068,12 @@ form select {
 }
 
 .formSection .form-group textarea,
-.formSection .form-group input[type='email'],
-.formSection .form-group input[type='number'],
-.formSection .form-group input[type='tel'],
-.formSection .form-group input[type='date'],
-.formSection .form-group input[type='password'],
-.formSection .form-group input[type='text'],
+.formSection .form-group input[type="email"],
+.formSection .form-group input[type="number"],
+.formSection .form-group input[type="tel"],
+.formSection .form-group input[type="date"],
+.formSection .form-group input[type="password"],
+.formSection .form-group input[type="text"],
 .formSection .form-group select {
     width: 100% !important;
 }
@@ -994,12 +1133,12 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type='number'] {
+input[type="number"] {
     -moz-appearance: textfield;
 }
 
-input[type='date']::-webkit-inner-spin-button,
-input[type='date']::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
     -webkit-appearance: none;
     display: none;
 }

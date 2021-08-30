@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <section class="page_img">
-        <img border="0" src="{{ asset('images/pg_template1.jpg') }}"/>
+        <img src="{{ asset('images/pg_template1.jpg') }}"/>
         <a href="" class="page_img-link">
             <h1 class="page_img-title">
-                Connecting orienteers around the globe
+                <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
             </h1>
         </a>
     </section>

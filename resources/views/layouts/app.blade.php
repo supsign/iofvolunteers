@@ -228,7 +228,7 @@
                         <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
                 </aside>
                 <aside>
-                    <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200"/>
+                    <h4>Connecting orienteers around the globe</h4>
                 </aside>
             </div>
         </div>
