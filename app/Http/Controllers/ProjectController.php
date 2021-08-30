@@ -66,6 +66,11 @@ class ProjectController extends Controller
         return view('project.search');
     }
 
+    public function show(Project $project)
+    {
+        return (new HomeController())->underConstruction();
+    }
+
     public function register(Register $request)
     {
         $data = $request->validated();
@@ -98,6 +103,11 @@ class ProjectController extends Controller
     public function update(Project $project, Update $request)
     {
         return Project::update($request->validated());
+    }
+
+    public function delete(Project $project)
+    {
+        return (new HomeController())->underConstruction();
     }
 
     public function search()
