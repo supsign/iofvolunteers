@@ -14,7 +14,7 @@
                                 @csrf
                                 <x-form.section>
                                     <div class="row justify-content-md-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <x-base.input name="firstname" label="{{ __('Firstname') }}"
                                                         value="{{ old('firstname') }}" required
                                                         autocomplete="firstname" autofocus/>
@@ -22,15 +22,15 @@
                                     </div>
 
                                     <div class="row justify-content-md-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <x-base.input name="lastname" label="{{ __('Lastname') }}"
                                                         value="{{ old('lastname') }}" required
-                                                        autocomplete="lastname" autofocus/>
+                                                        autocomplete="lastname"/>
                                         </div>
                                     </div>
 
                                     <div class="row justify-content-md-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <x-base.input name="email"  type="email" label="{{__('E-Mail Address') }}"
                                                         value="{{ old('email') }}" required
                                                         autocomplete="email"/>
@@ -38,7 +38,7 @@
                                     </div>
 
                                     <div class="row justify-content-md-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <x-base.input name="password" type="password" label="{{__('Password:') }}"
                                                         required autocomplete="new-password"/>
                                         </div>
@@ -46,15 +46,15 @@
 
                                     <div class="row justify-content-md-center">
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <x-base.input name="password_confirmation" label="{{__('Confirm Password') }}"
                                                         required autocomplete="new-password"/>
                                         </div>
                                     </div>
                                 </x-form.section>
 
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-md-7">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Register') }}
                                         </button>
