@@ -70,7 +70,7 @@
                                         <ul class="sub-menu">
                                             <li class="menu-item">
                                                 @if(isset($user) && $user->volunteer)
-                                                    <a href="{{ route('volunteer.edit', $user->volunteer) }}">
+                                                    <a href="{{ route('volunteer.editForm', $user->volunteer) }}">
                                                         Edit Volunteer
                                                     </a>
                                                 @else
