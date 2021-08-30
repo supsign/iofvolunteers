@@ -12,17 +12,14 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td class="big-desc">Name & Age</td>
-                        <td class="big-desc">Country</td>
-                        <td class="big-desc">OL-Work-Experience (in years)</td>
+                        <td class="big-desc">Project Name</td>
                     </tr>
-                @foreach($projects AS $project)
                 <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    @foreach ($projects as $project)
+                        <td>{{ $project->name }}</td>
+                        <td>Edit/Delete?</td>
+                    @endforeach
                 </tr>
-                @endforeach
                 </tbody>
             </table>
         </div>

@@ -27,10 +27,12 @@ class ProjectController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function list(Project $project)
+    public function list(Project $projects)
     {
+        $projects = Project::all();
+
         return view('project.list', [
-            'projects' => $project,
+            'projects' => Project::all(),
         ]);
     }
 
