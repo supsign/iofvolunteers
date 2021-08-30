@@ -51,7 +51,7 @@ Route::get('project/search', [ProjectController::class, 'searchForm'])->name('pr
 Route::post('project/register', [ProjectController::class, 'register'])->name('project.register');
 Route::post('project/search', [ProjectController::class, 'search'])->name('project.search');
 Route::patch('project/update/{project}', [ProjectController::class, 'update'])->name('project.update');
-Route::delete('project/update/{project}', [ProjectController::class, 'delete'])->name('project.delete');
+Route::delete('project/delete/{project}', [ProjectController::class, 'delete'])->name('project.delete');
 
 Route::get('volunteer/show/{volunteer}', [VolunteerController::class, 'show'])->name('volunteer.show');
 Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.edit');

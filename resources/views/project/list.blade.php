@@ -37,7 +37,7 @@
                                 <input type="button" onclick="location.href='{{ route('project.delete', $project ) }}" value="Delete"/>
                             </td>
                         </tr>
-                    @endforeach     
+                    @endforeach
                 </tbody>
             </table>
         </div>
