@@ -17,3 +17,8 @@ public/images/
 public/js/
 public/mix-manifest.json
 **/.DS_Store
+.idea/deployment.xml
+.idea/laravel-plugin.xml
+.idea/prettier.xml
+.idea/sonarlint/issuestore/
+.idea/sonarlint-state.xml

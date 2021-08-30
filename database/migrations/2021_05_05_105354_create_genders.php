@@ -23,7 +23,7 @@ class CreateGenders extends Migration
 
         Artisan::call('db:seed', [
             '--class' => GenderSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

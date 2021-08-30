@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpirence extends Migration
+class CreateExperience extends Migration
 {
     /**
      * Run the migrations.
@@ -24,7 +24,7 @@ class CreateExpirence extends Migration
 
         Artisan::call('db:seed', [
             '--class' => ExperienceSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::table('volunteers', function (Blueprint $table) {

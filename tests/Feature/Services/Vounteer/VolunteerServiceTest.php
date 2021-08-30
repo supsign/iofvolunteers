@@ -11,11 +11,6 @@ class VolunteerServiceTest extends TestCase
 {
     protected VolunteerService $volunteerService;
 
-    protected function setUp():void
-    {
-        parent::setUp();
-        $this->volunteerService = $this->app->make(VolunteerService::class);
-    }
     /**
      * A basic test example.
      *
@@ -33,7 +28,6 @@ class VolunteerServiceTest extends TestCase
 
         $this->volunteerService->delete($volunteer);
 
-
         $this->assertDatabaseMissing($volunteer, [
             'id' => $volunteer->id,
         ]);
@@ -42,5 +36,11 @@ class VolunteerServiceTest extends TestCase
 
         $this->assertNull($user->volunteer_id);
         $this->assertNull($user->volunteer);
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->volunteerService = $this->app->make(VolunteerService::class);
     }
 }

@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ExperienceCollection extends Collection
 {
-	public function local()
-	{
-		return $this->filter(function($experience) {
-			return $experience->local;
-		});
-	}
+    public function local(): self
+    {
+        return $this->filter(function ($experience) {
+            return $experience->local;
+        });
+    }
 
-	public function national()
-	{
-		return $this->filter(function($experience) {
-			return $experience->national;
-		});
-	}
+    public function national(): ExperienceCollection
+    {
+        return $this->filter(function ($experience) {
+            return $experience->national;
+        });
+    }
 
-	public function international()
-	{
-		return $this->filter(function($experience) {
-			return $experience->international;
-		});
-	}
+    public function international(): ExperienceCollection
+    {
+        return $this->filter(function ($experience) {
+            return $experience->international;
+        });
+    }
 }

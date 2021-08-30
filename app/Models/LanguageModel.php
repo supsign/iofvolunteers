@@ -2,28 +2,30 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 /**
  * @mixin IdeHelperLanguageModel
  */
 class LanguageModel extends BaseModel
 {
-    public function language()
+    public function language(): BelongsTo
     {
-    	return $this->belongsTo(Language::class);
+        return $this->belongsTo(Language::class);
     }
 
-    public function languageProficiency()
+    public function languageProficiency(): BelongsTo
     {
-    	return $this->belongsTo(LanguageProficiency::class);
+        return $this->belongsTo(LanguageProficiency::class);
     }
 
-    public function getLanguageNameAttribute()
+    public function getLanguageNameAttribute(): string
     {
-    	return $this->language->name;
+        return $this->language->name;
     }
 
-    public function getLanguageProficiencyNameAttribute()
+    public function getLanguageProficiencyNameAttribute(): string
     {
-    	return $this->languageProficiency->name;
+        return $this->languageProficiency->name;
     }
 }

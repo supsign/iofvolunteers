@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => UserSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

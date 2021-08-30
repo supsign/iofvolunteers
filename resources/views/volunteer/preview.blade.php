@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
-<section class="default">
-    <div class="container">
-        <div class="titleWrap">
-            <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65"> Volunteer Details</h1>
-        </div>
+    <section class="default">
+        <div class="container">
+            <div class="titleWrap">
+                <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
+                                            height="65"> Volunteer Details</h1>
+            </div>
 
-        <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results" />
+            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results"/>
 
-        <table class="table">
-            <tbody>
+            <table class="table">
+                <tbody>
 
                 <tr>
                     <td class="font-weight-bold">Name:</td>
@@ -50,7 +51,8 @@
                                     @continue;
                                 @endif
 
-                                <strong>{{ $languageVolunteer->language->name }}:</strong> {{ $languageVolunteer->languageProficiency->name }}<br />
+                                <strong>{{ $languageVolunteer->language->name }}
+                                    :</strong> {{ $languageVolunteer->languageProficiency->name }}<br/>
                             @endforeach
                         </td>
                     </tr>
@@ -109,20 +111,20 @@
                     </tr>
                 @endif
 
-                @if($volunteer->o_work_expirence_local || $volunteer->o_work_expirence_international)
+                @if($volunteer->o_work_experience_local || $volunteer->o_work_experience_international)
                     <tr>
                         <td class="font-weight-bold">O-Work Experience (in years)</td>
                         <td>
                             <ul>
-                                @if($volunteer->o_work_expirence_local)
+                                @if($volunteer->o_work_experience_local)
                                     <li><strong>Local:</strong>
-                                        {{ $volunteer->o_work_expirence_local }}
+                                        {{ $volunteer->o_work_experience_local }}
                                     </li>
                                 @endif
 
-                                @if($volunteer->o_work_expirence_international)
+                                @if($volunteer->o_work_experience_international)
                                     <li><strong>International:</strong>
-                                        {{ $volunteer->o_work_expirence_international }}
+                                        {{ $volunteer->o_work_experience_international }}
                                     </li>
                                 @endif
                             </ul>
@@ -136,14 +138,14 @@
                         <td>
                             <ul>
                                 @foreach($volunteer->skillTypes AS $skillType)
-                                    <strong>{{ $skillType->name }}</strong><br />
+                                    <strong>{{ $skillType->name }}</strong><br/>
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
-                                        {{ $skill->name }}<br />
+                                        {{ $skill->name }}<br/>
                                     @endforeach
                                 @endforeach
 
                                 @if($volunteer->skill_other)
-                                    <strong>Other:</strong><br /> {{ $volunteer->skill_other }}
+                                    <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
                                 @endif
                             </ul>
                         </td>
@@ -160,28 +162,30 @@
                     @endif
                 </tr>
 
-            </tbody>
-        </table>
-        
-        @if(false)
-            <br>
-            Contacts: {{ $volunteer->email }}
-        @endif
+                </tbody>
+            </table>
 
-        @if(true)
-            <form class="d-flex flex-column align-items-start" onsubmit="return searchVolunteer(event)" enctype="multipart/form-data">
-                @csrf
-                <x-form.section>
-                    <x-slot name="title">
-                        Invite volunteer to your project
-                    </x-slot>
-                    <x-base.select name="project_id" label="Project" :iconName="'selectArr'" :options="$projects" required />
-                    <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
-                    <input class="mt-3" type="submit" name="submitButton" value="Contact volunteer" />
-                </x-form.section>
-            </form>
-        @endif
-    </div>
-</section>
+            @if(false)
+                <br>
+                Contacts: {{ $volunteer->email }}
+            @endif
+
+            @if(true)
+                <form class="d-flex flex-column align-items-start" onsubmit="return searchVolunteer(event)"
+                      enctype="multipart/form-data">
+                    @csrf
+                    <x-form.section>
+                        <x-slot name="title">
+                            Invite volunteer to your project
+                        </x-slot>
+                        <x-base.select name="project_id" label="Project" :iconName="'selectArr'" :options="$projects"
+                                       required/>
+                        <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
+                        <input class="mt-3" type="submit" name="submitButton" value="Contact volunteer"/>
+                    </x-form.section>
+                </form>
+            @endif
+        </div>
+    </section>
 
 @endsection

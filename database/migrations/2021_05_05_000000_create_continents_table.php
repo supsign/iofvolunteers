@@ -21,7 +21,7 @@ class CreateContinentsTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => ContinentSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

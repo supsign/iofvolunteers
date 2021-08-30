@@ -2,8 +2,8 @@
 
 namespace App\View\Components\Base;
 
-use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Collection;
+use Closure;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Checkbox extends Component
@@ -13,15 +13,14 @@ class Checkbox extends Component
      *
      * @return void
      */
-
-    public function __construct(public bool $checked=false)
+    public function __construct(public bool $checked = false)
     {
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|Closure|string
      */
     public function render()
     {

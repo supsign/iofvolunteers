@@ -21,7 +21,7 @@ class CreateDisciplinesTable extends Migration
 
         Artisan::call('db:seed', [
             '--class' => DisciplineSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
 
         Schema::create('discipline_models', function (Blueprint $table) {
@@ -30,7 +30,10 @@ class CreateDisciplinesTable extends Migration
             $table->unsignedBigInteger('discipline_model_id');
             $table->string('discipline_model_type');
             $table->timestampsTz();
-            $table->unique(['discipline_id', 'discipline_model_id', 'discipline_model_type'], 'discipline_model_unique');
+            $table->unique(
+                ['discipline_id', 'discipline_model_id', 'discipline_model_type'],
+                'discipline_model_unique'
+            );
         });
     }
 

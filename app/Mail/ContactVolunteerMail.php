@@ -6,13 +6,13 @@ use App\Models\Project;
 use App\Models\User;
 use App\Models\Volunteer;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class ContactVolunteerMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -31,6 +31,8 @@ class ContactVolunteerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo($this->user->email)->from('iof@volunteers.org');
+        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo(
+            $this->user->email
+        )->from('iof@volunteers.org');
     }
 }

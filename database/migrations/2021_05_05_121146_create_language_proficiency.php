@@ -21,7 +21,7 @@ class CreateLanguageProficiency extends Migration
 
         Artisan::call('db:seed', [
             '--class' => LanguageProficiencySeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

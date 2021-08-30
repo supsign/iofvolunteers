@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Support\Renderable;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
@@ -18,7 +19,7 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
@@ -28,6 +29,7 @@ class HomeController extends Controller
     public function underConstruction()
     {
         Alert::toast('Unavailable - Under Construction', 'error');
+
         return redirect()->route('home');
     }
 }

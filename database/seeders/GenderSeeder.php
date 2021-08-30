@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use DB;
-
 use Illuminate\Database\Seeder;
-
 
 class GenderSeeder extends Seeder
 {

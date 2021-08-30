@@ -1,9 +1,14 @@
-h1,h2,h3,h4,h5,label {
-    color: #376FA6;
+h1,
+h2,
+h3,
+h4,
+h5,
+label {
+    color: #376fa6;
 }
 
 .desc {
-    color: #376FA6;
+    color: #376fa6;
     font-family: Verdana, Times, serif;
     font-size: small;
 }
@@ -15,44 +20,44 @@ h1,h2,h3,h4,h5,label {
 }
 
 .big-desc {
-    color: #376FA6;
+    color: #376fa6;
     font-family: Verdana, Times, serif;
     font-size: small;
     font-weight: bold;
 }
 
 .maincol {
-    color: #BC0000;
+    color: #bc0000;
     font-family: Verdana, Times, serif;
     font-size: small;
 }
 
 .title {
-    color: #376FA6;
+    color: #376fa6;
     font-family: Verdana, Times, serif;
     font-size: medium;
     font-weight: bold;
 }
 
 .value {
-    color: #376FA6;
+    color: #376fa6;
     font-family: Verdana, Times, serif;
 }
 
 .warn {
-    color: #B30000;
+    color: #b30000;
     font-family: Verdana, Times, serif;
     font-size: x-small;
 }
 
 .warn-title {
-    color: #B30000;
+    color: #b30000;
     font-family: Verdana, Times, serif;
     font-size: small;
 }
 
 .smradio {
-    color: #376FA6;
+    color: #376fa6;
     font-family: Verdana, Times, serif;
     font-size: x-small;
 }
@@ -62,21 +67,21 @@ a.main {
 }
 
 .custom-button {
-    -webkit-border-radius: 0px;
+    background-color: #1d8eac;
     -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
     border-radius: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
     font-family: Verdana, serif;
     font-size: 30px;
     font-weight: 100;
     padding: 10px;
-    background-color: #1D8EAC;
     text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
 }
 
 .custom-button:hover {
-    background: #78CAE2;
+    background: #78cae2;
     text-decoration: none;
 }
