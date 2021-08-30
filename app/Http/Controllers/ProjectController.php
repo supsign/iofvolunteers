@@ -27,9 +27,11 @@ class ProjectController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function list()
+    public function list(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        return view('project.list', [
+            'projects' => $project,
+        ]);
     }
 
     public function editForm()

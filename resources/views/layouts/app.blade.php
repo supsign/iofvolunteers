@@ -103,7 +103,7 @@
                                         <a href="#">Column 1</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
-                                                @if(isset($user) && $user->projects)
+                                                @if(isset($user) && $user->projects->count())
                                                     <a href="{{ route('project.list') }}">
                                                         List Projects
                                                     </a>
