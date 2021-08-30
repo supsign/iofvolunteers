@@ -14,7 +14,7 @@ class SkillType extends BaseModel
         return $this->hasMany(Skill::class);
     }
 
-    public function getSnakeCaseNameAttribute(): string|array
+    public function getSnakeCaseNameAttribute(): string
     {
         $name = parent::getSnakeCaseNameAttribute();
 
