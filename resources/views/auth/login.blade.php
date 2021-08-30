@@ -12,35 +12,35 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <x-form.section>
-                                <div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <x-base.input name="email" type="email" label="{{ __('E-Mail Address:') }}"
-                                                    value="{{ old('email') }}" required autocomplete="email" autofocus/>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <x-base.input name="email" type="email" label="{{ __('E-Mail Address:') }}"
+                                                        value="{{ old('email') }}" required autocomplete="email" autofocus/>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">                                                                       
-                                            <x-base.input name="password" type="password" label="{{ __('Password:') }}"
-                                                    value="{{ old('password') }}" required autocomplete="current-password"/>
+                                        <div class="row">
+                                            <div class="col-md-6">                                                                       
+                                                <x-base.input name="password" type="password" label="{{ __('Password:') }}"
+                                                        value="{{ old('password') }}" required autocomplete="current-password"/>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember"
+                                                        id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                                <label class="form-check-label" for="remember">
-                                                    {{ __('Remember Me') }}
-                                                </label>
+                                                    <label class="form-check-label" for="remember">
+                                                        {{ __('Remember Me') }}
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </x-form.section>
+                                </x-form.section>
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8">
