@@ -184,12 +184,12 @@
 
                             @guest
                                 <li class="ml-auto m_green menu-item">
-                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#registration-modal">
+                                    <a href="{{ route('register') }}">
                                         NEW USER
                                     </a>
                                 </li>
                                 <li class="mr-3 m_red menu-item">
-                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#login-modal">
+                                    <a href="{{ route('login') }}" >
                                         SIGN IN
                                     </a>
                                 </li>
@@ -213,7 +213,6 @@
 
     </header>
 
-
     <main class="flex-grow-1">
         @yield('content')
         <div class="clear"></div>
@@ -234,119 +233,6 @@
             </div>
         </div>
     </footer>
-
-    @guest
-        <div class="modal" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form id="signinForm" method="POST" action="login">
-                            @csrf
-                            <p class="big-desc">You may sign in using your e-mail and password...</p>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="email">E-mail: </label>
-                                <div class="col-9">
-                                    <input class="form-control form-control-sm" type="text" id="email" name="email"
-                                           size="20" required="">
-                                </div>
-                            </div>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="password">Password: </label>
-                                <div class="col-9">
-                                    <input class="form-control form-control-sm" type="password" id="password"
-                                           name="password" size="20" required="">
-                                </div>
-                            </div>
-                            <div class="mx-0 form-group row d-flex justify-content-between">
-                                <button type="submit" class="btn btn-primary w-100">Sign in!</button>
-                                <a href="register">
-                                    Register
-                                </a>
-                                <a href="{{ route('password.request') }}">
-                                    Restore password
-                                </a>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="registration-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form id="registerForm" method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <p class="big-desc">All fields are required!</p>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="firstname">Firstname<span
-                                            class="warn-title">*</span>: </label>
-                                <div class="col-9">
-                                    <input id="firstname" class="form-control form-control-sm" type="text"
-                                           name="firstname" size="20"
-                                           required="">
-                                </div>
-                            </div>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="lastname">Lastname<span
-                                            class="warn-title">*</span>: </label>
-                                <div class="col-9">
-                                    <input id="lastname" class="form-control form-control-sm" type="text"
-                                           name="lastname" size="20"
-                                           required="">
-                                </div>
-                            </div>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="name">E-mail<span
-                                            class="warn-title">*</span>: </label>
-                                <div class="col-9">
-                                    <input id="email" class="form-control form-control-sm" type="text" name="email"
-                                           size="20"
-                                           required="">
-                                </div>
-                            </div>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="name">Password<span
-                                            class="warn-title">*</span>: </label>
-                                <div class="col-9">
-                                    <input id="password" class="form-control form-control-sm" type="password"
-                                           name="password"
-                                           size="20" required="">
-                                </div>
-                            </div>
-                            <div class="form-group row desc">
-                                <label class="col-3 col-form-label col-form-label-sm" for="password_confirmation">Password
-                                    Confirmation<span class="warn-title">*</span>: </label>
-                                <div class="col-9">
-                                    <input id="password_confirmation" class="form-control form-control-sm"
-                                           type="password"
-                                           name="password_confirmation" size="20" required="">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Register</button>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endguest
 </div>
 </body>
 
