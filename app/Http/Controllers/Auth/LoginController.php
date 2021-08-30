@@ -40,12 +40,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        Alert::error('Login failed', [trans('auth.failed')]);
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
-    }
 }
