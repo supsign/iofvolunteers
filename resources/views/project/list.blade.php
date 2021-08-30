@@ -8,12 +8,8 @@
                     <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
                     List Projects 
                 </h1>
-                <div class="title-desc">Click on Project Name for more details.</div>
+                <div class="title-desc">Click on the Project Name for more details.</div>
             </div>
-
-            @if(false)
-                <input type="button" class="mb-3" onclick="location.href='{{ route('project.register') }}';" value="Add project" />
-            @endif
 
             <table class="table">
                 <tbody>
