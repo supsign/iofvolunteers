@@ -227,9 +227,6 @@
                         SWEDEN<br>
                         <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
                 </aside>
-                <aside>
-                    <h4>Connecting orienteers around the globe</h4>
-                </aside>
             </div>
         </div>
     </footer>

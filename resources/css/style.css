@@ -496,12 +496,12 @@ section.page_img .conn_worldwide {
         padding: 10px;
 } */
 
-section.page_img .page_img-title {
+h1.page_img-title {
     background: #fff;
     box-sizing: border-box;
     color: #212121;
     display: inline-block;
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 900;
     padding: 20px 25px;
     max-height: 100px;
