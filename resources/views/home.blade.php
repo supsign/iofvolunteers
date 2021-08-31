@@ -3,9 +3,7 @@
     <section class="page_img">
         <img src="{{ asset('images/pg_template1.jpg') }}"/>
         <a href="" class="page_img-link">
-            <h1 class="page_img-title">
                 <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
-            </h1>
         </a>
     </section>
 

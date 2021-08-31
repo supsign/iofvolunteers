@@ -470,11 +470,6 @@ section.page_img {
     position: relative;
 }
 
-section.page_img .page_img-link .page_img-title .conn_worldwide {
-    height: auto;
-    min-height: 100px;
-}
-
 section.page_img img {
     display: block;
     height: auto;
@@ -484,12 +479,21 @@ section.page_img img {
     width: 100%;
 }
 
-section.page_img .page_img-link {
+section.page_img .conn_worldwide {
+    max-width: 350px;
+    min-height: 50px;
     bottom: 0;
     box-sizing: border-box;
     left: 0;
     padding: 15px 25px;
     position: absolute;
+}
+
+@media screen and (max-width: 700px) {
+    section.page_img .conn_worldwide {
+        max-width: 200px;
+        min-height: 40px;
+        padding: 10px;
 }
 
 section.page_img .page_img-title {
@@ -500,6 +504,7 @@ section.page_img .page_img-title {
     font-size: 34px;
     font-weight: 900;
     padding: 20px 25px;
+    max-height: 100px;
 }
 
 .main_menu_burger {
