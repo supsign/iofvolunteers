@@ -54,7 +54,7 @@ Route::patch('project/update/{project}', [ProjectController::class, 'update'])->
 Route::delete('project/delete/{project}', [ProjectController::class, 'delete'])->name('project.delete');
 
 Route::get('volunteer/show/{volunteer}', [VolunteerController::class, 'show'])->name('volunteer.show');
-Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.editForm');
+Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.edit');
 Route::get('volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
 Route::get('volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
 Route::post('volunteer/contact/{volunteer}', [VolunteerController::class, 'contact'])->name('volunteer.contact');

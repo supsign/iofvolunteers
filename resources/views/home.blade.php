@@ -18,7 +18,7 @@
                             <h3 class="subtitle">
                                 @if($user?->volunteer)
                                     <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="add">
-                                    <a href="{{ route('volunteer.editForm', $user->volunteer) }}">
+                                    <a href="{{ route('volunteer.edit', $user->volunteer) }}">
                                         Edit Volunteer
                                     </a>
                                 @else
