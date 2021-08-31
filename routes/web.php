@@ -46,7 +46,7 @@ Route::post('host/search', [HostController::class, 'search'])->name('host.search
 Route::get('project/show/{project}', [ProjectController::class, 'show'])->name('project.show');
 Route::get('project/register', [ProjectController::class, 'registerForm'])->name('project.registerForm');
 Route::get('project/list', [ProjectController::class, 'list'])->name('project.list');
-Route::get('project/edit/{project}', [ProjectController::class, 'editForm'])->name('project.editForm');
+Route::get('project/edit/{project}', [ProjectController::class, 'editForm'])->name('project.edit');
 Route::get('project/search', [ProjectController::class, 'searchForm'])->name('project.searchForm');
 Route::post('project/register', [ProjectController::class, 'register'])->name('project.register');
 Route::post('project/search', [ProjectController::class, 'search'])->name('project.search');

@@ -65,7 +65,9 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        $volunteers = Auth::user()->volunteers;
+
+        return view('project.preview', ['volunteer' => $volunteers, 'projects' => $project]);
     }
 
     public function register(Register $request)
