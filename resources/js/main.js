@@ -56,30 +56,25 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // $("#required-btn-disciplines").validate({
-    //     rules: {
-    //         spam: {
-    //             required: function (element) {
-    //                 var boxes = $(".checkbox");
-    //                 if (boxes.filter(":checked").length == 0) {
-    //                     return true;
-    //                 }
-    //                 return false;
-    //             },
-    //             minlength: 1,
-    //         },
-    //     },
-    //     messages: {
-    //         spam: "Please select at least two types of spam.",
-    //     },
-    // });
-
     $("#required-btn-disciplines").click(function () {
         checked = $(".required-disciplines:checked").length;
 
         if (!checked) {
-            alert("You must check at least one checkbox.");
+            var div = document.createElement("div");
+            div.setAttribute("id", "errorDiv");       
+
+            if (!document.contains(document.getElementById("errorDiv"))) {
+                div.appendChild(document.createTextNode("You must check at least one checkbox"));
+                div.classList.add("alert", "alert-danger");
+                document.getElementById("error-message").appendChild(div);
+            } 
             return false;
+        }
+        
+        else {
+            if (document.contains(document.getElementById("errorDiv"))) {
+                document.getElementById("errorDiv").remove();
+            }
         }
     });
 });

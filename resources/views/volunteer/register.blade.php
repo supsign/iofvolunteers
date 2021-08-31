@@ -54,6 +54,7 @@
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                      label="{{ $discipline->name }}" class="form-check-input required-disciplines"/>
                                 @endforeach
+                                <div id="error-message" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
