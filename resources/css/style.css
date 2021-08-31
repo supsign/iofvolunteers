@@ -763,6 +763,17 @@ form select {
     color: #000000;
 }
 
+.formSection .form-group .form-check-input[type="radio"] + .form-check-label {
+    background: url(../images/radio.svg) no-repeat left center;
+}
+
+.formSection
+    .form-group
+    .form-check-input[type="radio"]:checked
+    + .form-check-label {
+    background-image: url(../images/radioActive.svg);
+}
+
 .formSection
     .form-group
     .form-check-input[type="checkbox"]
@@ -775,17 +786,6 @@ form select {
     .form-check-input[type="checkbox"]:checked
     + .form-check-label {
     background-image: url(../images/checkboxActive.svg);
-}
-
-.formSection .form-group .form-check-input[type="radio"] + .form-check-label {
-    background: url(../images/radio.svg) no-repeat left center;
-}
-
-.formSection
-    .form-group
-    .form-check-input[type="radio"]:checked
-    + .form-check-label {
-    background-image: url(../images/radioActive.svg);
 }
 
 .form-group.form-inline {
