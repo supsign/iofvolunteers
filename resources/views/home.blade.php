@@ -1,16 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <section class="page_img">
-        <img border="0" src="{{ asset('images/pg_template1.jpg') }}"/>
-        <a href="" class="page_img-link">
-            <h1 class="page_img-title">
-                Connecting orienteers around the globe
-            </h1>
-        </a>
+        <img src="{{ asset('images/pg_template1.jpg') }}"/>
+            <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
     </section>
 
     <section class="news_list">
         <div class="container">
+  
+            <h1 class="page_img-title">Connecting orienteers around the globe</h1>
             <div class="row">
                 <div class="pt-3 pb-3 col-12 col-md-6">
                     <div class="shadow NI_wrap">
