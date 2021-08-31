@@ -489,12 +489,12 @@ section.page_img .conn_worldwide {
     position: absolute;
 }
 
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
     section.page_img .conn_worldwide {
         max-width: 200px;
         min-height: 40px;
         padding: 10px;
-}
+} */
 
 section.page_img .page_img-title {
     background: #fff;
