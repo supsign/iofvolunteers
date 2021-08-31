@@ -10,10 +10,8 @@
     <section class="news_list">
         <div class="container">
   
-                    <h1 class="page_img-title">Connecting orienteers around the globe</h1>
-
-            <div class="row">
-                
+            <h1 class="page_img-title">Connecting orienteers around the globe</h1>
+            <div class="row">              
                 <div class="pt-3 pb-3 col-12 col-md-6">
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">

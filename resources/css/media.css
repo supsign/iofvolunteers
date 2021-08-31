@@ -9,7 +9,7 @@
     ul#menu-main-menu:before,
     ul#menu-top-external-links-menu:before {
         box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
-        content: '';
+        content: "";
         height: 3px;
         left: 0;
         position: absolute;
@@ -72,7 +72,7 @@
     header nav .main .main_menu > li.menu-item-has-children > a:before {
         background: url(../images/sub_menu_icon.svg) no-repeat center center;
         background-size: 20px;
-        content: '';
+        content: "";
         cursor: pointer;
         height: 20px;
         position: absolute;
@@ -83,7 +83,8 @@
     }
 
     header nav .main .main_menu > li.menu-item-has-children.active > a:before {
-        background: url(../images/sub_menu_iconactive.svg) no-repeat center center;
+        background: url(../images/sub_menu_iconactive.svg) no-repeat center
+            center;
     }
 
     header nav .main .main_menu > li > ul.sub-menu > li > ul.sub-menu > li a {
@@ -122,9 +123,20 @@
         font-size: 24px;
     }
 
+    section.news_list .container .page_img-title {
+        font-size: 30px;
+        padding: 0;
+    }
+
     .subtitle img {
         height: 30px;
         width: 30px;
+    }
+
+    section.page_img .conn_worldwide {
+        max-width: 200px;
+        min-height: 40px;
+        padding: 10px;
     }
 }
 
