@@ -2,9 +2,7 @@
 @section('content')
     <section class="page_img">
         <img src="{{ asset('images/pg_template1.jpg') }}"/>
-        <a href="" class="page_img-link">
-                <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
-        </a>
+            <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
     </section>
 
     <section class="news_list">
