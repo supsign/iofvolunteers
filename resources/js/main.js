@@ -60,13 +60,13 @@ jQuery(document).ready(function ($) {
         checked = $(".required-disciplines:checked").length;
 
         if (!checked) {
-            var div = document.createElement("div");
-            div.setAttribute("id", "errorDiv");       
+            var errorDiv = document.createElement("div");
+            errorDiv.setAttribute("id", "errorDiv");       
 
             if (!document.contains(document.getElementById("errorDiv"))) {
-                div.appendChild(document.createTextNode("You must check at least one checkbox"));
-                div.classList.add("alert", "alert-danger");
-                document.getElementById("error-message").appendChild(div);
+                errorDiv.appendChild(document.createTextNode("You must check at least one checkbox"));
+                errorDiv.classList.add("alert", "alert-danger");
+                document.getElementById("error-wrapper").appendChild(errorDiv);
             } 
             return false;
         }
