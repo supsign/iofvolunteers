@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('#required-btn-disciplines').click(function () {
+    $('.required-btn').click(function () {
         checked = $('.required-disciplines:checked').length;
 
         if (!checked) {
