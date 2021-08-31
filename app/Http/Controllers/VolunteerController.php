@@ -51,7 +51,7 @@ class VolunteerController extends Controller
     {
         $user = Auth::user();
         if (Auth::user()->volunteer) {
-            return redirect()->route('volunteer.edit', $user->volunteer);
+            return redirect()->route('volunteer.editForm', $user->volunteer);
         }
 
         return view('volunteer.register', [
@@ -163,7 +163,7 @@ class VolunteerController extends Controller
             abort(403);
         }
 
-        return view('volunteer.edit', [
+        return view('volunteer.editForm', [
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
             'dutyTypes' => DutyType::all(),
@@ -241,7 +241,7 @@ class VolunteerController extends Controller
 
         Alert::toast('Saved', 'success');
 
-        return redirect()->route('volunteer.edit', $volunteer);
+        return redirect()->route('volunteer.editForm', $volunteer);
     }
 
     public function search(Request $request)
