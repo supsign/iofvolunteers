@@ -47,12 +47,12 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Disciplines of experience
+                                3. Disciplines of experience *
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input"/>
+                                                     label="{{ $discipline->name }}" class="form-check-input required-disciplines"/>
                                 @endforeach
                             </div>
                         </x-form.section>
@@ -218,7 +218,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto" type="submit" value="Submit my details">
+                                    <input id="required-btn-disciplines" class="ml-auto" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>

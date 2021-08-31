@@ -55,4 +55,31 @@ jQuery(document).ready(function ($) {
             $("#continentsCheckboxesTrigger").prop("checked", false);
         }
     });
+
+    // $("#required-btn-disciplines").validate({
+    //     rules: {
+    //         spam: {
+    //             required: function (element) {
+    //                 var boxes = $(".checkbox");
+    //                 if (boxes.filter(":checked").length == 0) {
+    //                     return true;
+    //                 }
+    //                 return false;
+    //             },
+    //             minlength: 1,
+    //         },
+    //     },
+    //     messages: {
+    //         spam: "Please select at least two types of spam.",
+    //     },
+    // });
+
+    $("#required-btn-disciplines").click(function () {
+        checked = $(".required-disciplines:checked").length;
+
+        if (!checked) {
+            alert("You must check at least one checkbox.");
+            return false;
+        }
+    });
 });
