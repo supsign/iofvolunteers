@@ -26,6 +26,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $('#cbox').click(function() {
+        if ($(this).prop('checked')) {
+            $('#tbox').attr('required', '');
+            $('.status').text('input is now required');
+        } else {
+            $('#tbox').removeAttr('required');
+            $('.status').text('input is no longer required');
+        }
+    });
+
+    $('.checkbox-required-text').click(function () {
+        if ($(this).prop('checked')) {
+            $(this).find('textarea').css( 'background-color', 'red' );
+        }
+        
+    });
+
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
             $('.continentsCheckboxes').each(function () {
