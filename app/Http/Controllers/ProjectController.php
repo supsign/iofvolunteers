@@ -17,6 +17,7 @@ use App\Models\Project;
 use App\Models\ProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -76,11 +77,20 @@ class ProjectController extends Controller
 
         unset($data['agb']);
 
-        foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
+        foreach (['o_work_experience', 'offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
+        if (isset($o_work_experience[1])) {
+            $data['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (isset($o_work_experience[2])) {
+            $data['o_work_experience_international'] = $o_work_experience[2];
+        }
+
         $data['user_id'] = Auth::user()->id;
+        $data['start_date'] = Carbon::parse($data['start_date']);
 
         $project = Project::create($data);
 
