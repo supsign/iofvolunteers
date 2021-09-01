@@ -40,7 +40,7 @@ jQuery(document).ready(function ($) {
     //     if ($(this).prop('checked')) {
     //         $(this).find('textarea').css( 'background-color', 'red' );
     //     }
-        
+
     // });
 
     $('#continentsCheckboxesTrigger').on('click', function () {
