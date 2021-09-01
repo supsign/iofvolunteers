@@ -27,11 +27,10 @@ jQuery(document).ready(function ($) {
     });
 
     $('.checkbox-required-text').on('click', function () {
-        var test = $(this).parent().parent().find('textarea');      
+        var test = $(this).parent().parent().find('textarea');
         if ($(this).prop('checked')) {
             test.attr('required', '');
-        }
-        else {
+        } else {
             test.removeAttr('required', '');
         }
     });
