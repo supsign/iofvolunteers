@@ -188,7 +188,7 @@
 
                                         @foreach($skillType->skills AS $skill)
                                             <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]"
-                                                             type="checkbox" class="form-check-input"
+                                                             type="checkbox" class="form-check-input checkbox-required-text"
                                                              :checked="$volunteer->skills->contains($skill)"/>
                                         @endforeach
 
@@ -198,7 +198,7 @@
                                         @endphp
 
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}"/>
+                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}" class="required-text"/>
                                     </div>
                                 </div>
                             @endforeach

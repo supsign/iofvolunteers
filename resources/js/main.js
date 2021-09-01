@@ -26,22 +26,15 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // $('#cbox').click(function() {
-    //     if ($(this).prop('checked')) {
-    //         $('#tbox').attr('required', '');
-    //         $('.status').text('input is now required');
-    //     } else {
-    //         $('#tbox').removeAttr('required');
-    //         $('.status').text('input is no longer required');
-    //     }
-    // });
-
-    // $('.checkbox-required-text').click(function () {
-    //     if ($(this).prop('checked')) {
-    //         $(this).find('textarea').css( 'background-color', 'red' );
-    //     }
-        
-    // });
+    $('.checkbox-required-text').on('click', function () {
+        var test = $(this).parent().parent().find('textarea');      
+        if ($(this).prop('checked')) {
+            test.attr('required', '');
+        }
+        else {
+            test.removeAttr('required', '');
+        }
+    });
 
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {

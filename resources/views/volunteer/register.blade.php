@@ -152,7 +152,7 @@
                                                              type="checkbox" class="form-check-input checkbox-required-text"/>
                                         @endforeach
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}"/>
+                                                         label="{{ $skillType->text }}" class="required-text"/>
                                     </div>
                                 </div>
                             @endforeach
@@ -220,7 +220,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto" type="submit" value="Submit my details">
+                                    <input class="ml-auto checkbox-required-button" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
