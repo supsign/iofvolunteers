@@ -247,7 +247,7 @@
                     <div class="col-12 col-md-6">
                         <div class="sticky">
                             <div class="noteWrap">
-                                <h3 class="noteTitle">Note</h3>
+                                <h2 class="noteTitle">Note</h2>
                                 <p>Edit your volunteer-information below. Leave defaults if no change is required.</p>
                             </div>
 
