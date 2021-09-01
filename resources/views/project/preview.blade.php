@@ -9,8 +9,7 @@
 
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to project list"/>
 
-            <table class="table">
-                {{-- <caption>Project Details Table</caption> --}}
+            <table aria-describedby="Details of a Project" class="table">
                 <tbody>
                     <tr>
                         <th class="font-weight-bold">Name:</th>
@@ -24,10 +23,12 @@
                         <th class="font-weight-bold">Status:</th>
                         <td>{{ $project->projectStatus->name }}</td>
                     </tr>
-                    <tr>
-                        <th class="font-weight-bold">Web page:</th>
-                        <td>{{ $project->organisation_webpage }}</td>
-                    </tr>
+                    @if($project->organisation_webpage)
+                        <tr>
+                            <th class="font-weight-bold">Web page:</th>
+                            <td>{{ $project->organisation_webpage }}</td>
+                        </tr>
+                    @endif
                     <tr>
                         <th class="font-weight-bold">Region:</th>
                         <td>
@@ -58,10 +59,12 @@
                         <th class="font-weight-bold">Work location:</th>
                         <td>{{ $project->place }}</td>
                     </tr>
-                    <tr>
-                        <th class="font-weight-bold">Start Date:</th>
-                        <td>{{ $project->start_date }}</td>
-                    </tr>
+                    @if($project->start_date)
+                        <tr>
+                            <th class="font-weight-bold">Start Date:</th>
+                            <td>{{ $project->start_date }}</td>
+                        </tr>
+                    @endif
                     <tr>
                         <th class="font-weight-bold">Project contact person:</th>
                         <td>{{ $project->contact }}</td>
@@ -70,7 +73,6 @@
                         <th class="font-weight-bold">Offers:</th>
                         <td>
                             <ul>
-
                                 <li>{{ $project->projectOffer }}</li>
                                 @if($project->offer_text)
                                     <li><strong>Other:</strong> {{ $project->offer_text }}</li>
@@ -79,7 +81,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Discipline of Experience:</th>
+                        <th class="font-weight-bold">Discipline of Project:</th>
                         <td>
                             <ul>
                                 @foreach($project->disciplines AS $discipline)
@@ -88,38 +90,47 @@
                             </ul>
                         </td>
                     </tr>
-                    <tr>
-                        <th class="font-weight-bold">Skills:</th>
-                        <td>
-                            <ul>
-                                @foreach($project->skillTypes AS $skillType)
-                                    <strong>{{ $skillType->name }}</strong><br/>
-                                    @foreach($project->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
-                                        {{ $skill->name }}<br/>
+                    @if($project->skillTypes->count())
+                        <tr>
+                            <th class="font-weight-bold">Skills:</th>
+                            <td>
+                                <ul>
+                                    @foreach($project->skillTypes AS $skillType)
+                                        <strong>{{ $skillType->name }}</strong><br/>
+                                        @foreach($project->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
+                                            {{ $skill->name }}<br/>
+                                        @endforeach
                                     @endforeach
-                                @endforeach
-                            </ul>
-                        </td>
-                    </tr>
+                                </ul>
+                            </td>
+                        </tr>
+                    @endif
+                    @if( $project->o_work_experience_local || $project->o_work_experience_international || $project->offer_text)
                     <tr>
-                        <th class="font-weight-bold">Experience:</th>
+                        <th class="font-weight-bold">required Experience:</th>
                         <td>
                             <ul>
                                 @foreach($dutyTypes AS $dutyType)
-                                    <li><strong>{{ $dutyType->name . ':'}}</strong>
-                                        @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
-                                            {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
-                                        @else
-                                            No Experience
-                                        @endif
-                                    </li>
-                                    @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
-                                        <li>{{ $duty->name }} </li>
-                                    @endforeach
+                                    @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
+                                        <li><strong>{{ $dutyType->name . ':'}}</strong>
+                                            @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
+                                                {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
+                                            @else
+                                                No Experience
+                                            @endif
+                                        </li>                                
+                                        @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
+                                            <li>{{ $duty->name }} </li>
+                                        @endforeach
+                                    @endif
                                 @endforeach
+                                @if($project->offer_text)
+                                    <li><strong>Other:</strong> {{ $project->offer_text }}</li>
+                                @endif
                             </ul>
                         </td>
                     </tr>
+                    @endif
                     <tr>
                         <th class="font-weight-bold">Work details:</th>
                         <td>{{ $project->exprience_details }}</td>
