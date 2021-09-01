@@ -39,7 +39,7 @@ class Project extends BaseModel
         return $this->belongsTo(Country::class);
     }
 
-    public function projectOffer(): BelongsToMany
+    public function projectOffers(): BelongsToMany
     {
         return $this->belongsToMany(ProjectOffer::class);
     }
