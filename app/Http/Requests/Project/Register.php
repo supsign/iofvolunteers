@@ -47,6 +47,7 @@ class Register extends FormRequest
             'discipline' => 'array',
             'skill' => 'array',
             'duty' => 'array',
+            'other_duties' => 'nullable|string',
             'o_work_experience' => 'nullable|array',
         ];
     }
