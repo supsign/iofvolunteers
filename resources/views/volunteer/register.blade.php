@@ -121,7 +121,7 @@
                                 7. Timing
                             </x-slot>
                             <x-slot name="subtitle">
-                                For how many weeks approximately can you work as a volunteer?
+                                For approximately how many weeks can you work as a volunteer?
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
