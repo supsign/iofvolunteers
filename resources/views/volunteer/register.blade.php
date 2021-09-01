@@ -52,8 +52,9 @@
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input"/>
+                                                     label="{{ $discipline->name }}" class="form-check-input required-checkboxes"/>
                                 @endforeach
+                                <div id="error-wrapper" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
@@ -194,7 +195,7 @@
                     <div class="col-12 col-md-6">
                         <div class="sticky">
                             <div class="noteWrap">
-                                <h3 class="noteTitle">Disclaimer</h3>
+                                <h2 class="noteTitle">Disclaimer</h2>
                                 <p>I have filled in my details
                                     above as accurately as possible. By submitting this form, I state that I am a
                                     volunteer in
@@ -220,7 +221,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto" type="submit" value="Submit my details">
+                                    <input class="ml-auto required-btn" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
