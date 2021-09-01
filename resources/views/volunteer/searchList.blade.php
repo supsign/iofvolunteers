@@ -17,7 +17,7 @@
                 <tr>
                     <td class="big-desc">Name & Age</td>
                     <td class="big-desc">Country</td>
-                    <td class="big-desc">OL-Work-Experience (in years)</td>
+                    <td class="big-desc">O-Work-Experience (in years)</td>
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>
