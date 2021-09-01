@@ -126,7 +126,8 @@
                                             @else
                                                 No Experience
                                             @endif
-                                        </li>                                
+                                        </li>
+                                                                 
                                         @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
                                             <li>{{ $duty->name }} </li>
                                         @endforeach
