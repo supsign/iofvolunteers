@@ -11,69 +11,69 @@
             <table aria-describedby="Details of a Project" class="table">
                 <tbody>
                     <tr>
-                        <th class="font-weight-bold">Name:</th>
+                        <th id="project_project_name" class="font-weight-bold">Name:</th>
                         <td>{{ $project->name }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Organisation:</th>
+                        <th id="organisation_name" class="font-weight-bold">Organisation:</th>
                         <td>{{ $project->organisation_name }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Status:</th>
+                        <th id="projectStatus" class="font-weight-bold">Status:</th>
                         <td>{{ $project->projectStatus->name }}</td>
                     </tr>
 
                     @if($project->organisation_webpage)
                         <tr>
-                            <th class="font-weight-bold">Web page:</th>
+                            <th id="organisation_webpage" class="font-weight-bold">Web page:</th>
                             <td>{{ $project->organisation_webpage }}</td>
                         </tr>
                     @endif
 
                     <tr>
-                        <th class="font-weight-bold">Region:</th>
+                        <th id="project_continent" class="font-weight-bold">Region:</th>
                         <td>
                             {{ $project->continent->name }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Organisation contact person:</th>
+                        <th id="organisation_contact" class="font-weight-bold">Organisation contact person:</th>
                         <td>{{ $project->organisation_contact }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Position in the Organisation:</th>
+                        <th id="organisation_contact_position" class="font-weight-bold">Position in the Organisation:</th>
                         <td>{{ $project->organisation_contact_position }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Country:</th>
+                        <th id="project_country" class="font-weight-bold">Country:</th>
                         <td>{{ $project->country->name }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">E-Mail:</th>
+                        <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
                         <td>{{ $project->organisation_email }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Phone</th>
+                        <th id="organisation_phone" class="font-weight-bold">Phone</th>
                         <td>{{ $project->organisation_phone }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Work location:</th>
+                        <th id="project_place" class="font-weight-bold">Work location:</th>
                         <td>{{ $project->place }}</td>
                     </tr>
 
                     @if($project->start_date)
                         <tr>
-                            <th class="font-weight-bold">Start Date:</th>
+                            <th id="start_date" class="font-weight-bold">Start Date:</th>
                             <td>{{ date_format(new datetime($project->start_date), 'Y-m-d') }}</td>
                         </tr>
                     @endif
 
                     <tr>
-                        <th class="font-weight-bold">Project contact person:</th>
+                        <th id="project_contact" class="font-weight-bold">Project contact person:</th>
                         <td>{{ $project->contact }}</td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Offers:</th>
+                        <th id="projectOffers" class="font-weight-bold">Offers:</th>
                         <td>
                             <ul>
                                  @foreach($project->projectOffers AS $projectOffer)
@@ -87,7 +87,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="font-weight-bold">Discipline of Project:</th>
+                        <th id="project_disciplines" class="font-weight-bold">Discipline of Project:</th>
                         <td>
                             <ul>
                                 @foreach($project->disciplines AS $discipline)
@@ -99,7 +99,7 @@
 
                     @if($project->skillTypes->count())
                         <tr>
-                            <th class="font-weight-bold">Skills:</th>
+                            <th id="project_skillType" class="font-weight-bold">Skills:</th>
                             <td>
                                 <ul>
                                     @foreach($project->skillTypes AS $skillType)
@@ -115,7 +115,7 @@
 
                     @if( $project->o_work_experience_local || $project->o_work_experience_international || $project->offer_text)
                     <tr>
-                        <th class="font-weight-bold">required Experience:</th>
+                        <th id="project_o_work_experience" class="font-weight-bold">required Experience:</th>
                         <td>
                             <ul>
                                 @foreach($dutyTypes AS $dutyType)
@@ -141,7 +141,7 @@
                     @endif
 
                     <tr>
-                        <th class="font-weight-bold">Work details:</th>
+                        <th id="exprience_details" class="font-weight-bold">Work details:</th>
                         <td>{{ $project->exprience_details }}</td>
                     </tr>
 
