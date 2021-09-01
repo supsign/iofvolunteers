@@ -26,6 +26,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
+<<<<<<< HEAD
     $('.checkbox-required-text').on('click', function () {
         var test = $(this).parent().parent().find('textarea');      
         if ($(this).prop('checked')) {
@@ -35,6 +36,24 @@ jQuery(document).ready(function ($) {
             test.removeAttr('required', '');
         }
     });
+=======
+    // $('#cbox').click(function() {
+    //     if ($(this).prop('checked')) {
+    //         $('#tbox').attr('required', '');
+    //         $('.status').text('input is now required');
+    //     } else {
+    //         $('#tbox').removeAttr('required');
+    //         $('.status').text('input is no longer required');
+    //     }
+    // });
+
+    // $('.checkbox-required-text').click(function () {
+    //     if ($(this).prop('checked')) {
+    //         $(this).find('textarea').css( 'background-color', 'red' );
+    //     }
+
+    // });
+>>>>>>> 33e11c937448fbc61b17f9b0af8423fb717d8bce
 
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
