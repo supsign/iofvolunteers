@@ -122,9 +122,20 @@
         font-size: 24px;
     }
 
+    section.news_list .container .page_img-title {
+        font-size: 30px;
+        padding: 0;
+    }
+
     .subtitle img {
         height: 30px;
         width: 30px;
+    }
+
+    section.page_img .conn_worldwide {
+        max-width: 200px;
+        min-height: 40px;
+        padding: 10px;
     }
 }
 

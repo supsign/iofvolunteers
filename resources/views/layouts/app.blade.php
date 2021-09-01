@@ -227,9 +227,6 @@
                         SWEDEN<br>
                         <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
                 </aside>
-                <aside>
-                    <img src="{{ asset('images/connectingworldwide.png') }}" alt="" width="200"/>
-                </aside>
             </div>
         </div>
     </footer>
