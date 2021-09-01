@@ -69,6 +69,7 @@ class Project extends BaseModel
 
         return $skillTypes->unique();
     }
+
     public function hasDuty(Duty $duty, DutyType $dutyType): bool
     {
         return $this->dutyProject->contains(
