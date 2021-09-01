@@ -94,8 +94,6 @@ class ProjectController extends Controller
 
         Alert::toast('Saved', 'success');
 
-        return redirect()->route('home');
-
         return redirect()->route('project.list');
     }
 
