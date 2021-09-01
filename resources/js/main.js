@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('#cbox').click(function() {
+    $('#cbox').click(function () {
         if ($(this).prop('checked')) {
             $('#tbox').attr('required', '');
             $('.status').text('input is now required');
@@ -38,9 +38,8 @@ jQuery(document).ready(function ($) {
 
     $('.checkbox-required-text').click(function () {
         if ($(this).prop('checked')) {
-            $(this).find('textarea').css( 'background-color', 'red' );
+            $(this).find('textarea').css('background-color', 'red');
         }
-        
     });
 
     $('#continentsCheckboxesTrigger').on('click', function () {
