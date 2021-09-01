@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('.required-btn').click(function () {
-        checked = $('.required-disciplines:checked').length;
+        checked = $('.required-checkboxes:checked').length;
 
         if (!checked) {
             var errorDiv = document.createElement('div');

@@ -23,7 +23,7 @@
                 @method("PATCH")
 
                 <div class="row">
-                    <div class="col-12 col-md-8">
+                    <div class="col-12 col-md-6">
 
                         @if($errors->any())
                             <div class="alert alert-danger">
@@ -67,21 +67,22 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Disciplines of experience
+                                3. Experience in the following disciplines
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                      label="{{ $discipline->name }}"
-                                                     class="form-check-input"
+                                                     class="form-check-input required-checkboxes"
                                                      :checked="(int)$volunteer->disciplines->contains($discipline)"/>
                                 @endforeach
+                                <div id="error-wrapper" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. O-Experience
+                                4. O-Experience as competitor
                             </x-slot>
                             <x-slot name="subtitle">
                                 State below how long your experience for each given Event-Type is.
@@ -160,7 +161,7 @@
                                 7. Timing
                             </x-slot>
                             <x-slot name="subtitle">
-                                For how long can you work?
+                                For approximately how many weeks can you work as a volunteer?
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
@@ -241,7 +242,22 @@
                             <x-base.textarea name="expectation" value="{{ $volunteer->expectation }}"
                                              label="Expectations as a volunteer"/>
                         </x-form.section>
-                        <input class="ml-auto" type="submit" value="Save changes">
+                        
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="sticky">
+                            <div class="noteWrap">
+                                <h3 class="noteTitle">Note</h3>
+                                <p>Edit your volunteer-information below. Leave defaults if no change is required.</p>
+                            </div>
+
+                            <div class="formSection">
+
+                                <div class="form-group d-flex">
+                                    <input class="ml-auto required-btn" type="submit" value="Save changes">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
