@@ -12,7 +12,7 @@
             </div>
             <input type="button" class="mb-3" onclick="location.href='{{ route('project.register') }}';" value="Add project" />
 
-            <table class="table">
+            <table aria-describedby="List all my created Projects" class="table">
                 <tbody>
                     <tr>
                         <th id="project_name" class="big-desc">Project Name</td>
