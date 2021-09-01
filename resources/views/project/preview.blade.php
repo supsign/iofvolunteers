@@ -1,0 +1,132 @@
+@extends('layouts.app')
+@section('content')
+    <section class="default">
+        <div class="container">
+            <div class="titleWrap">
+                <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
+                                            height="65"> Project Details</h1>
+            </div>
+
+            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to project list"/>
+
+            <table class="table">
+                {{-- <caption>Project Details Table</caption> --}}
+                <tbody>
+                    <tr>
+                        <th class="font-weight-bold">Name:</th>
+                        <td>{{ $project->name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Organisation:</th>
+                        <td>{{ $project->organisation_name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Status:</th>
+                        <td>{{ $project->projectStatus->name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Web page:</th>
+                        <td>{{ $project->organisation_webpage }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Region:</th>
+                        <td>
+                            {{ $project->continent->name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Organisation contact person:</th>
+                        <td>{{ $project->organisation_contact }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Position in the Organisation:</th>
+                        <td>{{ $project->organisation_contact_position }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Country:</th>
+                        <td>{{ $project->country->name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">E-Mail:</th>
+                        <td>{{ $project->organisation_email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Phone</th>
+                        <td>{{ $project->organisation_phone }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Work location:</th>
+                        <td>{{ $project->place }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Start Date:</th>
+                        <td>{{ $project->start_date }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Project contact person:</th>
+                        <td>{{ $project->contact }}</td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Offers:</th>
+                        <td>
+                            <ul>
+
+                                <li>{{ $project->projectOffer }}</li>
+                                @if($project->offer_text)
+                                    <li><strong>Other:</strong> {{ $project->offer_text }}</li>
+                                @endif
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Discipline of Experience:</th>
+                        <td>
+                            <ul>
+                                @foreach($project->disciplines AS $discipline)
+                                    <li>{{ $discipline->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Skills:</th>
+                        <td>
+                            <ul>
+                                @foreach($project->skillTypes AS $skillType)
+                                    <strong>{{ $skillType->name }}</strong><br/>
+                                    @foreach($project->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
+                                        {{ $skill->name }}<br/>
+                                    @endforeach
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Experience:</th>
+                        <td>
+                            <ul>
+                                @foreach($dutyTypes AS $dutyType)
+                                    <li><strong>{{ $dutyType->name . ':'}}</strong>
+                                        @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
+                                            {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
+                                        @else
+                                            No Experience
+                                        @endif
+                                    </li>
+                                    @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
+                                        <li>{{ $duty->name }} </li>
+                                    @endforeach
+                                @endforeach
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-weight-bold">Work details:</th>
+                        <td>{{ $project->exprience_details }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+@endsection
