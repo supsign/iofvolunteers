@@ -54,6 +54,11 @@
                                 <strong>{{ $languageVolunteer->language->name }}
                                     :</strong> {{ $languageVolunteer->languageProficiency->name }}<br/>
                             @endforeach
+
+                            @if($volunteer->other_languages)
+                                <strong>Other languages :</strong> {{ $volunteer->other_languages }}
+                            @endif
+
                         </td>
                     </tr>
                 @endif

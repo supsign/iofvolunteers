@@ -37,6 +37,7 @@ class Update extends FormRequest
             'national_experience' => 'nullable|int|max:1200',
             'international_experience' => 'nullable|int|max:1200',
             'language' => 'nullable|array',
+            'other_languages' => 'nullable|string',
             'continent' => 'nullable|array',
             'work_duration' => 'int|nullable|max:1200',
             'skill' => 'nullable|array',
