@@ -42,7 +42,7 @@
                     <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
                 </tr>
 
-                @if($volunteer->continents->count())
+                @if($volunteer->languageVolunteers->count())
                     <tr>
                         <td class="font-weight-bold">Languages</td>
                         <td>
