@@ -132,6 +132,8 @@
                                               :options="$languageProficiencies"
                                               value="{{$volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
+
+                            <x-base.input name="other_languages" label="Additional languages" value="{{ $volunteer->other_languages }}"/>
                         </x-form.section>
 
                         <x-form.section>
