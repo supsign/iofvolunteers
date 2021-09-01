@@ -26,6 +26,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    // $('#cbox').click(function() {
+    //     if ($(this).prop('checked')) {
+    //         $('#tbox').attr('required', '');
+    //         $('.status').text('input is now required');
+    //     } else {
+    //         $('#tbox').removeAttr('required');
+    //         $('.status').text('input is no longer required');
+    //     }
+    // });
+
+    // $('.checkbox-required-text').click(function () {
+    //     if ($(this).prop('checked')) {
+    //         $(this).find('textarea').css( 'background-color', 'red' );
+    //     }
+        
+    // });
+
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
             $('.continentsCheckboxes').each(function () {
@@ -43,26 +60,6 @@ jQuery(document).ready(function ($) {
             $('#continentsCheckboxesTrigger').prop('checked', true);
         } else {
             $('#continentsCheckboxesTrigger').prop('checked', false);
-        }
-    });
-
-    $('.required-btn').click(function () {
-        checked = $('.required-checkboxes:checked').length;
-
-        if (!checked) {
-            var errorDiv = document.createElement('div');
-            errorDiv.setAttribute('id', 'errorDiv');
-
-            if (!document.contains(document.getElementById('errorDiv'))) {
-                errorDiv.appendChild(document.createTextNode('You must check at least one checkbox'));
-                errorDiv.classList.add('alert', 'alert-danger');
-                document.getElementById('error-wrapper').appendChild(errorDiv);
-            }
-            return false;
-        } else {
-            if (document.contains(document.getElementById('errorDiv'))) {
-                document.getElementById('errorDiv').remove();
-            }
         }
     });
 });
