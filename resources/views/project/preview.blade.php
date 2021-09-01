@@ -133,7 +133,7 @@
                                     @endif
                                 @endforeach
                                 @if($project->offer_text)
-                                    <li><strong>Other Duties:</strong> {{ $project->offer_text }}</li>
+                                    <li><strong>Other Duties:</strong> {{ $project->other_duties }}</li>
                                 @endif
                             </ul>
                         </td>
