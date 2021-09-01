@@ -22,7 +22,7 @@
                             <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'"
                                            :options="$stati" required/>
                             <x-base.input name="organisation_webpage" label="Web page (if exists)"/>
-                            <x-base.select name="region_id" label="Region *" :iconName="'selectArr'"
+                            <x-base.select name="continent_id" label="Region *" :iconName="'selectArr'"
                                            :options="$continents" required/>
                             <x-base.input name="organisation_contact" label="Contact person *" required/>
                             <x-base.input name="organisation_contact_position" label="Position in the organisation *"
