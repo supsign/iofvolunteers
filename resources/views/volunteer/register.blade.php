@@ -193,7 +193,7 @@
                     <div class="col-12 col-md-6">
                         <div class="sticky">
                             <div class="noteWrap">
-                                <h3 class="noteTitle">Disclaimer</h3>
+                                <h2 class="noteTitle">Disclaimer</h2>
                                 <p>I have filled in my details
                                     above as accurately as possible. By submitting this form, I state that I am a
                                     volunteer in
