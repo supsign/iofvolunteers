@@ -19,15 +19,15 @@
                             <x-slot name="title">
                                 1. Personal Information
                             </x-slot>
+                            <x-slot name="subtitle">
+                                Note that volunteers under 18 are not allowed to register on the Platform
+                            </x-slot>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
                             <div class="mx-0 row">
-                                <div class="pl-0 pr-0 mt-0 form-group col-12 col-sm-6 pr-sm-2">
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pr-sm-2">
                                     <x-base.input name="minage" label="Age (at least)" type="number"/>
-                                    <div class="font-weight-normal">
-                                        Note that volunteers under 18 are not allowed to register on the Platform
-                                    </div>
                                 </div>
-                                <div class="pl-0 pr-0 mt-0 form-group col-12 col-sm-6 pl-sm-2">
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pl-sm-2">
                                     <x-base.input name="maxage" label="Age (at most)" type="number"/>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                             <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)'
                                           type="number"/>
                             <div class="form-group">
-                                <label class="formSubtitle2">Experience as Competitor</label>
+                                <label class="formSubtitle2">Years of experience as competitor</label>
                             </div>
                             <x-base.input name="local_experience" label="Exprience with local Events (number)"
                                           type="number" size="3" min="0" step="1"/>

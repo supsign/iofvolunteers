@@ -47,7 +47,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Disciplines of experience
+                                3. Experience in the following disciplines
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
@@ -59,7 +59,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. O-Experience
+                                4. O-Experience as competitor
                             </x-slot>
                             <x-slot name="subtitle">
                                 State below how long your experience for each given Event-Type is.
@@ -121,7 +121,7 @@
                                 7. Timing
                             </x-slot>
                             <x-slot name="subtitle">
-                                For how long can you work?
+                                For approximately how many weeks can you work as a volunteer?
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
