@@ -27,7 +27,7 @@ class ProjectController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function list(Project $projects)
+    public function list()
     {
         return view('project.list', [
             'projects' => Auth::user()->projects,
@@ -65,9 +65,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        $volunteers = Auth::user()->volunteers;
-
-        return view('project.preview', ['volunteer' => $volunteers, 'projects' => $project]);
+        return view('project.preview', ['volunteer' => Auth::user()->volunteers, 'project' => $project]);
     }
 
     public function register(Register $request)
@@ -109,5 +107,6 @@ class ProjectController extends Controller
 
     public function search()
     {
+        return (new HomeController)->underConstruction();
     }
 }
