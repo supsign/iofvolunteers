@@ -10,6 +10,7 @@
                 </h1>
                 <div class="title-desc">Click on the Project Name for more details.</div>
             </div>
+            <input type="button" class="mb-3" onclick="location.href='{{ route('project.register') }}';" value="Add project" />
 
             <table class="table">
                 <tbody>
