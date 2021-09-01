@@ -37,6 +37,7 @@ class Register extends FormRequest
             'national_experience' => 'nullable|int',
             'international_experience' => 'nullable|int',
             'language' => 'nullable|array',
+            'other_languages' => 'nullable|string',
             'continent' => 'nullable|array',
             'work_duration' => 'int|nullable',
             'skill' => 'nullable|array',
