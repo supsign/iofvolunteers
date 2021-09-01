@@ -26,14 +26,20 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('#cbox').click(function() {
+    // $('#cbox').click(function() {
+    //     if ($(this).prop('checked')) {
+    //         $('#tbox').attr('required', '');
+    //         $('.status').text('input is now required');
+    //     } else {
+    //         $('#tbox').removeAttr('required');
+    //         $('.status').text('input is no longer required');
+    //     }
+    // });
+
+    $('.checkbox-required-text').click(function () {
         if ($(this).prop('checked')) {
-            $('#tbox').attr('required', '');
-            $('.status').text('input is now required');
-        } else {
-            $('#tbox').removeAttr('required');
-            $('.status').text('input is no longer required');
-        }
+            $(this).find('textarea').css( 'background-color', 'red' );
+        }       
     });
 
     $('.checkbox-required-text').click(function () {
