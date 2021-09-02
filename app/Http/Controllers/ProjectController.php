@@ -58,9 +58,18 @@ class ProjectController extends Controller
 
     public function searchForm()
     {
-        return (new HomeController())->underConstruction();
-
-        return view('project.search');
+        return view('project.search', [
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+            'stati' => ProjectStatus::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function show(Project $project)
