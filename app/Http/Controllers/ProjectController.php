@@ -17,6 +17,7 @@ use App\Models\Project;
 use App\Models\ProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -65,7 +66,11 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        return view('project.preview', ['volunteer' => Auth::user()->volunteers, 'project' => $project]);
+        return view('project.preview', [
+            'volunteer' => Auth::user()->volunteers,
+            'project' => $project,
+            'dutyTypes' => DutyType::all(),
+        ]);
     }
 
     public function register(Register $request)
@@ -74,15 +79,24 @@ class ProjectController extends Controller
 
         unset($data['agb']);
 
-        foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
+        foreach (['o_work_experience', 'offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
+        if (isset($o_work_experience[1])) {
+            $data['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (isset($o_work_experience[2])) {
+            $data['o_work_experience_international'] = $o_work_experience[2];
+        }
+
         $data['user_id'] = Auth::user()->id;
+        $data['start_date'] = Carbon::parse($data['start_date']);
 
         $project = Project::create($data);
 
-        $project->projectOffer()->attach(array_keys(array_filter($offer)));
+        $project->projectOffers()->attach(array_keys(array_filter($offer)));
         $project->disciplines()->attach(array_keys(array_filter($discipline)));
         $project->skills()->attach(array_keys(array_filter($skill)));
 
