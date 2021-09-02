@@ -22,13 +22,13 @@
                             <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'"
                                            :options="$stati" required/>
                             <x-base.input name="organisation_webpage" label="Web page (if exists)"/>
-                            <x-base.select name="region_id" label="Region *" :iconName="'selectArr'"
+                            <x-base.select name="continent_id" label="Region *" :iconName="'selectArr'"
                                            :options="$continents" required/>
                             <x-base.input name="organisation_contact" label="Contact person *" required/>
                             <x-base.input name="organisation_contact_position" label="Position in the organisation *"
-                                          required/>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
-                                           :options="$countries"/>
+                                            required/>
+                            <x-base.select name="country_id" label="Country" required
+                                            :iconName="'selectArr'" :options="$countries"/>
                             <x-base.input name="organisation_email" label="E-mail *" type="email" required/>
                             <x-base.input name="organisation_phone" label="Phone *" required/>
                             {{-- <x-base.input name="organisation_language_id" label="Native language(s) *" required /> --}}
@@ -40,7 +40,7 @@
                             </x-slot>
                             <x-base.input name="place" value="{{ old('place') }}"
                                           label="Where will the volunteer be working? *" required/>
-                            <x-base.input name="startDate" value="{{ old('startDate') }}"
+                            <x-base.input name="start_date" value="{{ old('start_date') }}"
                                           label="When is the volunteer expected to start?" class="datepicker-here"
                                           data-language='en' data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'"/>
@@ -111,7 +111,7 @@
                                     @endforeach
                                 @endforeach
                             </div>
-                            <x-base.input name="oWorkInternationalExpinfo" label="Other duties? State below..."/>
+                            <x-base.input name="other_duties" label="Other duties? State below..."/>
                             <x-base.input name="exprience_details" label="Details of the work to be done *" required/>
                         </x-form.section>
                     </div>

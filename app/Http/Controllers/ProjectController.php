@@ -17,6 +17,7 @@ use App\Models\Project;
 use App\Models\ProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -29,7 +30,9 @@ class ProjectController extends Controller
 
     public function list()
     {
-        return (new HomeController())->underConstruction();
+        return view('project.list', [
+            'projects' => Auth::user()->projects,
+        ]);
     }
 
     public function editForm()
@@ -61,21 +64,39 @@ class ProjectController extends Controller
         return view('project.search');
     }
 
+    public function show(Project $project)
+    {
+        return view('project.preview', [
+            'volunteer' => Auth::user()->volunteers,
+            'project' => $project,
+            'dutyTypes' => DutyType::all(),
+        ]);
+    }
+
     public function register(Register $request)
     {
         $data = $request->validated();
 
         unset($data['agb']);
 
-        foreach (['offer', 'discipline', 'skill', 'duty'] as $key) {
+        foreach (['o_work_experience', 'offer', 'discipline', 'skill', 'duty'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
+        if (isset($o_work_experience[1])) {
+            $data['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (isset($o_work_experience[2])) {
+            $data['o_work_experience_international'] = $o_work_experience[2];
+        }
+
         $data['user_id'] = Auth::user()->id;
+        $data['start_date'] = Carbon::parse($data['start_date']);
 
         $project = Project::create($data);
 
-        $project->projectOffer()->attach(array_keys(array_filter($offer)));
+        $project->projectOffers()->attach(array_keys(array_filter($offer)));
         $project->disciplines()->attach(array_keys(array_filter($discipline)));
         $project->skills()->attach(array_keys(array_filter($skill)));
 
@@ -85,9 +106,7 @@ class ProjectController extends Controller
 
         Alert::toast('Saved', 'success');
 
-        return redirect()->route('home');
-
-        return redirect()->route('project.list');    //	gibts noch nicht
+        return redirect()->route('project.list');
     }
 
     public function update(Project $project, Update $request)
@@ -95,7 +114,13 @@ class ProjectController extends Controller
         return Project::update($request->validated());
     }
 
+    public function delete(Project $project)
+    {
+        return (new HomeController())->underConstruction();
+    }
+
     public function search()
     {
+        return (new HomeController)->underConstruction();
     }
 }
