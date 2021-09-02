@@ -37,6 +37,14 @@ class ProjectController extends Controller
 
     public function editForm(Project $project)
     {
+        if (!Auth::user()->projects->count()) {
+            return redirect()->route('project.registerForm');
+        }
+
+        if (!Auth::user()->projects->contains($project)) {
+            abort(403);
+        }
+
         return view('project.edit', [
             'project' => $project,
             'disciplines' => Discipline::all(),
@@ -122,12 +130,61 @@ class ProjectController extends Controller
 
     public function update(Project $project, Update $request)
     {
-        return Project::update($request->validated());
+        if (Auth::user()->id !== $project->user->id) {
+            abort(403);
+        }
+
+        $data = $request->validated();
+
+        unset($data['agb']);
+
+        foreach (['o_work_experience', 'offer', 'discipline', 'skill', 'duty'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        if (isset($o_work_experience[1])) {
+            $data['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (isset($o_work_experience[2])) {
+            $data['o_work_experience_international'] = $o_work_experience[2];
+        }
+
+        $data['user_id'] = Auth::user()->id;
+        $data['start_date'] = Carbon::parse($data['start_date']);
+
+        $project = Project::create($data);
+
+        $project->projectOffers()->attach(array_keys(array_filter($offer)));
+        $project->disciplines()->attach(array_keys(array_filter($discipline)));
+        $project->skills()->attach(array_keys(array_filter($skill)));
+
+        foreach ($duty as $key => $values) {
+            $project->duties()->attach(array_keys(array_filter($values)), ['duty_type_id' => $key]);
+        }
+
+        Alert::toast('Saved', 'success');
+
+        return redirect()->route('project.list');
     }
 
     public function delete(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        // if (Auth::user()->id !== $project->user->id) {
+        //     abort(403);
+        // }
+
+        // $user = $project->user;
+        // if ($user) {
+        //     $user->projects()->disassociate($project);
+        //     $user->save();
+        // }
+        
+        // $project->delete();
+
+        // Alert::toast('Volunteer deleted', 'success');
+
+        return redirect()->route('home');
     }
 
     public function search()
