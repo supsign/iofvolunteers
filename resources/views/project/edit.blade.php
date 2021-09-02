@@ -4,19 +4,19 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
-                                            height="65" alt="search icon"> Edit Volunteer</h1>
+                                            height="65" alt="search icon"> Edit Project</h1>
             </div>
 
-            {{-- <div class="row pb-3">
-                <div class="col-12 col-md-8">
+            <div class="row pb-3">
+                <div class="col-12 col-md-6">
                     <form action="{{ route('project.delete', $project) }}" method="POST"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
                         @csrf
-                        <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Volunteer">
+                        <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Project">
                     </form>
                 </div>
-            </div> --}}
+            </div>
 
             <form method="POST" enctype="multipart/form-data" action="{{ route('project.update', $project->id) }}">
                 @csrf
@@ -42,19 +42,19 @@
                             <x-base.input name="name" value="{{ $project->name }}" label="Name of your project *" required/>
                             <x-base.input name="organisation_name" value="{{ $project->organisation_name }}"
                                             label="Name of the organisation *" required/>
-                            <x-base.select name="project_status_id"
+                            <x-base.select name="project_status_id" :value="$project->projectStatus"
                                             label="Status *" :iconName="'selectArr'"
                                             :options="$stati" required/>
                             <x-base.input name="organisation_webpage" value="{{ $project->organisation_webpage }}"
                                             label="Web page (if exists)"/>
-                            <x-base.select name="continent_id"
+                            <x-base.select name="continent_id" :value="$project->continent"
                                             label="Region *" :iconName="'selectArr'"
                                             :options="$continents" required/>
                             <x-base.input name="organisation_contact" value="{{ $project->organisation_contact }}"
                                             label="Contact person *" required/>
                             <x-base.input name="organisation_contact_position" value="{{ $project->organisation_contact_position }}"
                                             label="Position in the organisation *" required/>
-                            <x-base.select name="country_id"
+                            <x-base.select name="country_id" :value="$project->country"
                                             label="Country" required :iconName="'selectArr'"
                                             :options="$countries"/>
                             <x-base.input name="organisation_email" value="{{ $project->organisation_email }}"
@@ -80,7 +80,8 @@
                                 <label class="formSubtitle2">What can you offer the volunteer? *</label>
                                 @foreach($offers AS $offer)
                                     <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
-                                                     class="form-check-input"/>
+                                                     class="form-check-input"
+                                                     :checked="(int)$project->projectOffers->contains($offer)"/>
                                 @endforeach
                             </div>
                             <x-base.input name="offer_text" value="{{ $project->offer_text }}" label="Other (please state):"/>
@@ -93,7 +94,8 @@
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input"/>
+                                                     label="{{ $discipline->name }}" class="form-check-input"
+                                                     :checked="(int)$project->disciplines->contains($discipline)"/>
                                 @endforeach
                             </div>
                         </x-form.section>
@@ -114,7 +116,8 @@
 
                                         @foreach($skillType->skills AS $skill)
                                             <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]"
-                                                             class="form-check-input"/>
+                                                             class="form-check-input"
+                                                             :checked="(int)$project->skills->contains($skill)"/>
                                         @endforeach
                                     </div>
                                 </div>
@@ -141,7 +144,8 @@
                                     @foreach($duties AS $duty)
                                         <x-base.checkbox label="{{ $duty->name }}"
                                                         name="duty[{{ $dutyType->id }}][{{ $duty->id }}]"
-                                                        class="form-check-input"/>
+                                                        class="form-check-input"
+                                                        :checked="(int)$project->duties->contains($duty)"/>
                                     @endforeach
                                 @endforeach
                             </div>

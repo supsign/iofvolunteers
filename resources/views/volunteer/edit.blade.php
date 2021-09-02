@@ -8,7 +8,7 @@
             </div>
 
             <div class="row pb-3">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-6">
                     <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
