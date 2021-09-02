@@ -6,9 +6,6 @@
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
                                        height="65"> Volunteer Search Form</h1>
-
-                <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!
-                </div>
             </div>
 
             <form method="POST" action="/volunteer/search" enctype="multipart/form-data">
