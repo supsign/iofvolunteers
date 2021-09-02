@@ -192,19 +192,12 @@ class ProjectController extends Controller
 
     public function delete(Project $project)
     {
-        // if (Auth::user()->id !== $project->user->id) {
-        //     abort(403);
-        // }
+        if (Auth::user()->id !== $project->user->id) {
+            abort(403);
+        }
+        $project->delete();
 
-        // $user = $project->user;
-        // if ($user) {
-        //     $user->projects()->disassociate($project);
-        //     $user->save();
-        // }
-
-        // $project->delete();
-
-        // Alert::toast('Volunteer deleted', 'success');
+        Alert::toast('Project deleted', 'success');
 
         return redirect()->route('home');
     }
