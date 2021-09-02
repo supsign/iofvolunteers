@@ -6,8 +6,10 @@
                 <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
                                             height="65" alt="search icon"> Project Details</h1>
             </div>
-            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to project list"/>
-            <input type="button" class="ml-auto float-md-right" onclick="location.href='{{ route('project.edit', $project ) }}';" value="Edit Project">
+            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to list"/>
+            @if($user->id == isset($project->user->id))
+                <input type="button" class="ml-auto float-md-right" onclick="location.href='{{ route('project.edit', $project ) }}';" value="Edit Project">
+            @endif
 
             <table aria-describedby="Details of a Project" class="table">
                 <tbody>
