@@ -96,7 +96,7 @@ class ProjectController extends Controller
 
         $project = Project::create($data);
 
-        $project->projectOffer()->attach(array_keys(array_filter($offer)));
+        $project->projectOffers()->attach(array_keys(array_filter($offer)));
         $project->disciplines()->attach(array_keys(array_filter($discipline)));
         $project->skills()->attach(array_keys(array_filter($skill)));
 
