@@ -18,9 +18,9 @@ use App\Models\ProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Http\Request;
 use Schema;
 
 class ProjectController extends Controller
