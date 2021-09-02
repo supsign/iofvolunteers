@@ -27,11 +27,15 @@ jQuery(document).ready(function ($) {
     });
 
     $('.checkbox-required-text').on('click', function () {
-        var test = $(this).parent().parent().find('textarea');
+        var textarea = $(this).parent().parent().find('textarea');
         if ($(this).prop('checked')) {
-            test.attr('required', '');
+            textarea.attr('required', '');
         } else {
-            test.removeAttr('required', '');
+            const checkboxelements = $(this).parent().parent().find('.checkbox-required-text:checked');
+            if(checkboxelements.length) {
+                return;
+            }
+            textarea.removeAttr('required', '');
         }
     });
 

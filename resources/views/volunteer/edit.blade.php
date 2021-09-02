@@ -197,9 +197,9 @@
                                             $fieldDB="skill_".$skillType->snakeCaseName;
                                             $fieldQuery=$volunteer->$fieldDB
                                         @endphp
-
-                                        <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}" class="required-text"/>
+                                        
+                                        <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" :required="$skillType->skills->intersect($volunteer->skills)->count()"
+                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}" />
                                     </div>
                                 </div>
                             @endforeach
