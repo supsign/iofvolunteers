@@ -129,7 +129,7 @@ class ProjectController extends Controller
     public function search(Request $request)
     {
         $data = $request->all();
-        
+
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
