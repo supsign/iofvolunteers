@@ -73,10 +73,10 @@
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                      label="{{ $discipline->name }}"
-                                                     class="form-check-input required-checkboxes"
+                                                     class="form-check-input required-checkboxes-disciplines"
                                                      :checked="(int)$volunteer->disciplines->contains($discipline)"/>
                                 @endforeach
-                                <div id="error-wrapper" class="mt-3"></div>
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
