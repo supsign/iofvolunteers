@@ -7,7 +7,7 @@
                                        height="65"> Project Search Form</h1>
             </div>
 
-            <form method="POST" action="project/search" enctype="multipart/form-data">
+            <form method="POST" action="/project/search" enctype="multipart/form-data">
 
                 <div class="row">
                     <div class="col-12 col-md-6">

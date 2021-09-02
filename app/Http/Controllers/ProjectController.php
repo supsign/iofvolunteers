@@ -20,6 +20,7 @@ use App\Models\SkillType;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -61,11 +62,7 @@ class ProjectController extends Controller
     {
         return view('project.search', [
             'disciplines' => Discipline::all(),
-            'dutyTypes' => DutyType::all(),
-            'duties' => Duty::all(),
             'countries' => Country::all(),
-            'languages' => Language::all(),
-            'languageProficiency' => LanguageProficiency::all(),
             'continents' => Continent::all(),
             'skillTypes' => SkillType::with('skills')->get(),
             'stati' => ProjectStatus::all(),
@@ -128,8 +125,77 @@ class ProjectController extends Controller
         return (new HomeController())->underConstruction();
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        return (new HomeController)->underConstruction();
+        $data = $request->all();
+        $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
+        $volunteerData = array_intersect_key($data, $columns);
+        $relationData = array_diff_key($data, $columns);
+        $volunteers = Volunteer::with('languageVolunteers');
+
+        unset($relationData['_token']);
+
+        foreach ($volunteerData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'gender_id':
+                    if ($value != 3) {
+                        $volunteers->where($key, $value);
+                    }
+                    break;
+                case 'minage':
+                    $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value));
+                    break;
+                case 'maxage':
+                    $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value));
+                    break;
+                case 'ol_duration':
+                    $volunteers->where($key, '<=', Carbon::now()->year - $value);
+                    break;
+                case 'work_duration':
+                    $volunteers->whereNull($key)->orWhere($key, '>=', $value);
+                    break;
+                case 'local_experience':
+                case 'national_experience':
+                case 'international_experience':
+                    $volunteers->where($key, '>=', $value);
+                    break;
+
+                default:
+                    $volunteers->where($key, $value);
+                    break;
+            }
+        }
+
+        $volunteers = $volunteers->get();
+
+        foreach ($relationData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'discipline':
+                    $volunteers = $volunteers->filterByDisciplines($value);
+                    break;
+                case 'language':
+                    $volunteers = $volunteers->filterByLanguages($value);
+                    break;
+                case 'skillType':
+                    $volunteers = $volunteers->filterBySkillType($value);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return view('volunteer.searchList', [
+            'projects' => $projects,
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+        ]);
     }
 }

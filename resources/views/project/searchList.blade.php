@@ -5,24 +5,23 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title">
-                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
-                    Search Volunteers </h1>
+                    <img class="title-icon" src="{{ asset('images/icon-search3.svg') }}" width="65" height="65">
+                    Project Search Result </h1>
             </div>
 
 
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search"/>
 
-            <table class="table">
+            <table aria-describedby="List all projects from the search form" class="table">
                 <tbody>
                     <tr>
-                        <th id="project_name" class="big-desc">Project Name</td>
-                        <th id="org_name" class="big-desc">Organisation Name</td>
-                        <th id="project_contact" class="big-desc">Project Contact</td>
-                        <th id="edit_delete_buttons" class="big-desc"></td>
+                        <th id="search_project_name" class="big-desc">Project Name</td>
+                        <th id="search_org_name" class="big-desc">Organisation Name</td>
+                        <th id="search_project_contact" class="big-desc">Project Contact</td>
                     </tr>
-                    @foreach($projects AS $project)
+                    @foreach ($projects as $project)
                         <tr>
-                            <td>
+                            <td class="desc">
                                 @if(false)
                                     {{ $project->name ?? '' }}
                                 @else
@@ -31,28 +30,12 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="desc">{{ $project->country->name }}</td>
+                            <td class="desc">{{ $project->organisation_name }}</td>
+                            <td class="desc">{{ $project->contact }}</td>
                             <td class="desc">
-                                <ul>
-                                    <li>
-                                        @foreach($dutyTypes AS $dutyType)
-                                            <strong>{{ $dutyType->name . ':'}}</strong>
-                                            @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
-                                                {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
-                                                <br/>
-                                            @else
-                                                No Experience<br/>
-                                            @endif
-                                            @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
-                                                {{ $duty->name }} <br/>
-                                            @endforeach
-                                        @endforeach
-                                    </li>
-                                </ul>
-                            </td>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach                  
                 </tbody>
             </table>
         </div>
