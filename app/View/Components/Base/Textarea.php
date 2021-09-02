@@ -3,7 +3,6 @@
 namespace App\View\Components\Base;
 
 use Illuminate\Contracts\View\View;
-
 use Illuminate\View\Component;
 
 class Textarea extends Component

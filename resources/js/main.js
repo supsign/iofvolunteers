@@ -32,7 +32,7 @@ jQuery(document).ready(function ($) {
             textarea.attr('required', '');
         } else {
             const checkboxelements = $(this).parent().parent().find('.checkbox-required-text:checked');
-            if(checkboxelements.length) {
+            if (checkboxelements.length) {
                 return;
             }
             textarea.removeAttr('required', '');
