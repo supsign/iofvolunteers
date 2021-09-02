@@ -38,13 +38,13 @@
                             <x-slot name="title">
                                 2. Details of the Project
                             </x-slot>
-                            <x-base.input name="place" value="{{ old('place') }}"
+                            <x-base.input name="place"
                                           label="Where will the volunteer be working? *" required/>
-                            <x-base.input name="start_date" value="{{ old('start_date') }}"
+                            <x-base.input name="start_date"
                                           label="When is the volunteer expected to start?" class="datepicker-here"
                                           data-language='en' data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'"/>
-                            <x-base.input name="contact" value="{{ old('contact') }}" label="Contact person *"
+                            <x-base.input name="contact" label="Contact person *"
                                           required/>
                             <div class="form-group">
                                 <label class="formSubtitle2">What can you offer the volunteer? *</label>

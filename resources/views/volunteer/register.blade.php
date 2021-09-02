@@ -21,11 +21,11 @@
                             <x-slot name="title">
                                 1. Contact Information
                             </x-slot>
-                            <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
+                            <x-base.input name="name" label="Firstname and Lastname *"
                                           required/>
                             <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
                                            :options="$countries"/>
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
+                            <x-base.input name="email" label="E-mail *" type="email"
                                           required/>
                         </x-form.section>
 
@@ -35,7 +35,7 @@
                             </x-slot>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
                             <x-base.input name="birthdate"
-                                          value="{{ old('birthdate') }}" label="Date of birth (yyyy-mm-dd) *"
+                                          label="Date of birth (yyyy-mm-dd) *"
                                           type="text" required class="datepicker-here" data-language='en'
                                           data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'"/>
@@ -93,8 +93,7 @@
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"
-                                              value="{{ old('language['.$language->id.']') ?? 4 }}"/>
+                                              :options="$languageProficiency"/>
                             @endforeach
 
                             <x-base.input name="other_languages" label="Additional languages"/>
@@ -128,7 +127,7 @@
                                 <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
-                            <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks"
+                            <x-base.input name="work_duration" label="weeks"
                                           type="number" size="3"/>
                         </x-form.section>
 
@@ -185,9 +184,9 @@
                             <x-slot name="title">
                                 10. Additional Information
                             </x-slot>
-                            <x-base.textarea name="help" value="{{ old('help') }}"
+                            <x-base.textarea name="help"
                                              label="Explain how you can help as a volunteer *" required/>
-                            <x-base.textarea name="expectation" value="{{ old('expectation') }}"
+                            <x-base.textarea name="expectation"
                                              label="Expectations as a volunteer"/>
                         </x-form.section>
 
