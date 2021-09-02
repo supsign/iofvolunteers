@@ -21,6 +21,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Schema;
 
 class ProjectController extends Controller
 {
@@ -128,10 +129,11 @@ class ProjectController extends Controller
     public function search(Request $request)
     {
         $data = $request->all();
-        $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
+        
+        $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
-        $volunteers = Volunteer::with('languageVolunteers');
+        $project = Project::with('languageVolunteers');
 
         unset($relationData['_token']);
 
@@ -143,34 +145,34 @@ class ProjectController extends Controller
             switch ($key) {
                 case 'gender_id':
                     if ($value != 3) {
-                        $volunteers->where($key, $value);
+                        $project->where($key, $value);
                     }
                     break;
                 case 'minage':
-                    $volunteers->where('birthdate', '<=', Carbon::now()->subYears($value));
+                    $project->where('birthdate', '<=', Carbon::now()->subYears($value));
                     break;
                 case 'maxage':
-                    $volunteers->where('birthdate', '>=', Carbon::now()->subYears($value));
+                    $project->where('birthdate', '>=', Carbon::now()->subYears($value));
                     break;
                 case 'ol_duration':
-                    $volunteers->where($key, '<=', Carbon::now()->year - $value);
+                    $project->where($key, '<=', Carbon::now()->year - $value);
                     break;
                 case 'work_duration':
-                    $volunteers->whereNull($key)->orWhere($key, '>=', $value);
+                    $project->whereNull($key)->orWhere($key, '>=', $value);
                     break;
                 case 'local_experience':
                 case 'national_experience':
                 case 'international_experience':
-                    $volunteers->where($key, '>=', $value);
+                    $project->where($key, '>=', $value);
                     break;
 
                 default:
-                    $volunteers->where($key, $value);
+                    $project->where($key, $value);
                     break;
             }
         }
 
-        $volunteers = $volunteers->get();
+        $project = $project->get();
 
         foreach ($relationData as $key => $value) {
             if (!$value) {
@@ -179,13 +181,13 @@ class ProjectController extends Controller
 
             switch ($key) {
                 case 'discipline':
-                    $volunteers = $volunteers->filterByDisciplines($value);
+                    $project = $project->filterByDisciplines($value);
                     break;
                 case 'language':
-                    $volunteers = $volunteers->filterByLanguages($value);
+                    $project = $project->filterByLanguages($value);
                     break;
                 case 'skillType':
-                    $volunteers = $volunteers->filterBySkillType($value);
+                    $project = $project->filterBySkillType($value);
                     break;
                 default:
                     break;
@@ -193,7 +195,7 @@ class ProjectController extends Controller
         }
 
         return view('volunteer.searchList', [
-            'projects' => $projects,
+            'projects' => $project,
             'dutyTypes' => DutyType::all(),
             'duties' => Duty::all(),
         ]);

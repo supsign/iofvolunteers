@@ -16,9 +16,19 @@
                             <x-slot name="title">
                                 1. Details of the Organisation
                             </x-slot>
-                            <x-base.select name="region_id" label="Region" :iconName="'selectArr'"
-                                           :options="$continents"/>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries"/>
+                            <x-slot name="subtitle">
+                                Do you have a preferred destination?
+                                <div class="warn">If not, just tick "Anywhere"</div>
+                            </x-slot>
+                            <div class="form-group">
+                                <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox"
+                                                 class="form-check-input  continentsCheckboxes"/>
+                                @foreach($continents AS $continent)
+                                    <x-base.checkbox label="{{ $continent->name }}"
+                                                     name="continent[{{ $continent->id }}]" type="checkbox"
+                                                     class="form-check-input continentsCheckboxes"/>
+                                @endforeach
+                            </div>
                         </x-form.section>
 
                         <x-form.section>
