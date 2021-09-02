@@ -26,9 +26,9 @@
                                            :options="$continents" required/>
                             <x-base.input name="organisation_contact" label="Contact person *" required/>
                             <x-base.input name="organisation_contact_position" label="Position in the organisation *"
-                                          required/>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
-                                           :options="$countries"/>
+                                            required/>
+                            <x-base.select name="country_id" label="Country" required
+                                            :iconName="'selectArr'" :options="$countries"/>
                             <x-base.input name="organisation_email" label="E-mail *" type="email" required/>
                             <x-base.input name="organisation_phone" label="Phone *" required/>
                             {{-- <x-base.input name="organisation_language_id" label="Native language(s) *" required /> --}}
