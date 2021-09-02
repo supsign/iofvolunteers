@@ -179,7 +179,7 @@ class ProjectController extends Controller
         //     $user->projects()->disassociate($project);
         //     $user->save();
         // }
-        
+
         // $project->delete();
 
         // Alert::toast('Volunteer deleted', 'success');
