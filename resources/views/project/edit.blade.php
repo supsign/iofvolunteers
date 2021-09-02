@@ -25,16 +25,6 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
 
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
                         <x-form.section>
                             <x-slot name="title">
                                 1. Details of the Organisation *
@@ -80,9 +70,10 @@
                                 <label class="formSubtitle2">What can you offer the volunteer? *</label>
                                 @foreach($offers AS $offer)
                                     <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
-                                                     class="form-check-input"
+                                                     class="form-check-input required-checkboxes-offers"
                                                      :checked="(int)$project->projectOffers->contains($offer)"/>
                                 @endforeach
+                                <div id="error-wrapper-offers" class="mt-3"></div>
                             </div>
                             <x-base.input name="offer_text" value="{{ $project->offer_text }}" label="Other (please state):"/>
                         </x-form.section>
@@ -93,10 +84,11 @@
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
-                                    <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input"
+                                    <x-base.checkbox label="{{ $discipline->name }}" name="discipline[{{ $discipline->id }}]"
+                                                     class="form-check-input required-checkboxes-disciplines"
                                                      :checked="(int)$project->disciplines->contains($discipline)"/>
                                 @endforeach
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 

@@ -19,6 +19,7 @@ use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProjectController extends Controller
@@ -142,25 +143,47 @@ class ProjectController extends Controller
             $$key = Helper::extractElementByKey($data, $key);
         }
 
-        if (isset($o_work_experience[1])) {
+        if (array_key_exists(1, $o_work_experience)) {
+            if ($o_work_experience[1] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
             $data['o_work_experience_local'] = $o_work_experience[1];
         }
 
-        if (isset($o_work_experience[2])) {
+        if (array_key_exists(2, $o_work_experience)) {
+            if ($o_work_experience[2] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+
             $data['o_work_experience_international'] = $o_work_experience[2];
         }
+
 
         $data['user_id'] = Auth::user()->id;
         $data['start_date'] = Carbon::parse($data['start_date']);
 
-        $project = Project::create($data);
+        $project->update($data);
 
-        $project->projectOffers()->attach(array_keys(array_filter($offer)));
-        $project->disciplines()->attach(array_keys(array_filter($discipline)));
-        $project->skills()->attach(array_keys(array_filter($skill)));
+        $disciplineSync = array_filter($discipline, function ($value) {
+            return $value;
+        });
+        $project->disciplines()->sync(array_keys($disciplineSync));
 
-        foreach ($duty as $key => $values) {
-            $project->duties()->attach(array_keys(array_filter($values)), ['duty_type_id' => $key]);
+        $skillSync = array_filter($skill, function ($value) {
+            return $value;
+        });
+        $project->skills()->sync(array_keys($skillSync));
+
+        $projectOfferSync = array_filter($offer);
+        $project->projectOffers()->sync(array_keys($projectOfferSync));
+
+        $project->dutyProject()->delete();
+        foreach ($duty as $typeId => $content) {
+            foreach ($content as $dutyId => $value) {
+                if ($value) {
+                    $project->duties()->attach($dutyId, ['duty_type_id' => $typeId]);
+                }
+            }
         }
 
         Alert::toast('Saved', 'success');
