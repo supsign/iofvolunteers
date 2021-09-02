@@ -158,7 +158,6 @@ class ProjectController extends Controller
             $data['o_work_experience_international'] = $o_work_experience[2];
         }
 
-
         $data['user_id'] = Auth::user()->id;
         $data['start_date'] = Carbon::parse($data['start_date']);
 
