@@ -35,9 +35,20 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function editForm()
+    public function editForm(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        return view('project.edit', [
+            'project' => $project,
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+            'stati' => ProjectStatus::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function registerForm()
