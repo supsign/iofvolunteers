@@ -17,7 +17,8 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
-        "realrashid/sweet-alert": "^4.0"
+        "realrashid/sweet-alert": "^4.0",
+        "spatie/laravel-medialibrary-pro": "^1.17"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
@@ -69,5 +70,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.spatie.be"
+        }
+    ]
 }
