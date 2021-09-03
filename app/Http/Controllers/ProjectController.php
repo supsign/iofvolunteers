@@ -194,7 +194,6 @@ class ProjectController extends Controller
 
         Alert::toast('Project deleted', 'success');
 
-
         return redirect()->route('home');
     }
 
