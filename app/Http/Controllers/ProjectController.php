@@ -15,6 +15,7 @@ use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\Project;
 use App\Models\ProjectOffer;
+use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
@@ -162,6 +163,7 @@ class ProjectController extends Controller
         $data['start_date'] = Carbon::parse($data['start_date']);
 
         $project->update($data);
+
         $project->disciplines()->sync(array_keys(array_filter($discipline)));
         $project->skills()->sync(array_keys(array_filter($skill)));
         $project->projectOffers()->sync(array_keys(array_filter($offer)));
@@ -182,19 +184,15 @@ class ProjectController extends Controller
 
     public function delete(Project $project)
     {
-        // if (Auth::user()->id !== $project->user->id) {
-        //     abort(403);
-        // }
+        if (Auth::user()->id !== $project->user->id) {
+            abort(403);
+        }
 
-        // $user = $project->user;
-        // if ($user) {
-        //     $user->projects()->disassociate($project);
-        //     $user->save();
-        // }
+        $project->projectProjectOffers()->delete();
 
-        // $project->delete();
+        $project->delete();
 
-        // Alert::toast('Volunteer deleted', 'success');
+        Alert::toast('Project deleted', 'success');
 
         return redirect()->route('home');
     }
