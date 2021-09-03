@@ -26,6 +26,19 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $('.checkbox-required-text').on('click', function () {
+        var textarea = $(this).parent().parent().find('textarea');
+        if ($(this).prop('checked')) {
+            textarea.attr('required', '');
+        } else {
+            const checkboxelements = $(this).parent().parent().find('.checkbox-required-text:checked');
+            if (checkboxelements.length) {
+                return;
+            }
+            textarea.removeAttr('required', '');
+        }
+    });
+
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
             $('.continentsCheckboxes').each(function () {
