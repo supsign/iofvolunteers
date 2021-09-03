@@ -15,6 +15,7 @@ use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\Project;
 use App\Models\ProjectOffer;
+use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
@@ -195,6 +196,9 @@ class ProjectController extends Controller
         if (Auth::user()->id !== $project->user->id) {
             abort(403);
         }
+
+        $project->projectProjectOffers()->delete();
+
         $project->delete();
 
         Alert::toast('Project deleted', 'success');
