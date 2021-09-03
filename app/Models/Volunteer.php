@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @mixin IdeHelperVolunteer
  */
-class Volunteer extends BaseModel
+class Volunteer extends BaseModel implements HasMedia
 {
+    use InteractsWithMedia;
+
     public function user(): HasOne
     {
         return $this->hasOne(User::class);
@@ -72,6 +76,11 @@ class Volunteer extends BaseModel
     public function skills(): MorphToMany
     {
         return $this->morphToMany(Skill::class, 'skill_model');
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('map_sample')->singleFile();
     }
 
     public function newCollection(array $models = []): VolunteerCollection

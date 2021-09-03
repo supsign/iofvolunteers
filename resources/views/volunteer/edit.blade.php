@@ -200,6 +200,11 @@
                                         
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" :required="$skillType->skills->intersect($volunteer->skills)->count()"
                                                          label="{{ $skillType->text }}" value="{{ $fieldQuery }}" />
+
+                                        @if($skillType->id === 2)
+                                            <input id="skill_map_upload" name="skill_map_upload" type="file"/>
+                                            <label class="formGroupLabel" for="skill_map_upload">Upload a map sample</label>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

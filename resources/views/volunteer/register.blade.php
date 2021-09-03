@@ -154,6 +154,11 @@
                                         @endforeach
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
                                                          label="{{ $skillType->text }}" class="required-text"/>
+
+                                        @if($skillType->id === 2)
+                                            <input id="skill_map_upload" name="skill_map_upload" type="file"/>
+                                            <label class="formGroupLabel" for="skill_map_upload">Upload a map sample</label>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
