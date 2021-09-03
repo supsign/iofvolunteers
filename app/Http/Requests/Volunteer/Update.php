@@ -51,6 +51,7 @@ class Update extends FormRequest
             'duty' => 'nullable|array',
             'help' => 'string',
             'expectation' => 'nullable|string',
+            'skill_map_upload' => '',
         ];
     }
 }
