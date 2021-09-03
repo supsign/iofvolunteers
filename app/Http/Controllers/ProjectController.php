@@ -164,20 +164,11 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        $disciplineSync = array_filter($discipline, function ($value) {
-            return $value;
-        });
-        $project->disciplines()->sync(array_keys($disciplineSync));
-
-        $skillSync = array_filter($skill, function ($value) {
-            return $value;
-        });
-        $project->skills()->sync(array_keys($skillSync));
-
-        $projectOfferSync = array_filter($offer);
-        $project->projectOffers()->sync(array_keys($projectOfferSync));
-
+        $project->disciplines()->sync(array_keys(array_filter($discipline)));
+        $project->skills()->sync(array_keys(array_filter($skill)));
+        $project->projectOffers()->sync(array_keys(array_filter($offer)));
         $project->dutyProject()->delete();
+
         foreach ($duty as $typeId => $content) {
             foreach ($content as $dutyId => $value) {
                 if ($value) {
@@ -202,6 +193,7 @@ class ProjectController extends Controller
         $project->delete();
 
         Alert::toast('Project deleted', 'success');
+
 
         return redirect()->route('home');
     }
