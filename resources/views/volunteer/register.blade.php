@@ -52,9 +52,9 @@
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input required-checkboxes"/>
+                                                     label="{{ $discipline->name }}" class="form-check-input required-checkboxes-disciplines"/>
                                 @endforeach
-                                <div id="error-wrapper" class="mt-3"></div>
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
