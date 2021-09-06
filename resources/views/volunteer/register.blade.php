@@ -153,11 +153,11 @@
                                                              type="checkbox" class="form-check-input checkbox-required-text"/>
                                         @endforeach
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}" class="required-text"/>
+                                                         label="{{ $skillType->text }}" />
 
                                         @if($skillType->id === 2)
+                                            <div class="mb-1">Upload a map sample</div>
                                             <input id="skill_map_upload" name="skill_map_upload" type="file"/>
-                                            <label class="formGroupLabel" for="skill_map_upload">Upload a map sample</label>
                                         @endif
                                     </div>
                                 </div>
