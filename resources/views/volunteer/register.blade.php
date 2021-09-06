@@ -156,7 +156,7 @@
                                                          label="{{ $skillType->text }}" />
 
                                         @if($skillType->id === 2)
-                                            <div class="mb-1">Upload a map sample</div>
+                                            <div class="font-weight-normal mb-2">Upload a map sample</div>
                                             <input id="skill_map_upload" name="skill_map_upload" type="file"/>
                                         @endif
                                     </div>
