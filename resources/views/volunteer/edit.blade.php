@@ -203,14 +203,14 @@
 
                                         @if($skillType->id === 2)
                                             @if($volunteer->getFirstMedia('map_sample'))
-                                                <div>
+                                                <div class="formSubtitle3">
                                                     <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
-                                                        Upload a new map sample (will replace the old one)
+                                                        Download the old map-sample you uploaded
                                                     </a>
                                                 </div>
                                             @endif
+                                            <div class="font-weight-normal mb-2">Upload a new map sample (will replace the old one)</div>
                                             <input id="skill_map_upload" name="skill_map_upload" type="file"/>
-                                            <label class="formGroupLabel" for="skill_map_upload">Upload a map sample</label>
                                         @endif
                                     </div>
                                 </div>
