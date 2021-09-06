@@ -167,7 +167,7 @@ class VolunteerController extends Controller
         if (Auth::user()->volunteer_id !== $volunteer->id) {
             abort(403);
         }
-        
+
         return view('volunteer.edit', [
             'volunteer' => $volunteer,
             'disciplines' => Discipline::all(),
