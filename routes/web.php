@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HostController;
+use App\Http\Controllers\MediaDownloadController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\VolunteerController;
@@ -62,5 +63,9 @@ Route::post('volunteer/register', [VolunteerController::class, 'register'])->nam
 Route::post('volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');
 Route::patch('volunteer/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
 Route::delete('volunteer/delete/{volunteer}', [VolunteerController::class, 'delete'])->name('volunteer.delete');
+
+//  Media routes
+Route::get('media/download/{mediaItem}', [MediaDownloadController::class, 'download'])->name('media.download');
+Route::get('media/show/{mediaItem}', [MediaDownloadController::class, 'show'])->name('media.show');
 
 Route::get('volunteer/test', [VolunteerController::class, 'testForm'])->name('volunteer.testForm');

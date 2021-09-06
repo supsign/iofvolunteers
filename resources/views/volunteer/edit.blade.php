@@ -202,6 +202,13 @@
                                                          label="{{ $skillType->text }}" value="{{ $fieldQuery }}" />
 
                                         @if($skillType->id === 2)
+                                            @if($volunteer->getFirstMedia('map_sample'))
+                                                <div>
+                                                    <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}"
+                                                        Currnt Map Sample (Upload a new one will replace the curret one)
+                                                    </a>
+                                                </div>
+                                            @endif
                                             <input id="skill_map_upload" name="skill_map_upload" type="file"/>
                                             <label class="formGroupLabel" for="skill_map_upload">Upload a map sample</label>
                                         @endif
