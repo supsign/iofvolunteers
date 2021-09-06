@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
 
     $('.checkbox-required-text').on('click', function () {
         var textarea = $(this).parent().parent().find('textarea');
-        var upload = $(this).parent().parent().find('input[type="file"]');
+        var upload = $(this).parent().parent().find('#skill_map_upload');
         if ($(this).prop('checked')) {
             textarea.attr('required', '');
             if (upload) {

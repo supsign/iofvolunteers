@@ -210,7 +210,7 @@
                                                 </div>
                                             @endif
                                             <div id="new_map_id" class="font-weight-normal mb-2">Upload a new map sample (will replace the old one)</div>
-                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
+                                            <input id="skill_map_upload_new" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
                                         @endif
                                     </div>
                                 </div>
