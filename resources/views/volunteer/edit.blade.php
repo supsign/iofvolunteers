@@ -204,8 +204,8 @@
                                         @if($skillType->id === 2)
                                             @if($volunteer->getFirstMedia('map_sample'))
                                                 <div>
-                                                    <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}"
-                                                        Currnt Map Sample (Upload a new one will replace the curret one)
+                                                    <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
+                                                        Upload a new map sample (will replace the old one)
                                                     </a>
                                                 </div>
                                             @endif

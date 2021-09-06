@@ -147,6 +147,16 @@
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
                                         {{ $skill->name }}<br/>
                                     @endforeach
+
+                                    @if($skillType->id === 2)
+                                        @if($volunteer->getFirstMedia('map_sample'))
+                                            <div>
+                                                <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
+                                                    Download map sample
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @endif
                                 @endforeach
 
                                 @if($volunteer->skill_other)
