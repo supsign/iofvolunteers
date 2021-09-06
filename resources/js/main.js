@@ -31,7 +31,7 @@ jQuery(document).ready(function ($) {
         var upload = $(this).parent().parent().find('input[type="file"]');
         if ($(this).prop('checked')) {
             textarea.attr('required', '');
-            if(upload) {
+            if (upload) {
                 upload.attr('required', '');
             }
         } else {
