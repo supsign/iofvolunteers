@@ -8,7 +8,7 @@
             </div>
 
             <div class="row pb-3">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-6">
                     <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
@@ -73,10 +73,10 @@
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                      label="{{ $discipline->name }}"
-                                                     class="form-check-input required-checkboxes"
+                                                     class="form-check-input required-checkboxes-disciplines"
                                                      :checked="(int)$volunteer->disciplines->contains($discipline)"/>
                                 @endforeach
-                                <div id="error-wrapper" class="mt-3"></div>
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
