@@ -152,7 +152,7 @@
                                         @if($volunteer->getFirstMedia('map_sample'))
                                             <div>
                                                 <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
-                                                    Download map sample
+                                                    Download map samples <b>here</b>
                                                 </a>
                                             </div>
                                         @endif

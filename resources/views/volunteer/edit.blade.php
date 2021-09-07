@@ -205,7 +205,7 @@
                                             @if($volunteer->getFirstMedia('map_sample'))
                                                 <div class="formSubtitle3">
                                                     <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
-                                                        Download the old map sample you uploaded here.
+                                                        Download the old map sample you uploaded  <b>here</b>.
                                                     </a>
                                                 </div>
                                             @endif
