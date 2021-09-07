@@ -89,12 +89,8 @@
                             <x-slot name="subtitle">
                                 Define the start-time and how long the Volunteer should be able to work.
                             </x-slot>
-                            <div class="mx-0 row">
-                                <div class="pl-0 pr-0 m-0 form-group col-12 col-sm-6 pl-sm-2">
-                                    <x-base.input name="work_duration" label='Must stay for at least "" weeks'
-                                                  type="number" size="3"/>
-                                </div>
-                            </div>
+                            <x-base.input name="work_duration" label='Must stay for at least "" weeks'
+                                          type="number" size="3"/>
                         </x-form.section>
 
                         <x-form.section>

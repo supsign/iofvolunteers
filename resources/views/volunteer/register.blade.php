@@ -153,7 +153,15 @@
                                                              type="checkbox" class="form-check-input checkbox-required-text"/>
                                         @endforeach
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}" class="required-text"/>
+                                                         label="{{ $skillType->text }}" />
+
+                                        @if($skillType->id === 2)
+                                            <div id="map_id" class="font-weight-normal mb-2">
+                                                Upload map samples. <br />
+                                                Please provide at least three maps and zip it before uploading.
+                                            </div>
+                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

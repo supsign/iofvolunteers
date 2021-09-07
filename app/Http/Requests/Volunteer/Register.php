@@ -52,6 +52,7 @@ class Register extends FormRequest
             'help' => 'string',
             'expectation' => 'nullable|string',
             'agb' => 'required|boolean',
+            'skill_map_upload' => '',
         ];
     }
 }

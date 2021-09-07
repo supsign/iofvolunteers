@@ -28,14 +28,19 @@ jQuery(document).ready(function ($) {
 
     $('.checkbox-required-text').on('click', function () {
         var textarea = $(this).parent().parent().find('textarea');
+        var upload = $(this).parent().parent().find('#skill_map_upload');
         if ($(this).prop('checked')) {
             textarea.attr('required', '');
+            if (upload) {
+                upload.attr('required', '');
+            }
         } else {
             const checkboxelements = $(this).parent().parent().find('.checkbox-required-text:checked');
             if (checkboxelements.length) {
                 return;
             }
             textarea.removeAttr('required', '');
+            upload.removeAttr('required', '');
         }
     });
 

@@ -189,14 +189,14 @@ a img {
     font-size: 18px;
     list-style: none;
     margin-bottom: 15px;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .text ol {
     font-size: 18px;
     margin: 0;
     margin-bottom: 15px;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .text > ol,
@@ -261,7 +261,7 @@ ul.sub-menu {
 }
 
 .shadow {
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1) !important;
 }
 
 .hover_in {
@@ -393,7 +393,7 @@ header nav .main .main_menu > li > a {
     display: block;
     font-size: 20px;
     font-weight: 600;
-    margin: 15px 0px 15px 15px;
+    margin: 15px 0 15px 15px;
     padding: 2px 10px;
     position: relative;
     text-decoration: none;
@@ -939,6 +939,11 @@ form select {
 .formSection .form-group input[type='text'],
 .formSection .form-group select {
     width: 100% !important;
+}
+
+.formSection .form-group .formSubtitle2 .formSubtitle3 {
+    font-size: 17px;
+    margin: 6px 0 6px 0;
 }
 
 .formSection .form-group .formSubtitle2 .font-weight-normal {

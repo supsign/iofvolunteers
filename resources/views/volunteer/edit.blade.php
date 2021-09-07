@@ -200,6 +200,21 @@
                                         
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" :required="$skillType->skills->intersect($volunteer->skills)->count()"
                                                          label="{{ $skillType->text }}" value="{{ $fieldQuery }}" />
+
+                                        @if($skillType->id === 2)
+                                            @if($volunteer->getFirstMedia('map_sample'))
+                                                <div class="formSubtitle3">
+                                                    <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
+                                                        Download the old map sample you uploaded  <b>here</b>.
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div id="new_map_id" class="font-weight-normal mb-2">
+                                                Upload new map samples (will replace the old one).<br />
+                                                Please provide at least three maps and zip it before uploading.
+                                            </div>
+                                            <input id="skill_map_upload_new" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

@@ -372,6 +372,7 @@ namespace App\Models{
  * @property int|null $gender_id
  * @property int|null $user_id
  * @property int|null $country_id
+ * @property int|null $continent_id
  * @property int|null $project_status_id
  * @property int|null $organisation_language_id
  * @property string $name
@@ -382,19 +383,27 @@ namespace App\Models{
  * @property string $organisation_email
  * @property string $organisation_phone
  * @property string|null $start_date
+ * @property string|null $other_duties
  * @property string $contact
  * @property string $place
  * @property string|null $offer_text
  * @property string $exprience_details
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $o_work_experience_local
+ * @property int|null $o_work_experience_international
+ * @property-read \App\Models\Continent|null $continent
+ * @property-read \App\Models\Country|null $country
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discipline[] $disciplines
  * @property-read int|null $disciplines_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Duty[] $duties
  * @property-read int|null $duties_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DutyModel[] $dutyProject
+ * @property-read int|null $duty_project_count
+ * @property-read mixed $skill_types
  * @property-read string $snake_case_name
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProjectOffer[] $projectOffer
- * @property-read int|null $project_offer_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProjectOffer[] $projectOffers
+ * @property-read int|null $project_offers_count
  * @property-read \App\Models\ProjectStatus|null $projectStatus
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
  * @property-read int|null $skills_count
@@ -403,12 +412,15 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project query()
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereContact($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereContinentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereExprienceDetails($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGenderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOWorkExperienceInternational($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOWorkExperienceLocal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOfferText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationContact($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationContactPosition($value)
@@ -417,6 +429,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationPhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereOrganisationWebpage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereOtherDuties($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project wherePlace($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereProjectStatusId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereStartDate($value)
@@ -610,6 +623,7 @@ namespace App\Models{
  * @property int|null $local_experience
  * @property int|null $national_experience
  * @property int|null $international_experience
+ * @property string|null $other_languages
  * @property int|null $o_work_experience_local
  * @property int|null $o_work_experience_international
  * @property string|null $skill_mapping
@@ -668,6 +682,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOWorkExperienceInternational($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOWorkExperienceLocal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOlDuration($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereOtherLanguages($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillCoaching($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillEventOrganising($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Volunteer whereSkillIt($value)

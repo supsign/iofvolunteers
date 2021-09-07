@@ -22,3 +22,4 @@ public/mix-manifest.json
 .idea/prettier.xml
 .idea/sonarlint/issuestore/
 .idea/sonarlint-state.xml
+auth.json
