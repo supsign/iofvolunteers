@@ -84,10 +84,6 @@
                             <x-slot name="title">
                                 4. O-Experience as competitor
                             </x-slot>
-                            <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
-                            </x-slot>
                             <x-base.input
                                     name="ol_duration"
                                     value="{{ $volunteer->ol_duration }}"
@@ -100,11 +96,22 @@
                                     placeholder=" "
                                     required
                                     :iconName="'calendarIcon'"/>
+
                             <x-base.input
                                     name="club"
                                     value="{{ $volunteer->club }}"
                                     label="Your present club (if any)"
                                     type="text"/>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                Years of experience as competitor
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                State below how long your experience for each given Event-Type is.
+                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                            </x-slot>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
                                           label="Experiences with local Events (number)" type="number" size="3" min="0"

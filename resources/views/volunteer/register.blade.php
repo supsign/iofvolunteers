@@ -62,10 +62,6 @@
                             <x-slot name="title">
                                 4. O-Experience as competitor
                             </x-slot>
-                            <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
-                            </x-slot>
                             <x-base.input name="ol_duration"
                                           label="Year you started orienteering (yyyy) *"
                                           type="number" class="datepicker-here" data-language='en'
@@ -74,6 +70,16 @@
                                           :iconName="'calendarIcon'"/>
                             <x-base.input name="club"
                                           label="Your present club (if any)"/>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                Years of experience as competitor
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                State below how long your experience for each given Event-Type is.
+                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                            </x-slot>
                             <x-base.input name="local_experience"
                                           label="Exprience with local Events (number)" type="number" size="3" min="0"
                                           step="1"/>
