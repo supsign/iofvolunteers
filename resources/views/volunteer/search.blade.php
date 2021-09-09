@@ -87,7 +87,7 @@
                                 5. Timing
                             </x-slot>
                             <x-slot name="subtitle">
-                                Define the start-time and how long the Volunteer should be able to work.
+                                How many weeks approximately should the volunteer be able to work?
                             </x-slot>
                             <x-base.input name="work_duration" label='Must stay for at least "" weeks'
                                           type="number" size="3"/>
