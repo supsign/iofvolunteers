@@ -98,6 +98,7 @@ class VolunteerController extends Controller
         $data = $request->validated();
 
         unset($data['agb']);
+        unset($data['skill_map_upload']);
 
         foreach (['o_work_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
@@ -148,6 +149,10 @@ class VolunteerController extends Controller
             }
         }
 
+        if ($request->file('skill_map_upload')) {
+            $volunteer->addMediaFromRequest('skill_map_upload')->toMediaCollection('map_sample');
+        }
+
         Alert::toast('Saved', 'success');
 
         return redirect()->route('home');
@@ -186,6 +191,7 @@ class VolunteerController extends Controller
         $data = $request->validated();
 
         unset($data['agb']);
+        unset($data['skill_map_upload']);
 
         foreach (['o_work_experience', 'continent', 'discipline', 'duty', 'language', 'skill'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
@@ -237,6 +243,10 @@ class VolunteerController extends Controller
                     $volunteer->duties()->attach($dutyId, ['duty_type_id' => $typeId]);
                 }
             }
+        }
+
+        if ($request->file('skill_map_upload')) {
+            $volunteer->addMediaFromRequest('skill_map_upload')->toMediaCollection('map_sample');
         }
 
         Alert::toast('Saved', 'success');

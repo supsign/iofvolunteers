@@ -6,6 +6,9 @@
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
                                        height="65"> Volunteer Search Form</h1>
+
+                <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!
+                </div>
             </div>
 
             <form method="POST" action="/volunteer/search" enctype="multipart/form-data">
@@ -74,7 +77,8 @@
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"/>
+                                              :options="$languageProficiency"
+                                              value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
                         </x-form.section>
 
@@ -83,10 +87,10 @@
                                 5. Timing
                             </x-slot>
                             <x-slot name="subtitle">
-                                Define the start-time and how long the Volunteer should be able to work.
+                                How many weeks approximately should the volunteer be able to work?
                             </x-slot>
                             <x-base.input name="work_duration" label='Must stay for at least "" weeks'
-                                            type="number" size="3"/>
+                                          type="number" size="3"/>
                         </x-form.section>
 
                         <x-form.section>

@@ -52,19 +52,15 @@
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input required-checkboxes"/>
+                                                     label="{{ $discipline->name }}" class="form-check-input required-checkboxes-disciplines"/>
                                 @endforeach
-                                <div id="error-wrapper" class="mt-3"></div>
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
                                 4. O-Experience as competitor
-                            </x-slot>
-                            <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="ol_duration"
                                           label="Year you started orienteering (yyyy) *"
@@ -74,6 +70,16 @@
                                           :iconName="'calendarIcon'"/>
                             <x-base.input name="club"
                                           label="Your present club (if any)"/>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                Years of experience as competitor
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                State below how long your experience for each given Event-Type is.
+                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                            </x-slot>
                             <x-base.input name="local_experience"
                                           label="Exprience with local Events (number)" type="number" size="3" min="0"
                                           step="1"/>
@@ -149,10 +155,18 @@
 
                                         @foreach($skillType->skills AS $skill)
                                             <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]"
-                                                             type="checkbox" class="form-check-input"/>
+                                                             type="checkbox" class="form-check-input checkbox-required-text"/>
                                         @endforeach
                                         <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}"/>
+                                                         label="{{ $skillType->text }}" />
+
+                                        @if($skillType->id === 2)
+                                            <div id="map_id" class="font-weight-normal mb-2">
+                                                Upload map samples. <br />
+                                                Please provide at least three maps and zip it before uploading.
+                                            </div>
+                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

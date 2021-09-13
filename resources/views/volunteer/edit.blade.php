@@ -8,7 +8,7 @@
             </div>
 
             <div class="row pb-3">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-6">
                     <form action="{{ route('volunteer.delete', $volunteer) }}" method="POST"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
@@ -73,20 +73,16 @@
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
                                                      label="{{ $discipline->name }}"
-                                                     class="form-check-input required-checkboxes"
+                                                     class="form-check-input required-checkboxes-disciplines"
                                                      :checked="(int)$volunteer->disciplines->contains($discipline)"/>
                                 @endforeach
-                                <div id="error-wrapper" class="mt-3"></div>
+                                <div id="error-wrapper-disciplines" class="mt-3"></div>
                             </div>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
                                 4. O-Experience as competitor
-                            </x-slot>
-                            <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input
                                     name="ol_duration"
@@ -100,11 +96,22 @@
                                     placeholder=" "
                                     required
                                     :iconName="'calendarIcon'"/>
+
                             <x-base.input
                                     name="club"
                                     value="{{ $volunteer->club }}"
                                     label="Your present club (if any)"
                                     type="text"/>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                Years of experience as competitor
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                State below how long your experience for each given Event-Type is.
+                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                            </x-slot>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
                                           label="Experiences with local Events (number)" type="number" size="3" min="0"
@@ -189,7 +196,7 @@
 
                                         @foreach($skillType->skills AS $skill)
                                             <x-base.checkbox label="{{ $skill->name }}" name="skill[{{ $skill->id }}]"
-                                                             type="checkbox" class="form-check-input"
+                                                             type="checkbox" class="form-check-input checkbox-required-text"
                                                              :checked="$volunteer->skills->contains($skill)"/>
                                         @endforeach
 
@@ -197,9 +204,24 @@
                                             $fieldDB="skill_".$skillType->snakeCaseName;
                                             $fieldQuery=$volunteer->$fieldDB
                                         @endphp
+                                        
+                                        <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}" :required="$skillType->skills->intersect($volunteer->skills)->count()"
+                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}" />
 
-                                        <x-base.textarea name="skill_{{ $skillType->snakeCaseName }}"
-                                                         label="{{ $skillType->text }}" value="{{ $fieldQuery }}"/>
+                                        @if($skillType->id === 2)
+                                            @if($volunteer->getFirstMedia('map_sample'))
+                                                <div class="formSubtitle3">
+                                                    <a href="{{ route('media.download', $volunteer->getFirstMedia('map_sample')->id) }}">
+                                                        Download the old map sample you uploaded  <b>here</b>.
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div id="new_map_id" class="font-weight-normal mb-2">
+                                                Upload new map samples (will replace the old one).<br />
+                                                Please provide at least three maps and zip it before uploading.
+                                            </div>
+                                            <input id="skill_map_upload_new" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

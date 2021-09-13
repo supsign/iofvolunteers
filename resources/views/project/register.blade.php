@@ -50,8 +50,9 @@
                                 <label class="formSubtitle2">What can you offer the volunteer? *</label>
                                 @foreach($offers AS $offer)
                                     <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
-                                                     class="form-check-input"/>
+                                                     class="form-check-input required-checkboxes-offers"/>
                                 @endforeach
+                                <div id="error-wrapper-offers" class="mt-3 error-wrapper"></div>
                             </div>
                             <x-base.input name="offer_text" label="Other (please state):"/>
                         </x-form.section>
@@ -63,8 +64,10 @@
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
                                     <x-base.checkbox name="discipline[{{ $discipline->id }}]"
-                                                     label="{{ $discipline->name }}" class="form-check-input"/>
+                                                     label="{{ $discipline->name }}" 
+                                                     class="form-check-input required-checkboxes-disciplines"/>
                                 @endforeach
+                                <div id="error-wrapper-disciplines" class="mt-3 error-wrapper"></div>
                             </div>
                         </x-form.section>
 
@@ -144,7 +147,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto" type="submit" value="Submit our request">
+                                    <input class="ml-auto required-btn" type="submit" value="Submit our request">
                                 </div>
                             </div>
                         </div>

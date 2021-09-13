@@ -26,6 +26,24 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $('.checkbox-required-text').on('click', function () {
+        var textarea = $(this).parent().parent().find('textarea');
+        var upload = $(this).parent().parent().find('#skill_map_upload');
+        if ($(this).prop('checked')) {
+            textarea.attr('required', '');
+            if (upload) {
+                upload.attr('required', '');
+            }
+        } else {
+            const checkboxelements = $(this).parent().parent().find('.checkbox-required-text:checked');
+            if (checkboxelements.length) {
+                return;
+            }
+            textarea.removeAttr('required', '');
+            upload.removeAttr('required', '');
+        }
+    });
+
     $('#continentsCheckboxesTrigger').on('click', function () {
         if (this.checked) {
             $('.continentsCheckboxes').each(function () {
@@ -47,21 +65,41 @@ jQuery(document).ready(function ($) {
     });
 
     $('.required-btn').click(function () {
-        checked = $('.required-checkboxes:checked').length;
+        checked = $('.required-checkboxes-disciplines:checked').length;
 
         if (!checked) {
             var errorDiv = document.createElement('div');
-            errorDiv.setAttribute('id', 'errorDiv');
+            errorDiv.setAttribute('id', 'errorDiv-disciplines');
 
-            if (!document.contains(document.getElementById('errorDiv'))) {
+            if (!document.contains(document.getElementById('errorDiv-disciplines'))) {
                 errorDiv.appendChild(document.createTextNode('You must check at least one checkbox'));
                 errorDiv.classList.add('alert', 'alert-danger');
-                document.getElementById('error-wrapper').appendChild(errorDiv);
+                document.getElementById('error-wrapper-disciplines').appendChild(errorDiv);
             }
             return false;
         } else {
-            if (document.contains(document.getElementById('errorDiv'))) {
-                document.getElementById('errorDiv').remove();
+            if (document.contains(document.getElementById('errorDiv-disciplines'))) {
+                document.getElementById('errorDiv-disciplines').remove();
+            }
+        }
+    });
+
+    $('.required-btn').click(function () {
+        checked = $('.required-checkboxes-offers:checked').length;
+
+        if (!checked) {
+            var errorDiv = document.createElement('div');
+            errorDiv.setAttribute('id', 'errorDiv-offers');
+
+            if (!document.contains(document.getElementById('errorDiv-offers'))) {
+                errorDiv.appendChild(document.createTextNode('You must check at least one checkbox'));
+                errorDiv.classList.add('alert', 'alert-danger');
+                document.getElementById('error-wrapper-offers').appendChild(errorDiv);
+            }
+            return false;
+        } else {
+            if (document.contains(document.getElementById('errorDiv-offers'))) {
+                document.getElementById('errorDiv-offers').remove();
             }
         }
     });

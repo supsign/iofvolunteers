@@ -2,18 +2,17 @@
 
 namespace App\View\Components\Base;
 
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Input extends Component
+class Textarea extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(public string|null $iconName = null)
+    public function __construct(public bool $required = false)
     {
     }
 
@@ -24,6 +23,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('components.base.input');
+        return view('components.base.textarea');
     }
 }

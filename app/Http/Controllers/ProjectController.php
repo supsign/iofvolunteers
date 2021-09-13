@@ -15,11 +15,13 @@ use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\Project;
 use App\Models\ProjectOffer;
+use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
 
@@ -37,9 +39,28 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function editForm()
+    public function editForm(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        if (!Auth::user()->projects->count()) {
+            return redirect()->route('project.registerForm');
+        }
+
+        if (!Auth::user()->projects->contains($project)) {
+            abort(403);
+        }
+
+        return view('project.edit', [
+            'project' => $project,
+            'disciplines' => Discipline::all(),
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+            'countries' => Country::all(),
+            'genders' => Gender::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+            'stati' => ProjectStatus::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function registerForm()
@@ -118,12 +139,69 @@ class ProjectController extends Controller
 
     public function update(Project $project, Update $request)
     {
-        return Project::update($request->validated());
+        if (Auth::user()->id !== $project->user->id) {
+            abort(403);
+        }
+
+        $data = $request->validated();
+
+        unset($data['agb']);
+
+        foreach (['o_work_experience', 'offer', 'discipline', 'skill', 'duty'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        if (array_key_exists(1, $o_work_experience)) {
+            if ($o_work_experience[1] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+            $data['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (array_key_exists(2, $o_work_experience)) {
+            if ($o_work_experience[2] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+
+            $data['o_work_experience_international'] = $o_work_experience[2];
+        }
+
+        $data['user_id'] = Auth::user()->id;
+        $data['start_date'] = Carbon::parse($data['start_date']);
+
+        $project->update($data);
+
+        $project->disciplines()->sync(array_keys(array_filter($discipline)));
+        $project->skills()->sync(array_keys(array_filter($skill)));
+        $project->projectOffers()->sync(array_keys(array_filter($offer)));
+        $project->dutyProject()->delete();
+
+        foreach ($duty as $typeId => $content) {
+            foreach ($content as $dutyId => $value) {
+                if ($value) {
+                    $project->duties()->attach($dutyId, ['duty_type_id' => $typeId]);
+                }
+            }
+        }
+
+        Alert::toast('Saved', 'success');
+
+        return redirect()->route('project.list');
     }
 
     public function delete(Project $project)
     {
-        return (new HomeController())->underConstruction();
+        if (Auth::user()->id !== $project->user->id) {
+            abort(403);
+        }
+
+        $project->projectProjectOffers()->delete();
+
+        $project->delete();
+
+        Alert::toast('Project deleted', 'success');
+
+        return redirect()->route('home');
     }
 
     public function search(Request $request)
