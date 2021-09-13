@@ -209,46 +209,10 @@ class ProjectController extends Controller
         $data = $request->all();
 
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
-        $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
         $project = Project::with('languageVolunteers');
 
         unset($relationData['_token']);
-
-        foreach ($volunteerData as $key => $value) {
-            if (!$value) {
-                continue;
-            }
-
-            switch ($key) {
-                case 'gender_id':
-                    if ($value != 3) {
-                        $project->where($key, $value);
-                    }
-                    break;
-                case 'minage':
-                    $project->where('birthdate', '<=', Carbon::now()->subYears($value));
-                    break;
-                case 'maxage':
-                    $project->where('birthdate', '>=', Carbon::now()->subYears($value));
-                    break;
-                case 'ol_duration':
-                    $project->where($key, '<=', Carbon::now()->year - $value);
-                    break;
-                case 'work_duration':
-                    $project->whereNull($key)->orWhere($key, '>=', $value);
-                    break;
-                case 'local_experience':
-                case 'national_experience':
-                case 'international_experience':
-                    $project->where($key, '>=', $value);
-                    break;
-
-                default:
-                    $project->where($key, $value);
-                    break;
-            }
-        }
 
         $project = $project->get();
 
@@ -258,11 +222,14 @@ class ProjectController extends Controller
             }
 
             switch ($key) {
+                case 'continent':
+                    $project = $project->filterByContinent($value);
+                    break;
+                case 'offer':
+                    $project = $project->filterByOffer($value);
+                    break;
                 case 'discipline':
                     $project = $project->filterByDisciplines($value);
-                    break;
-                case 'language':
-                    $project = $project->filterByLanguages($value);
                     break;
                 case 'skillType':
                     $project = $project->filterBySkillType($value);
@@ -272,10 +239,8 @@ class ProjectController extends Controller
             }
         }
 
-        return view('volunteer.searchList', [
+        return view('project.searchList', [
             'projects' => $project,
-            'dutyTypes' => DutyType::all(),
-            'duties' => Duty::all(),
         ]);
     }
 }

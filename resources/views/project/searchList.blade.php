@@ -35,7 +35,7 @@
                             <td class="desc">
                             </td>
                         </tr>
-                    @endforeach                  
+                    @endforeach
                 </tbody>
             </table>
         </div>

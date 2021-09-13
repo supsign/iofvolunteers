@@ -17,8 +17,7 @@
                                 1. Details of the Organisation
                             </x-slot>
                             <x-slot name="subtitle">
-                                Do you have a preferred destination?
-                                <div class="warn">If not, just tick "Anywhere"</div>
+                                Pick your preferred destinations
                             </x-slot>
                             <div class="form-group">
                                 <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox"
@@ -35,19 +34,17 @@
                             <x-slot name="title">
                                 2. Details of the Project
                             </x-slot>
-                            <x-base.input name="place" label="Work location"/>
-                            <x-base.input name="startDate" label="start date (yyyy-mm-dd)" class="datepicker-here"
-                                        data-language='en' data-date-format="yyyy-mm-dd"
-                                        :iconName="'calendarIcon'"/>
+                            <x-slot name="subtitle">
+                                Pick your preferred offers
+                            </x-slot>
                             <div class="form-group">
-                                <label class="formSubtitle2">Offers: </label>
                                 @foreach($offers AS $offer)
                                     <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
                                                      class="form-check-input"/>
                                 @endforeach
                             </div>
-                        </x-form.section>    
-                        
+                        </x-form.section>
+
                         <x-form.section>
                             <x-slot name="title">
                                 3. Discipline of Project
@@ -61,7 +58,7 @@
                         </x-form.section>
                         <x-form.section>
                             <x-slot name="title">
-                                6. Skills required
+                                4. Skills required
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <x-base.checkbox label="{{ $skillType->name }}" name="skillType[{{ $skillType->id }}]"
