@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ProjectCollection extends Collection
 {
-
     public function filterByContinent($continentArray): ProjectCollection
     {
         return $this->filter(function ($project) use ($continentArray) {
