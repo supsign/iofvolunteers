@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <section class="default">
         <div class="container">
             <div class="titleWrap">
@@ -8,6 +9,7 @@
             </div>
 
             <form method="POST" action="/project/search" enctype="multipart/form-data">
+                @csrf
 
                 <div class="row">
                     <div class="col-12 col-md-6">

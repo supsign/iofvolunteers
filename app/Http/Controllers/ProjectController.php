@@ -210,11 +210,10 @@ class ProjectController extends Controller
 
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $relationData = array_diff_key($data, $columns);
-        $project = Project::with('languageVolunteers');
 
         unset($relationData['_token']);
 
-        $project = $project->get();
+        $projects = Project::get();
 
         foreach ($relationData as $key => $value) {
             if (!$value) {
@@ -223,24 +222,24 @@ class ProjectController extends Controller
 
             switch ($key) {
                 case 'continent':
-                    $project = $project->filterByContinent($value);
+                    $projects = $projects->filterByContinent($value);
                     break;
                 case 'offer':
-                    $project = $project->filterByOffer($value);
+                    $projects = $projects->filterByOffer($value);
                     break;
                 case 'discipline':
-                    $project = $project->filterByDisciplines($value);
+                    $projects = $projects->filterByDisciplines($value);
                     break;
                 case 'skillType':
-                    $project = $project->filterBySkillType($value);
+                    $projects = $projects->filterBySkillType($value);
                     break;
                 default:
                     break;
             }
         }
 
-        return view('project.searchList', [
-            'projects' => $project,
+        return view('volunteer.searchList', [
+            'projects' => $projects,
         ]);
     }
 }
