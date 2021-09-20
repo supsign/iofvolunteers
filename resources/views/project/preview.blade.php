@@ -13,18 +13,27 @@
 
             <table aria-describedby="Details of a Project" class="table">
                 <tbody>
-                    <tr>
-                        <th id="project_project_name" class="font-weight-bold">Name:</th>
-                        <td>{{ $project->name }}</td>
-                    </tr>
-                    <tr>
-                        <th id="organisation_name" class="font-weight-bold">Organisation:</th>
-                        <td>{{ $project->organisation_name }}</td>
-                    </tr>
-                    <tr>
-                        <th id="projectStatus" class="font-weight-bold">Status:</th>
-                        <td>{{ $project->projectStatus->name }}</td>
-                    </tr>
+
+                    @if($project->name)
+                        <tr>
+                            <th id="project_project_name" class="font-weight-bold">Name:</th>
+                            <td>{{ $project->name }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->organisation_name)
+                        <tr>
+                            <th id="organisation_name" class="font-weight-bold">Organisation:</th>
+                            <td>{{ $project->organisation_name }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->projectStatus->name)
+                        <tr>
+                            <th id="projectStatus" class="font-weight-bold">Status:</th>
+                            <td>{{ $project->projectStatus->name }}</td>
+                        </tr>
+                    @endif
 
                     @if($project->organisation_webpage)
                         <tr>
@@ -33,36 +42,56 @@
                         </tr>
                     @endif
 
-                    <tr>
-                        <th id="project_continent" class="font-weight-bold">Region:</th>
-                        <td>
-                            {{ $project->continent->name }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th id="organisation_contact" class="font-weight-bold">Organisation contact person:</th>
-                        <td>{{ $project->organisation_contact }}</td>
-                    </tr>
-                    <tr>
-                        <th id="organisation_contact_position" class="font-weight-bold">Position in the Organisation:</th>
-                        <td>{{ $project->organisation_contact_position }}</td>
-                    </tr>
-                    <tr>
-                        <th id="project_country" class="font-weight-bold">Country:</th>
-                        <td>{{ $project->country->name }}</td>
-                    </tr>
-                    <tr>
-                        <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
-                        <td>{{ $project->organisation_email }}</td>
-                    </tr>
-                    <tr>
-                        <th id="organisation_phone" class="font-weight-bold">Phone</th>
-                        <td>{{ $project->organisation_phone }}</td>
-                    </tr>
+                    @if($project->continent->name)
+                        <tr>
+                            <th id="project_continent" class="font-weight-bold">Region:</th>
+                            <td>
+                                {{ $project->continent->name }}
+                            </td>
+                        </tr>
+                    @endif
+
+                    @if($project->organisation_contact)
+                        <tr>
+                            <th id="organisation_contact" class="font-weight-bold">Organisation contact person:</th>
+                            <td>{{ $project->organisation_contact }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->organisation_contact_position)
+                        <tr>
+                            <th id="organisation_contact_position" class="font-weight-bold">Position in the Organisation:</th>
+                            <td>{{ $project->organisation_contact_position }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->country->name)
+                        <tr>
+                            <th id="project_country" class="font-weight-bold">Country:</th>
+                            <td>{{ $project->country->name }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->organisation_email)
+                        <tr>
+                            <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
+                            <td>{{ $project->organisation_email }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->organisation_phone)
+                        <tr>
+                            <th id="organisation_phone" class="font-weight-bold">Phone</th>
+                            <td>{{ $project->organisation_phone }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->place)
                     <tr>
                         <th id="project_place" class="font-weight-bold">Work location:</th>
                         <td>{{ $project->place }}</td>
                     </tr>
+                    @endif
 
                     @if($project->start_date)
                         <tr>
@@ -71,34 +100,42 @@
                         </tr>
                     @endif
 
-                    <tr>
-                        <th id="project_contact" class="font-weight-bold">Project contact person:</th>
-                        <td>{{ $project->contact }}</td>
-                    </tr>
-                    <tr>
-                        <th id="projectOffers" class="font-weight-bold">Offers:</th>
-                        <td>
-                            <ul>
-                                 @foreach($project->projectOffers AS $projectOffer)
-                                    <li>{{ $projectOffer->name }}</li>
-                                @endforeach
+                    @if($project->contact)
+                        <tr>
+                            <th id="project_contact" class="font-weight-bold">Project contact person:</th>
+                            <td>{{ $project->contact }}</td>
+                        </tr>
+                    @endif
 
-                                @if($project->offer_text)
-                                    <li><strong>Other offers:</strong> {{ $project->offer_text }}</li>
-                                @endif
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th id="project_disciplines" class="font-weight-bold">Discipline of Project:</th>
-                        <td>
-                            <ul>
-                                @foreach($project->disciplines AS $discipline)
-                                    <li>{{ $discipline->name }}</li>
-                                @endforeach
-                            </ul>
-                        </td>
-                    </tr>
+                    @if($project->projectOffers->count() || $project->offer_text)
+                        <tr>
+                            <th id="projectOffers" class="font-weight-bold">Offers:</th>
+                            <td>
+                                <ul>
+                                     @foreach($project->projectOffers AS $projectOffer)
+                                        <li>{{ $projectOffer->name }}</li>
+                                    @endforeach
+
+                                    @if($project->offer_text)
+                                        <li><strong>Other offers:</strong> {{ $project->offer_text }}</li>
+                                    @endif
+                                </ul>
+                            </td>
+                        </tr>
+                    @endif
+
+                    @if($project->disciplines->count())
+                        <tr>
+                            <th id="project_disciplines" class="font-weight-bold">Discipline of Project:</th>
+                            <td>
+                                <ul>
+                                    @foreach($project->disciplines AS $discipline)
+                                        <li>{{ $discipline->name }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                        </tr>
+                    @endif
 
                     @if($project->skillTypes->count())
                         <tr>
@@ -117,37 +154,39 @@
                     @endif
 
                     @if( $project->o_work_experience_local || $project->o_work_experience_international || $project->offer_text)
-                    <tr>
-                        <th id="project_o_work_experience" class="font-weight-bold">required Experience:</th>
-                        <td>
-                            <ul>
-                                @foreach($dutyTypes AS $dutyType)
-                                    @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
-                                        <li><strong>{{ $dutyType->name . ':'}}</strong>
-                                            @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
-                                                {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
-                                            @else
-                                                No Experience
-                                            @endif
-                                        </li>
-                                                                 
-                                        @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
-                                            <li>{{ $duty->name }} </li>
-                                        @endforeach
+                        <tr>
+                            <th id="project_o_work_experience" class="font-weight-bold">required Experience:</th>
+                            <td>
+                                <ul>
+                                    @foreach($dutyTypes AS $dutyType)
+                                        @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
+                                            <li><strong>{{ $dutyType->name . ':'}}</strong>
+                                                @if($dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international)
+                                                    {{ $dutyType->id === 1 ? $project->o_work_experience_local : $project->o_work_experience_international }}
+                                                @else
+                                                    No Experience
+                                                @endif
+                                            </li>
+
+                                            @foreach($project->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
+                                                <li>{{ $duty->name }} </li>
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                    @if($project->offer_text)
+                                        <li><strong>Other Duties:</strong> {{ $project->other_duties }}</li>
                                     @endif
-                                @endforeach
-                                @if($project->offer_text)
-                                    <li><strong>Other Duties:</strong> {{ $project->other_duties }}</li>
-                                @endif
-                            </ul>
-                        </td>
-                    </tr>
+                                </ul>
+                            </td>
+                        </tr>
                     @endif
 
-                    <tr>
-                        <th id="exprience_details" class="font-weight-bold">Work details:</th>
-                        <td>{{ $project->exprience_details }}</td>
-                    </tr>
+                    @if($project->exprience_details)
+                        <tr>
+                            <th id="exprience_details" class="font-weight-bold">Work details:</th>
+                            <td>{{ $project->exprience_details }}</td>
+                        </tr>
+                    @endif
 
                 </tbody>
             </table>
