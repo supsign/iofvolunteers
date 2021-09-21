@@ -4,7 +4,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
-                                            height="65"> Volunteer Details</h1>
+                                            height="65" alt="search icon"> Volunteer Details</h1>
             </div>
 
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results"/>
@@ -12,35 +12,52 @@
             <table class="table">
                 <tbody>
 
-                <tr>
-                    <td class="font-weight-bold">Name:</td>
-                    <td>{{ $volunteer->name }}</td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Sex:</td>
-                    <td>{{ $volunteer->gender->name ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Country & Club:</td>
-                    <td>
-                        <strong>Country:</strong> {{ $volunteer->country->name }}<br>
-                        @if($volunteer->club)
-                            <strong>Club:</strong> {{ $volunteer->club }}
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Age</td>
-                    <td>{{ $volunteer->age }} years</td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Experience</td>
-                    <td>since {{ $volunteer->ol_duration }}</td>
-                </tr>
-                <tr>
-                    <td class="font-weight-bold">Driving license:</td>
-                    <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
-                </tr>
+                @if($volunteer->name)
+                    <tr>
+                        <td class="font-weight-bold">Name:</td>
+                        <td>{{ $volunteer->name }}</td>
+                    </tr>
+                @endif
+
+                @if($volunteer->gender->name)
+                    <tr>
+                        <td class="font-weight-bold">Sex:</td>
+                        <td>{{ $volunteer->gender->name ?? '-' }}</td>
+                    </tr>
+                @endif
+
+                @if($volunteer->country->name || $volunteer->club)
+                    <tr>
+                        <td class="font-weight-bold">Country & Club:</td>
+                        <td>
+                            <strong>Country:</strong> {{ $volunteer->country->name }}<br>
+                            @if($volunteer->club)
+                                <strong>Club:</strong> {{ $volunteer->club }}
+                            @endif
+                        </td>
+                    </tr>
+                @endif
+
+                @if($volunteer->age)
+                    <tr>
+                        <td class="font-weight-bold">Age</td>
+                        <td>{{ $volunteer->age }} years</td>
+                    </tr>
+                @endif
+
+                @if($volunteer->ol_duration)
+                    <tr>
+                        <td class="font-weight-bold">Experience</td>
+                        <td>since {{ $volunteer->ol_duration }}</td>
+                    </tr>
+                @endif
+
+                @if($volunteer->driving_licence)
+                    <tr>
+                        <td class="font-weight-bold">Driving license:</td>
+                        <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
+                    </tr>
+                @endif
 
                 @if($volunteer->languageVolunteers()->where('language_proficiency_id', '!=', 4)->count() || $volunteer->other_languages)
                     <tr>
@@ -166,16 +183,20 @@
                         </td>
                     </tr>
                 @endif
-                <tr>
-                    <td class="font-weight-bold">My benefits</td>
-                    <td>{{ $volunteer->help }}</td>
-                </tr>
-                <tr>
-                    @if($volunteer->expectation)
+
+                @if($volunteer->help)
+                    <tr>
+                        <td class="font-weight-bold">My benefits</td>
+                        <td>{{ $volunteer->help }}</td>
+                    </tr>
+                @endif
+
+                @if($volunteer->expectation)
+                    <tr>
                         <td class="font-weight-bold">Expectations</td>
                         <td>{{ $volunteer->expectation }}
-                    @endif
-                </tr>
+                    </tr>
+                @endif
 
                 </tbody>
             </table>
