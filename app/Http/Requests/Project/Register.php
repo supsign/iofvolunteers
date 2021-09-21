@@ -31,7 +31,6 @@ class Register extends FormRequest
             'organisation_contact_position' => 'required|string',
             'organisation_email' => 'required|email:rfc,dns|max:191',
             'organisation_phone' => 'required|string',
-            'organisation_language_id' => 'int',
             'place' => 'nullable|string',
             'start_date' => 'nullable|date',
             'contact' => 'required|string',
