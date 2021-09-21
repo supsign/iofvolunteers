@@ -950,6 +950,14 @@ form select {
     margin: 6px 0 6px 0;
 }
 
+h3.formSectionTitle {
+    color: #000000;
+    font-size: 25px;
+    /*font-weight: 600;*/
+    margin-bottom: 16px;
+    margin-top: 25px;
+}
+
 .formSection h3.formSectionTitle {
     color: #000000;
     font-size: 25px;

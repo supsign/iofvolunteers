@@ -92,6 +92,10 @@
         padding-left: 25px;
         text-decoration: none;
     }
+
+    #mail-wrapper {
+        flex-direction: column!important;
+    }
 }
 
 /* Medium Devices, Desktops */
