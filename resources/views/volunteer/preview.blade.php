@@ -207,19 +207,32 @@
             @endif
 
             @if(true)
-                <form class="d-flex flex-column align-items-start" onsubmit="return searchVolunteer(event)"
-                      enctype="multipart/form-data">
-                    @csrf
-                    <x-form.section>
-                        <x-slot name="title">
-                            Invite volunteer to your project
-                        </x-slot>
-                        <x-base.select name="project_id" label="Project" :iconName="'selectArr'" :options="$projects"
-                                       required/>
-                        <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
-                        <input class="mt-3" type="submit" name="submitButton" value="Contact volunteer"/>
-                    </x-form.section>
-                </form>
+                <div id="mail-wrapper" class="d-flex flex-row">
+                    <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchVolunteer(event)"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <x-form.section>
+                            <x-slot name="title">
+                                Invite volunteer to your project
+                            </x-slot>
+                            <x-base.select name="project_id" label="Project" :iconName="'selectArr'" :options="$projects"
+                                           class="project_name_select" required/>
+                            <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
+                            <input class="mt-3" type="submit" name="submitButton" value="Contact volunteer"/>
+                        </x-form.section>
+                    </form>
+                    <div>
+                        <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
+                        <div class="border p-4">
+                            <p>Dear {{ $volunteer->name }}</p>
+                            <p>{{ $user->firstname }} {{ $user->lastname }} is looking for your volunteer help with project <span class="" id="project_name_wrapper"></span></p>
+                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the projectname.</p>
+                            <p>In order to get in contact with the responsible person of this project, you can simply reply to this e-mail.</p>
+                            <p>Kind Regards, <br />
+                            iof volunteers</p>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     </section>
