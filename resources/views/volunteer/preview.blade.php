@@ -204,8 +204,8 @@
                         <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
                         <div class="border p-4">
                             <p>Dear {{ $volunteer->name }}</p>
-                            <p>{{ $user->firstname }} {{ $user->lastname }} is looking for your volunteer help with project "Project".
-                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the project called "Project".</p>
+                            <p>{{ $user->firstname }} {{ $user->lastname }} is looking for your volunteer help with project "Projectname".</p>
+                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the project called "Projectname".</p>
                             <p>In order to get in contact with the responsible person of this project, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
                             iof volunteers</p>
