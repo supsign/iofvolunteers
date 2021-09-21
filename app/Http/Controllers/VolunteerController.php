@@ -305,6 +305,7 @@ class VolunteerController extends Controller
             if (!$value) {
                 continue;
             }
+            @dump($projects);
 
             switch ($key) {
                 case 'discipline':

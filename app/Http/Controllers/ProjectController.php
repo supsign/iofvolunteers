@@ -219,6 +219,7 @@ class ProjectController extends Controller
             if (!$value) {
                 continue;
             }
+            @dump($projects);
 
             switch ($key) {
                 case 'continent':
@@ -238,7 +239,7 @@ class ProjectController extends Controller
             }
         }
 
-        return view('volunteer.searchList', [
+        return view('project.searchList', [
             'projects' => $projects,
         ]);
     }
