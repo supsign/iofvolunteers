@@ -15,9 +15,9 @@
             <table aria-describedby="List all projects from the search form" class="table">
                 <tbody>
                     <tr>
-                        <th id="search_project_name" class="big-desc">Project Name</td>
-                        <th id="search_org_name" class="big-desc">Organisation Name</td>
-                        <th id="search_project_contact" class="big-desc">Project Contact</td>
+                        <th id="search_project_name" class="big-desc">Project Name</th>
+                        <th id="search_org_name" class="big-desc">Organisation Name</th>
+                        <th id="search_project_contact" class="big-desc">Project Contact</th>
                     </tr>
                     @foreach ($projects as $project)
                         <tr>
