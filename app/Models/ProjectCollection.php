@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ProjectCollection extends Collection
 {
-    public function filterByContinent($continentArray): ProjectCollection
+    public function filterByContinents($continentArray): ProjectCollection
     {
         return $this->filter(function ($project) use ($continentArray) {
             foreach (array_keys(array_filter($continentArray)) as $continent) {
-                if (!$project->continent->contains('id', $continent)) {
+                echo $continent;
+                if (!$project->continents->contains('id', $continent)) {
                     return false;
                 }
             }
@@ -19,11 +20,11 @@ class ProjectCollection extends Collection
         });
     }
 
-    public function filterByOffer($offerArray): ProjectCollection
+    public function filterByOffers($offerArray): ProjectCollection
     {
         return $this->filter(function ($project) use ($offerArray) {
             foreach (array_keys(array_filter($offerArray)) as $offer) {
-                if (!$project->offers->contains('id', $offer)) {
+                if (!$project->projectOffers->contains('id', $offer)) {
                     return false;
                 }
             }

@@ -219,14 +219,13 @@ class ProjectController extends Controller
             if (!$value) {
                 continue;
             }
-            @dump($projects);
 
             switch ($key) {
                 case 'continent':
-                    $projects = $projects->filterByContinent($value);
+                    $projects = $projects->filterByContinents($value);
                     break;
-                case 'offer':
-                    $projects = $projects->filterByOffer($value);
+                case 'projectOffers':
+                    $projects = $projects->filterByOffers($value);
                     break;
                 case 'discipline':
                     $projects = $projects->filterByDisciplines($value);
@@ -237,6 +236,7 @@ class ProjectController extends Controller
                 default:
                     break;
             }
+
         }
 
         return view('project.searchList', [
