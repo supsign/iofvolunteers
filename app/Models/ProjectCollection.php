@@ -10,7 +10,7 @@ class ProjectCollection extends Collection
     {
         return $this->filter(function ($project) use ($continentArray) {
             $continentArray = array_filter($continentArray);
-            if(empty($continentArray)) {
+            if (empty($continentArray)) {
                 return true;
             }
             foreach (array_keys($continentArray) as $continent) {
