@@ -16,7 +16,7 @@
 
                     @if($project->name)
                         <tr>
-                            <th id="project_project_name" class="font-weight-bold">Name:</th>
+                            <th id="project_project_name" class="font-weight-bold">Project name:</th>
                             <td>{{ $project->name }}</td>
                         </tr>
                     @endif
@@ -51,24 +51,25 @@
                         </tr>
                     @endif
 
-                    @if($project->organisation_contact)
-                        <tr>
-                            <th id="organisation_contact" class="font-weight-bold">Organisation contact person:</th>
-                            <td>{{ $project->organisation_contact }}</td>
-                        </tr>
-                    @endif
-
-                    @if($project->organisation_contact_position)
-                        <tr>
-                            <th id="organisation_contact_position" class="font-weight-bold">Position in the Organisation:</th>
-                            <td>{{ $project->organisation_contact_position }}</td>
-                        </tr>
-                    @endif
-
                     @if($project->country->name)
                         <tr>
                             <th id="project_country" class="font-weight-bold">Country:</th>
                             <td>{{ $project->country->name }}</td>
+                        </tr>
+                    @endif
+
+                    {{-- todo input field place --> ist das sinnvoll? Oder rausnehmen und beide Dropdowns Country und Continent benutzen--}}
+                    @if($project->place)
+                        <tr>
+                            <th id="project_place" class="font-weight-bold">Work location:</th>
+                            <td>{{ $project->place }}</td>
+                        </tr>
+                    @endif
+
+                    @if($project->contact)
+                        <tr>
+                            <th id="project_contact" class="font-weight-bold">Project contact person:</th>
+                            <td>{{ $project->contact }}</td>
                         </tr>
                     @endif
 
@@ -86,24 +87,10 @@
                         </tr>
                     @endif
 
-                    @if($project->place)
-                        <tr>
-                            <th id="project_place" class="font-weight-bold">Work location:</th>
-                            <td>{{ $project->place }}</td>
-                        </tr>
-                    @endif
-
                     @if($project->start_date)
                         <tr>
                             <th id="start_date" class="font-weight-bold">Start Date:</th>
                             <td>{{ date_format(new datetime($project->start_date), 'Y-m-d') }}</td>
-                        </tr>
-                    @endif
-
-                    @if($project->contact)
-                        <tr>
-                            <th id="project_contact" class="font-weight-bold">Project contact person:</th>
-                            <td>{{ $project->contact }}</td>
                         </tr>
                     @endif
 

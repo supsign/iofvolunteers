@@ -29,7 +29,7 @@
                             <x-slot name="title">
                                 1. Details of the Organisation *
                             </x-slot>
-                            <x-base.input name="name" value="{{ $project->name }}" label="Name of your project *" required/>
+                            <x-base.input name="name" value="{{ $project->name }}" label="Name of the project *" required/>
                             <x-base.input name="organisation_name" value="{{ $project->organisation_name }}"
                                             label="Name of the organisation *" required/>
                             <x-base.select name="project_status_id" :value="$project->projectStatus"
@@ -37,20 +37,6 @@
                                             :options="$stati" required/>
                             <x-base.input name="organisation_webpage" value="{{ $project->organisation_webpage }}"
                                             label="Web page (if exists)"/>
-                            <x-base.select name="continent_id" :value="$project->continent"
-                                            label="Region *" :iconName="'selectArr'"
-                                            :options="$continents" required/>
-                            <x-base.input name="organisation_contact" value="{{ $project->organisation_contact }}"
-                                            label="Contact person *" required/>
-                            <x-base.input name="organisation_contact_position" value="{{ $project->organisation_contact_position }}"
-                                            label="Position in the organisation *" required/>
-                            <x-base.select name="country_id" :value="$project->country"
-                                            label="Country" required :iconName="'selectArr'"
-                                            :options="$countries"/>
-                            <x-base.input name="organisation_email" value="{{ $project->organisation_email }}"
-                                            label="E-mail *" type="email" required/>
-                            <x-base.input name="organisation_phone" value="{{ $project->organisation_phone }}"
-                                            label="Phone *" required/>
                             {{-- <x-base.input name="organisation_language_id" label="Native language(s) *" required /> --}}
                         </x-form.section>
 
@@ -58,14 +44,27 @@
                             <x-slot name="title">
                                 2. Details of the Project
                             </x-slot>
+
+                            {{-- todo input field place --> ist das sinnvoll? Oder rausnehmen und beide Dropdowns Country und Continent benutzen--}}
                             <x-base.input name="place" value="{{ $project->place }}"
                                           label="Where will the volunteer be working? *" required/>
+                            <x-base.select name="continent_id" :value="$project->continent"
+                                           label="Region *" :iconName="'selectArr'"
+                                           :options="$continents" required/>
+                            <x-base.select name="country_id" :value="$project->country"
+                                           label="Country *" required :iconName="'selectArr'"
+                                           :options="$countries"/>
                             <x-base.input name="start_date" value="{{ date_format(new datetime($project->start_date), 'Y-m-d') }}"
                                           label="When is the volunteer expected to start?" class="datepicker-here"
                                           data-language='en' data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'"/>
-                            <x-base.input name="contact" value="{{ $project->contact }}" label="Contact person *"
+                            <x-base.input name="contact" value="{{ $project->contact }}" label="Contact person of the project *"
                                           required/>
+                            <x-base.input name="organisation_email" value="{{ $project->organisation_email }}"
+                                          label="E-mail of the contact person *" type="email" required/>
+                            <x-base.input name="organisation_phone" value="{{ $project->organisation_phone }}"
+                                          label="Phone of the contact person *" required/>
+
                             <div class="form-group">
                                 <label class="formSubtitle2">What can you offer the volunteer? *</label>
                                 @foreach($offers AS $offer)
@@ -101,7 +100,7 @@
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <div class="form-group">
-                                    <div class="formSubtitle2">{{ $skillType->name }} *
+                                    <div class="formSubtitle2">{{ $skillType->name }}
                                         @isset($skillType->warn)
                                             <div class="font-weight-normal">{{ $skillType->warn }}</div>
                                         @endisset
