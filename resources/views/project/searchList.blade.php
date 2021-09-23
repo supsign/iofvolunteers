@@ -10,7 +10,7 @@
             </div>
 
 
-            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search"/>
+            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to Search"/>
 
             <table aria-describedby="List all projects from the search form" class="table">
                 <tbody>

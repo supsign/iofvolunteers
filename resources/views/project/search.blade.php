@@ -62,10 +62,12 @@
                             <x-slot name="title">
                                 4. Skills required
                             </x-slot>
-                            @foreach($skillTypes AS $skillType)
-                                <x-base.checkbox label="{{ $skillType->name }}" name="skillType[{{ $skillType->id }}]"
-                                                 class="form-check-input"/>
-                            @endforeach
+                            <div class="form-group">
+                                @foreach($skillTypes AS $skillType)
+                                    <x-base.checkbox label="{{ $skillType->name }}" name="skillType[{{ $skillType->id }}]"
+                                                     class="form-check-input"/>
+                                @endforeach
+                            </div>
                         </x-form.section>
                     </div>
 
