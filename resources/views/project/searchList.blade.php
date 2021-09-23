@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title">
-                    <img class="title-icon" src="{{ asset('images/icon-search3.svg') }}" width="65" height="65">
+                    <img class="title-icon" src="{{ asset('images/icon-search3.svg') }}" width="65" height="65" alt="Search List">
                     Project Search Result </h1>
             </div>
 
