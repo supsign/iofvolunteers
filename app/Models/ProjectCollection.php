@@ -9,18 +9,21 @@ class ProjectCollection extends Collection
     public function filterByContinents($continentArray): ProjectCollection
     {
         return $this->filter(function ($project) use ($continentArray) {
-            foreach (array_keys(array_filter($continentArray)) as $continent) {
-                echo $continent;
-                if (!$project->continents->contains('id', $continent)) {
-                    return false;
+            $continentArray = array_filter($continentArray);
+            if(empty($continentArray)) {
+                return true;
+            }
+            foreach (array_keys($continentArray) as $continent) {
+                if ($project->continent_id === $continent) {
+                    return true;
                 }
             }
 
-            return true;
+            return false;
         });
     }
 
-    public function filterByOffers($offerArray): ProjectCollection
+    public function filterByProjectOffers($offerArray): ProjectCollection
     {
         return $this->filter(function ($project) use ($offerArray) {
             foreach (array_keys(array_filter($offerArray)) as $offer) {
