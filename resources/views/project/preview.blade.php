@@ -38,7 +38,7 @@
                     @if($project->organisation_webpage)
                         <tr>
                             <th id="organisation_webpage" class="font-weight-bold">Web page:</th>
-                            <td><a target="_blank" href="{{ $project->organisation_webpage }}">{{ $project->organisation_webpage }}</a></td>
+                            <td><a href="{{ $project->organisation_webpage }}">{{ $project->organisation_webpage }}</a></td>
                         </tr>
                     @endif
 
