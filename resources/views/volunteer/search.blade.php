@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
-                                       height="65"> Volunteer Search Form</h1>
+                                       height="65" alt="Search List"> Volunteer Search Form</h1>
 
                 <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!
                 </div>
@@ -97,10 +97,12 @@
                             <x-slot name="title">
                                 6. Skills required
                             </x-slot>
-                            @foreach($skillTypes AS $skillType)
-                                <x-base.checkbox label="{{ $skillType->name }}" name="skillType[{{ $skillType->id }}]"
-                                                 class="form-check-input"/>
-                            @endforeach
+                            <div class="form-group">
+                                @foreach($skillTypes AS $skillType)
+                                    <x-base.checkbox label="{{ $skillType->name }}" name="skillType[{{ $skillType->id }}]"
+                                                     class="form-check-input"/>
+                                @endforeach
+                            </div>
                         </x-form.section>
                     </div>
 

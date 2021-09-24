@@ -6,7 +6,7 @@
             <div class="titleWrap">
                 <h1 class="title">
                     <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
-                    Search Volunteers </h1>
+                    Volunteer Search Result </h1>
             </div>
 
 

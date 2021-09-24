@@ -26,9 +26,9 @@ class Register extends FormRequest
         return [
             'name' => 'required|max:191|string',
             'organisation_name' => 'required|string',
-            'organisation_webpage' => 'nullable|string',
-            'organisation_contact' => 'required|string',
-            'organisation_contact_position' => 'required|string',
+            'organisation_webpage' => 'nullable|url',
+            'organisation_contact' => 'nullable|string',
+            'organisation_contact_position' => 'nullable|string',
             'organisation_email' => 'required|email:rfc,dns|max:191',
             'organisation_phone' => 'required|string',
             'place' => 'nullable|string',

@@ -64,6 +64,11 @@ class Project extends BaseModel
         return $this->belongsTo(User::class);
     }
 
+    public function newCollection(array $models = []): ProjectCollection
+    {
+        return new ProjectCollection($models);
+    }
+
     public function getSkillTypesAttribute()
     {
         $skillTypes = collect();

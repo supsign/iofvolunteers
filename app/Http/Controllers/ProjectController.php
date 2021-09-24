@@ -19,9 +19,11 @@ use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
+use Schema;
 
 class ProjectController extends Controller
 {
@@ -80,9 +82,14 @@ class ProjectController extends Controller
 
     public function searchForm()
     {
-        return (new HomeController())->underConstruction();
-
-        return view('project.search');
+        return view('project.search', [
+            'disciplines' => Discipline::all(),
+            'countries' => Country::all(),
+            'continents' => Continent::all(),
+            'skillTypes' => SkillType::with('skills')->get(),
+            'stati' => ProjectStatus::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function show(Project $project)
@@ -197,8 +204,42 @@ class ProjectController extends Controller
         return redirect()->route('home');
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        return (new HomeController)->underConstruction();
+        $data = $request->all();
+
+        $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
+        $relationData = array_diff_key($data, $columns);
+
+        unset($relationData['_token']);
+
+        $projects = Project::get();
+
+        foreach ($relationData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'continent':
+                    $projects = $projects->filterByContinents($value);
+                    break;
+                case 'offer':
+                    $projects = $projects->filterByProjectOffers($value);
+                    break;
+                case 'discipline':
+                    $projects = $projects->filterByDisciplines($value);
+                    break;
+                case 'skillType':
+                    $projects = $projects->filterBySkillType($value);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return view('project.searchList', [
+            'projects' => $projects,
+        ]);
     }
 }
