@@ -26,12 +26,11 @@ class Update extends FormRequest
         return [
             'name' => 'required|max:191|string',
             'organisation_name' => 'required|string',
-            'organisation_webpage' => 'nullable|string',
+            'organisation_webpage' => 'nullable|url',
             'organisation_contact' => 'required|string',
             'organisation_contact_position' => 'required|string',
             'organisation_email' => 'required|email:rfc,dns|max:191',
             'organisation_phone' => 'required|string',
-            'organisation_language_id' => 'int',
             'place' => 'nullable|string',
             'start_date' => 'nullable|date',
             'contact' => 'required|string',

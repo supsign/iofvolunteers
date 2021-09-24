@@ -38,7 +38,7 @@
                     @if($project->organisation_webpage)
                         <tr>
                             <th id="organisation_webpage" class="font-weight-bold">Web page:</th>
-                            <td>{{ $project->organisation_webpage }}</td>
+                            <td><a target="_blank" href="{{ $project->organisation_webpage }}">{{ $project->organisation_webpage }}</a></td>
                         </tr>
                     @endif
 
@@ -76,7 +76,7 @@
                     @if($project->organisation_email)
                         <tr>
                             <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
-                            <td>{{ $project->organisation_email }}</td>
+                            <td><a href="mailto:{{ $project->organisation_email }}">{{ $project->organisation_email }}</a></td>
                         </tr>
                     @endif
 
