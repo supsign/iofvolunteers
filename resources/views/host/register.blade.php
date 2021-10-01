@@ -4,7 +4,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add4.svg')}}" width="65"
-                                            height="65"> Host Registration Form</h1>
+                                            height="65" alt="add Host"> Host Registration Form</h1>
             </div>
 
             <form method="POST" enctype="multipart/form-data">
@@ -69,7 +69,7 @@
                                     <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
                                                      class="form-check-input required-checkboxes-offers"/>
                                 @endforeach
-                                <div id="error-wrapper-offers" class="mt-3 error-wrapper"></div>
+                                <div id="error-wrapper-host-offers" class="mt-3 error-wrapper"></div>
                             </div>
                             <x-base.input name="offer_text" label="Other (please state):"/>
                         </x-form.section>
@@ -103,7 +103,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn" type="submit" value="Submit our request">
+                                    <input class="ml-auto required-btn-host" type="submit" value="Submit our request">
                                 </div>
                             </div>
                         </div>

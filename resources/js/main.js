@@ -104,6 +104,26 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $('.required-btn-host').click(function () {
+        checked = $('.required-checkboxes-offers:checked').length;
+
+        if (!checked) {
+            var errorDiv = document.createElement('div');
+            errorDiv.setAttribute('id', 'errorDiv-host-offers');
+
+            if (!document.contains(document.getElementById('errorDiv-host-offers'))) {
+                errorDiv.appendChild(document.createTextNode('You must check at least one checkbox'));
+                errorDiv.classList.add('alert', 'alert-danger');
+                document.getElementById('error-wrapper-host-offers').appendChild(errorDiv);
+            }
+            return false;
+        } else {
+            if (document.contains(document.getElementById('errorDiv-host-offers'))) {
+                document.getElementById('errorDiv-host-offers').remove();
+            }
+        }
+    });
+
     $('.project_name_select').on('change', function () {
         $('#project_name_wrapper').text($(this).children('option:selected').text());
     });
