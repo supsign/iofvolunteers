@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HostRegister;
+use App\Http\Requests\Host\Register;
 use App\Models\Country;
 use App\Models\Host;
+use App\Models\Language;
+use App\Models\LanguageProficiency;
+use App\Models\ProjectOffer;
 
 class HostController extends Controller
 {
@@ -15,9 +18,12 @@ class HostController extends Controller
 
     public function registerForm()
     {
-        return (new HomeController())->underConstruction();
-
-        return view('host.register', ['countries' => Country::all()]);
+        return view('host.register', [
+            'countries' => Country::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function searchForm()
@@ -27,12 +33,12 @@ class HostController extends Controller
         return view('host.search');
     }
 
-    public function register(HostRegister $request)
+    public function register(Register $request)
     {
         return Host::create($request->validated());
     }
 
-    public function update(Host $host, HostRegister $request)
+    public function update(Host $host, Register $request)
     {
         return Host::update($request->validated());
     }
