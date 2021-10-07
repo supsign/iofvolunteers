@@ -7,7 +7,7 @@
                                             height="65" alt="add Host"> Host Registration Form</h1>
             </div>
 
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="">
 
@@ -20,13 +20,13 @@
 
                             <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
                                            :options="$countries" required/>
-                            <x-base.input name="maxDuration" value="{{ old('maxDuration') }}" label='Max hosting duration "" weeks *'
-                                          required />
-                            <x-base.textarea name="hostDesc" label="Host description" required />
+                            <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Max hosting duration "" weeks *'
+                                          type="number" required />
+                            <x-base.textarea name="host_desc" label="Host description" required />
                             <div id="host_description" class="font-weight-normal mb-2">
                                 You may specify the characteristics of a potential guest here
                             </div>
-                            <x-base.textarea name="guestExpectations" label="Guest expectations" />                       
+                            <x-base.textarea name="guest_expectations" label="Guest expectations" />
                         </x-form.section>
 
                         <x-form.section>
@@ -35,9 +35,9 @@
                             </x-slot>
                             <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
                                           required />
-                            <x-base.input name="contacts_phone" label="Phone *" required/>
-                            <x-base.input name="contacts_email" label="E-mail *" type="email" required/>
-                            <x-base.input name="contacts_other" label="Other"/>
+                            <x-base.input name="contact_phone" label="Phone *" required/>
+                            <x-base.input name="contact_email" label="E-mail *" type="email" required/>
+                            <x-base.input name="contact_other" label="Other"/>
                         </x-form.section>
 
                         <x-form.section>

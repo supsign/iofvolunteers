@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\Host\Register;
 use App\Models\Country;
 use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\ProjectOffer;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HostController extends Controller
 {
@@ -35,7 +38,28 @@ class HostController extends Controller
 
     public function register(Register $request)
     {
-        return Host::create($request->validated());
+        $data = $request->validated();
+        @dump($request);
+
+        unset($data['agb']);
+
+        foreach (['offer', 'language'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        $data['user_id'] = Auth::user()->id;
+
+        $host = Host::create($data);
+
+        $host->projectOffers()->attach(array_keys(array_filter($offer)));
+
+        foreach ($language as $key => $value) {
+            $host->languages()->attach($key, ['language_proficiency_id' => $value]);
+        }
+
+        Alert::toast('Saved', 'success');
+
+        return redirect()->route('project.list');
     }
 
     public function update(Host $host, Register $request)
