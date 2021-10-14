@@ -136,7 +136,7 @@
                                         <a href="#">Column 1</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
-                                                <a href="{{ route('host.registerForm') }}">
+                                                <a href="{{ route('host.register') }}">
                                                     Register as a Host Family
                                                 </a>
                                             </li>

@@ -39,7 +39,6 @@ class HostController extends Controller
     public function register(Register $request)
     {
         $data = $request->validated();
-        @dump($request);
 
         unset($data['agb']);
 
@@ -59,7 +58,7 @@ class HostController extends Controller
 
         Alert::toast('Saved', 'success');
 
-        return redirect()->route('project.list');
+        return redirect()->route('home');
     }
 
     public function update(Host $host, Register $request)
