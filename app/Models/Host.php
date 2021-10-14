@@ -18,18 +18,32 @@ class Host extends BaseModel
         return $this->hasOne(User::class);
     }
 
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function projectOffers(): BelongsToMany
     {
         return $this->belongsToMany(ProjectOffer::class);
     }
 
-    public function projectProjectOffers(): HasMany
+    public function hostProjectOffers(): HasMany
     {
-        return $this->hasMany(ProjectProjectOffer::class);
+        return $this->hasMany(HostProjectOffer::class);
     }
 
     public function languages(): MorphToMany
     {
         return $this->morphToMany(Language::class, 'language_model');
+    }
+
+    public function languageHosts(): HasMany
+    {
+        return $this
+            ->hasMany(LanguageModel::class, 'language_model_id')
+            ->where('language_model_type', self::class)
+            ->with('language')
+            ->with('languageProficiency');
     }
 }

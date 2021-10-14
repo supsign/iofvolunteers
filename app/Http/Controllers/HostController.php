@@ -19,6 +19,25 @@ class HostController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
+    public function editForm(Host $host)
+    {
+        if (!Auth::user()->host) {
+            return redirect()->route('host.registerForm');
+        }
+
+        if (Auth::user()->host_id !== $host->id) {
+            abort(403);
+        }
+
+        return view('host.edit', [
+            'host' => $host,
+            'countries' => Country::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
+    }
+
     public function registerForm()
     {
         return view('host.register', [
@@ -62,24 +81,11 @@ class HostController extends Controller
         return redirect()->route('home');
     }
 
-    public function editForm(Host $host)
+    public function update(Host $host, Register $request)
     {
-        if (!Auth::user()->host) {
-            return redirect()->route('host.registerForm');
-        }
-
         if (Auth::user()->host_id !== $host->id) {
             abort(403);
         }
-
-        return view('host.edit', [
-            'host' => $host,
-        ]);
-    }
-
-    public function update(Host $host, Register $request)
-    {
-        return Host::update($request->validated());
     }
 
     public function search()

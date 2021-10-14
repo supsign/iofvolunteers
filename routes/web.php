@@ -44,6 +44,7 @@ Route::get('host/register', [HostController::class, 'registerForm'])->name('host
 Route::get('host/search', [HostController::class, 'searchForm'])->name('host.searchForm');
 Route::post('host/register', [HostController::class, 'register'])->name('host.register');
 Route::post('host/search', [HostController::class, 'search'])->name('host.search');
+Route::patch('host/update/{host}', [HostController::class, 'update'])->name('host.update');
 
 Route::get('project/show/{project}', [ProjectController::class, 'show'])->name('project.show');
 Route::get('project/register', [ProjectController::class, 'registerForm'])->name('project.registerForm');
