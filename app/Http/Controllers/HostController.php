@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Http\Requests\Host\Register;
+use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Host;
 use App\Models\Language;
@@ -11,6 +12,7 @@ use App\Models\LanguageProficiency;
 use App\Models\ProjectOffer;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Schema;
 
 class HostController extends Controller
 {
@@ -50,9 +52,15 @@ class HostController extends Controller
 
     public function searchForm()
     {
-        return (new HomeController())->underConstruction();
 
-        return view('host.search');
+
+        return view('host.search', [
+            'countries' => Country::all(),
+            'continents' => Continent::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function register(Register $request)
@@ -111,5 +119,10 @@ class HostController extends Controller
 
     public function search()
     {
+//        $data = $request->all();
+//        $columns = array_flip(array_merge(Schema::getColumnListing('hosts')));
+//        $volunteerData = array_intersect_key($data, $columns);
+//        $relationData = array_diff_key($data, $columns);
+//        $volunteers = Host::with('languageHosts');
     }
 }

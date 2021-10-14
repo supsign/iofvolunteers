@@ -1,113 +1,66 @@
 @extends('layouts.app')
 @section('content')
+
     <section class="default">
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{asset('images/icon-search4.svg')}}" width="65"
-                                       height="65"> Host Search Form</h1>
-
-                <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!
-                </div>
+                                       height="65" alt="Search a Host"> Host Search Form</h1>
             </div>
 
-            <form method="POST" action="host/search" enctype="multipart/form-data">
+            <form method="POST" action="/host/search" enctype="multipart/form-data">
+                @csrf
 
                 <div class="row">
                     <div class="col-12 col-md-6">
 
-                        <div class="formSection">
-                            <h3 class="formSectionTitle">
+                        <x-form.section>
+                            <x-slot name="title">
                                 1. Personal Information
-                            </h3>
+                            </x-slot>
+                            <div class="form-group">
+                                <x-base.select name="country_id" label="Country" :iconName="'selectArr'" :options="$countries"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="formSubtitle2">Pick your preferred destinations</label>
+                                <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox"
+                                                 class="form-check-input continentsCheckboxes"/>
+                                @foreach($continents AS $continent)
+                                    <x-base.checkbox label="{{ $continent->name }}"
+                                                     name="continent[{{ $continent->id }}]" type="checkbox"
+                                                     class="form-check-input continentsCheckboxes"/>
+                                @endforeach
+                            </div>
+                            <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Hosting duration "" weeks'
+                                          type="number" />
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                2. Details
+                            </x-slot>
 
                             <div class="form-group">
-                                <select type="text" name="country" id="country" size="1" value=""></select>
-                                <div class="warn">Country</div>
-                                <img for="country" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt=""/>
+                                <label class="formSubtitle2">Offers</label>
+                                @foreach($offers AS $offer)
+                                    <x-base.checkbox label="{{ $offer->name }}" name="offer[{{ $offer->id }}]"
+                                                     class="form-check-input"/>
+                                @endforeach
                             </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                3. Languages available
+                            </x-slot>
 
                             <div class="form-group">
-                                <input id="field_maxDuration" placeholder=" " type="text" size="7" name="maxDuration"
-                                       value="">
-                                <label class="formGroupLabel" for="field_maxDuration">Hosting duration "" weeks</label>
+                                @foreach($languages AS $language)
+                                    <x-base.checkbox label="{{ $language->name }}" name="{{ $language->name }}"
+                                                     type="checkbox" class="form-check-input"/>
+                                @endforeach
                             </div>
-                        </div>
-
-                        <div class="formSection">
-                            <h3 class="formSectionTitle">
-                                2. Languages available
-                            </h3>
-
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[English][known]"
-                                           value="1" id="languages1_1">
-                                    <label class="form-check-label" for="languages1_1">
-                                        English
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[French][known]"
-                                           value="1" id="languages2_1">
-                                    <label class="form-check-label" for="languages2_1">
-                                        French
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[Spanish][known]"
-                                           value="1" id="languages3_1">
-                                    <label class="form-check-label" for="languages3_1">
-                                        Spanish
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[German][known]"
-                                           value="1" id="languages4_1">
-                                    <label class="form-check-label" for="languages4_1">
-                                        German
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[Italian][known]"
-                                           value="1" id="languages5_1">
-                                    <label class="form-check-label" for="languages5_1">
-                                        Italian
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[Portuguese][known]"
-                                           value="1" id="languages6_1">
-                                    <label class="form-check-label" for="languages6_1">
-                                        Portuguese
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox"
-                                           name="languages[Scandinavian][known]" value="1" id="languages7_1">
-                                    <label class="form-check-label" for="languages7_1">
-                                        Scandinavian
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <input id="field_languagesOther" placeholder=" " type="text" name="languages[Other]"
-                                       value="">
-                                <label class="formGroupLabel" for="field_languagesOther">Other:</label>
-                            </div>
-                        </div>
-
-                        <div class="formSection">
-                            <div class="form-group d-flex">
-                                <input class="ml-auto" type="submit" value="Find host">
-                            </div>
-                        </div>
+                        </x-form.section>
                     </div>
 
                     <div class="col-12 col-md-6">
@@ -117,6 +70,11 @@
                                 <p>
                                     Please fill in your search criteria. Leave blank if not relevant / important!
                                 </p>
+                            </div>
+                            <div class="formSection">
+                                <div class="form-group d-flex">
+                                    <input class="ml-auto" type="submit" value="Find host">
+                                </div>
                             </div>
                         </div>
                     </div>
