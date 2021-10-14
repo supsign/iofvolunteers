@@ -28,6 +28,6 @@ class CreateHostOffers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('host_project_offer');
     }
 }

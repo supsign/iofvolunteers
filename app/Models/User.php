@@ -53,9 +53,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Guest::class);
     }
 
-    public function hosts(): HasMany
+    public function host(): belongsTo
     {
-        return $this->hasMany(Host::class);
+        return $this->belongsTo(Host::class);
     }
 
     public function projects(): HasMany

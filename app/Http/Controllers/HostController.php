@@ -46,9 +46,10 @@ class HostController extends Controller
             $$key = Helper::extractElementByKey($data, $key);
         }
 
-        $data['user_id'] = Auth::user()->id;
-
         $host = Host::create($data);
+
+        Auth::user()->host_id = $host->id;
+        Auth::user()->save();
 
         $host->projectOffers()->attach(array_keys(array_filter($offer)));
 
@@ -59,6 +60,21 @@ class HostController extends Controller
         Alert::toast('Saved', 'success');
 
         return redirect()->route('home');
+    }
+
+    public function editForm(Host $host)
+    {
+        if (!Auth::user()->host) {
+            return redirect()->route('host.registerForm');
+        }
+
+        if (Auth::user()->host_id !== $host->id) {
+            abort(403);
+        }
+
+        return view('host.edit', [
+            'host' => $host,
+        ]);
     }
 
     public function update(Host $host, Register $request)
