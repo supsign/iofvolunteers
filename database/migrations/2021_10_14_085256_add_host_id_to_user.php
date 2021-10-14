@@ -37,6 +37,5 @@ class AddHostIdToUser extends Migration
         Schema::table('hosts', function (Blueprint $table) {
             $table->foreignId('user_id')->nullable()->constrained();
         });
-
     }
 }
