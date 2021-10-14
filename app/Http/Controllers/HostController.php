@@ -86,6 +86,27 @@ class HostController extends Controller
         if (Auth::user()->host_id !== $host->id) {
             abort(403);
         }
+
+        $data = $request->validated();
+
+        unset($data['agb']);
+
+        foreach (['offer', 'language'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        $host->update($data);
+
+        $languageSync = array_map(function ($value) {
+            return ['language_proficiency_id' => $value];
+        }, $language);
+        $host->languages()->sync($languageSync);
+
+        $host->projectOffers()->sync(array_keys(array_filter($offer)));
+
+        Alert::toast('Saved', 'success');
+
+        return redirect()->route('home');
     }
 
     public function search()

@@ -80,32 +80,13 @@
                     <div class="col-12 col-md-6">
                         <div class="sticky">
                             <div class="noteWrap">
-                                <h3 class="noteTitle">Disclaimer</h3>
-                                <p>
-                                    The details above are as accurate as possible. We understand that
-                                    the
-                                    IOF cannot be held responsible for our finding or not finding a suitable volunteer.
-                                    We also
-                                    understand that should we choose to recruit a volunteer through this database, the
-                                    IOF cannot be
-                                    held responsible for the terms or quality of work produced.
-                                </p>
+                                <h2 class="noteTitle">Note</h2>
+                                <p>Edit your host-informations below. Leave defaults if no changes are required.</p>
                             </div>
 
                             <div class="formSection">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb"
-                                               required>
-                                        <label class="form-check-label" for="agb">
-                                            I have read and understood the above. *
-                                        </label>
-                                        <div class="warn">Mandatory: Please accept the disclaimer.</div>
-                                    </div>
-                                </div>
-
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn-host" type="submit" value="Submit our request">
+                                    <input class="ml-auto required-btn-host" type="submit" value="Save changes">
                                 </div>
                             </div>
                         </div>
