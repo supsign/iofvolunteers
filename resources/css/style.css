@@ -824,6 +824,10 @@ form select {
     margin: 6px 0 0 18px;
 }
 
+.formSection .font-weight-normal {
+    margin: 6px 0 6px 0;
+}
+
 .formSection .form-group .warn,
 .formSection .form-group .font-italic,
 .formSection .form-group .font-weight-normal {
@@ -949,10 +953,6 @@ form select {
 
 .formSection .form-group .formSubtitle2 .formSubtitle3 {
     font-size: 17px;
-    margin: 6px 0 6px 0;
-}
-
-.formSection .font-weight-normal {
     margin: 6px 0 6px 0;
 }
 
