@@ -109,6 +109,26 @@ class HostController extends Controller
         return redirect()->route('home');
     }
 
+    public function delete(Host $host)
+    {
+        if (Auth::user()->host_id !== $host->id) {
+            abort(403);
+        }
+        $host->hostProjectOffers()->delete();
+
+        $user = $host->user;
+        if ($user) {
+            $user->host()->disassociate($host);
+            $user->save();
+        }
+
+        $host->delete();
+
+        Alert::toast('Host deleted', 'success');
+
+        return redirect()->route('home');
+    }
+
     public function search()
     {
     }
