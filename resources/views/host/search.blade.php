@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 @foreach($languages AS $language)
-                                    <x-base.checkbox label="{{ $language->name }}" name="{{ $language->name }}"
+                                    <x-base.checkbox label="{{ $language->name }}" name="language[{{ $language->id }}]"
                                                      type="checkbox" class="form-check-input"/>
                                 @endforeach
                             </div>

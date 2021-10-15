@@ -152,9 +152,6 @@ class HostController extends Controller
                 continue;
             }
 
-            @dump($key);
-            @dump($value);
-
             switch ($key) {
                 case 'continent':
                     $hosts = $hosts->filterByContinents($value);

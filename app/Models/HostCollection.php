@@ -9,13 +9,13 @@ class HostCollection extends Collection
     public function filterByLanguages($languageArray): HostCollection
     {
         return $this->filter(function ($host) use ($languageArray) {
-            foreach ($host->languageHost as $languageHost) {
+            foreach ($host->languageHosts as $languageHost) {
                 if ($languageHost->language_proficiency_id > $languageArray[$languageHost->language_id]) {
-                    return false;
+                    return true; // false
                 }
             }
 
-            return true;
+            return false; //true
         });
     }
 
