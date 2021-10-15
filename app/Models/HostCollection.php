@@ -8,9 +8,9 @@ class HostCollection extends Collection
 {
     public function filterByLanguages($languageArray): HostCollection
     {
-        return $this->filter(function ($volunteer) use ($languageArray) {
-            foreach ($volunteer->languageVolunteers as $languageVolunteer) {
-                if ($languageVolunteer->language_proficiency_id > $languageArray[$languageVolunteer->language_id]) {
+        return $this->filter(function ($host) use ($languageArray) {
+            foreach ($host->languageHost as $languageHost) {
+                if ($languageHost->language_proficiency_id > $languageArray[$languageHost->language_id]) {
                     return false;
                 }
             }
@@ -27,7 +27,7 @@ class HostCollection extends Collection
                 return true;
             }
             foreach (array_keys($continentArray) as $continent) {
-                if ($host->continent_id === $continent) {
+                if ($host->country->id === $continent) {
                     return true;
                 }
             }

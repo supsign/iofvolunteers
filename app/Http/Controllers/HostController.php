@@ -147,10 +147,13 @@ class HostController extends Controller
 
         $hosts = $hosts->get();
 
-        foreach ($hostData as $key => $value) {
+        foreach ($relationData as $key => $value) {
             if (!$value) {
                 continue;
             }
+
+            @dump($key);
+            @dump($value);
 
             switch ($key) {
                 case 'continent':
