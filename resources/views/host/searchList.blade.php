@@ -5,19 +5,19 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title">
-                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
+                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="Search List">
                     Host Search Result </h1>
             </div>
 
 
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search"/>
 
-            <table class="table">
+            <table aria-describedby="List all Hosts from the search form" class="table">
                 <tbody>
                 <tr>
-                    <td class="big-desc">Name</td>
-                    <td class="big-desc">Country</td>
-                    <td class="big-desc">Host-Description</td>
+                    <th id="search_host_name" class="big-desc">Name</th>
+                    <th id="search_host_country" class="big-desc">Country</th>
+                    <th id="search_host_description" class="big-desc">Host-Description</th>
                 </tr>
                 @foreach($hosts AS $host)
                     <tr>
