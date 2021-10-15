@@ -10,6 +10,7 @@ use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\ProjectOffer;
+use App\Services\Host\HostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -117,6 +118,19 @@ class HostController extends Controller
         $host->projectOffers()->sync(array_keys(array_filter($offer)));
 
         Alert::toast('Saved', 'success');
+
+        return redirect()->route('home');
+    }
+
+    public function delete(Host $host, HostService $hostService)
+    {
+        if (Auth::user()->host_id !== $host->id) {
+            abort(403);
+        }
+
+        $hostService->delete($host);
+
+        Alert::toast('Host deleted', 'success');
 
         return redirect()->route('home');
     }

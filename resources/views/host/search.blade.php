@@ -61,13 +61,14 @@
                             <x-slot name="title">
                                 3. Languages available
                             </x-slot>
-
-                            <div class="form-group">
+                                <x-slot name="subtitle">
+                                    Tick only the most important one or two to increase search results
+                                </x-slot>
                                 @foreach($languages AS $language)
-                                    <x-base.checkbox label="{{ $language->name }}" name="language[{{ $language->id }}]"
-                                                     type="checkbox" class="form-check-input"/>
+                                    <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
+                                                  :options="$languageProficiency"
+                                                  value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                                 @endforeach
-                            </div>
                         </x-form.section>
                     </div>
 

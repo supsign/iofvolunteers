@@ -11,11 +11,11 @@ class HostCollection extends Collection
         return $this->filter(function ($host) use ($languageArray) {
             foreach ($host->languageHosts as $languageHost) {
                 if ($languageHost->language_proficiency_id > $languageArray[$languageHost->language_id]) {
-                    return true; // false
+                    return false;
                 }
             }
 
-            return false; //true
+            return true;
         });
     }
 
