@@ -7,6 +7,17 @@
                                             height="65" alt="search icon"> Edit Host</h1>
             </div>
 
+            <div class="row pb-3">
+                <div class="col-12 col-md-6">
+                    <form action="{{ route('host.delete', $host) }}" method="POST"
+                          onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
+                        @method('DELETE')
+                        @csrf
+                        <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Host">
+                    </form>
+                </div>
+            </div>
+
             <form method="POST" enctype="multipart/form-data" action="{{ route('host.update', $host->id) }}">
                 @csrf
                 @method("PATCH")
