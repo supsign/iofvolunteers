@@ -62,6 +62,11 @@ class HostController extends Controller
         ]);
     }
 
+    public function show(Host $host)
+    {
+        return view('host.preview', ['host' => $host]);
+    }
+
     public function register(Register $request)
     {
         $data = $request->validated();

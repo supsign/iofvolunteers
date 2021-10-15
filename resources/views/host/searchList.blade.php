@@ -25,7 +25,7 @@
                             @if(false)
                                 {{ $host->name ?? '' }}
                             @else
-                                <a href="{{ route('volunteer.show', $host ) }}">
+                                <a href="{{ route('host.show', $host ) }}">
                                     {{ $host->name ?? '' }}
                                 </a>
                             @endif
