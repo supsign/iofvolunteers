@@ -31,8 +31,16 @@
                                                      class="form-check-input continentsCheckboxes"/>
                                 @endforeach
                             </div>
-                            <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Hosting duration "" weeks'
-                                          type="number" />
+                            <div class="mx-0 row">
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pr-sm-2">
+                                    <x-base.input name="minage" value="{{ old('maxDuration') }}" label='Hosting duration weeks (at least)'
+                                                  type="number" />
+                                </div>
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pl-sm-2">
+                                    <x-base.input name="maxage" value="{{ old('maxDuration') }}" label='Hosting duration weeks (at most)'
+                                                  type="number" />
+                                </div>
+                            </div>
                         </x-form.section>
 
                         <x-form.section>

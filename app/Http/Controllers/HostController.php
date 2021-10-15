@@ -120,12 +120,32 @@ class HostController extends Controller
     {
         $data = $request->all();
 
-        $columns = array_flip(array_merge(Schema::getColumnListing('hosts')));
+        $columns = array_flip(array_merge(Schema::getColumnListing('hosts'), ['minage', 'maxage']));
         $hostData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
         $hosts = Host::with('languageHosts');
 
         unset($relationData['_token']);
+
+        foreach ($hostData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'minage':
+                    $hosts->where('max_duration', '>=', $value);
+                    break;
+                case 'maxage':
+                    $hosts->where('max_duration', '<=', $value);
+                    break;
+                default:
+                    $hosts->where($key, $value);
+                    break;
+            }
+        }
+
+        $hosts = $hosts->get();
 
         foreach ($hostData as $key => $value) {
             if (!$value) {
