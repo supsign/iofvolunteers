@@ -150,6 +150,5 @@ class HostController extends Controller
         return view('host.searchList', [
             'hosts' => $hosts,
         ]);
-
     }
 }
