@@ -15,7 +15,7 @@
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
                                 @if($user?->volunteer)
-                                    <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="add">
+                                    <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="edit">
                                     <a href="{{ route('volunteer.edit', $user->volunteer) }}">
                                         Edit Volunteer
                                     </a>
@@ -41,8 +41,8 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-search1.svg') }}" width="50" height="50">
-                                <a href="volunteer/search">
+                                <img src="{{ asset('images/icon-search1.svg') }}" width="50" height="50" alt="search Volunteer">
+                                <a href="{{ route('volunteer.searchForm') }}">
                                     Search a Volunteer
                                 </a>
                             </h3>
@@ -61,8 +61,8 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-add3.svg') }}" width="50" height="50">
-                                <a href="project/register">
+                                <img src="{{ asset('images/icon-add3.svg') }}" width="50" height="50" alt="register Project">
+                                <a href="{{ route('project.register') }}">
                                     Register a Project
                                 </a>
                             </h3>
@@ -78,8 +78,8 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-search3.svg') }}" width="50" height="50">
-                                <a href="project/search">
+                                <img src="{{ asset('images/icon-search3.svg') }}" width="50" height="50" alt="search Project">
+                                <a href="{{ route('project.searchForm') }}">
                                     Search a Project
                                 </a>
                             </h3>
@@ -94,8 +94,8 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-add4.svg') }}" width="50" height="50">
-                                <a href="host/register">
+                                <img src="{{ asset('images/icon-add4.svg') }}" width="50" height="50" alt="register Host">
+                                <a href="{{ route('host.register') }}">
                                     Register as a Host Family
                                 </a>
                             </h3>
@@ -111,7 +111,7 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-search4.svg') }}" width="50" height="50">
+                                <img src="{{ asset('images/icon-search4.svg') }}" width="50" height="50" alt="search Host">
                                 <a href="host/search">
                                     Find a host family
                                 </a>
@@ -131,7 +131,7 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-add5.svg') }}" width="50" height="50">
+                                <img src="{{ asset('images/icon-add5.svg') }}" width="50" height="50" alt="register Guest">
                                 <a href="guest/register">
                                     Register as a Guest
                                 </a>
@@ -151,7 +151,7 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-search5.svg') }}" width="50" height="50">
+                                <img src="{{ asset('images/icon-search5.svg') }}" width="50" height="50" alt="search Guest">
                                 <a href="guest/search">
                                     Search a guest
                                 </a>

@@ -818,6 +818,12 @@ form select {
     margin-bottom: 8px;
 }
 
+.formSection .font-weight-normal {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin: 6px 0 6px 0;
+}
+
 .formSection .form-group .warn,
 .formSection .form-group .font-italic,
 .formSection .form-group .font-weight-normal {
