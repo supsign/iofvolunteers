@@ -10,6 +10,7 @@ use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\ProjectOffer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
@@ -52,8 +53,6 @@ class HostController extends Controller
 
     public function searchForm()
     {
-
-
         return view('host.search', [
             'countries' => Country::all(),
             'continents' => Continent::all(),
@@ -117,12 +116,40 @@ class HostController extends Controller
         return redirect()->route('home');
     }
 
-    public function search()
+    public function search(Request $request)
     {
-//        $data = $request->all();
-//        $columns = array_flip(array_merge(Schema::getColumnListing('hosts')));
-//        $volunteerData = array_intersect_key($data, $columns);
-//        $relationData = array_diff_key($data, $columns);
-//        $volunteers = Host::with('languageHosts');
+        $data = $request->all();
+
+        $columns = array_flip(array_merge(Schema::getColumnListing('hosts')));
+        $hostData = array_intersect_key($data, $columns);
+        $relationData = array_diff_key($data, $columns);
+        $hosts = Host::with('languageHosts');
+
+        unset($relationData['_token']);
+
+        foreach ($hostData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'continent':
+                    $hosts = $hosts->filterByContinents($value);
+                    break;
+                case 'language':
+                    $hosts = $hosts->filterByLanguages($value);
+                    break;
+                case 'offer':
+                    $hosts = $hosts->filterByProjectOffers($value);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return view('host.searchList', [
+            'hosts' => $hosts,
+        ]);
+
     }
 }
