@@ -67,7 +67,7 @@
                                           type="number" class="datepicker-here" data-language='en'
                                           data-date-format="yyyy"
                                           data-view="years" data-min-view="years" placeholder=" " value="" required
-                                          :iconName="'calendarIcon'"/>
+                                          :iconName="'calendarIcon'" min="0"/>
                             <x-base.input name="club"
                                           label="Your present club (if any)"/>
                         </x-form.section>
@@ -81,11 +81,11 @@
                                 <div class="warn">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
-                                          label="Exprience with local Events (number)" type="number" size="3" min="0"
-                                          step="1"/>
+                                          label="Exprience with local Events (number)" type="number" size="3"
+                                          min="0" step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Exprience with national Events (number)" type="number" size="3" min="0"
-                                          step="1"/>
+                                          label="Exprience with national Events (number)" type="number" size="3"
+                                          min="0" step="1"/>
                             <x-base.input name="international_experience"
                                           label="Exprience with international Events (number)" type="number" size="3"
                                           min="0" step="1"/>

@@ -94,6 +94,7 @@
                                     data-view="years"
                                     data-min-view="years"
                                     placeholder=" "
+                                    min="0"
                                     required
                                     :iconName="'calendarIcon'"/>
 

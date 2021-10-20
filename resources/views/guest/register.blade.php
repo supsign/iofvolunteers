@@ -24,6 +24,8 @@
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
                             <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
                                           required/>
+                            <x-base.input name="phone" label="Phone *" required/>
+                            <x-base.input name="contact_other" label="Other contact option"/>
                         </x-form.section>
 
                         <x-form.section>
@@ -31,11 +33,11 @@
                                 2. O-Experience
                             </x-slot>
                             <x-base.input name="ol_duration"
-                                          label="Year you started orienteering (yyyy) *"
+                                          label="Year you started orienteering (yyyy) * (0 for no experience)"
                                           type="number" class="datepicker-here" data-language='en'
                                           data-date-format="yyyy"
                                           data-view="years" data-min-view="years" placeholder=" " value="" required
-                                          :iconName="'calendarIcon'"/>
+                                          :iconName="'calendarIcon'" min="0"/>
                             <x-base.input name="club"
                                           label="Your present club (if any)"/>
                             <div class="form-group">
@@ -54,17 +56,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Contacts
-                            </x-slot>
-                            <x-base.input name="contact_phone" label="Phone *" required/>
-                            <x-base.input name="contact_email" label="E-mail *" type="email" required/>
-                            <x-base.input name="contact_other" label="Other"/>
-
-                        </x-form.section>
-
-                        <x-form.section>
-                            <x-slot name="title">
-                                4. Languages spoken
+                                3. Languages spoken
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "additional languages")</div>
@@ -80,7 +72,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Additional Information
+                                4. Additional Information
                             </x-slot>
                             <x-base.textarea name="o_expectations" label="O-Expectations" />
                             <x-base.textarea name="motivation" label="Motivation" />
@@ -108,9 +100,9 @@
                             <div class="formSection">
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="iAgreeWithTerms"
-                                               id="iAgreeWithTerms" required>
-                                        <label class="form-check-label" for="iAgreeWithTerms">
+                                        <input class="form-check-input" type="checkbox" value="1" name="agb" id="agb"
+                                               required>
+                                        <label class="form-check-label" for="agb">
                                             I have read and understood the above. *
                                         </label>
                                         <div class="warn">Mandatory: Please accept the disclaimer.</div>
