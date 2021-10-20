@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests\Guest\Register;
 use App\Models\Country;
+use App\Models\Discipline;
 use App\Models\Gender;
 use App\Models\Guest;
 use App\Models\Language;
@@ -27,6 +28,7 @@ class GuestController extends Controller
             'genders' => Gender::all(),
             'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
+            'disciplines' => Discipline::all(),
         ]);
     }
 
@@ -58,7 +60,7 @@ class GuestController extends Controller
 
         unset($data['agb']);
 
-        foreach (['language'] as $key) {
+        foreach (['discipline', 'language'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
@@ -71,6 +73,12 @@ class GuestController extends Controller
 
         foreach ($language as $key => $value) {
             $guest->languages()->attach($key, ['language_proficiency_id' => $value]);
+        }
+
+        foreach ($discipline as $key => $value) {
+            if ($value) {
+                $guest->disciplines()->attach($key);
+            }
         }
 
         Alert::toast('Saved', 'success');

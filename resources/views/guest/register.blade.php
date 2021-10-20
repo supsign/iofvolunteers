@@ -18,7 +18,7 @@
                             <x-slot name="title">
                                 1. Guest details *
                             </x-slot>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
+                            <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" required/>
                             <x-base.input name="name" label="Firstname and Lastname *" required/>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
@@ -31,11 +31,30 @@
                                           required/>
                             <x-base.input name="phone" label="Phone *" required/>
                             <x-base.input name="contact_other" label="Other contact option"/>
+                            <x-base.select name="driving_licence"
+                                           label="International driving license? *"
+                                           :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
+                                           :iconName="'selectArr'" required/>
+                        </x-form.section>
+
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                2. Experience in the following disciplines
+                            </x-slot>
+                            <div class="form-group">
+                                @foreach($disciplines AS $discipline)
+                                    <x-base.checkbox name="discipline[{{ $discipline->id }}]"
+                                                     label="{{ $discipline->name }}"
+                                                     class="form-check-input required-checkboxes-disciplines"/>
+                                @endforeach
+                                <div id="error-wrapper-disciplines" class="mt-3 error-wrapper"></div>
+                            </div>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
-                                2. O-Experience
+                                3. O-Experience
                             </x-slot>
                             <x-base.input name="ol_duration"
                                           label="Year you started orienteering (yyyy) * (0 for no experience)"
@@ -61,7 +80,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages spoken
+                                4. Languages spoken
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "additional languages")</div>
@@ -77,7 +96,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. Additional Information
+                                5. Additional Information
                             </x-slot>
                             <x-base.textarea name="o_expectations" label="O-Expectations" />
                             <x-base.textarea name="motivation" label="Motivation" />
@@ -94,11 +113,11 @@
                                 <p>
                                     The details above are as accurate as possible. We understand that
                                     the
-                                    IOF cannot be held responsible for our finding or not finding a suitable volunteer.
+                                    IOF cannot be held responsible for our finding or not finding a suitable host family.
                                     We also
-                                    understand that should we choose to recruit a volunteer through this database, the
+                                    understand that should we choose to find a host family through this database, the
                                     IOF cannot be
-                                    held responsible for the terms or quality of work produced.
+                                    held responsible for the terms or quality of the accommodation.
                                 </p>
                             </div>
 

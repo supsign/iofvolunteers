@@ -27,6 +27,8 @@ class Register extends FormRequest
             'country_id' => 'required|int',
             'name' => 'required|max:191|string',
             'birthdate' => 'required|date',
+            'driving_licence' => 'required|boolean',
+            'discipline' => 'nullable|array',
             'gender_id' => 'required|int',
             'email' => 'required|email:rfc,dns|max:191',
             'phone' => 'required|string',
