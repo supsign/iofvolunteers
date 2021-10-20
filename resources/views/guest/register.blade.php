@@ -31,6 +31,10 @@
                                           required/>
                             <x-base.input name="phone" label="Phone *" required/>
                             <x-base.input name="contact_other" label="Other contact option"/>
+                            <x-base.select name="driving_licence"
+                                           label="International driving license? *"
+                                           :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
+                                           :iconName="'selectArr'" required/>
                         </x-form.section>
 
                         <x-form.section>
@@ -57,6 +61,14 @@
                             <x-base.input name="international_experience"
                                           label="Exprience with international Events (number)" type="number" size="3"
                                           min="0" step="1"/>
+                            <div class="form-group">
+                                <label class="formSubtitle2">Experience in the following disciplines</label>
+                                @foreach($disciplines AS $discipline)
+                                    <x-base.checkbox name="discipline[{{ $discipline->id }}]"
+                                                     label="{{ $discipline->name }}"
+                                                     class="form-check-input"/>
+                                @endforeach
+                            </div>
                         </x-form.section>
 
                         <x-form.section>
