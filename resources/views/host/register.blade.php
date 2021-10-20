@@ -21,7 +21,7 @@
                             <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
                                            :options="$countries" required/>
                             <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Max hosting duration "" weeks *'
-                                          type="number" required />
+                                          type="number" min="0" required />
                             <x-base.textarea name="host_desc" label="Host description" required />
                             <div id="host_description" class="font-weight-normal mb-2">
                                 You may specify the characteristics of a potential guest here
