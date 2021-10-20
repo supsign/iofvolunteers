@@ -46,4 +46,9 @@ class Host extends BaseModel
             ->with('language')
             ->with('languageProficiency');
     }
+
+    public function newCollection(array $models = []): HostCollection
+    {
+        return new HostCollection($models);
+    }
 }

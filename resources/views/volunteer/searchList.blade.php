@@ -5,19 +5,19 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title">
-                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65">
+                    <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="Search List">
                     Volunteer Search Result </h1>
             </div>
 
 
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to search"/>
 
-            <table class="table">
+            <table aria-describedby="List all volunteers from the search form" class="table">
                 <tbody>
                 <tr>
-                    <td class="big-desc">Name & Age</td>
-                    <td class="big-desc">Country</td>
-                    <td class="big-desc">O-Work-Experience (in years)</td>
+                    <th id="search_volunteer_name" class="big-desc">Name & Age</th>
+                    <th id="search_volunteer_country" class="big-desc">Country</th>
+                    <th id="search_volunteer_o_work_xp" class="big-desc">O-Work-Experience (in years)</th>
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>
