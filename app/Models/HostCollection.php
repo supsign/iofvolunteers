@@ -26,7 +26,7 @@ class HostCollection extends Collection
             if (empty($continentArray)) {
                 return true;
             }
-            
+
             foreach (array_keys($continentArray) as $continent) {
                 if ($host->country->continent_id === $continent) {
                     return true;
