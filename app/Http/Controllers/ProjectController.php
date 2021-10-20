@@ -211,8 +211,6 @@ class ProjectController extends Controller
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $relationData = array_diff_key($data, $columns);
 
-        unset($relationData['_token']);
-
         $projects = Project::get();
 
         foreach ($relationData as $key => $value) {

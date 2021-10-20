@@ -262,8 +262,6 @@ class VolunteerController extends Controller
         $relationData = array_diff_key($data, $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
-        unset($relationData['_token']);
-
         foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
