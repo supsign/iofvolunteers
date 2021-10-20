@@ -15,7 +15,8 @@ class UpdateGuestTable extends Migration
     {
         Schema::table('guests', function (Blueprint $table) {
             $table->string('name')->after('country_id');
-            $table->string('email')->after('name');
+            $table->datetime('birthdate')->after('name')->nullable();
+            $table->string('email')->after('birthdate');
             $table->string('phone')->after('email');
             $table->string('contact_other')->after('phone')->nullable();
             $table->unsignedSmallInteger('ol_duration')->after('email');
@@ -41,6 +42,7 @@ class UpdateGuestTable extends Migration
     {
         Schema::table('guests', function (Blueprint $table) {
             $table->dropColumn('name');
+            $table->dropColumn('birthdate');
             $table->dropColumn('email');
             $table->dropColumn('phone');
             $table->dropColumn('contact_other');

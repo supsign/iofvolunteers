@@ -22,6 +22,11 @@
                                            :options="$countries" required/>
                             <x-base.input name="name" label="Firstname and Lastname *" required/>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
+                            <x-base.input name="birthdate"
+                                          label="Date of birth (yyyy-mm-dd) *"
+                                          type="text" required class="datepicker-here" data-language='en'
+                                          data-date-format="yyyy-mm-dd"
+                                          :iconName="'calendarIcon'" required/>
                             <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
                                           required/>
                             <x-base.input name="phone" label="Phone *" required/>

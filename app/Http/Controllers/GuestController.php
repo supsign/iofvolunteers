@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\GuestRegister;
+use App\Helpers\Helper;
+use App\Http\Requests\Guest\Register;
 use App\Models\Country;
 use App\Models\Gender;
+use App\Models\Guest;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GuestController extends Controller
 {
@@ -32,8 +37,30 @@ class GuestController extends Controller
         return view('guest.search');
     }
 
-    public function register(GuestRegister $request)
+    public function register(Register $request)
     {
+        $data = $request->validated();
+
+        unset($data['agb']);
+
+        foreach (['language'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
+
+        $guest = Guest::create($data);
+
+        Auth::user()->guest_id = $guest->id;
+        Auth::user()->save();
+
+        foreach ($language as $key => $value) {
+            $host->languages()->attach($key, ['language_proficiency_id' => $value]);
+        }
+
+        Alert::toast('Saved', 'success');
+
+        return redirect()->route('home');
     }
 
     public function search()
