@@ -54,7 +54,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. O-Experience
+                                3. O-Experience as competitor
                             </x-slot>
                             <x-base.input name="ol_duration"
                                           label="Year you started orienteering (yyyy) * (0 for no experience)"
@@ -64,9 +64,12 @@
                                           :iconName="'calendarIcon'" min="0"/>
                             <x-base.input name="club"
                                           label="Your present club (if any)"/>
-                            <div class="form-group">
-                                <label class="formSubtitle2">Years of experience as competitor</label>
-                            </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                Years of experience as competitor
+                            </x-slot>
                             <x-base.input name="local_experience"
                                           label="Exprience with local Events (number)" type="number" size="3" min="0"
                                           step="1"/>
@@ -80,7 +83,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. Languages spoken
+                                4. Languages
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "additional languages")</div>

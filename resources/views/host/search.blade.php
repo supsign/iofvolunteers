@@ -59,10 +59,11 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages available
+                                3. Languages
                             </x-slot>
                                 <x-slot name="subtitle">
-                                    Tick only the most important one or two to increase search results
+                                    <div>Tick only the most important one or two to increase search results </div>
+                                    <div class="warn">Everyone with the same or higher preference as the picked one will be shown.</div>
                                 </x-slot>
                                 @foreach($languages AS $language)
                                     <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"

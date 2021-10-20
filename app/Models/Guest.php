@@ -53,4 +53,9 @@ class Guest extends BaseModel
     {
         return $this->morphToMany(Discipline::class, 'discipline_model');
     }
+
+    public function newCollection(array $models = []): GuestCollection
+    {
+        return new GuestCollection($models);
+    }
 }
