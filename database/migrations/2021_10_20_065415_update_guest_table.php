@@ -19,7 +19,8 @@ class UpdateGuestTable extends Migration
             $table->string('email')->after('birthdate');
             $table->string('phone')->after('email');
             $table->string('contact_other')->after('phone')->nullable();
-            $table->unsignedSmallInteger('ol_duration')->after('email');
+            $table->boolean('driving_licence')->after('contact_other')->default(false);
+            $table->unsignedSmallInteger('ol_duration')->after('driving_licence');
             $table->string('club')->after('ol_duration')->nullable();
             $table->integer('local_experience')->after('club')->nullable();
             $table->integer('national_experience')->after('local_experience')->nullable();
@@ -46,6 +47,7 @@ class UpdateGuestTable extends Migration
             $table->dropColumn('email');
             $table->dropColumn('phone');
             $table->dropColumn('contact_other');
+            $table->dropColumn('driving_licence');
             $table->dropColumn('ol_duration');
             $table->dropColumn('club');
             $table->dropColumn('local_experience');
