@@ -47,26 +47,26 @@
                     </tr>
                 @endif
 
-                @if($host->contact_phone)
-                    <tr>
-                        <th id="host_preview_phone" class="font-weight-bold">Phone:</th>
-                        <td>{{ $host->contact_phone }}</td>
-                    </tr>
-                @endif
+{{--                @if($host->contact_phone) --}}
+{{--                    <tr> --}}
+{{--                        <th id="host_preview_phone" class="font-weight-bold">Phone:</th> --}}
+{{--                        <td>{{ $host->contact_phone }}</td> --}}
+{{--                    </tr> --}}
+{{--                @endif --}}
 
-                @if($host->contact_email)
-                    <tr>
-                        <th id="host_preview_email" class="font-weight-bold">E-Mail:</th>
-                        <td><a href="mailto:{{ $host->contact_email }}">{{ $host->contact_email }}</a></td>
-                    </tr>
-                @endif
+{{--                @if($host->contact_email) --}}
+{{--                    <tr> --}}
+{{--                        <th id="host_preview_email" class="font-weight-bold">E-Mail:</th> --}}
+{{--                        <td><a href="mailto:{{ $host->contact_email }}">{{ $host->contact_email }}</a></td> --}}
+{{--                    </tr> --}}
+{{--                @endif --}}
 
-                @if($host->contact_other)
-                    <tr>
-                        <th id="host_preview_contact_other" class="font-weight-bold">Other contact options:</th>
-                        <td>{{ $host->contact_other }}</td>
-                    </tr>
-                @endif
+{{--                @if($host->contact_other) --}}
+{{--                    <tr> --}}
+{{--                        <th id="host_preview_contact_other" class="font-weight-bold">Other contact options:</th> --}}
+{{--                        <td>{{ $host->contact_other }}</td> --}}
+{{--                    </tr> --}}
+{{--                @endif --}}
 
 
                 @if($host->languageHosts()->where('language_proficiency_id', '!=', 4)->count() || $host->other_languages)
