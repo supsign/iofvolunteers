@@ -14,80 +14,42 @@
 
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <div class="formSection">
-                            <h3 class="formSectionTitle">
+
+                        <x-form.section>
+                            <x-slot name="title">
                                 1. Personal Information
-                            </h3>
-
-                            <div class="form-group">
-                                <select size="1" name="gender" id="gender">
-                                    <option selected="" value="">Gender</option>
-                                    <option value="M">Male</option>
-                                    <option value="F">Female</option>
-                                </select>
-                                <img for="gender" class="selectArr" src="{{asset('images/selectArr.svg')}}" alt=""/>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="mx-0 row">
-                                    <div class="pl-0 pr-0 form-group col-12 col-sm-6 pr-sm-2">
-                                        <input id="field_minage" placeholder=" " type="text" name="minage" size="2">
-                                        <label class="formGroupLabel" for="field_minage">Age (at least)</label>
-                                        <div class="warn">
-                                            Note that volunteers under 18 are not allowed to register in the Platform
-                                        </div>
-                                    </div>
-                                    <div class="pl-0 pr-0 form-group col-12 col-sm-6 pl-sm-2">
-                                        <input id="field_maxage" placeholder=" " type="text" name="maxage" size="2">
-                                        <label class="formGroupLabel" for="field_maxage">Age (at most)</label>
-                                    </div>
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                Note that volunteers under 18 are not allowed to register on the Platform
+                            </x-slot>
+                            <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
+                            <div class="mx-0 row">
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pr-sm-2">
+                                    <x-base.input name="minage" label="Age (at least)" type="number"/>
+                                </div>
+                                <div class="pl-0 pr-0 mt-0 col-12 col-sm-6 pl-sm-2">
+                                    <x-base.input name="maxage" label="Age (at most)" type="number"/>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="license" value="1"
-                                           id="license1">
-                                    <label class="form-check-label" for="license1">
-                                        International driving license?
-                                    </label>
-                                    <div class="warn">Check if required</div>
-                                </div>
+                                <x-base.checkbox name="driving_licence" label="International driving license?"
+                                                 class="form-check-input" :iconName="'selectArr'"/>
+                                <div class="warn">Check if required</div>
                             </div>
-                        </div>
+                        </x-form.section>
 
-                        <div class="formSection">
-                            <h3 class="formSectionTitle">
-                                2. Disciplines of experience
-                            </h3>
-
+                        <x-form.section>
+                            <x-slot name="title">
+                                2. Experience in the following disciplines
+                            </x-slot>
                             <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="footO" name="footO">
-                                    <label class="form-check-label" for="footO">
-                                        Foot-O
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="mtbO" name="mtbO">
-                                    <label class="form-check-label" for="mtbO">
-                                        MTBO
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="skiO" name="skiO">
-                                    <label class="form-check-label" for="skiO">
-                                        Ski-O
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="trailO" name="trailO">
-                                    <label class="form-check-label" for="trailO">
-                                        Trail-O
-                                    </label>
-                                </div>
+                                @foreach($disciplines AS $discipline)
+                                    <x-base.checkbox name="discipline[{{ $discipline->id }}]"
+                                                     label="{{ $discipline->name }}"
+                                                     class="form-check-input"/>
+                                @endforeach
                             </div>
-                        </div>
+                        </x-form.section>
 
                         <div class="formSection">
                             <h3 class="formSectionTitle">

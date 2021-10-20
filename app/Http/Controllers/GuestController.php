@@ -52,6 +52,7 @@ class GuestController extends Controller
 
         return view('guest.search', [
             'genders' => Gender::all(),
+            'disciplines' => Discipline::all(),
         ]);
     }
 
