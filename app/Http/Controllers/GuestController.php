@@ -119,6 +119,7 @@ class GuestController extends Controller
 
         return redirect()->route('home');
     }
+
     public function delete(Guest $guest, GuestService $guestService)
     {
         if (Auth::user()->guest_id !== $guest->id) {
@@ -131,7 +132,6 @@ class GuestController extends Controller
 
         return redirect()->route('home');
     }
-
 
     public function search()
     {
