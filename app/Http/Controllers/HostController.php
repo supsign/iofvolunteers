@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Http\Requests\Guest\Update;
 use App\Http\Requests\Host\Register;
 use App\Models\Continent;
 use App\Models\Country;
@@ -44,6 +45,11 @@ class HostController extends Controller
 
     public function registerForm()
     {
+        $user = Auth::user();
+        if (Auth::user()->host) {
+            return redirect()->route('host.edit', $user->host);
+        }
+
         return view('host.register', [
             'countries' => Country::all(),
             'languages' => Language::all(),
@@ -89,7 +95,7 @@ class HostController extends Controller
         return redirect()->route('home');
     }
 
-    public function update(Host $host, Register $request)
+    public function update(Host $host, Update $request)
     {
         if (Auth::user()->host_id !== $host->id) {
             abort(403);
@@ -108,6 +114,7 @@ class HostController extends Controller
         $languageSync = array_map(function ($value) {
             return ['language_proficiency_id' => $value];
         }, $language);
+
         $host->languages()->sync($languageSync);
 
         $host->projectOffers()->sync(array_keys(array_filter($offer)));
