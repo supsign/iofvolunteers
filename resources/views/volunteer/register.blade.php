@@ -95,8 +95,6 @@
                             <x-slot name="title">
                                 5. Languages
                             </x-slot>
-                            <x-slot name="subtitle">
-                            </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
                                               :options="$languageProficiency"
