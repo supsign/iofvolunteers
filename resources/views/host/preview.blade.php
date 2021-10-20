@@ -35,7 +35,7 @@
 
                 @if($host->guest_expectations)
                     <tr>
-                        <th id="host_preview_guest_expectations" class="font-weight-bold">Guest Expectations:</th>
+                        <th id="host_preview_guest_expectations" class="font-weight-bold">Guest expectations:</th>
                         <td>{{ $host->guest_expectations }}</td>
                     </tr>
                 @endif
