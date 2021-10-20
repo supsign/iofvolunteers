@@ -131,9 +131,20 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-add5.svg') }}" width="50" height="50" alt="register Guest">
+                                @if($user?->guest)
+                                    <img src="{{ asset('images/icon-add5.svg') }}" width="50" height="50" alt="register Guest">
+                                    <a href="{{ route('guest.edit', $user->guest) }}">
+                                        Edit Guest
+                                    </a>
+                                @else
+                                    <img src="{{ asset('images/icon-add5.svg') }}" width="50" height="50" alt="add Guest">
+                                    <a href="{{ route('guest.register') }}">
+                                        Register as a Guest
+                                    </a>
+                                @endif
+
                                 <a href="guest/register">
-                                    Register as a Guest
+
                                 </a>
                             </h3>
                             <p>

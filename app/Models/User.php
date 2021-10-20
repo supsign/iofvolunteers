@@ -48,7 +48,7 @@ class User extends Authenticated implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function guests(): BelongsTo
+    public function guest(): BelongsTo
     {
         return $this->belongsTo(Guest::class);
     }

@@ -30,6 +30,21 @@ class GuestController extends Controller
         ]);
     }
 
+    public function editForm(Guest $guest)
+    {
+        if (!Auth::user()->guest) {
+            return redirect()->route('guest.registerForm');
+        }
+
+        if (Auth::user()->guest_id !== $guest->id) {
+            abort(403);
+        }
+
+        return view('guest.edit', [
+            'guest' => $guest,
+        ]);
+    }
+
     public function searchForm()
     {
         return (new HomeController())->underConstruction();
@@ -55,10 +70,23 @@ class GuestController extends Controller
         Auth::user()->save();
 
         foreach ($language as $key => $value) {
-            $host->languages()->attach($key, ['language_proficiency_id' => $value]);
+            $guest->languages()->attach($key, ['language_proficiency_id' => $value]);
         }
 
         Alert::toast('Saved', 'success');
+
+        return redirect()->route('home');
+    }
+
+    public function update(Guest $guest, Register $request)
+    {
+        if (!Auth::user()->guest) {
+            return redirect()->route('guest.registerForm');
+        }
+
+        if (Auth::user()->guest_id !== $guest->id) {
+            abort(403);
+        }
 
         return redirect()->route('home');
     }
