@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Http\Requests\Host\Register;
+use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\ProjectOffer;
 use App\Services\Host\HostService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Schema;
 
 class HostController extends Controller
 {
@@ -51,9 +54,13 @@ class HostController extends Controller
 
     public function searchForm()
     {
-        return (new HomeController())->underConstruction();
-
-        return view('host.search');
+        return view('host.search', [
+            'countries' => Country::all(),
+            'continents' => Continent::all(),
+            'languages' => Language::all(),
+            'languageProficiency' => LanguageProficiency::all(),
+            'offers' => ProjectOffer::all(),
+        ]);
     }
 
     public function register(Register $request)
@@ -123,7 +130,59 @@ class HostController extends Controller
         return redirect()->route('home');
     }
 
-    public function search()
+    public function search(Request $request)
     {
+        $data = $request->all();
+
+        $columns = array_flip(array_merge(Schema::getColumnListing('hosts'), ['minage', 'maxage']));
+        $hostData = array_intersect_key($data, $columns);
+        $relationData = array_diff_key($data, $columns);
+        $hosts = Host::with('languageHosts');
+
+        unset($relationData['_token']);
+
+        foreach ($hostData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'minage':
+                    $hosts->where('max_duration', '>=', $value);
+                    break;
+                case 'maxage':
+                    $hosts->where('max_duration', '<=', $value);
+                    break;
+                default:
+                    $hosts->where($key, $value);
+                    break;
+            }
+        }
+
+        $hosts = $hosts->get();
+
+        foreach ($relationData as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
+            switch ($key) {
+                case 'continent':
+                    $hosts = $hosts->filterByContinents($value);
+                    break;
+                case 'language':
+                    $hosts = $hosts->filterByLanguages($value);
+                    break;
+                case 'offer':
+                    $hosts = $hosts->filterByProjectOffers($value);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return view('host.searchList', [
+            'hosts' => $hosts,
+        ]);
     }
 }

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{asset('images/icon-search3.svg')}}" width="65"
-                                       height="65"> Project Search Form</h1>
+                                       height="65" alt="Search a Project"> Project Search Form</h1>
             </div>
 
             <form method="POST" action="/project/search" enctype="multipart/form-data">
