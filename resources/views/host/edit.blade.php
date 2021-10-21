@@ -32,6 +32,8 @@
 
                             <x-base.select name="country_id" label="Country" :value="$host->country"
                                            :iconName="'selectArr'" :options="$countries" required/>
+                            <x-base.input name="zip" value="{{ $host->zip }}" label='Postal code *' required />
+                            <x-base.input name="city" value="{{ $host->city }}" label='City *' required />
                             <x-base.input name="max_duration" value="{{ $host->max_duration }}" label='Max hosting duration "" weeks *'
                                           type="number" min="1" required />
                             <x-base.textarea name="host_desc" value="{{ $host->host_desc }}" label="Host description" required />
