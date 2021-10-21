@@ -21,7 +21,7 @@
                                     </a>
                                 @else
                                     <img src="{{ asset('images/icon-add.svg') }}" width="50" height="50" alt="add">
-                                    <a href="{{ route('volunteer.register') }}">
+                                    <a href="{{ route('volunteer.registerForm') }}">
                                         Register as a Volunteer
                                     </a>
                                 @endif
@@ -62,7 +62,7 @@
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
                                 <img src="{{ asset('images/icon-add3.svg') }}" width="50" height="50" alt="register Project">
-                                <a href="{{ route('project.register') }}">
+                                <a href="{{ route('project.registerForm') }}">
                                     Register a Project
                                 </a>
                             </h3>
@@ -94,10 +94,17 @@
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
-                                <img src="{{ asset('images/icon-add4.svg') }}" width="50" height="50" alt="register Host">
-                                <a href="{{ route('host.register') }}">
-                                    Register as a Host Family
-                                </a>
+                                @if($user?->host)
+                                    <img src="{{ asset('images/icon-add4.svg') }}" width="50" height="50" alt="edit Host">
+                                    <a href="{{ route('host.edit',$user->host) }}">
+                                        Edit Host Family
+                                    </a>
+                                @else
+                                    <img src="{{ asset('images/icon-add4.svg') }}" width="50" height="50" alt="register Host">
+                                    <a href="{{ route('host.registerForm') }}">
+                                        Register as a Host Family
+                                    </a>
+                                @endif
                             </h3>
                             <p>
                                 You are an orienteering family and you would like to host a young
@@ -112,7 +119,7 @@
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
                                 <img src="{{ asset('images/icon-search4.svg') }}" width="50" height="50" alt="search Host">
-                                <a href="host/search">
+                                <a href="{{ route('host.searchForm') }}">
                                     Find a host family
                                 </a>
                             </h3>

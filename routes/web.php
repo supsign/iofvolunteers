@@ -39,6 +39,7 @@ Route::get('guest/search', [GuestController::class, 'searchForm'])->name('guest.
 Route::post('guest/register', [GuestController::class, 'register'])->name('guest.register');
 Route::post('guest/search', [GuestController::class, 'search'])->name('guest.search');
 
+Route::get('host/show/{host}', [HostController::class, 'show'])->name('host.show');
 Route::get('host/edit/{host}', [HostController::class, 'editForm'])->name('host.edit');
 Route::get('host/register', [HostController::class, 'registerForm'])->name('host.registerForm');
 Route::get('host/search', [HostController::class, 'searchForm'])->name('host.searchForm');
