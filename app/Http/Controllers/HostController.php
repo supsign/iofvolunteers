@@ -63,6 +63,11 @@ class HostController extends Controller
         ]);
     }
 
+    public function show(Host $host)
+    {
+        return view('host.preview', ['host' => $host]);
+    }
+
     public function register(Register $request)
     {
         $data = $request->validated();
@@ -134,12 +139,12 @@ class HostController extends Controller
     {
         $data = $request->all();
 
+        unset($data['_token']);
+
         $columns = array_flip(array_merge(Schema::getColumnListing('hosts'), ['minage', 'maxage']));
         $hostData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
         $hosts = Host::with('languageHosts');
-
-        unset($relationData['_token']);
 
         foreach ($hostData as $key => $value) {
             if (!$value) {
