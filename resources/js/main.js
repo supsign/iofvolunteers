@@ -129,17 +129,18 @@ jQuery(document).ready(function ($) {
     });
 
     $('.clickReset').click(function () {
-        let select = $(this).parent().find('select');
+        const select = $(this).parent().find('select');
         select.prop('selectedIndex', 0);
-        let selectOption = $(this).parent().find('.clickReset');
+        const selectOption = $(this).parent().find('.clickReset');
         if (selectOption.hasClass('d-none')) {
             $($(selectOption)).removeClass('d-none');
-        } else $($(selectOption)).addClass('d-none');
+        } else {
+            $($(selectOption)).addClass('d-none');
+        }
     });
 
     $('.selectOption').change(function () {
-        let select = $(this).parent().find('select');
-        let selectOption = $(this).parent().find('.clickReset');
+        const selectOption = $(this).parent().find('.clickReset');
         $($(selectOption)).removeClass('d-none');
     });
 });
