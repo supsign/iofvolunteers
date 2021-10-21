@@ -24,11 +24,27 @@ class Register extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'int',
-            'country_id' => 'int',
-            'name' => 'string',
-            'gender_id' => 'int',
-            'email' => 'email',
+            'country_id' => 'required|int',
+            'name' => 'required|max:191|string',
+            'birthdate' => 'required|date',
+            'driving_licence' => 'required|boolean',
+            'discipline' => 'nullable|array',
+            'gender_id' => 'required|int',
+            'email' => 'required|email:rfc,dns|max:191',
+            'phone' => 'required|string',
+            'contact_other' => 'nullable|string',
+            'ol_duration' => 'required|int',
+            'club' => 'nullable|string',
+            'local_experience' => 'nullable|int',
+            'national_experience' => 'nullable|int',
+            'international_experience' => 'nullable|int',
+            'language' => 'nullable|array',
+            'other_languages' => 'nullable|string',
+            'o_expectations' => 'nullable|string',
+            'motivation' => 'nullable|string',
+            'health_restrictions' => 'nullable|string',
+            'offer' => 'nullable|string',
+            'other_input' => 'nullable|string',
 
         ];
     }

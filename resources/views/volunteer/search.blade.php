@@ -52,7 +52,7 @@
                                 3. O-Experience
                             </x-slot>
                             <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)'
-                                          type="number"/>
+                                          type="number" min="0"/>
                             <div class="form-group">
                                 <label class="formSubtitle2">Years of experience as competitor</label>
                             </div>

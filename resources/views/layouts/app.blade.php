@@ -136,7 +136,6 @@
                                         <a href="#">Column 1</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
-
                                                 @if(isset($user) && $user->host)
                                                     <a href="{{ route('host.edit', $user->host) }}">
                                                         Edit your Host Family
@@ -170,9 +169,15 @@
                                         <a href="#">Column 1</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
-                                                <a href="{{ route('guest.registerForm') }}">
-                                                    Register as a Guest
-                                                </a>
+                                                @if(isset($user) && $user->guest)
+                                                    <a href="{{ route('guest.edit', $user->guest) }}">
+                                                        Edit Guest
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('guest.register') }}">
+                                                        Register as a Guest
+                                                    </a>
+                                                @endif
                                             </li>
                                         </ul>
                                     </li>
