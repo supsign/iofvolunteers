@@ -127,4 +127,20 @@ jQuery(document).ready(function ($) {
     $('.project_name_select').on('change', function () {
         $('#project_name_wrapper').text($(this).children('option:selected').text());
     });
+
+    $('.clickReset').click(function () {
+        const select = $(this).parent().find('select');
+        select.prop('selectedIndex', 0);
+        const selectOption = $(this).parent().find('.clickReset');
+        if (selectOption.hasClass('d-none')) {
+            $($(selectOption)).removeClass('d-none');
+        } else {
+            $($(selectOption)).addClass('d-none');
+        }
+    });
+
+    $('.selectOption').change(function () {
+        const selectOption = $(this).parent().find('.clickReset');
+        $($(selectOption)).removeClass('d-none');
+    });
 });
