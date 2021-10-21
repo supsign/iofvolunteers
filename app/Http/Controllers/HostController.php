@@ -46,7 +46,7 @@ class HostController extends Controller
     public function registerForm()
     {
         if (Auth::user()->host) {
-           return redirect()->route('host.edit', ['host' => Auth::user()->host]);
+            return redirect()->route('host.edit', ['host' => Auth::user()->host]);
         }
 
         return view('host.register', [
