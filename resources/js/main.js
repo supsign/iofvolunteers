@@ -127,4 +127,9 @@ jQuery(document).ready(function ($) {
     $('.project_name_select').on('change', function () {
         $('#project_name_wrapper').text($(this).children('option:selected').text());
     });
+
+    $('.clickReset').click(function () {
+        let select = $(this).parent().find('select');
+        select.prop('selectedIndex',0);
+    });
 });

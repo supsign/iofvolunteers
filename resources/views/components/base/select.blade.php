@@ -26,6 +26,11 @@
         <img class="selectArr selectArrComponents" src="{{ asset('images/'.$iconName.'.svg') }}" alt=""/>
     @endisset
 
+    <div class="clickReset">
+        <img class="selectArr selectArrComponents2" src="{{ asset('images/crossSign.svg') }}" alt=""/>
+    </div>
+
+
     <div class="mt-3">
         @foreach($errors->get($attributes->get('name')) as $message)
             <div class="alert alert-danger">{{ $message }} </div>
