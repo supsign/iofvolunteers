@@ -113,7 +113,7 @@ class GuestController extends Controller
     public function search(Request $request)
     {
         $data = $request->all();
-        $columns = array_flip(array_merge(Schema::getColumnListing('guest'), ['minage', 'maxage']));
+        $columns = array_flip(array_merge(Schema::getColumnListing('guests'), ['minage', 'maxage']));
         $guestData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
         $guests = Guest::with('languageGuests');
@@ -127,7 +127,7 @@ class GuestController extends Controller
 
             switch ($key) {
                 case 'gender_id':
-                    if ($value != 3) {
+                    if ($value !== 3) {
                         $guests->where($key, $value);
                     }
                     break;

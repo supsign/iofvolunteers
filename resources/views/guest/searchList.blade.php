@@ -36,13 +36,13 @@
                         <td class="desc">
                             <ul>
                                 <li>
-                                    <strong>Experience with local Events:</strong> {{ $guest->local_experience }}<br />
+                                    <strong>Experience with local Events:</strong> {{ $guest->local_experience ?? 'No Experience' }}<br />
                                 </li>
                                 <li>
-                                    <strong>Experience with national Events:</strong> {{ $guest->national_experience }}<br />
+                                    <strong>Experience with national Events:</strong> {{ $guest->national_experience ?? 'No Experience' }}<br />
                                 </li>
                                 <li>
-                                    <strong>Experience with international Events:</strong> {{ $guest->international_experience }}<br />
+                                    <strong>Experience with international Events:</strong> {{ $guest->international_experience ?? 'No Experience' }}<br />
                                 </li>
                             </ul>
                         </td>

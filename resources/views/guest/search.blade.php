@@ -61,13 +61,13 @@
                                 <label class="formSubtitle2">Years of experience as competitor</label>
                             </div>
                             <x-base.input name="local_experience"
-                                          label="Exprience with local Events (number)" type="number" size="3" min="0"
+                                          label="Experience with local Events (number)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Exprience with national Events (number)" type="number" size="3" min="0"
+                                          label="Experience with national Events (number)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Experience with international Events (number)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
@@ -87,13 +87,13 @@
                             @endforeach
                         </x-form.section>
 
-                        <x-form.section>
+                        {{--<x-form.section>
                             <x-slot name="title">
                                 5. Timing
                             </x-slot>
                             <x-base.input name="work_duration" label='Must stay for at least "" weeks'
                                           type="number" size="3"/>
-                        </x-form.section>
+                        </x-form.section> --}}
                     </div>
 
                     <div class="col-12 col-md-6">
