@@ -5,6 +5,7 @@
             id="{{ $attributes->get('name') }}"
             name="{{ $attributes->get('name') }}"
             {{ $attributes }}
+            class="selectTry"
             @if($required)
             required
             @endif
@@ -26,10 +27,9 @@
         <img class="selectArr selectArrComponents" src="{{ asset('images/'.$iconName.'.svg') }}" alt=""/>
     @endisset
 
-    <div class="clickReset">
+    <div class="clickReset d-none">
         <img class="selectArr selectArrComponents2" src="{{ asset('images/crossSign.svg') }}" alt=""/>
     </div>
-
 
     <div class="mt-3">
         @foreach($errors->get($attributes->get('name')) as $message)
