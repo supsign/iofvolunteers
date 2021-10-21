@@ -55,6 +55,7 @@ class GuestController extends Controller
             'genders' => Gender::all(),
             'languages' => Language::all(),
             'languageProficiency' => LanguageProficiency::all(),
+            'disciplines' => Discipline::all(),
         ]);
     }
 
@@ -111,7 +112,7 @@ class GuestController extends Controller
 
         unset($data['agb']);
 
-        foreach (['language'] as $key) {
+        foreach (['discipline', 'language'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);
         }
 
@@ -120,8 +121,12 @@ class GuestController extends Controller
         $languageSync = array_map(function ($value) {
             return ['language_proficiency_id' => $value];
         }, $language);
-
         $guest->languages()->sync($languageSync);
+
+        $disciplineSync = array_filter($discipline, function ($value) {
+            return $value;
+        });
+        $guest->disciplines()->sync(array_keys($disciplineSync));
 
         Alert::toast('Saved', 'success');
 

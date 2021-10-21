@@ -44,11 +44,30 @@
                             <x-base.input name="phone" label="Phone *" value="{{ $guest->phone }}" required/>
                             <x-base.input name="contact_other" label="Other contact option"
                                           value="{{ $guest->contact_other }}"/>
+                            <x-base.select name="driving_licence"
+                                           label="International driving license? *"
+                                           :options="collect([(object)array('id' => 0, 'name' => 'No'), (object)array('id' => 1, 'name' => 'Yes')])"
+                                           :iconName="'selectArr'"
+                                           :value="$guest->drivingLicenceModel" required/>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
-                                2. O-Experience
+                                2. Experience in the following disciplines
+                            </x-slot>
+                            <div class="form-group">
+                                @foreach($disciplines AS $discipline)
+                                    <x-base.checkbox name="discipline[{{ $discipline->id }}]"
+                                                     label="{{ $discipline->name }}"
+                                                     class="form-check-input"
+                                                     :checked="(int)$guest->disciplines->contains($discipline)"/>
+                                @endforeach
+                            </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                3. O-Experience
                             </x-slot>
                             <x-base.input name="ol_duration"
                                           label="Year you started orienteering (yyyy) * (0 for no experience)"
@@ -79,7 +98,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages spoken
+                                4. Languages spoken
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "additional languages")</div>
@@ -96,7 +115,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. Additional Information
+                                5. Additional Information
                             </x-slot>
                             <x-base.textarea name="o_expectations" label="O-Expectations"
                                              value="{{ $guest->o_expectations }}"/>
