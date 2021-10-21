@@ -34,8 +34,9 @@ Route::get('/home', function () {
 
 Route::get('test', [TestController::class, 'test'])->name('test');
 
-Route::get('guest/edit/{guest}', [GuestController::class, 'editForm'])->name('guest.edit');
+Route::get('guest/show/{guest}', [GuestController::class, 'show'])->name('guest.show');
 Route::get('guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
+Route::get('guest/edit/{guest}', [GuestController::class, 'editForm'])->name('guest.edit');
 Route::get('guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
 Route::post('guest/register', [GuestController::class, 'register'])->name('guest.register');
 Route::post('guest/search', [GuestController::class, 'search'])->name('guest.search');
