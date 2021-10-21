@@ -128,7 +128,7 @@ class GuestController extends Controller
 
         $guestService->delete($guest);
 
-        Alert::toast('Host deleted', 'success');
+        Alert::toast('Guest deleted', 'success');
 
         return redirect()->route('home');
     }
