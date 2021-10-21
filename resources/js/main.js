@@ -130,6 +130,6 @@ jQuery(document).ready(function ($) {
 
     $('.clickReset').click(function () {
         let select = $(this).parent().find('select');
-        select.prop('selectedIndex',0);
+        select.prop('selectedIndex', 0);
     });
 });
