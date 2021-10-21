@@ -16,7 +16,6 @@ class ExpandTableHost extends Migration
         Schema::table('hosts', function (Blueprint $table) {
             $table->string('zip')->after('country_id');
             $table->string('city')->after('zip');
-
         });
     }
 
