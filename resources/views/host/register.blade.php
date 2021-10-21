@@ -44,7 +44,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages spoken
+                                3. Languages
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "other")</div>

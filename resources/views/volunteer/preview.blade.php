@@ -30,7 +30,7 @@
                     <tr>
                         <td class="font-weight-bold">Country & Club:</td>
                         <td>
-                            <strong>Country:</strong> {{ $volunteer->country->name }}<br>
+                            <strong>Country:</strong> {{ $volunteer->country->name }}<br />
                             @if($volunteer->club)
                                 <strong>Club:</strong> {{ $volunteer->club }}
                             @endif
@@ -82,7 +82,7 @@
 
                 @if($volunteer->continents->count())
                     <tr>
-                        <td class="font-weight-bold">Prefered destinations:</td>
+                        <td class="font-weight-bold">Preferred destinations:</td>
                         <td>
                             <ul>
                                 @foreach($volunteer->continents AS $continent)
