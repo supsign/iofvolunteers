@@ -65,6 +65,11 @@ class GuestController extends Controller
         ]);
     }
 
+    public function show(Guest $guest)
+    {
+        return view('guest.preview', ['guest' => $guest]);
+    }
+
     public function register(Register $request)
     {
         $data = $request->validated();
