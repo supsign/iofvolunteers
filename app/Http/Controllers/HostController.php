@@ -13,14 +13,29 @@ use App\Models\ProjectOffer;
 use App\Services\Host\HostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
+use Throwable;
 
 class HostController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
+    }
+
+    public function contact(Volunteer $volunteer, Request $request)
+    {
+        if (!$project = Project::find($request->project_id)) {
+            abort(404);
+        }
+
+        try {
+            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+        } catch (Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function editForm(Host $host)
