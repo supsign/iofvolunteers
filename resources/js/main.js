@@ -137,7 +137,7 @@ jQuery(document).ready(function ($) {
         } else $($(selectOption)).addClass('d-none');
     });
 
-    $('.selectTry').change(function () {
+    $('.selectOption').change(function () {
         let select = $(this).parent().find('select');
         let selectOption = $(this).parent().find('.clickReset');
         $($(selectOption)).removeClass('d-none');

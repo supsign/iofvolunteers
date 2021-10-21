@@ -5,7 +5,7 @@
             id="{{ $attributes->get('name') }}"
             name="{{ $attributes->get('name') }}"
             {{ $attributes }}
-            class="selectTry"
+            class="selectOption"
             @if($required)
             required
             @endif
