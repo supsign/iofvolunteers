@@ -1,17 +1,16 @@
 @extends('layouts.app')
 @section('content')
+
     <section class="default">
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{asset('images/icon-search5.svg')}}" width="65"
                                        height="65" alt="Search a Guest"> Guest Search Form</h1>
-
-                <div class="title-desc">Please fill in your search criteria. Leave blank if not relevant / important!
-                </div>
             </div>
 
             <form method="POST" action="/guest/search" enctype="multipart/form-data">
                 @csrf
+
                 <div class="row">
                     <div class="col-12 col-md-6">
 
