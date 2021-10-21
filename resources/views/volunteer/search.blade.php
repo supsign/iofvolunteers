@@ -52,16 +52,16 @@
                                 3. O-Experience
                             </x-slot>
                             <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)'
-                                          type="number"/>
+                                          type="number" min="0"/>
                             <div class="form-group">
                                 <label class="formSubtitle2">Years of experience as competitor</label>
                             </div>
-                            <x-base.input name="local_experience" label="Exprience with local Events (number)"
+                            <x-base.input name="local_experience" label="Experience with local Events (number)"
                                           type="number" size="3" min="0" step="1"/>
-                            <x-base.input name="national_experience" label="Exprience with national Events (number)"
+                            <x-base.input name="national_experience" label="Experience with national Events (number)"
                                           type="number" size="3" min="0" step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Experience with international Events (number)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
@@ -70,7 +70,8 @@
                                 4. Languages
                             </x-slot>
                             <x-slot name="subtitle">
-                                Tick only the most important one or two to increase search results
+                                <div>Tick only the most important one or two to increase search results </div>
+                                <div class="warn">Everyone with the same or higher preference as the picked one will be shown.</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"

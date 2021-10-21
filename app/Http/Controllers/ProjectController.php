@@ -208,10 +208,10 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
+        unset($data['_token']);
+
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $relationData = array_diff_key($data, $columns);
-
-        unset($relationData['_token']);
 
         $projects = Project::get();
 
