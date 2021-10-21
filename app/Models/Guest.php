@@ -40,4 +40,17 @@ class Guest extends BaseModel
             ->with('language')
             ->with('languageProficiency');
     }
+
+    public function getDrivingLicenceModelAttribute()
+    {
+        $model = new BaseModel;
+        $model->id = $this->driving_licence;
+
+        return $model;
+    }
+
+    public function disciplines(): MorphToMany
+    {
+        return $this->morphToMany(Discipline::class, 'discipline_model');
+    }
 }
