@@ -257,12 +257,13 @@ class VolunteerController extends Controller
     public function search(Request $request)
     {
         $data = $request->all();
+
+        unset($data['_token']);
+
         $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
         $volunteers = Volunteer::with('languageVolunteers');
-
-        unset($relationData['_token']);
 
         foreach ($volunteerData as $key => $value) {
             if (!$value) {

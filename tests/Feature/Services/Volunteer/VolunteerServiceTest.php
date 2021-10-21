@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature\Services\Volunteer;
 
 use App\Models\User;
 use App\Models\Volunteer;
