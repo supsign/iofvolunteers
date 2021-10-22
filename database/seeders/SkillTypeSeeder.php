@@ -13,7 +13,7 @@ class SkillTypeSeeder extends Seeder
             'name' => 'Mapping',
             'text' => 'Brief outline of your experience as a mapper',
             'warn' => 'Notice that you will be required to upload map samples!',
-            'vol_col_name' => 'skill_mapping'
+            'vol_col_name' => 'skill_mapping',
         ],
         ['id' => 3, 'name' => 'Coaching', 'text' => 'Brief outline of your experience in coaching',  'vol_col_name' => 'skill_coaching'],
         ['id' => 5, 'name' => 'IT & time-keeping', 'text' => 'Brief details of your IT skills & experience',  'vol_col_name' => 'skill_it'],
