@@ -19,6 +19,13 @@
                     </tr>
                 @endif
 
+                @if($host->zip || $host->city)
+                    <tr>
+                        <th id="host_preview_country" class="font-weight-bold">Postal code & City</th>
+                        <td>{{ $host->zip }} {{ $host->city }}</td>
+                    </tr>
+                @endif
+
                 @if($host->max_duration)
                     <tr>
                         <th id="host_preview_max_duration" class="font-weight-bold">Max. hosting duration:</th>
