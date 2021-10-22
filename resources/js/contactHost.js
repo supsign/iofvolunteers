@@ -12,7 +12,6 @@ function searchHost(event) {
     }
 
     if (!guest_id || !host_id) {
-        console.log(event);
         return;
     }
     axios

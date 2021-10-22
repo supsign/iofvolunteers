@@ -35,7 +35,7 @@ class HostController extends Controller
         }
 
         try {
-            Mail::to($host)->send(new ContactHostMail($host, Auth::user(), $guest));
+            Mail::to($host->contact_email)->send(new ContactHostMail($host, Auth::user(), $guest));
         } catch (Throwable $th) {
             abort(500, 'Not able to send email');
         }
