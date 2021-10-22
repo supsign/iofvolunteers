@@ -91,7 +91,7 @@ class HostController extends Controller
 
         return view('host.preview', [
             'host' => $host,
-            'guest' => $guest
+            'guest' => $guest,
         ]);
     }
 
