@@ -223,7 +223,7 @@
                 Contacts: {{ $volunteer->email }}
             @endif
 
-            @if(true)
+            @if($projects->count())
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchVolunteer(event)"
                           enctype="multipart/form-data">
@@ -246,7 +246,7 @@
                             <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the project name.</p>
                             <p>In order to get in contact with the responsible person of this project, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
-                            iof volunteers</p>
+                                iof volunteers</p>
                         </div>
                     </div>
                 </div>
