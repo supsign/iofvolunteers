@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Http\Requests\Host\Register;
+use App\Mail\ContactHostMail;
 use App\Models\Continent;
 use App\Models\Country;
+use App\Models\Guest;
 use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
@@ -25,14 +27,14 @@ class HostController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function contact(Volunteer $volunteer, Request $request)
+    public function contact(Host $host, Request $request)
     {
-        if (!$project = Project::find($request->project_id)) {
+        if (!$guest = Guest::find($request->guest_id)) {
             abort(404);
         }
 
         try {
-            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+            Mail::to($host)->send(new ContactHostMail($host, Auth::user(), $guest));
         } catch (Throwable $th) {
             abort(500, 'Not able to send email');
         }
@@ -80,7 +82,12 @@ class HostController extends Controller
 
     public function show(Host $host)
     {
-        return view('host.preview', ['host' => $host]);
+        $guest = Auth::user()->guest;
+
+        return view('host.preview', [
+            'host' => $host,
+            'guest' => $guest
+        ]);
     }
 
     public function register(Register $request)
