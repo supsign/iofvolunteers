@@ -21,6 +21,7 @@ class CreateSkillsTable extends Migration
             $table->string('name');
             $table->string('warn')->nullable();
             $table->string('text')->nullable();
+            $table->string('vol_col_name')->nullable();
             $table->timestampsTz();
         });
 

@@ -156,10 +156,12 @@
 
                 @if($volunteer->skillTypes->count())
                     <tr>
+
                         <td class="font-weight-bold">{{ __('Skills') }}</td>
                         <td>
-                            <ul>
+
                                 @foreach($volunteer->skillTypes AS $skillType)
+                                    <div class="mb-3">
                                     <strong>{{ $skillType->name }}</strong><br/>
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
                                         {{ $skill->name }}<br/>
@@ -176,27 +178,23 @@
                                     @endif
 
                                 <div>
-                                    @if(str_starts_with($skillType->name, 'I'))
-                                        <div class="d-none">{{ $skillText = 'skill_' . strtolower(str_replace(' ', '_', substr($skillType->name, 0, 2))) }} </div>
-                                        @if($skillText)
+                                    @php
+                                        $volColName = $skillType->vol_col_name;
+                                    @endphp
+                                        @if($volunteer->$volColName)
                                             <div class="">Description:</div>
-                                            <div class="">{{ $volunteer->$skillText}}</div>
+                                            <div class="">{{ $volunteer->$volColName}}</div>
                                         @endif
-                                    @else
-                                        <div class="d-none">{{ $skillText = 'skill_' . strtolower(str_replace(' ', '_', $skillType->name)) }} </div>
-                                        @if($skillText)
-                                            <div class="">Description: </div>
-                                            <div class="">{{ $volunteer->$skillText}}</div>
-                                        @endif
-                                    @endif
                                 </div>
 
+                                    </div>
                                 @endforeach
 
                                 @if($volunteer->skill_other)
                                     <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
                                 @endif
-                            </ul>
+
+
                         </td>
                     </tr>
                 @endif
