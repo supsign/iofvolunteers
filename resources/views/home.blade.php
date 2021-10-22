@@ -165,7 +165,7 @@
                     </div>
                 </div>
 
-                <div class="pt-3 pb-3 col-12 col-md-6">
+                {{--<div class="pt-3 pb-3 col-12 col-md-6">
                     <div class="shadow NI_wrap">
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
@@ -180,7 +180,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
