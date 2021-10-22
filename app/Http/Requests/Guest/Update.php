@@ -29,7 +29,7 @@ class Update extends FormRequest
             'birthdate' => 'required|date',
             'driving_licence' => 'required|boolean',
             'discipline' => 'nullable|array',
-            'gender_id' => 'required|int',
+            'gender_id' => 'nullable|int',
             'email' => 'required|email:rfc,dns|max:191',
             'phone' => 'required|string',
             'contact_other' => 'nullable|string',
@@ -45,7 +45,6 @@ class Update extends FormRequest
             'health_restrictions' => 'nullable|string',
             'offer' => 'nullable|string',
             'other_input' => 'nullable|string',
-
         ];
     }
 }

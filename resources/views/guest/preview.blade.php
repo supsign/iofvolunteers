@@ -19,7 +19,7 @@
                     </tr>
                 @endif
 
-                @if($guest->country->name || $guest->club)
+                @if($guest->country || $guest->club)
                     <tr>
                         <th id="guest_preview_country" class="font-weight-bold">Country & Club</th>
                         <td>{{ $guest->country->name }}<br />
@@ -30,7 +30,7 @@
                     </tr>
                 @endif
 
-                @if($guest->gender->name)
+                @if($guest->gender)
                     <tr>
                         <th id="guest_preview_sex" class="font-weight-bold">Gender</th>
                         <td>{{ $guest->gender->name ?? '-' }}</td>

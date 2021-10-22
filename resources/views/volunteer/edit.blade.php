@@ -40,7 +40,7 @@
                                 1. Contact Information
                             </x-slot>
                             <x-base.input name="name" value="{{ $volunteer->name }}" label="Name *" required/>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
+                            <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" :value="$volunteer->country"/>
                             <x-base.input name="email" value="{{ $volunteer->email }}" label="E-mail *" type="email"
                                           required/>

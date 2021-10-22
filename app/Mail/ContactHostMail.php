@@ -2,14 +2,14 @@
 
 namespace App\Mail;
 
-use App\Models\Project;
+use App\Models\Guest;
+use App\Models\Host;
 use App\Models\User;
-use App\Models\Volunteer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactVolunteerMail extends Mailable
+class ContactHostMail extends Mailable
 {
     use Queueable;
     use SerializesModels;
@@ -19,7 +19,7 @@ class ContactVolunteerMail extends Mailable
      *
      * @return void
      */
-    public function __construct(public Volunteer $volunteer, public User $user, public Project $project)
+    public function __construct(public Host $host, public User $user, public Guest $guest)
     {
         //
     }
@@ -31,8 +31,8 @@ class ContactVolunteerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo(
-            $this->project->organisation_email
+        return $this->markdown('mails.host.contact')->subject('Hosting Opportunity')->replyTo(
+            $this->user->guest->email
         )->from('iof@volunteers.org')->cc('admin@supsign.ch');
     }
 }

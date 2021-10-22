@@ -23,7 +23,7 @@
                             </x-slot>
                             <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
                                           required/>
-                            <x-base.select name="country_id" label="Country" :iconName="'selectArr'"
+                            <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" required/>
                             <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
                                           required/>

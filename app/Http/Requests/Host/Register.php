@@ -25,6 +25,8 @@ class Register extends FormRequest
     {
         return [
             'country_id' => 'required|int',
+            'zip' => 'required|string',
+            'city' => 'required|string',
             'max_duration' => 'required|int',
             'host_desc' => 'required|string',
             'guest_expectations' => 'nullable|string',

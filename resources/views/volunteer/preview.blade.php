@@ -19,14 +19,14 @@
                     </tr>
                 @endif
 
-                @if($volunteer->gender->name)
+                @if($volunteer->gender)
                     <tr>
                         <td class="font-weight-bold">Sex:</td>
                         <td>{{ $volunteer->gender->name ?? '-' }}</td>
                     </tr>
                 @endif
 
-                @if($volunteer->country->name || $volunteer->club)
+                @if($volunteer->country || $volunteer->club)
                     <tr>
                         <td class="font-weight-bold">Country & Club:</td>
                         <td>
@@ -156,10 +156,12 @@
 
                 @if($volunteer->skillTypes->count())
                     <tr>
+
                         <td class="font-weight-bold">{{ __('Skills') }}</td>
                         <td>
-                            <ul>
+
                                 @foreach($volunteer->skillTypes AS $skillType)
+                                    <div class="mb-3">
                                     <strong>{{ $skillType->name }}</strong><br/>
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
                                         {{ $skill->name }}<br/>
@@ -174,12 +176,25 @@
                                             </div>
                                         @endif
                                     @endif
+
+                                <div>
+                                    @php
+                                        $volColName = $skillType->vol_col_name;
+                                    @endphp
+                                        @if($volunteer->$volColName)
+                                            <div class="">Description:</div>
+                                            <div class="">{{ $volunteer->$volColName}}</div>
+                                        @endif
+                                </div>
+
+                                    </div>
                                 @endforeach
 
                                 @if($volunteer->skill_other)
                                     <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
                                 @endif
-                            </ul>
+
+
                         </td>
                     </tr>
                 @endif
@@ -206,7 +221,7 @@
                 Contacts: {{ $volunteer->email }}
             @endif
 
-            @if(true)
+            @if($projects->count())
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchVolunteer(event)"
                           enctype="multipart/form-data">
@@ -226,10 +241,10 @@
                         <div class="border p-4">
                             <p>Dear {{ $volunteer->name }}</p>
                             <p>{{ $user->firstname }} {{ $user->lastname }} is looking for your volunteer help with project <span class="" id="project_name_wrapper"></span></p>
-                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the projectname.</p>
+                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the project name.</p>
                             <p>In order to get in contact with the responsible person of this project, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
-                            iof volunteers</p>
+                                iof volunteers</p>
                         </div>
                     </div>
                 </div>

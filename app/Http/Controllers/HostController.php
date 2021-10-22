@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Http\Requests\Guest\Update;
 use App\Http\Requests\Host\Register;
+use App\Http\Requests\Host\Update;
+use App\Mail\ContactHostMail;
 use App\Models\Continent;
 use App\Models\Country;
+use App\Models\Guest;
 use App\Models\Host;
 use App\Models\Language;
 use App\Models\LanguageProficiency;
@@ -14,14 +16,29 @@ use App\Models\ProjectOffer;
 use App\Services\Host\HostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
+use Throwable;
 
 class HostController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
+    }
+
+    public function contact(Host $host, Request $request)
+    {
+        if (!$guest = Guest::find($request->guest_id)) {
+            abort(404);
+        }
+
+        try {
+            Mail::to($host->contact_email)->send(new ContactHostMail($host, Auth::user(), $guest));
+        } catch (Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function editForm(Host $host)
@@ -70,7 +87,16 @@ class HostController extends Controller
 
     public function show(Host $host)
     {
-        return view('host.preview', ['host' => $host]);
+        if (Auth::user()->guest) {
+            $guest = Auth::user()->guest;
+        } else {
+            $guest = '';
+        }
+
+        return view('host.preview', [
+            'host' => $host,
+            'guest' => $guest,
+        ]);
     }
 
     public function register(Register $request)
