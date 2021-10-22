@@ -141,6 +141,12 @@
                         <div class="border p-4">
                             <p>Dear {{ $host->name }}</p>
                             <p>Guest {{ $guest->name }} is looking for your help as a guest family.</p>
+                            <p>Further details:</p>
+                            <p>Name: {{ $guest->name }}</p>
+                            <p>Country: {{ $guest->country->name }}</p>
+                            <p>Birthdate: {{ $guest->birthdate }}</p>
+                            <p>OL-Experience: since {{ $guest->ol_duration }}</p>
+                            <p>Motivation: {{ $guest->motivation }}</p>
                             <p>In order to get in contact with {{ $guest->name }}, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
                                 iof volunteers</p>
