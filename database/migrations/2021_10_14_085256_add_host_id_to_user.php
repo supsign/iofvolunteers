@@ -20,6 +20,7 @@ class AddHostIdToUser extends Migration
         Schema::table('hosts', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
+            $table->foreignId('country_id')->nullable(false)->change();
         });
     }
 

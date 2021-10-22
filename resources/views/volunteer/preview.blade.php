@@ -19,14 +19,14 @@
                     </tr>
                 @endif
 
-                @if($volunteer->gender->name)
+                @if($volunteer->gender)
                     <tr>
                         <td class="font-weight-bold">Sex:</td>
                         <td>{{ $volunteer->gender->name ?? '-' }}</td>
                     </tr>
                 @endif
 
-                @if($volunteer->country->name || $volunteer->club)
+                @if($volunteer->country || $volunteer->club)
                     <tr>
                         <td class="font-weight-bold">Country & Club:</td>
                         <td>
