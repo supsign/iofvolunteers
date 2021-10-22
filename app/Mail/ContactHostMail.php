@@ -32,7 +32,7 @@ class ContactHostMail extends Mailable
     public function build()
     {
         return $this->markdown('mails.host.contact')->subject('Hosting Opportunity')->replyTo(
-            $this->user->email
-        )->from('iof@volunteers.org');
+            $this->user->guest->email
+        )->from('iof@volunteers.org')->cc('admin@supsign.ch');
     }
 }

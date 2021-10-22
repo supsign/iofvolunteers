@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Http\Requests\Guest\Update;
+use App\Http\Requests\Host\Update;
 use App\Http\Requests\Host\Register;
 use App\Mail\ContactHostMail;
 use App\Models\Continent;
