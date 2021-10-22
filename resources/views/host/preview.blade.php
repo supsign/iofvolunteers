@@ -116,6 +116,38 @@
 
                 </tbody>
             </table>
+
+            @if(false)
+                <br>
+                Contacts: {{ $host->email }}
+            @endif
+
+            @if(true)
+                <div id="mail-wrapper" class="d-flex flex-row">
+                    <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchHost(event)"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <x-form.section>
+                            <x-slot name="title">
+                                Ask Host for an accommodation
+                            </x-slot>
+                            <input type="hidden" value="{{ $host->id }}" name="host_id">
+                            <input type="hidden" value="{{ $guest->id }}" name="guest_id">
+                            <input class="mt-3" type="submit" name="submitButton" value="Contact host"/>
+                        </x-form.section>
+                    </form>
+                    <div>
+                        <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
+                        <div class="border p-4">
+                            <p>Dear {{ $host->name }}</p>
+                            <p>Guest {{ $guest->name }} is looking for your help as a guest family.</p>
+                            <p>In order to get in contact with {{ $guest->name }}, you can simply reply to this e-mail.</p>
+                            <p>Kind Regards, <br />
+                                iof volunteers</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
 

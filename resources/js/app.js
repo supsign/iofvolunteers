@@ -27,6 +27,7 @@ $.fn.datepicker.language['en'] = {
 };
 require('./main');
 require('./contactVoluteer');
+require('./contactHost');
 import { flare } from '@flareapp/flare-client';
 
 // only launch in production, we don't want to waste your quota while you're developing.
