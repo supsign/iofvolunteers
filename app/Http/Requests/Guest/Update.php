@@ -45,7 +45,6 @@ class Update extends FormRequest
             'health_restrictions' => 'nullable|string',
             'offer' => 'nullable|string',
             'other_input' => 'nullable|string',
-
         ];
     }
 }

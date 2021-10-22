@@ -87,7 +87,11 @@ class HostController extends Controller
 
     public function show(Host $host)
     {
-        $guest = Auth::user()->guest;
+        if (Auth::user()->guest) {
+            $guest = Auth::user()->guest;
+        } else {
+            $guest = '';
+        }
 
         return view('host.preview', [
             'host' => $host,
