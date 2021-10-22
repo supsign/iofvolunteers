@@ -181,7 +181,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item">
+                                    {{--<li class="menu-item">
                                         <a href="#">Column 2</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
@@ -190,7 +190,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
 
