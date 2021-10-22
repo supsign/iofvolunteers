@@ -174,6 +174,23 @@
                                             </div>
                                         @endif
                                     @endif
+
+                                <div>
+                                    @if(str_starts_with($skillType->name, 'I'))
+                                        <div class="d-none">{{ $skillText = 'skill_' . strtolower(str_replace(' ', '_', substr($skillType->name, 0, 2))) }} </div>
+                                        @if($skillText)
+                                            <div class="">Description:</div>
+                                            <div class="">{{ $volunteer->$skillText}}</div>
+                                        @endif
+                                    @else
+                                        <div class="d-none">{{ $skillText = 'skill_' . strtolower(str_replace(' ', '_', $skillType->name)) }} </div>
+                                        @if($skillText)
+                                            <div class="">Description: </div>
+                                            <div class="">{{ $volunteer->$skillText}}</div>
+                                        @endif
+                                    @endif
+                                </div>
+
                                 @endforeach
 
                                 @if($volunteer->skill_other)
@@ -206,7 +223,7 @@
                 Contacts: {{ $volunteer->email }}
             @endif
 
-            @if(true)
+            @if($projects->count())
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchVolunteer(event)"
                           enctype="multipart/form-data">
@@ -226,10 +243,10 @@
                         <div class="border p-4">
                             <p>Dear {{ $volunteer->name }}</p>
                             <p>{{ $user->firstname }} {{ $user->lastname }} is looking for your volunteer help with project <span class="" id="project_name_wrapper"></span></p>
-                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the projectname.</p>
+                            <p>To learn more about this project, go to IOF’s Connecting Worldwide volunteer platform and search for the project name.</p>
                             <p>In order to get in contact with the responsible person of this project, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
-                            iof volunteers</p>
+                                iof volunteers</p>
                         </div>
                     </div>
                 </div>

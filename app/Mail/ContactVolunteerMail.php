@@ -32,7 +32,7 @@ class ContactVolunteerMail extends Mailable
     public function build()
     {
         return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo(
-            $this->user->email
-        )->from('iof@volunteers.org');
+            $this->project->organisation_email
+        )->from('iof@volunteers.org')->cc('admin@supsign.ch');
     }
 }
