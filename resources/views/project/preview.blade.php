@@ -7,7 +7,7 @@
                                             height="65" alt="search icon"> Project Details</h1>
             </div>
             <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to list"/>
-            @if($user->id == isset($project->user->id))
+            @if($user->id === $project->user_id)
                 <input type="button" class="ml-auto float-md-right" onclick="location.href='{{ route('project.edit', $project ) }}';" value="Edit Project">
             @endif
 
