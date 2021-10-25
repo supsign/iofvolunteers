@@ -31,7 +31,7 @@ class Register extends FormRequest
             'host_desc' => 'required|string',
             'guest_expectations' => 'nullable|string',
             'name' => 'required|max:191|string',
-            'contact_phone' => 'required|string',
+            'contact_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
             'contact_email' => 'required|email:rfc,dns|max:191',
             'contact_other' => 'nullable|string',
             'language' => 'nullable|array',

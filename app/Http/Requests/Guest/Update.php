@@ -31,7 +31,7 @@ class Update extends FormRequest
             'discipline' => 'nullable|array',
             'gender_id' => 'nullable|int',
             'email' => 'required|email:rfc,dns|max:191',
-            'phone' => 'required|string',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
             'contact_other' => 'nullable|string',
             'ol_duration' => 'required|int',
             'club' => 'nullable|string',
