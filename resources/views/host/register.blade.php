@@ -44,16 +44,16 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages
+                                3. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "other")</div>
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
 
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
                                               :options="$languageProficiency"
-                                              value="{{ old('language['.$language->id.']') ?? 4 }}"/>
+                                              value="{{ old('language['.$language->id.']') ?? 4 }}" required/>
                             @endforeach
 
                             <div id="host_description" class="font-weight-normal mb-2">
