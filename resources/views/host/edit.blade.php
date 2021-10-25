@@ -59,7 +59,7 @@
                                 3. Languages
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "other")</div>
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
 
                             @foreach($languages AS $language)

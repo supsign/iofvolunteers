@@ -53,7 +53,7 @@
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
                                               :options="$languageProficiency"
-                                              value="{{ old('language['.$language->id.']') ?? 4 }}" required/>
+                                              value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
                             <div id="host_description" class="font-weight-normal mb-2">
