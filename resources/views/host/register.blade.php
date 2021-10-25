@@ -22,7 +22,7 @@
                                            :options="$countries" required/>
                             <x-base.input name="zip" label='Postal code *' required />
                             <x-base.input name="city" label='City *' required />
-                            <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Max hosting duration "" weeks *'
+                            <x-base.input name="max_duration" value="{{ old('maxDuration') }}" label='Max. hosting duration in weeks *'
                                           type="number" min="1" required />
                             <x-base.textarea name="host_desc" label="Host description *" required />
                             <div id="host_description" class="font-weight-normal mb-2">
