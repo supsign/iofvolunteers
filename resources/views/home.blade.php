@@ -28,7 +28,7 @@
                             </h3>
                             <p>
                                 Are you skilled in some orienteering topics? Do you want to make new
-                                friends and while help others develop orienteering?
+                                friends while help others develop orienteering?
                             </p>
                             <div class="warn">
                                 (You need to be 18+ to volunteer!)
