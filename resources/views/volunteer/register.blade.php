@@ -164,7 +164,7 @@
                                                 Upload map samples. <br />
                                                 Please provide at least three maps and zip it before uploading.
                                             </div>
-                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
+                                            <input class="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
                                         @endif
                                     </div>
                                 </div>
