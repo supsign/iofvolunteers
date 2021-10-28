@@ -33,7 +33,7 @@
                         </td>
                         <td class="desc">
                             <ul>
-                                @if(($guest->disciplines)->count())
+                                @if($guest->disciplines->count())
                                     @foreach($guest->disciplines AS $discipline)
                                         <li>{{ $discipline->name }}</li>
                                     @endforeach
@@ -46,14 +46,18 @@
                             {{ $guest->age }} years
                         </td>
                         <td class="desc">
-                            @foreach($guest->languageGuests AS $languageGuest)
-                                @if($languageGuest->language_proficiency_id === 4)
-                                    @continue;
-                                @endif
+                            @if($guest->languageGuests()->where('language_proficiency_id', '!=', 4)->count())
+                                @foreach($guest->languageGuests AS $languageGuest)
+                                    @if($languageGuest->language_proficiency_id === 4)
+                                        @continue;
+                                    @endif
 
-                                <strong>{{ $languageGuest->language->name }}
-                                    :</strong> {{ $languageGuest->languageProficiency->name }}<br/>
-                            @endforeach
+                                    <strong>{{ $languageGuest->language->name }}
+                                        :</strong> {{ $languageGuest->languageProficiency->name }}<br/>
+                                @endforeach
+                            @else
+                                No Languages selected
+                            @endif
 
                             @if($guest->other_languages)
                                 <strong>Other languages :</strong> {{ $guest->other_languages }}
