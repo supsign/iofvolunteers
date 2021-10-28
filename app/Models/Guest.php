@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -57,5 +58,10 @@ class Guest extends BaseModel
     public function newCollection(array $models = []): GuestCollection
     {
         return new GuestCollection($models);
+    }
+
+    public function getAgeAttribute(): int
+    {
+        return Carbon::parse($this->birthdate)->age;
     }
 }
