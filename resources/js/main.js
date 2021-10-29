@@ -57,14 +57,14 @@ jQuery(document).ready(function ($) {
     });
 
     $('.continentsCheckboxes').on('click', function () {
-        if ($('.continentsCheckboxes:checked').length == $('.continentsCheckboxes').length) {
+        if ($('.continentsCheckboxes:checked').length === $('.continentsCheckboxes').length) {
             $('#continentsCheckboxesTrigger').prop('checked', true);
         } else {
             $('#continentsCheckboxesTrigger').prop('checked', false);
         }
     });
 
-    $('.required-btn').click(function () {
+    $('.required-btn-disciplines').click(function () {
         checked = $('.required-checkboxes-disciplines:checked').length;
 
         if (!checked) {
@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.required-btn').click(function () {
+    $('.required-btn-offer').click(function () {
         checked = $('.required-checkboxes-offers:checked').length;
 
         if (!checked) {
