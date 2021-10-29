@@ -142,6 +142,9 @@
                                               value="{{$volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
 
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" label="Additional languages" value="{{ $volunteer->other_languages }}"/>
                         </x-form.section>
 

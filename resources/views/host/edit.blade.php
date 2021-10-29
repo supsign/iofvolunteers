@@ -71,6 +71,10 @@
                             <div id="host_description" class="font-weight-normal mb-2">
                                 State each language and level, separated by commas below
                             </div>
+
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" value="{{ $host->other_languages }}" label="Additional languages"/>
                         </x-form.section>
 
