@@ -233,7 +233,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn" type="submit" value="Submit my details">
+                                    <input class="ml-auto required-btn-disciplines" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
