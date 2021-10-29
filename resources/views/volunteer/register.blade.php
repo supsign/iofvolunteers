@@ -93,7 +93,10 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Languages
+                                5. Languages *
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -146,7 +149,7 @@
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <div class="form-group">
-                                    <div class="formSubtitle2">{{ $skillType->name }} *
+                                    <div class="formSubtitle2">{{ $skillType->name }}
                                         @isset($skillType->warn)
                                             <div class="font-weight-normal">{{ $skillType->warn }}</div>
                                         @endisset

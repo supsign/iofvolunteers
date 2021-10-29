@@ -115,6 +115,9 @@
                                 @endforeach
                             </div>
                             <x-base.input name="other_duties" label="Other duties? State below..."/>
+                            <div class="form-group">
+                                <label class="formSubtitle2">Details of the work to be done *</label>
+                            </div>
                             <x-base.input name="exprience_details" label="Details of the work to be done *" required/>
                         </x-form.section>
                     </div>
