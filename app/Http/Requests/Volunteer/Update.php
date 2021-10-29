@@ -28,7 +28,7 @@ class Update extends FormRequest
             'country_id' => 'required|int',
             'email' => 'required|email:rfc,dns|max:191',
             'gender_id' => 'int',
-            'birthdate' => 'required|date',
+            'birthdate' => 'required|date|before:-18 years',
             'driving_licence' => 'required|boolean',
             'discipline' => 'nullable|array',
             'ol_duration' => 'int',
