@@ -49,7 +49,6 @@
                                 </li>
                             </ul>
                         </td>
-                        </td>
                     </tr>
                 @endforeach
                 </tbody>
