@@ -3,8 +3,9 @@
     <section class="default">
         <div class="container">
             <div class="titleWrap">
-                <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add5.svg')}}" width="65"
+                <h1 class="title"><img class="title-icon" src="{{asset('images/icon-add5.svg')}}" width="65"
                                             height="65" alt="register Guest"> Guest Registration Form</h1>
+                <div class="title-desc">Please note that you must be 18+ to register as a guest!</div>
             </div>
 
             <form method="POST" action="" enctype="multipart/form-data">
@@ -27,8 +28,7 @@
                                           type="text" required class="datepicker-here" data-language='en'
                                           data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'" required/>
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
-                                          required/>
+                            <x-base.input name="email" label="E-mail *" type="email" required/>
                             <x-base.input name="phone" label="Phone *" required/>
                             <x-base.input name="contact_other" label="Other contact option"/>
                             <x-base.select name="driving_licence"

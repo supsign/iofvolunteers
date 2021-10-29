@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65"
-                                       height="65"> Volunteer Registration Form</h1>
+                                       height="65" alt="register Volunteer"> Volunteer Registration Form</h1>
 
                 <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
             </div>
@@ -21,11 +21,11 @@
                             <x-slot name="title">
                                 1. Contact Information
                             </x-slot>
-                            <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
+                            <x-base.input name="name" value="" label="Firstname and Lastname *"
                                           required/>
                             <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" required/>
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
+                            <x-base.input name="email" value="" label="E-mail *" type="email"
                                           required/>
                         </x-form.section>
 
