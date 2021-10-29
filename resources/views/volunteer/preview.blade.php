@@ -52,12 +52,10 @@
                     </tr>
                 @endif
 
-                @if($volunteer->driving_licence)
-                    <tr>
-                        <td class="font-weight-bold">Driving license:</td>
-                        <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
-                    </tr>
-                @endif
+                <tr>
+                    <td class="font-weight-bold">Driving license:</td>
+                    <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
+                </tr>
 
                 @if($volunteer->languageVolunteers()->where('language_proficiency_id', '!=', 4)->count() || $volunteer->other_languages)
                     <tr>
