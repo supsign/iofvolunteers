@@ -143,4 +143,11 @@ jQuery(document).ready(function ($) {
         const selectOption = $(this).parent().find('.clickReset');
         $($(selectOption)).removeClass('d-none');
     });
+
+    $('.check-radio-button').click(function () {
+        if ($(".radio-button-check:checked").length < 4) {
+            alert("Please select atleast one radio button in each group");
+            return false;
+        }
+    });
 });
