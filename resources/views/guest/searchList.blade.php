@@ -16,8 +16,9 @@
                 <tbody>
                 <tr>
                     <th id="search_guest_name" class="big-desc">Name</th>
-                    <th id="search_guest_country" class="big-desc">Country</th>
-                    <th id="search_guest_description" class="big-desc">O-Work-Experience (in years)</th>
+                    <th id="search_guest_disciplines" class="big-desc">Disciplines</th>
+                    <th id="search_guest_age" class="big-desc">Age</th>
+                    <th id="search_guest_language" class="big-desc">Languages</th>
                 </tr>
                 @foreach($guests AS $guest)
                     <tr>
@@ -31,20 +32,36 @@
                             @endif
                         </td>
                         <td class="desc">
-                            {{ $guest->country->name }}
+                            <ul>
+                                @if($guest->disciplines->count())
+                                    @foreach($guest->disciplines AS $discipline)
+                                        <li>{{ $discipline->name }}</li>
+                                    @endforeach
+                                @else
+                                    <li>No Experience</li>
+                                @endif
+                            </ul>
                         </td>
                         <td class="desc">
-                            <ul>
-                                <li>
-                                    <strong>Experience with local Events:</strong> {{ $guest->local_experience ?? 'No Experience' }}<br />
-                                </li>
-                                <li>
-                                    <strong>Experience with national Events:</strong> {{ $guest->national_experience ?? 'No Experience' }}<br />
-                                </li>
-                                <li>
-                                    <strong>Experience with international Events:</strong> {{ $guest->international_experience ?? 'No Experience' }}<br />
-                                </li>
-                            </ul>
+                            {{ $guest->age }} years
+                        </td>
+                        <td class="desc">
+                            @if($guest->languageGuests()->where('language_proficiency_id', '!=', 4)->count())
+                                @foreach($guest->languageGuests AS $languageGuest)
+                                    @if($languageGuest->language_proficiency_id === 4)
+                                        @continue;
+                                    @endif
+
+                                    <strong>{{ $languageGuest->language->name }}
+                                        :</strong> {{ $languageGuest->languageProficiency->name }}<br/>
+                                @endforeach
+                            @else
+                                No Languages selected
+                            @endif
+
+                            @if($guest->other_languages)
+                                <strong>Other languages :</strong> {{ $guest->other_languages }}
+                            @endif
                         </td>
                     </tr>
                 @endforeach

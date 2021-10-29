@@ -97,7 +97,7 @@
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency" class="radio-button-check"
+                                              :options="$languageProficiency"
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
@@ -164,7 +164,7 @@
                                                 Upload map samples. <br />
                                                 Please provide at least three maps and zip it before uploading.
                                             </div>
-                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
+                                            <input class="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
                                         @endif
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="check-radio-button ml-auto required-btn" type="submit" value="Submit my details">
+                                    <input class="ml-auto required-btn-disciplines" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
