@@ -173,14 +173,11 @@ jQuery(document).ready(function ($) {
                 document.getElementById('error-wrapper-radio-language').appendChild(errorDiv);
             }
             return false;
-        }
-        else {
-
+        } else {
             if (document.contains(document.getElementById('errorDiv-radio-language'))) {
                 document.getElementById('errorDiv-radio-language').remove();
             }
             return true;
         }
-
     });
 });
