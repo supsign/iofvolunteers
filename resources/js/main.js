@@ -145,32 +145,35 @@ jQuery(document).ready(function ($) {
     });
 
     $('.check-radiobuttons-button').click(function () {
-
         const errorDiv = document.createElement('div');
         errorDiv.setAttribute('id', 'errorDiv-radio-language');
 
         let langIsValid = false;
 
-        $(".radio-language:checked").each(function (index){
-            const val = $( this ).val();
+        $('.radio-language:checked').each(function (index) {
+            const val = $(this).val();
             const valToInt = parseInt(val);
 
-            if(valToInt < 4) {
+            if (valToInt < 4) {
                 langIsValid = true;
             }
         });
 
-        if($(".additional-language").val()) {
+        if ($('.additional-language').val()) {
             langIsValid = true;
         }
-        if(langIsValid) {
+        if (langIsValid) {
             if (document.contains(document.getElementById('errorDiv-radio-language'))) {
                 document.getElementById('errorDiv-radio-language').remove();
             }
             return true;
         }
         if (!document.contains(document.getElementById('errorDiv-radio-language'))) {
-            errorDiv.appendChild(document.createTextNode('You must check at least one language with a value higher than "none" or the additional language field.'));
+            errorDiv.appendChild(
+                document.createTextNode(
+                    'You must check at least one language with a value higher than "none" or the additional language field.'
+                )
+            );
             errorDiv.classList.add('alert', 'alert-danger');
             document.getElementById('error-wrapper-radio-language').appendChild(errorDiv);
         }
