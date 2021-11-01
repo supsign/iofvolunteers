@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65"
-                                       height="65"> Volunteer Registration Form</h1>
+                                       height="65" alt="register Volunteer"> Volunteer Registration Form</h1>
 
                 <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
             </div>
@@ -21,11 +21,11 @@
                             <x-slot name="title">
                                 1. Contact Information
                             </x-slot>
-                            <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
+                            <x-base.input name="name" value="" label="Firstname and Lastname *"
                                           required/>
                             <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" required/>
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
+                            <x-base.input name="email" value="" label="E-mail *" type="email"
                                           required/>
                         </x-form.section>
 
@@ -78,7 +78,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                                <div class="info">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
                                           label="Exprience with local Events (number)" type="number" size="3"
@@ -93,7 +93,10 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Languages
+                                5. Languages *
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -101,6 +104,9 @@
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" label="Additional languages"/>
                         </x-form.section>
 
@@ -110,7 +116,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 Do you have a preferred destination?
-                                <div class="warn">If not, just tick "Anywhere"</div>
+                                <div class="info">If not, just tick "Anywhere"</div>
                             </x-slot>
                             <div class="form-group">
                                 <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox"
@@ -129,7 +135,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 For approximately how many weeks can you work as a volunteer?
-                                <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
+                                <div class="info">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
                             <x-base.input name="work_duration" value="{{ old('work_duration') }}" label="weeks"
@@ -141,13 +147,12 @@
                                 8. Skills
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (Please tick all relevant to you.
-                                    Details are <b>required</b> if skill is ticked)
-                                </div>
+                                Please tick all relevant to you.
+                                <div class="warn">Details are <strong>required</strong> if skill is ticked.</div>
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <div class="form-group">
-                                    <div class="formSubtitle2">{{ $skillType->name }} *
+                                    <div class="formSubtitle2">{{ $skillType->name }}
                                         @isset($skillType->warn)
                                             <div class="font-weight-normal">{{ $skillType->warn }}</div>
                                         @endisset

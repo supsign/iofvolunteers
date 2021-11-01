@@ -30,7 +30,7 @@ class Update extends FormRequest
             'organisation_contact' => 'nullable|string',
             'organisation_contact_position' => 'nullable|string',
             'organisation_email' => 'required|email:rfc,dns|max:191',
-            'organisation_phone' => 'required|string',
+            'organisation_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
             'place' => 'nullable|string',
             'start_date' => 'nullable|date',
             'contact' => 'required|string',

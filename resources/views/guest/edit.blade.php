@@ -101,7 +101,7 @@
                                 4. Languages spoken
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "additional languages")</div>
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -109,6 +109,9 @@
                                               value="{{$guest->languageGuests->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
 
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" label="Additional languages"
                                           value="{{ $guest->other_languages }}"/>
                         </x-form.section>
