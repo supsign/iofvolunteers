@@ -29,7 +29,7 @@
 
         <div class="form-check">
             <input
-                    class="form-check-input"
+                    class="form-check-input {{ $attributes->get('class') }}"
                     type="radio"
                     id="{{ $attributes->get('name') }}_{{ $i }}"
                     name="{{ $attributes->get('name') }}"

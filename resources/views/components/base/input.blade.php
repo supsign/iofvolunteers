@@ -2,6 +2,7 @@
     <input
             id="field_{{ $attributes->get('name') }}"
             type="{{ $attributes->get('type') ?? 'text' }}"
+            class="{{ $attributes->get('class') }}"
             value="{{ old(str_replace(['[', ']'], ['.',''],$attributes->get('name'))) ?? $attributes->get('value') }}"
             {{ $attributes->filter(fn ($value, $key) => $key != 'label') }} />
     <label class="formGroupLabel" for="field_{{ $attributes->get('name') }}">{{ $attributes->get('label') }}</label>
