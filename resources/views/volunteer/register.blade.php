@@ -97,11 +97,11 @@
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"
+                                              :options="$languageProficiency" class="radio-language"
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
-
                             <x-base.input name="other_languages" label="Additional languages"/>
+                            <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
                         <x-form.section>
@@ -233,7 +233,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn-disciplines" type="submit" value="Submit my details">
+                                    <input class="check-radiobuttons-button ml-auto required-btn-disciplines" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
