@@ -52,14 +52,15 @@
 
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"
+                                              :options="$languageProficiency" class="radio-language"
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
                             <div class="font-weight-normal mb-2">
                                 Please state each language and level separated by commas below.
                             </div>
-                            <x-base.input name="other_languages" label="Additional languages"/>
+                            <x-base.input name="other_languages" label="Additional languages" class="additional-language"/>
+                            <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
                          <x-form.section>
