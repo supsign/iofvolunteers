@@ -160,7 +160,9 @@ jQuery(document).ready(function ($) {
             }
         });
 
-
+        if($(".additional-language").val()) {
+            langIsValid = true;
+        }
         if(langIsValid) {
             if (document.contains(document.getElementById('errorDiv-radio-language'))) {
                 document.getElementById('errorDiv-radio-language').remove();

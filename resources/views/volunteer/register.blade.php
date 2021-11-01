@@ -100,7 +100,7 @@
                                               :options="$languageProficiency" class="radio-language"
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
-                            <x-base.input name="other_languages" label="Additional languages"/>
+                            <x-base.input name="other_languages" label="Additional languages" class="additional-language"/>
                             <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
