@@ -6,6 +6,7 @@
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
                                        height="65" alt="Search a Volunteer"> Volunteer Search Form</h1>
+                <div class="title-desc">Note that volunteers under 18 are not allowed to register on the Platform</div>
             </div>
 
             <form method="POST" action="/volunteer/search" enctype="multipart/form-data">
@@ -15,9 +16,6 @@
                         <x-form.section>
                             <x-slot name="title">
                                 1. Personal Information
-                            </x-slot>
-                            <x-slot name="subtitle">
-                                Note that volunteers under 18 are not allowed to register on the Platform
                             </x-slot>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
                             <div class="mx-0 row">
@@ -71,7 +69,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div>Tick only the most important one or two to increase search results </div>
-                                <div class="warn">Everyone with the same or higher preference as the picked one will be shown.</div>
+                                <div class="info">Everyone with the same or higher preference as the picked one will be shown.</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"

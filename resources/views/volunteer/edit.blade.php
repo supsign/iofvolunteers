@@ -111,7 +111,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 State below how long your experience for each given Event-Type is.
-                                <div class="warn">The number will be taken as years - 0 for no experience.</div>
+                                <div class="info">The number will be taken as years - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
@@ -134,7 +134,7 @@
                                 5. Languages
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn">(required, even if only listed in "other")</div>
+                                <div class="warn">(required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -142,6 +142,9 @@
                                               value="{{$volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
 
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" label="Additional languages" value="{{ $volunteer->other_languages }}"/>
                         </x-form.section>
 
@@ -151,7 +154,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 Do you have a preferred destination?
-                                <div class="warn">If not, just tick "Anywhere"</div>
+                                <div class="info">If not, just tick "Anywhere"</div>
                             </x-slot>
                             <div class="form-group">
                                 <x-base.checkbox label="Anywhere" name="continentsCheckboxesTrigger" type="checkbox"
@@ -172,7 +175,7 @@
                             </x-slot>
                             <x-slot name="subtitle">
                                 For approximately how many weeks can you work as a volunteer?
-                                <div class="warn">(leave blank if you can stay more than 6 weeks)</div>
+                                <div class="info">(leave blank if you can stay more than 6 weeks)</div>
                             </x-slot>
 
                             <x-base.input name="work_duration" value="{{ $volunteer->work_duration }}" label="weeks"
@@ -184,13 +187,12 @@
                                 8. Skills
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (Please tick all relevant to you.
-                                    Details are <strong>required</strong> if skill is ticked)
-                                </div>
+                                Please tick all relevant to you.
+                                <div class="warn">Details are <strong>required</strong> if skill is ticked.</div>
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <div class="form-group">
-                                    <div class="formSubtitle2">{{ $skillType->name }} *
+                                    <div class="formSubtitle2">{{ $skillType->name }}
                                         @isset($skillType->warn)
                                             <div class="font-weight-normal">{{ $skillType->warn }}</div>
                                         @endisset

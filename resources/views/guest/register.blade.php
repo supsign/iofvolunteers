@@ -3,8 +3,9 @@
     <section class="default">
         <div class="container">
             <div class="titleWrap">
-                <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add5.svg')}}" width="65"
+                <h1 class="title"><img class="title-icon" src="{{asset('images/icon-add5.svg')}}" width="65"
                                             height="65" alt="register Guest"> Guest Registration Form</h1>
+                <div class="title-desc">Please note that you must be 18+ to register as a guest!</div>
             </div>
 
             <form method="POST" action="" enctype="multipart/form-data">
@@ -27,8 +28,7 @@
                                           type="text" required class="datepicker-here" data-language='en'
                                           data-date-format="yyyy-mm-dd"
                                           :iconName="'calendarIcon'" required/>
-                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
-                                          required/>
+                            <x-base.input name="email" label="E-mail *" type="email" required/>
                             <x-base.input name="phone" label="Phone *" required/>
                             <x-base.input name="contact_other" label="Other contact option"/>
                             <x-base.select name="driving_licence"
@@ -83,10 +83,10 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                4. Languages
+                                4. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "additional languages")</div>
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -94,6 +94,9 @@
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
+                            </div>
                             <x-base.input name="other_languages" label="Additional languages"/>
                         </x-form.section>
 
