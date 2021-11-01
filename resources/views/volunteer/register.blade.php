@@ -5,7 +5,7 @@
         <div class="container">
             <div class="titleWrap">
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add.svg') }}" width="65"
-                                       height="65" alt="register Volunteer"> Volunteer Registration Form</h1>
+                                       height="65"> Volunteer Registration Form</h1>
 
                 <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
             </div>
@@ -21,11 +21,11 @@
                             <x-slot name="title">
                                 1. Contact Information
                             </x-slot>
-                            <x-base.input name="name" value="" label="Firstname and Lastname *"
+                            <x-base.input name="name" value="{{ old('name') }}" label="Firstname and Lastname *"
                                           required/>
                             <x-base.select name="country_id" label="Country *" :iconName="'selectArr'"
                                            :options="$countries" required/>
-                            <x-base.input name="email" value="" label="E-mail *" type="email"
+                            <x-base.input name="email" value="{{ old('email') }}" label="E-mail *" type="email"
                                           required/>
                         </x-form.section>
 
@@ -100,14 +100,15 @@
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"
+                                              :options="$languageProficiency" class="radio-language"
                                               value="{{ old('language['.$language->id.']') ?? 4 }}"/>
                             @endforeach
 
                             <div class="font-weight-normal mb-2">
                                 Please state each language and level separated by commas below.
                             </div>
-                            <x-base.input name="other_languages" label="Additional languages"/>
+                            <x-base.input name="other_languages" label="Additional languages" class="additional-language"/>
+                            <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
                         <x-form.section>
@@ -169,7 +170,7 @@
                                                 Upload map samples. <br />
                                                 Please provide at least three maps and zip it before uploading.
                                             </div>
-                                            <input id="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
+                                            <input class="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="map_id"/>
                                         @endif
                                     </div>
                                 </div>
@@ -238,7 +239,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn" type="submit" value="Submit my details">
+                                    <input class="check-radiobuttons-button ml-auto required-btn-disciplines" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>

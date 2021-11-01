@@ -150,7 +150,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn" type="submit" value="Submit our request">
+                                    <input class="ml-auto required-btn-offer required-btn-disciplines" type="submit" value="Submit our request">
                                 </div>
                             </div>
                         </div>

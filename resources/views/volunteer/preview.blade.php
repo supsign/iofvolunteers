@@ -52,12 +52,10 @@
                     </tr>
                 @endif
 
-                @if($volunteer->driving_licence)
-                    <tr>
-                        <td class="font-weight-bold">Driving license:</td>
-                        <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
-                    </tr>
-                @endif
+                <tr>
+                    <td class="font-weight-bold">Driving license:</td>
+                    <td>{{ $volunteer->driving_licence ? 'Yes' : 'No' }}</td>
+                </tr>
 
                 @if($volunteer->languageVolunteers()->where('language_proficiency_id', '!=', 4)->count() || $volunteer->other_languages)
                     <tr>
@@ -182,8 +180,8 @@
                                         $volColName = $skillType->vol_col_name;
                                     @endphp
                                         @if($volunteer->$volColName)
-                                            <div class="">Description:</div>
-                                            <div class="">{{ $volunteer->$volColName}}</div>
+                                            <div class="ml-4 font-weight-bold">Description:</div>
+                                            <div class="ml-4">{{ $volunteer->$volColName}}</div>
                                         @endif
                                 </div>
 
