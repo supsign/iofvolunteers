@@ -19,7 +19,7 @@
                                 1. Personal Information
                             </x-slot>
                             <x-slot name="subtitle">
-                                Note that guests under 18 are not allowed to register on the Platform
+                                Note that guests under 18 are not allowed to register on the platform
                             </x-slot>
                             <x-base.select name="gender_id" label="Gender" :iconName="'selectArr'" :options="$genders"/>
                             <div class="mx-0 row">

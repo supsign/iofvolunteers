@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
 
     $('.checkbox-required-text').on('click', function () {
         var textarea = $(this).parent().parent().find('textarea');
-        var upload = $(this).parent().parent().find('#skill_map_upload');
+        var upload = $(this).parent().parent().find('.skill_map_upload');
         if ($(this).prop('checked')) {
             textarea.attr('required', '');
             if (upload) {
@@ -57,14 +57,14 @@ jQuery(document).ready(function ($) {
     });
 
     $('.continentsCheckboxes').on('click', function () {
-        if ($('.continentsCheckboxes:checked').length == $('.continentsCheckboxes').length) {
+        if ($('.continentsCheckboxes:checked').length === $('.continentsCheckboxes').length) {
             $('#continentsCheckboxesTrigger').prop('checked', true);
         } else {
             $('#continentsCheckboxesTrigger').prop('checked', false);
         }
     });
 
-    $('.required-btn').click(function () {
+    $('.required-btn-disciplines').click(function () {
         checked = $('.required-checkboxes-disciplines:checked').length;
 
         if (!checked) {
@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.required-btn').click(function () {
+    $('.required-btn-offer').click(function () {
         checked = $('.required-checkboxes-offers:checked').length;
 
         if (!checked) {
@@ -142,5 +142,41 @@ jQuery(document).ready(function ($) {
     $('.selectOption').change(function () {
         const selectOption = $(this).parent().find('.clickReset');
         $($(selectOption)).removeClass('d-none');
+    });
+
+    $('.check-radiobuttons-button').click(function () {
+        const errorDiv = document.createElement('div');
+        errorDiv.setAttribute('id', 'errorDiv-radio-language');
+
+        let langIsValid = false;
+
+        $('.radio-language:checked').each(function (index) {
+            const val = $(this).val();
+            const valToInt = parseInt(val);
+
+            if (valToInt < 4) {
+                langIsValid = true;
+            }
+        });
+
+        if ($('.additional-language').val()) {
+            langIsValid = true;
+        }
+        if (langIsValid) {
+            if (document.contains(document.getElementById('errorDiv-radio-language'))) {
+                document.getElementById('errorDiv-radio-language').remove();
+            }
+            return true;
+        }
+        if (!document.contains(document.getElementById('errorDiv-radio-language'))) {
+            errorDiv.appendChild(
+                document.createTextNode(
+                    'You must check at least one language with a value higher than "none" or the additional language field.'
+                )
+            );
+            errorDiv.classList.add('alert', 'alert-danger');
+            document.getElementById('error-wrapper-radio-language').appendChild(errorDiv);
+        }
+        return true;
     });
 });

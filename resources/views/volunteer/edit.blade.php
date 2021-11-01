@@ -223,7 +223,7 @@
                                                 Upload new map samples (will replace the old one).<br />
                                                 Please provide at least three maps and zip it before uploading.
                                             </div>
-                                            <input id="skill_map_upload_new" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
+                                            <input class="skill_map_upload" name="skill_map_upload" type="file" aria-labelledby="new_map_id"/>
                                         @endif
                                     </div>
                                 </div>
