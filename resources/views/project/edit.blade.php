@@ -96,7 +96,7 @@
                                 4. Skills required
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (Please tick all relevant to the project)</div>
+                                <div class="info"> (Please tick all relevant to the project)</div>
                             </x-slot>
                             @foreach($skillTypes AS $skillType)
                                 <div class="form-group">
@@ -120,7 +120,7 @@
                                 5. Experience required
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn">(Select if relevant to the project)</div>
+                                <div class="info">(Select if relevant to the project)</div>
                             </x-slot>
                             <div class="form-group">
                                 @foreach($dutyTypes AS $dutyType)

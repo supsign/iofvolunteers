@@ -573,6 +573,11 @@ section.default,
     font-size: 16px;
 }
 
+.info {
+    color: blue;
+    font-size: 16px;
+}
+
 /********************home - end*******************/
 
 /********************default - start*******************/
@@ -837,6 +842,13 @@ form select {
 .formSection h3.formSectionTitle .font-italic .warn,
 .formSection h3.formSectionTitle .font-weight-normal .warn {
     color: black;
+}
+
+.formSection h3.formSectionTitle .info {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    color: blue;
 }
 
 .formSection h3.formSectionTitle .warn,

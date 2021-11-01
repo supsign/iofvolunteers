@@ -34,9 +34,9 @@
                                            :iconName="'selectArr'" :options="$countries" required/>
                             <x-base.input name="zip" value="{{ $host->zip }}" label='Postal code *' required />
                             <x-base.input name="city" value="{{ $host->city }}" label='City *' required />
-                            <x-base.input name="max_duration" value="{{ $host->max_duration }}" label='Max hosting duration "" weeks *'
+                            <x-base.input name="max_duration" value="{{ $host->max_duration }}" label='Max. hosting duration in weeks *'
                                           type="number" min="1" required />
-                            <x-base.textarea name="host_desc" value="{{ $host->host_desc }}" label="Host description" required />
+                            <x-base.textarea name="host_desc" value="{{ $host->host_desc }}" label="Describe yourself as a host *" required />
                             <div id="host_description" class="font-weight-normal mb-2">
                                 You may specify the characteristics of a potential guest here
                             </div>
@@ -59,7 +59,7 @@
                                 3. Languages
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "other")</div>
+                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
                             </x-slot>
 
                             @foreach($languages AS $language)
@@ -70,6 +70,10 @@
 
                             <div id="host_description" class="font-weight-normal mb-2">
                                 State each language and level, separated by commas below
+                            </div>
+
+                            <div class="font-weight-normal mb-2">
+                                Please state each language and level separated by commas below.
                             </div>
                             <x-base.input name="other_languages" value="{{ $host->other_languages }}" label="Additional languages"/>
                         </x-form.section>
