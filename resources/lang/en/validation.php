@@ -21,7 +21,7 @@ return [
     'alpha_dash' => 'The :attribute must only contain letters, numbers, dashes and underscores.',
     'alpha_num' => 'The :attribute must only contain letters and numbers.',
     'array' => 'The :attribute must be an array.',
-//    'before' => 'The :attribute must be a date before :date.',
+    //    'before' => 'The :attribute must be a date before :date.',
     'before' => 'Please enter a valid date older than 18.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
