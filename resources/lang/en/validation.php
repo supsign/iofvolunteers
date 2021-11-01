@@ -22,7 +22,7 @@ return [
     'alpha_num' => 'The :attribute must only contain letters and numbers.',
     'array' => 'The :attribute must be an array.',
 //    'before' => 'The :attribute must be a date before :date.',
-    'before' => 'Please enter a valid date older than 18.',
+    'before' => 'You must be 18 years or above.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
         'numeric' => 'The :attribute must be between :min and :max.',
