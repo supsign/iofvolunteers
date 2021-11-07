@@ -162,21 +162,22 @@ jQuery(document).ready(function ($) {
         if ($('.additional-language').val()) {
             langIsValid = true;
         }
-        if (langIsValid) {
+        if (!langIsValid) {
+            if (!document.contains(document.getElementById('errorDiv-radio-language'))) {
+                errorDiv.appendChild(
+                    document.createTextNode(
+                        'You must check at least one language with a value higher than "none" or the additional language field.'
+                    )
+                );
+                errorDiv.classList.add('alert', 'alert-danger');
+                document.getElementById('error-wrapper-radio-language').appendChild(errorDiv);
+            }
+            return false;
+        } else {
             if (document.contains(document.getElementById('errorDiv-radio-language'))) {
                 document.getElementById('errorDiv-radio-language').remove();
             }
             return true;
         }
-        if (!document.contains(document.getElementById('errorDiv-radio-language'))) {
-            errorDiv.appendChild(
-                document.createTextNode(
-                    'You must check at least one language with a value higher than "none" or the additional language field.'
-                )
-            );
-            errorDiv.classList.add('alert', 'alert-danger');
-            document.getElementById('error-wrapper-radio-language').appendChild(errorDiv);
-        }
-        return true;
     });
 });

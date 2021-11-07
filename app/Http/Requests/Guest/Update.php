@@ -26,7 +26,7 @@ class Update extends FormRequest
         return [
             'country_id' => 'required|int',
             'name' => 'required|max:191|string',
-            'birthdate' => 'required|date',
+            'birthdate' => 'required|date|before:-18 years',
             'driving_licence' => 'required|boolean',
             'discipline' => 'nullable|array',
             'gender_id' => 'nullable|int',

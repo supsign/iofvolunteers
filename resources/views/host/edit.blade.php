@@ -56,7 +56,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Languages
+                                3. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "Additional languages")</div>
@@ -64,18 +64,17 @@
 
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiency"
+                                              :options="$languageProficiency" class="radio-language"
                                               value="{{$host->languageHosts->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
-
-                            <div id="host_description" class="font-weight-normal mb-2">
-                                State each language and level, separated by commas below
-                            </div>
 
                             <div class="font-weight-normal mb-2">
                                 Please state each language and level separated by commas below.
                             </div>
-                            <x-base.input name="other_languages" value="{{ $host->other_languages }}" label="Additional languages"/>
+                            <x-base.input name="other_languages" value="{{ $host->other_languages }}"
+                                          label="Additional languages"
+                                          class="additional-language"/>
+                            <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
                         <x-form.section>

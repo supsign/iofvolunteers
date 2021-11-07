@@ -25,16 +25,6 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
 
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
                         <x-form.section>
                             <x-slot name="title">
                                 1. Contact Information
@@ -131,21 +121,24 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Languages
+                                5. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn">(required, even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
-                                              :options="$languageProficiencies"
+                                              :options="$languageProficiencies" class="radio-language"
                                               value="{{$volunteer->languageVolunteers->where('language_id', $language->id)->first()?->languageProficiency->id}}"/>
                             @endforeach
 
                             <div class="font-weight-normal mb-2">
                                 Please state each language and level separated by commas below.
                             </div>
-                            <x-base.input name="other_languages" label="Additional languages" value="{{ $volunteer->other_languages }}"/>
+                            <x-base.input name="other_languages" label="Additional languages"
+                                          value="{{ $volunteer->other_languages }}"
+                                          class="additional-language"/>
+                            <div id="error-wrapper-radio-language" class="mt-3"></div>
                         </x-form.section>
 
                         <x-form.section>
