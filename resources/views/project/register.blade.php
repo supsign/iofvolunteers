@@ -22,7 +22,7 @@
                             <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'"
                                            :options="$stati" required/>
                             <div class="font-weight-normal mb-2">
-                                Web page format: http(s)://www.website.ch
+                                Web page format: http(s)://website.ch
                             </div>
                             <x-base.input name="organisation_webpage" label="Web page (if exists)"/>
                         </x-form.section>
