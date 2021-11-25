@@ -21,8 +21,10 @@
                             <x-base.input name="organisation_name" label="Name of the organisation *" required/>
                             <x-base.select name="project_status_id" label="Status *" :iconName="'selectArr'"
                                            :options="$stati" required/>
+                            <div class="font-weight-normal mb-2">
+                                Web page format: http(s)://webseite.ch
+                            </div>
                             <x-base.input name="organisation_webpage" label="Web page (if exists)"/>
-                            {{-- <x-base.input name="organisation_language_id" label="Native language(s) *" required /> --}}
                         </x-form.section>
 
                         <x-form.section>
