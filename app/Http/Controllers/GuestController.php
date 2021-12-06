@@ -225,5 +225,11 @@ class GuestController extends Controller
                     break;
             }
         }
+
+        return view('guest.searchList', [
+            'guests' => $guests,
+            'dutyTypes' => DutyType::all(),
+            'duties' => Duty::all(),
+        ]);
     }
 }
