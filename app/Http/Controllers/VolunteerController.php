@@ -321,10 +321,12 @@ class VolunteerController extends Controller
                     break;
             }
         }
+
         return redirect()->route('volunteer.searchlist')->with($volunteers);
     }
 
-    public function searchList(array $volunteers) {
+    public function searchList(array $volunteers)
+    {
         return view('volunteer.searchList', [
             'volunteers' => $volunteers,
             'dutyTypes' => DutyType::all(),
