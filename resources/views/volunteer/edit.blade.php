@@ -274,7 +274,7 @@
                             <div class="formSection">
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn" type="submit" value="Save changes">
+                                    <input class="ml-auto required-btn-disciplines check-radiobuttons-button" type="submit" value="Save changes">
                                 </div>
                             </div>
                         </div>
