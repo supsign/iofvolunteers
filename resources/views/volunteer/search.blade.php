@@ -9,7 +9,7 @@
                 <div class="title-desc">Note that volunteers under 18 are not allowed to register on the Platform</div>
             </div>
 
-            <form method="POST" action="/volunteer/search" enctype="multipart/form-data">
+            <form method="GET" action="/volunteer/search/result" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-6">
