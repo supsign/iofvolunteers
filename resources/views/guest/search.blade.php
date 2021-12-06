@@ -8,7 +8,7 @@
                                        height="65" alt="Search a Guest"> Guest Search Form</h1>
             </div>
 
-            <form method="POST" action="/guest/search" enctype="multipart/form-data">
+            <form method="GET" action="/guest/search/result" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">

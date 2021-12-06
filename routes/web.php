@@ -38,9 +38,8 @@ Route::get('guest/show/{guest}', [GuestController::class, 'show'])->name('guest.
 Route::get('guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
 Route::get('guest/edit/{guest}', [GuestController::class, 'editForm'])->name('guest.edit');
 Route::get('guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
+Route::get('guest/search/result', [GuestController::class, 'search'])->name('guest.search');
 Route::post('guest/register', [GuestController::class, 'register'])->name('guest.register');
-Route::post('guest/search', [GuestController::class, 'search'])->name('guest.search');
-Route::get('guest/searchlist', [GuestController::class, 'searchList'])->name('guest.searchlist');
 Route::patch('guest/update/{guest}', [GuestController::class, 'update'])->name('guest.update');
 Route::delete('guest/delete/{guest}', [GuestController::class, 'delete'])->name('guest.delete');
 

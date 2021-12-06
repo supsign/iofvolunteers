@@ -7,7 +7,7 @@
                                             height="65" alt="search icon"> Guest Details</h1>
             </div>
 
-            <input type="button" class="mb-3" onclick="GoBackWithRefresh();return false;" value="Back to results"/>
+            <input type="button" class="mb-3" onclick="window.history.go(-1); return false;" value="Back to results"/>
 
             <table class="table" aria-describedby="Details of a Guest">
                 <tbody>
@@ -165,14 +165,5 @@
             </table>
         </div>
     </section>
-    <script>
-        function GoBackWithRefresh() {
-            if ('referrer' in document) {
-                window.location=document.referrer;
-            } else {
-                window.history.back();
-            }
-        }
-    </script>
 
 @endsection
