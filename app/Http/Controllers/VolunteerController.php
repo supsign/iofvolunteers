@@ -251,7 +251,7 @@ class VolunteerController extends Controller
 
         Alert::toast('Saved', 'success');
 
-        return redirect()->route('volunteer.edit', $volunteer);
+        return redirect()->route('home');
     }
 
     public function search(Request $request)
