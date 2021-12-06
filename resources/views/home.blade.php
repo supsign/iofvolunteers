@@ -50,9 +50,6 @@
                                 Find volunteers with different skills who can help you develop
                                 orienteering or help you realize a project!
                             </p>
-                            <div class="warn">
-                                (You must create project first!)
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,10 +146,6 @@
                                         Register as a Guest
                                     </a>
                                 @endif
-
-                                <a href="guest/register">
-
-                                </a>
                             </h3>
                             <p>
                                 You want to develop your o-skills more by training in different terrains?
@@ -170,7 +163,7 @@
                         <div class="p-4 NI_details">
                             <h3 class="subtitle">
                                 <img src="{{ asset('images/icon-search5.svg') }}" width="50" height="50" alt="search Guest">
-                                <a href="guest/search">
+                                <a href="{{ route('guest.searchForm') }}">
                                     Search a guest
                                 </a>
                             </h3>
