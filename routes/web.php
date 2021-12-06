@@ -40,6 +40,7 @@ Route::get('guest/edit/{guest}', [GuestController::class, 'editForm'])->name('gu
 Route::get('guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
 Route::post('guest/register', [GuestController::class, 'register'])->name('guest.register');
 Route::post('guest/search', [GuestController::class, 'search'])->name('guest.search');
+Route::get('guest/searchlist', [GuestController::class, 'searchList'])->name('guest.searchlist');
 Route::patch('guest/update/{guest}', [GuestController::class, 'update'])->name('guest.update');
 Route::delete('guest/delete/{guest}', [GuestController::class, 'delete'])->name('guest.delete');
 
@@ -67,6 +68,7 @@ Route::get('volunteer/show/{volunteer}', [VolunteerController::class, 'show'])->
 Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.edit');
 Route::get('volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
 Route::get('volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
+Route::get('volunteer/searchlist', [VolunteerController::class, 'searchList'])->name('volunteer.searchlist');
 Route::post('volunteer/contact/{volunteer}', [VolunteerController::class, 'contact'])->name('volunteer.contact');
 Route::post('volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
 Route::post('volunteer/search', [VolunteerController::class, 'search'])->name('volunteer.search');
