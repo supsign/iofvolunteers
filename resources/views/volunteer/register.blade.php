@@ -47,7 +47,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Experience in the following disciplines
+                                3. Experience in the following disciplines *
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
