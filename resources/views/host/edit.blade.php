@@ -102,7 +102,7 @@
 
                             <div class="formSection">
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn-host" type="submit" value="Save changes">
+                                    <input class="ml-auto required-btn-host check-radiobuttons-button" type="submit" value="Save changes">
                                 </div>
                             </div>
                         </div>

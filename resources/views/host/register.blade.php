@@ -106,7 +106,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto required-btn-host" type="submit" value="Submit our request">
+                                    <input class="ml-auto required-btn-host check-radiobuttons-button" type="submit" value="Submit our request">
                                 </div>
                             </div>
                         </div>

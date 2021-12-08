@@ -8,7 +8,7 @@
                                        height="65" alt="Search a Host"> Host Search Form</h1>
             </div>
 
-            <form method="POST" action="/host/search" enctype="multipart/form-data">
+            <form method="GET" action="/host/search/result" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">

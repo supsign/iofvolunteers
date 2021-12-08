@@ -144,7 +144,7 @@
 
                             <div class="formSection">
                                 <div class="form-group d-flex">
-                                    <input class="ml-auto" type="submit" value="Save changes">
+                                    <input class="ml-auto check-radiobuttons-button" type="submit" value="Save changes">
                                 </div>
                             </div>
                         </div>

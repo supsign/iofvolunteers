@@ -47,7 +47,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. Experience in the following disciplines
+                                3. Experience in the following disciplines *
                             </x-slot>
                             <div class="form-group">
                                 @foreach($disciplines AS $discipline)
@@ -239,7 +239,7 @@
                                 </div>
 
                                 <div class="form-group d-flex">
-                                    <input class="check-radiobuttons-button ml-auto required-btn-disciplines" type="submit" value="Submit my details">
+                                    <input class="ml-auto required-btn-disciplines check-radiobuttons-button" type="submit" value="Submit my details">
                                 </div>
                             </div>
                         </div>
