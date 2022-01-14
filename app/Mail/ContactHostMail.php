@@ -33,6 +33,6 @@ class ContactHostMail extends Mailable
     {
         return $this->markdown('mails.host.contact')->subject('Hosting Opportunity')->replyTo(
             $this->user->guest->email
-        )->from('iof@volunteers.org')->cc('admin@supsign.ch');
+        )->from('no-reply@volunteers.orienteering.sport')->cc('mail@volunteers.orienteering.sport');
     }
 }
