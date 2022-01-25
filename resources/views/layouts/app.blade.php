@@ -105,7 +105,7 @@
                                             <li class="menu-item">
                                                 @if(isset($user) && $user->projects->count())
                                                     <a href="{{ route('project.list') }}">
-                                                        List Projects
+                                                        List of Projects
                                                     </a>
                                                 @else
                                                     <a href="{{ route('project.register') }}">

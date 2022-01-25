@@ -6,7 +6,7 @@
             <div class="titleWrap">
                 <h1 class="title">
                     <img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65" height="65" alt="show">
-                    List Projects
+                    List of Projects
                 </h1>
                 <div class="title-desc">Click on the Project Name for more details.</div>
             </div>
@@ -15,10 +15,10 @@
             <table aria-describedby="List all my created Projects" class="table">
                 <tbody>
                     <tr>
-                        <th id="project_name" class="big-desc">Project Name</td>
-                        <th id="org_name" class="big-desc">Organisation Name</td>
-                        <th id="project_contact" class="big-desc">Project Contact</td>
-                        <th id="edit_delete_buttons" class="big-desc"></td>
+                        <th id="project_name" class="big-desc">Project Name</th>
+                        <th id="org_name" class="big-desc">Organisation Name</th>
+                        <th id="project_contact" class="big-desc">Project Contact</th>
+                        <th id="edit_delete_buttons" class="big-desc"></th>
                     </tr>
                     @foreach ($projects as $project)
                         <tr>
