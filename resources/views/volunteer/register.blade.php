@@ -7,7 +7,7 @@
                                        height="65" alt="register volunteer"> Volunteer Registration Form</h1>
 
                 <div class="title-desc">Please note that you must be 18+ to register as a volunteer!</div>
-                <div class="warn pt-2"> All fields with * <strong>are mandatory</strong></div>
+                <div class="warn pt-2">All fields with * <strong>are mandatory</strong></div>
             </div>
 
             <form method="POST" enctype="multipart/form-data">

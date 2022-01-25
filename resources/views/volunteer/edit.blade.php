@@ -3,8 +3,10 @@
     <section class="default">
         <div class="container">
             <div class="titleWrap">
-                <h1 class="title pb-0"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
-                                            height="65" alt="search icon"> Edit Volunteer</h1>
+                <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-search1.svg') }}" width="65"
+                                       height="65" alt="edit volunteer"> Edit Volunteer</h1>
+
+                <div class="warn pt-2">All fields with * <strong>are mandatory</strong></div>
             </div>
 
             <div class="row pb-3">

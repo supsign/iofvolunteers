@@ -7,7 +7,7 @@
                                        height="65" alt="register Guest"> Guest Registration Form</h1>
 
                 <div class="title-desc">Please note that you must be 18+ to register as a guest!</div>
-                <div class="warn pt-2"> All fields with * <strong>are mandatory</strong></div>
+                <div class="warn pt-2">All fields with * <strong>are mandatory</strong></div>
             </div>
 
             <form method="POST" action="" enctype="multipart/form-data">

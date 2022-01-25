@@ -6,7 +6,7 @@
                 <h1 class="title"><img class="title-icon" src="{{ asset('images/icon-add3.svg') }}" width="65"
                                        height="65" alt="register project"> Project Registration Form</h1>
 
-                <div class="warn pt-2"> All fields with * <strong>are mandatory</strong></div>
+                <div class="warn pt-2">All fields with * <strong>are mandatory</strong></div>
             </div>
 
             <form method="POST" action="" enctype="multipart/form-data">
