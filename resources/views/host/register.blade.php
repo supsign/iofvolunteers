@@ -3,8 +3,10 @@
     <section class="default">
         <div class="container">
             <div class="titleWrap">
-                <h1 class="pb-0 title"><img class="title-icon" src="{{asset('images/icon-add4.svg')}}" width="65"
-                                            height="65" alt="add Host"> Host Registration Form</h1>
+                <h1 class="title"><img class="title-icon" src="{{asset('images/icon-add4.svg')}}" width="65"
+                                       height="65" alt="add Host"> Host Registration Form</h1>
+
+                <div class="warn pt-2"> All fields with * <strong>are mandatory</strong></div>
             </div>
 
             <form method="POST" action="" enctype="multipart/form-data">
