@@ -90,7 +90,11 @@ class VolunteerController extends Controller
     {
         $projects = Auth::user()->projects;
 
-        return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
+        return view('volunteer.preview', [
+            'volunteer' => $volunteer,
+            'projects' => $projects,
+            'dutyTypes' => DutyType::all(),
+        ]);
     }
 
     public function register(Register $request)
