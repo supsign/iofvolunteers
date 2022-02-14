@@ -1045,4 +1045,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.home:hover {
+    text-decoration: none;
+}
+
 /********************default - end*******************/

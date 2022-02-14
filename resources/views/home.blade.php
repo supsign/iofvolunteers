@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <section class="page_img">
-        <img src="{{ asset('images/pg_template1.jpg') }}"/>
-            <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt=""/>
+        <img src="{{ asset('images/pg_template1.jpg') }}" alt="pg_template1"/>
+        <img class="conn_worldwide" src="{{ asset('images/connectingworldwide.png') }}" alt="connectingworldwide"/>
     </section>
 
     <section class="news_list">
