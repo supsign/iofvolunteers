@@ -7,7 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkillsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -63,4 +63,4 @@ class CreateSkillsTable extends Migration
         Schema::dropIfExists('skills');
         Schema::dropIfExists('skill_types');
     }
-}
+};
