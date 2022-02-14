@@ -42,7 +42,7 @@
         <div class="shadow container-fluid eltop">
             <div class="row justify-content-between align-items-center">
                 <a href="/" class="col-auto d-flex logo d-none home mr-3">
-                    <i class="fas fa-home my-auto home"></i>
+                    <i class="fas fa-home my-auto home" aria-hidden="true"></i>
                     <img src="{{ asset('images/logo.svg') }}" width="160" alt=""/>
                 </a>
                 <nav class="flex-grow-1 d-flex flex-column justify-content-end">
