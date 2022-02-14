@@ -73,20 +73,6 @@
                         </tr>
                     @endif
 
-                    @if($project->organisation_email)
-                        <tr>
-                            <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
-                            <td><a href="mailto:{{ $project->organisation_email }}">{{ $project->organisation_email }}</a></td>
-                        </tr>
-                    @endif
-
-                    @if($project->organisation_phone)
-                        <tr>
-                            <th id="organisation_phone" class="font-weight-bold">Phone</th>
-                            <td>{{ $project->organisation_phone }}</td>
-                        </tr>
-                    @endif
-
                     @if($project->start_date)
                         <tr>
                             <th id="start_date" class="font-weight-bold">Start Date:</th>
