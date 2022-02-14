@@ -45,7 +45,7 @@ class GuestController extends Controller
 
     public function editForm(Guest $guest)
     {
-        if (!Auth::user()->guest) {
+        if (! Auth::user()->guest) {
             return redirect()->route('guest.registerForm');
         }
 
@@ -116,7 +116,7 @@ class GuestController extends Controller
 
     public function update(Guest $guest, Update $request)
     {
-        if (!Auth::user()->guest) {
+        if (! Auth::user()->guest) {
             return redirect()->route('guest.registerForm');
         }
 
@@ -173,7 +173,7 @@ class GuestController extends Controller
         unset($relationData['_token']);
 
         foreach ($guestData as $key => $value) {
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 
@@ -210,7 +210,7 @@ class GuestController extends Controller
         $guests = $guests->get();
 
         foreach ($relationData as $key => $value) {
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 

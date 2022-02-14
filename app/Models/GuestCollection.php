@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class GuestCollection extends Collection
 {
-    public function filterByLanguages($languageArray): GuestCollection
+    public function filterByLanguages($languageArray): self
     {
         return $this->filter(function ($guest) use ($languageArray) {
             foreach ($guest->languageGuests as $languageGuest) {
@@ -19,11 +19,11 @@ class GuestCollection extends Collection
         });
     }
 
-    public function filterByDisciplines($disciplinesArray): GuestCollection
+    public function filterByDisciplines($disciplinesArray): self
     {
         return $this->filter(function ($guest) use ($disciplinesArray) {
             foreach (array_keys(array_filter($disciplinesArray)) as $discipline) {
-                if (!$guest->disciplines->contains('id', $discipline)) {
+                if (! $guest->disciplines->contains('id', $discipline)) {
                     return false;
                 }
             }
