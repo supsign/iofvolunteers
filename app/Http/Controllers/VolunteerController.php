@@ -269,6 +269,25 @@ class VolunteerController extends Controller
         $relationData = array_diff_key($data, $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
+        foreach (['o_work_experience'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        if (array_key_exists(1, $o_work_experience)) {
+            if ($o_work_experience[1] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+            $volunteerData['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (array_key_exists(2, $o_work_experience)) {
+            if ($o_work_experience[2] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+
+            $volunteerData['o_work_experience_international'] = $o_work_experience[2];
+        }
+
         foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
