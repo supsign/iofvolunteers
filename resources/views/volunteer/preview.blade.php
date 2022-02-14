@@ -214,9 +214,26 @@
                 </tbody>
             </table>
 
-            @if(false)
-                <br>
-                Contacts: {{ $volunteer->email }}
+            @if($volunteer->projects()->whereNotNull('volunteer_contacted_at')->count() && $user->id === $volunteer->user->id)
+                <x-form.section>
+                    <x-slot name="title">
+                        Interested Projects
+                    </x-slot>
+
+                    <div class="row font-weight-bold">
+                        <div class="col p-4 border">Project-Name</div>
+                    </div>
+                    <div class="row">
+                        @foreach($volunteer->projects()->whereNotNull('volunteer_contacted_at')->get() as $project)
+                            <div class="border p-4 col">
+                                <a href="{{ route('project.show', $project) }}">
+                                    {{ $project->name }}
+                                </a>
+                            </div>
+                            <div class="w-100"></div>
+                        @endforeach
+                    </div>
+                </x-form.section>
             @endif
 
             @if($projects->count())
@@ -245,6 +262,18 @@
                                 iof volunteers</p>
                         </div>
                     </div>
+                </div>
+            @else
+                <div id="mail-wrapper" class="d-flex flex-row mt-4">
+                        <x-form.section>
+                            <x-slot name="title">
+                                Invite volunteer to your project
+                            </x-slot>
+
+                            <div>
+                                In order to contact a Volunteer, you need to <a href="{{ route('project.register') }}">create a Project</a> first.
+                            </div>
+                        </x-form.section>
                 </div>
             @endif
         </div>

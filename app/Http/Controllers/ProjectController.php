@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests\Project\Register;
 use App\Http\Requests\Project\Update;
+use App\Mail\ContactProjectMail;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Discipline;
@@ -15,21 +16,41 @@ use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\Project;
 use App\Models\ProjectOffer;
-use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
+use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
+use Throwable;
 
 class ProjectController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
+    }
+
+    public function contact(Project $project, Request $request)
+    {
+        if (!$volunteer = Volunteer::find($request->volunteer_id)) {
+            abort(404);
+        }
+
+        try {
+            Mail::to($volunteer)->send(new ContactProjectMail($project, Auth::user(), $volunteer));
+
+            $volunteer->projects()->syncWithPivotValues(
+                [$project->id],
+                ['project_contacted_at' => Carbon::now()],
+            );
+        } catch (Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function list()
@@ -95,7 +116,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         return view('project.preview', [
-            'volunteer' => Auth::user()->volunteers,
+            'volunteer' => Auth::user()->volunteer,
             'project' => $project,
             'dutyTypes' => DutyType::all(),
         ]);

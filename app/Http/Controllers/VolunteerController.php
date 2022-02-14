@@ -41,7 +41,12 @@ class VolunteerController extends Controller
         }
 
         try {
-            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+            Mail::to($volunteer)->send(new ContactVolunteerMail($project, Auth::user(), $volunteer));
+
+            $project->volunteers()->syncWithPivotValues(
+                [$volunteer->id],
+                ['volunteer_contacted_at' => Carbon::now()],
+            );
         } catch (Throwable $th) {
             abort(500, 'Not able to send email');
         }

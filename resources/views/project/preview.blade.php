@@ -73,20 +73,6 @@
                         </tr>
                     @endif
 
-                    @if($project->organisation_email)
-                        <tr>
-                            <th id="organisation_email" class="font-weight-bold">E-Mail:</th>
-                            <td><a href="mailto:{{ $project->organisation_email }}">{{ $project->organisation_email }}</a></td>
-                        </tr>
-                    @endif
-
-                    @if($project->organisation_phone)
-                        <tr>
-                            <th id="organisation_phone" class="font-weight-bold">Phone</th>
-                            <td>{{ $project->organisation_phone }}</td>
-                        </tr>
-                    @endif
-
                     @if($project->start_date)
                         <tr>
                             <th id="start_date" class="font-weight-bold">Start Date:</th>
@@ -177,6 +163,69 @@
 
                 </tbody>
             </table>
+
+            @if($project->volunteers()->whereNotNull('project_contacted_at')->count() && $user->id === $project->user_id)
+                <x-form.section>
+                    <x-slot name="title">
+                        Interested Volunteers
+                    </x-slot>
+
+                    <div class="row font-weight-bold">
+                        <div class="col p-4 border">Name</div>
+                    </div>
+                    <div class="row">
+                        @foreach($project->volunteers()->whereNotNull('project_contacted_at')->get() as $volunteer)
+                            <div class="border p-4 col">
+                                <a href="{{ route('volunteer.show', $volunteer) }}">
+                                    {{ $volunteer->name }}
+                                </a>
+                            </div>
+                            <div class="w-100"></div>
+                        @endforeach
+                    </div>
+                </x-form.section>
+            @endif
+
+            @if($volunteer)
+                <div id="mail-wrapper" class="d-flex flex-row">
+                    <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchProject(event)"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <x-form.section>
+                            <x-slot name="title">
+                                Offer your help for this project
+                            </x-slot>
+
+                            <input type="hidden" value="{{ $project->id }}" name="project_id">
+                            <input type="hidden" value="{{ $volunteer->id }}" name="volunteer_id">
+                            <input class="mt-3" type="submit" name="submitButton" value="Contact project owner"/>
+                        </x-form.section>
+                    </form>
+                    <div>
+                        <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
+                        <div class="border p-4">
+                            <p>Dear {{ $project->contact }}</p>
+                            <p>The volunteer {{ $volunteer->name }} is interested in helping you with your project {{ $project->name }}.</p>
+                            <p>To learn more about the volunteer, have a look at IOF’s Connecting Worldwide volunteer platform and visit <a href="{{ route('volunteer.show', $volunteer) }}">{{ $volunteer->name }}</a>.</p>
+                            <p>In order to get in contact with the interested volunteer, you can simply reply to this e-mail.</p>
+                            <p>Kind Regards, <br />
+                                iof volunteers</p>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div id="mail-wrapper" class="d-flex flex-row mt-4">
+                    <x-form.section>
+                        <x-slot name="title">
+                            Offer your help for this project
+                        </x-slot>
+
+                        <div>
+                            In order to contact a Project owner, you need to <a href="{{ route('volunteer.register') }}">create a Volunteer</a> first.
+                        </div>
+                    </x-form.section>
+                </div>
+            @endif
         </div>
     </section>
 

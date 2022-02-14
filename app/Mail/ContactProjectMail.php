@@ -9,10 +9,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactVolunteerMail extends Mailable
+class ContactProjectMail extends Mailable
 {
-    use Queueable;
-    use SerializesModels;
+    use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
@@ -32,7 +31,7 @@ class ContactVolunteerMail extends Mailable
     public function build()
     {
         return $this
-            ->markdown('mails.volunteer.contact')
+            ->markdown('mails.project.contact')
             ->subject('Volunteering Opportunity')
             ->replyTo($this->project->organisation_email)
             ->from('mail@volunteers.orienteering.sport')
