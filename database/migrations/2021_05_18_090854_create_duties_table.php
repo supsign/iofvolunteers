@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDutiesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -58,4 +58,4 @@ class CreateDutiesTable extends Migration
         Schema::dropIfExists('duty_types');
         Schema::dropIfExists('duties');
     }
-}
+};
