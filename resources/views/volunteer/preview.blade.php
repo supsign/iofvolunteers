@@ -247,7 +247,7 @@
                     </div>
                 </div>
             @else
-                <div id="mail-wrapper" class="d-flex flex-row">
+                <div id="mail-wrapper" class="d-flex flex-row mt-4">
                         <x-form.section>
                             <x-slot name="title">
                                 Invite volunteer to your project
