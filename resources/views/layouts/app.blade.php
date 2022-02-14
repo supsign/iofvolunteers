@@ -23,6 +23,8 @@
     <title>IOF Global Orienteering Volunteer Platform</title>
 
     <!-- Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
@@ -39,7 +41,8 @@
     <header>
         <div class="shadow container-fluid eltop">
             <div class="row justify-content-between align-items-center">
-                <a href="/" class="col-auto logo d-none d-xl-block">
+                <a href="/" class="col-auto d-flex logo d-none home mr-3">
+                    <i class="fas fa-home my-auto home"></i>
                     <img src="{{ asset('images/logo.svg') }}" width="160" alt=""/>
                 </a>
                 <nav class="flex-grow-1 d-flex flex-column justify-content-end">
