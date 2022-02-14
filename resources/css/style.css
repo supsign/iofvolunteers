@@ -1046,11 +1046,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .home {
-    color: #ED1B2E;
+    color: #ed1b2e;
 }
 
 .home:hover {
-    color: #ED1B2E;
+    color: #ed1b2e;
     text-decoration: none;
 }
 
