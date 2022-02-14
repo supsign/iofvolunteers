@@ -38,4 +38,5 @@ class ContactVolunteerMail extends Mailable
             ->from('mail@volunteers.orienteering.sport')
             ->bcc('mail@volunteers.orienteering.sport');
     }
+
 }
