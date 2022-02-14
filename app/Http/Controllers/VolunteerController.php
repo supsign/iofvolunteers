@@ -41,7 +41,7 @@ class VolunteerController extends Controller
         }
 
         try {
-            Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+            Mail::to($volunteer)->send(new ContactVolunteerMail($project, Auth::user(), $volunteer));
 
             $project->volunteers()->syncWithPivotValues(
                 [$volunteer->id],

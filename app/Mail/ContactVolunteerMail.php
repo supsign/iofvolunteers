@@ -19,7 +19,7 @@ class ContactVolunteerMail extends Mailable
      *
      * @return void
      */
-    public function __construct(public Volunteer $volunteer, public User $user, public Project $project)
+    public function __construct(public Project $project, public User $user, public Volunteer $volunteer)
     {
         //
     }
@@ -31,8 +31,11 @@ class ContactVolunteerMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.volunteer.contact')->subject('Volunteering Opportunity')->replyTo(
-            $this->project->organisation_email
-        )->from('no-reply@volunteers.orienteering.sport')->bcc('mail@volunteers.orienteering.sport');
+        return $this
+            ->markdown('mails.volunteer.contact')
+            ->subject('Volunteering Opportunity')
+            ->replyTo($this->project->organisation_email)
+            ->from('no-reply@volunteers.orienteering.sport')
+            ->bcc('mail@volunteers.orienteering.sport');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests\Project\Register;
 use App\Http\Requests\Project\Update;
+use App\Mail\ContactProjectMail;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Discipline;
@@ -40,7 +41,7 @@ class ProjectController extends Controller
         }
 
         try {
-            // Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+            Mail::to($volunteer)->send(new ContactProjectMail($project, Auth::user(), $volunteer));
 
             $volunteer->projects()->syncWithPivotValues(
                 [$project->id],
