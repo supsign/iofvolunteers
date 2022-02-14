@@ -53,6 +53,7 @@ Route::post('host/register', [HostController::class, 'register'])->name('host.re
 Route::patch('host/update/{host}', [HostController::class, 'update'])->name('host.update');
 Route::delete('host/delete/{host}', [HostController::class, 'delete'])->name('host.delete');
 
+Route::post('project/contact/{project}', [ProjectController::class, 'contact'])->name('project.contact');
 Route::get('project/show/{project}', [ProjectController::class, 'show'])->name('project.show');
 Route::get('project/register', [ProjectController::class, 'registerForm'])->name('project.registerForm');
 Route::get('project/list', [ProjectController::class, 'list'])->name('project.list');

@@ -15,21 +15,40 @@ use App\Models\Language;
 use App\Models\LanguageProficiency;
 use App\Models\Project;
 use App\Models\ProjectOffer;
-use App\Models\ProjectProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Schema;
+use Throwable;
 
 class ProjectController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
+    }
+
+    public function contact(Project $project, Request $request)
+    {
+        if (!$volunteer = Project::find($request->volunteer_id)) {
+            abort(404);
+        }
+
+        try {
+            // Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
+
+            $volunteer->projects()->syncWithPivotValues(
+                [$project->id],
+                ['project_contacted_at' => Carbon::now()],
+            );
+        } catch (Throwable $th) {
+            abort(500, 'Not able to send email');
+        }
     }
 
     public function list()
