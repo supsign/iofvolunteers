@@ -205,8 +205,8 @@
                         <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
                         <div class="border p-4">
                             <p>Dear {{ $project->contact }}</p>
-                            <p>The volunteer {{ $user->firstname }} {{ $user->lastname }} is interested in helping you with your project {{ $project->name }}.</p>
-                            <p>To learn more about the volunteer, have a look at IOF’s Connecting Worldwide volunteer platform.</p>
+                            <p>The volunteer {{ $volunteer->name }} is interested in helping you with your project {{ $project->name }}.</p>
+                            <p>To learn more about the volunteer, have a look at IOF’s Connecting Worldwide volunteer platform and visit <a href="{{ route('volunteer.show', $volunteer) }}">{{ $volunteer->name }}</a>.</p>
                             <p>In order to get in contact with the interested volunteer, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
                                 iof volunteers</p>
