@@ -41,7 +41,7 @@
     <header>
         <div class="shadow container-fluid eltop">
             <div class="row justify-content-between align-items-center">
-                <a href="/" class="col-auto d-flex logo d-none home mr-3">
+                <a href="/" class="col-auto d-xl-flex logo d-none home mr-3">
                     <i class="fas fa-home my-auto home" aria-hidden="true"></i>
                     <img src="{{ asset('images/logo.svg') }}" width="160" alt=""/>
                 </a>
@@ -56,7 +56,8 @@
                         </ul>
                     </div>
                     <div class="main d-flex justify-content-end justify-content-xl-start align-items-center">
-                        <a href="/" class="col logo d-block d-xl-none">
+                        <a href="/" class="col logo d-flex d-xl-none py-md-2">
+                            <i class="fas fa-home my-auto home" aria-hidden="true"></i>
                             <img src="{{ asset('images/logo.svg') }}" width="160" alt=""/>
                         </a>
                         <a href="#" class="order-1 pl-3 pr-3 main_menu_burger">
