@@ -74,20 +74,20 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                Years of experience as competitor
+                                Amount of Events as competitor
                             </x-slot>
                             <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="info">The number will be taken as years - 0 for no experience.</div>
+                                State below how many events you guided for each given Event-Type.
+                                <div class="info">State the approximate amount of events - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
-                                          label="Exprience with local Events (number)" type="number" size="3"
+                                          label="Exprience with local Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Exprience with national Events (number)" type="number" size="3"
+                                          label="Exprience with national Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Exprience with international Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
