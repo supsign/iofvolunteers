@@ -247,7 +247,17 @@
                     </div>
                 </div>
             @else
-                 {{-- ToDo: Meldung als Projektleiter beim Volunteer, falls keine Projekte vorhanden sind --}}
+                <div id="mail-wrapper" class="d-flex flex-row">
+                        <x-form.section>
+                            <x-slot name="title">
+                                Invite volunteer to your project
+                            </x-slot>
+
+                            <div>
+                                In order to contact a Volunteer, you need to <a href="{{ route('project.register') }}">create a Project</a> first.
+                            </div>
+                        </x-form.section>
+                </div>
             @endif
         </div>
     </section>
