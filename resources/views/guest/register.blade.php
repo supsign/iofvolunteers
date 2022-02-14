@@ -70,16 +70,23 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                Years of experience as competitor
+                                <h3>
+                                    Amount of Events as competitor
+                                </h3>
                             </x-slot>
-                            <x-base.input name="local_experience"
-                                          label="Exprience with local Events (number)" type="number" size="3" min="0"
+                            <x-slot name="subtitle">
+                                <div>State below on how many events you attended for each given Event-Type.</div>
+                                <div class="info">State the approximate amount of events - 0 for no experience.</div>
+                            </x-slot>
+
+                            <x-base.input nam e="local_experience"
+                                          label="Experience with local Events (amount)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Exprience with national Events (number)" type="number" size="3" min="0"
+                                          label="Experience with national Events (amount)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Experience with international Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 

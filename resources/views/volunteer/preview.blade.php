@@ -47,7 +47,7 @@
 
                 @if($volunteer->ol_duration)
                     <tr>
-                        <td class="font-weight-bold">Experience</td>
+                        <td class="font-weight-bold">O-Experience as competitor</td>
                         <td>since {{ $volunteer->ol_duration }}</td>
                     </tr>
                 @endif
@@ -106,7 +106,7 @@
 
                 @if($volunteer->local_experience || $volunteer->national_experience || $volunteer->international_experience)
                     <tr>
-                        <td class="font-weight-bold">O-Experience (in years)</td>
+                        <td class="font-weight-bold">O-Experience (amount of Events)</td>
                         <td>
                             <ul>
                                 @if($volunteer->local_experience)
@@ -133,20 +133,21 @@
 
                 @if($volunteer->o_work_experience_local || $volunteer->o_work_experience_international)
                     <tr>
-                        <td class="font-weight-bold">O-Work Experience (in years)</td>
+                        <td class="font-weight-bold">O-Work Experience (amount of Events)</td>
                         <td>
                             <ul>
-                                @if($volunteer->o_work_experience_local)
-                                    <li><strong>Local:</strong>
-                                        {{ $volunteer->o_work_experience_local }}
-                                    </li>
-                                @endif
-
-                                @if($volunteer->o_work_experience_international)
-                                    <li><strong>International:</strong>
-                                        {{ $volunteer->o_work_experience_international }}
-                                    </li>
-                                @endif
+                                @foreach($dutyTypes AS $dutyType)
+                                    <strong>{{ $dutyType->name . ':'}}</strong>
+                                    @if($dutyType->id === 1 ? $volunteer->o_work_experience_local : $volunteer->o_work_experience_international)
+                                        {{ $dutyType->id === 1 ? $volunteer->o_work_experience_local : $volunteer->o_work_experience_international }}
+                                        <br/>
+                                    @else
+                                        No Experience<br/>
+                                    @endif
+                                    @foreach($volunteer->duties()->where('duty_type_id', $dutyType->id)->get() AS $duty)
+                                        {{ $duty->name }} <br/>
+                                    @endforeach
+                                @endforeach
                             </ul>
                         </td>
                     </tr>
@@ -157,9 +158,8 @@
 
                         <td class="font-weight-bold">{{ __('Skills') }}</td>
                         <td>
-
-                                @foreach($volunteer->skillTypes AS $skillType)
-                                    <div class="mb-3">
+                            @foreach($volunteer->skillTypes AS $skillType)
+                                <div class="mb-3">
                                     <strong>{{ $skillType->name }}</strong><br/>
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
                                         {{ $skill->name }}<br/>
@@ -175,24 +175,21 @@
                                         @endif
                                     @endif
 
-                                <div>
-                                    @php
-                                        $volColName = $skillType->vol_col_name;
-                                    @endphp
+                                    <div>
+                                        @php
+                                            $volColName = $skillType->vol_col_name;
+                                        @endphp
                                         @if($volunteer->$volColName)
                                             <div class="ml-4 font-weight-bold">Description:</div>
                                             <div class="ml-4">{{ $volunteer->$volColName}}</div>
                                         @endif
-                                </div>
-
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
 
-                                @if($volunteer->skill_other)
-                                    <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
-                                @endif
-
-
+                            @if($volunteer->skill_other)
+                                <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
+                            @endif
                         </td>
                     </tr>
                 @endif

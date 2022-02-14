@@ -100,9 +100,10 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Experience required
+                                5. O-Work Experience required
                             </x-slot>
                             <x-slot name="subtitle">
+                                <div>Amount of Events</div>
                                 <div class="info">(Select if relevant to the project)</div>
                             </x-slot>
                             <div class="form-group">

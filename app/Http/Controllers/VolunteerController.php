@@ -95,7 +95,11 @@ class VolunteerController extends Controller
     {
         $projects = Auth::user()->projects;
 
-        return view('volunteer.preview', ['volunteer' => $volunteer, 'projects' => $projects]);
+        return view('volunteer.preview', [
+            'volunteer' => $volunteer,
+            'projects' => $projects,
+            'dutyTypes' => DutyType::all(),
+        ]);
     }
 
     public function register(Register $request)
@@ -270,6 +274,25 @@ class VolunteerController extends Controller
         $relationData = array_diff_key($data, $columns);
         $volunteers = Volunteer::with('languageVolunteers');
 
+        foreach (['o_work_experience'] as $key) {
+            $$key = Helper::extractElementByKey($data, $key);
+        }
+
+        if (array_key_exists(1, $o_work_experience)) {
+            if ($o_work_experience[1] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+            $volunteerData['o_work_experience_local'] = $o_work_experience[1];
+        }
+
+        if (array_key_exists(2, $o_work_experience)) {
+            if ($o_work_experience[2] > 1000) {
+                throw ValidationException::withMessages([]);
+            }
+
+            $volunteerData['o_work_experience_international'] = $o_work_experience[2];
+        }
+
         foreach ($volunteerData as $key => $value) {
             if (!$value) {
                 continue;
@@ -293,9 +316,8 @@ class VolunteerController extends Controller
                 case 'work_duration':
                     $volunteers->whereNull($key)->orWhere($key, '>=', $value);
                     break;
-                case 'local_experience':
-                case 'national_experience':
-                case 'international_experience':
+                case 'o_work_experience_local':
+                case 'o_work_experience_international':
                     $volunteers->where($key, '>=', $value);
                     break;
 

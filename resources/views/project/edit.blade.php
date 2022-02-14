@@ -119,9 +119,10 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Experience required
+                                5. O-Work Experience required
                             </x-slot>
                             <x-slot name="subtitle">
+                                <div>Amount of Events</div>
                                 <div class="info">(Select if relevant to the project)</div>
                             </x-slot>
                             <div class="form-group">
@@ -131,7 +132,7 @@
                                                         ? 'o_work_experience_local'
                                                         : 'o_work_experience_international')
                                                         }}"
-                                                    label="{{ $dutyType->name }} (number)" type="number" size="3" min="0"
+                                                    label="{{ $dutyType->name }} (amount)" type="number" size="3" min="0"
                                                     step="1"/>
                                     <label class="formSubtitle2">Duties:</label>
                                     @foreach($duties AS $duty)

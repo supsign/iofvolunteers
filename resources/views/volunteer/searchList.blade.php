@@ -17,7 +17,7 @@
                 <tr>
                     <th id="search_volunteer_name" class="big-desc">Name & Age</th>
                     <th id="search_volunteer_country" class="big-desc">Country</th>
-                    <th id="search_volunteer_o_work_xp" class="big-desc">O-Work-Experience (number)</th>
+                    <th id="search_volunteer_o_work_xp" class="big-desc">O-Work-Experience (amount of Events)</th>
                 </tr>
                 @foreach($volunteers AS $volunteer)
                     <tr>

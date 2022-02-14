@@ -74,29 +74,53 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                Years of experience as competitor
+                                <h3>
+                                    Amount of Events as competitor
+                                </h3>
                             </x-slot>
                             <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="info">The number will be taken as years - 0 for no experience.</div>
+                                <div>State below on how many events you attended for each given Event-Type.</div>
+                                <div class="info">State the approximate amount of events - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
-                                          label="Exprience with local Events (number)" type="number" size="3"
+                                          label="Experience with local Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Exprience with national Events (number)" type="number" size="3"
+                                          label="Experience with national Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Exprience with international Events (number)" type="number" size="3"
+                                          label="Experience with international Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Languages *
+                                5. O-Work Experience
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn"> (required, even if only listed in "Additional languages")</div>
+                                State below how many events you have O-Work Experience with.
+                            </x-slot>
+                            <div class="form-group">
+                                @foreach($dutyTypes AS $dutyType)
+                                    <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
+                                                  label="{{ $dutyType->name }} (amount)" type="number" size="3" min="0"
+                                                  step="1"/>
+                                    <label class="formSubtitle2">Duties:</label>
+                                    @foreach($duties AS $duty)
+                                        <x-base.checkbox label="{{ $duty->name }}"
+                                                         name="duty[{{ $dutyType->id }}][{{ $duty->id }}]"
+                                                         class="form-check-input"/>
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                6. Languages *
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                <div class="warn"> (<strong>required,</strong> even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"
@@ -113,7 +137,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                6. Where to work?
+                                7. Where to work?
                             </x-slot>
                             <x-slot name="subtitle">
                                 Do you have a preferred destination?
@@ -132,7 +156,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                7. Timing
+                                8. Timing
                             </x-slot>
                             <x-slot name="subtitle">
                                 For approximately how many weeks can you work as a volunteer?
@@ -145,7 +169,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                8. Skills
+                                9. Skills
                             </x-slot>
                             <x-slot name="subtitle">
                                 Please tick all relevant to you.
@@ -177,25 +201,6 @@
                             @endforeach
                             <div class="form-group">
                                 <x-base.textarea name="skill_other" label="Other skills? Please explain..."/>
-                            </div>
-                        </x-form.section>
-
-                        <x-form.section>
-                            <x-slot name="title">
-                                9. O-Work Experience
-                            </x-slot>
-                            <div class="form-group">
-                                @foreach($dutyTypes AS $dutyType)
-                                    <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
-                                                  label="{{ $dutyType->name }} (number)" type="number" size="3" min="0"
-                                                  step="1"/>
-                                    <label class="formSubtitle2">Duties:</label>
-                                    @foreach($duties AS $duty)
-                                        <x-base.checkbox label="{{ $duty->name }}"
-                                                         name="duty[{{ $dutyType->id }}][{{ $duty->id }}]"
-                                                         class="form-check-input"/>
-                                    @endforeach
-                                @endforeach
                             </div>
                         </x-form.section>
 

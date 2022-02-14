@@ -81,19 +81,28 @@
                                           :iconName="'calendarIcon'" min="0"/>
                             <x-base.input name="club" label="Your present club (if any)"
                                           value="{{ $guest->club }}"/>
-                            <div class="form-group">
-                                <label class="formSubtitle2">Years of experience as competitor</label>
-                            </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                <h3>
+                                    Amount of Events as competitor
+                                </h3>
+                            </x-slot>
+                            <x-slot name="subtitle">
+                                <div>State below on how many events you attended for each given Event-Type.</div>
+                                <div class="info">State the approximate amount of events - 0 for no experience.</div>
+                            </x-slot>
                             <x-base.input name="local_experience"
-                                          label="Experience with local Events (number)"
+                                          label="Experience with local Events (amount)"
                                           value="{{ $guest->local_experience }}"
                                           type="number" size="3" min="0" step="1"/>
                             <x-base.input name="national_experience"
-                                          label="Experience with national Events (number)"
+                                          label="Experience with national Events (amount)"
                                           value="{{ $guest->national_experience }}"
                                           type="number" size="3" min="0" step="1"/>
                             <x-base.input name="international_experience"
-                                          label="Experience with international Events (number)"
+                                          label="Experience with international Events (amount)"
                                           value="{{ $guest->international_experience }}"
                                           type="number" size="3" min="0" step="1"/>
                         </x-form.section>
