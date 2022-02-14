@@ -214,9 +214,26 @@
                 </tbody>
             </table>
 
-            @if(false)
-                <br>
-                Contacts: {{ $volunteer->email }}
+            @if($volunteer->projects->count() && $user->id === $volunteer->user->id)
+                <x-form.section>
+                    <x-slot name="title">
+                        Interested Projects
+                    </x-slot>
+
+                    <div class="row font-weight-bold">
+                        <div class="col p-4 border">Project-Name</div>
+                    </div>
+                    <div class="row">
+                        @foreach($volunteer->projects as $project)
+                            <div class="border p-4 col">
+                                <a href="{{ route('project.show', $project) }}">
+                                    {{ $project->name }}
+                                </a>
+                            </div>
+                            <div class="w-100"></div>
+                        @endforeach
+                    </div>
+                </x-form.section>
             @endif
 
             @if($projects->count())
