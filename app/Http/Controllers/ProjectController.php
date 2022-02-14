@@ -115,7 +115,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         return view('project.preview', [
-            'volunteer' => Auth::user()->volunteers,
+            'volunteer' => Auth::user()->volunteer,
             'project' => $project,
             'dutyTypes' => DutyType::all(),
         ]);
