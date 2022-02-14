@@ -1045,12 +1045,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
     display: none;
 }
 
-.home {
-    color: #ed1b2e;
-}
-
 .home:hover {
-    color: #ed1b2e;
+
     text-decoration: none;
 }
 
