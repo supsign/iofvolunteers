@@ -13,14 +13,14 @@ class ExperienceCollection extends Collection
         });
     }
 
-    public function national(): ExperienceCollection
+    public function national(): self
     {
         return $this->filter(function ($experience) {
             return $experience->national;
         });
     }
 
-    public function international(): ExperienceCollection
+    public function international(): self
     {
         return $this->filter(function ($experience) {
             return $experience->international;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class HostCollection extends Collection
 {
-    public function filterByLanguages($languageArray): HostCollection
+    public function filterByLanguages($languageArray): self
     {
         return $this->filter(function ($host) use ($languageArray) {
             foreach ($host->languageHosts as $languageHost) {
@@ -19,7 +19,7 @@ class HostCollection extends Collection
         });
     }
 
-    public function filterByContinents($continentArray): HostCollection
+    public function filterByContinents($continentArray): self
     {
         return $this->filter(function ($host) use ($continentArray) {
             $continentArray = array_filter($continentArray);
@@ -37,7 +37,7 @@ class HostCollection extends Collection
         });
     }
 
-    public function filterByProjectOffers($offerArray): HostCollection
+    public function filterByProjectOffers($offerArray): self
     {
         return $this->filter(function ($host) use ($offerArray) {
             foreach (array_keys(array_filter($offerArray)) as $offer) {
