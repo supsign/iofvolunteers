@@ -93,7 +93,26 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                5. Languages *
+                                5. O-Work Experience
+                            </x-slot>
+                            <div class="form-group">
+                                @foreach($dutyTypes AS $dutyType)
+                                    <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
+                                                  label="{{ $dutyType->name }} (number)" type="number" size="3" min="0"
+                                                  step="1"/>
+                                    <label class="formSubtitle2">Duties:</label>
+                                    @foreach($duties AS $duty)
+                                        <x-base.checkbox label="{{ $duty->name }}"
+                                                         name="duty[{{ $dutyType->id }}][{{ $duty->id }}]"
+                                                         class="form-check-input"/>
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                6. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
                                 <div class="warn"> (required, even if only listed in "Additional languages")</div>
@@ -113,7 +132,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                6. Where to work?
+                                7. Where to work?
                             </x-slot>
                             <x-slot name="subtitle">
                                 Do you have a preferred destination?
@@ -132,7 +151,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                7. Timing
+                                8. Timing
                             </x-slot>
                             <x-slot name="subtitle">
                                 For approximately how many weeks can you work as a volunteer?
@@ -145,7 +164,7 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                8. Skills
+                                9. Skills
                             </x-slot>
                             <x-slot name="subtitle">
                                 Please tick all relevant to you.
@@ -177,25 +196,6 @@
                             @endforeach
                             <div class="form-group">
                                 <x-base.textarea name="skill_other" label="Other skills? Please explain..."/>
-                            </div>
-                        </x-form.section>
-
-                        <x-form.section>
-                            <x-slot name="title">
-                                9. O-Work Experience
-                            </x-slot>
-                            <div class="form-group">
-                                @foreach($dutyTypes AS $dutyType)
-                                    <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
-                                                  label="{{ $dutyType->name }} (number)" type="number" size="3" min="0"
-                                                  step="1"/>
-                                    <label class="formSubtitle2">Duties:</label>
-                                    @foreach($duties AS $duty)
-                                        <x-base.checkbox label="{{ $duty->name }}"
-                                                         name="duty[{{ $dutyType->id }}][{{ $duty->id }}]"
-                                                         class="form-check-input"/>
-                                    @endforeach
-                                @endforeach
                             </div>
                         </x-form.section>
 
