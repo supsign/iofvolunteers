@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -71,6 +72,11 @@ class Volunteer extends BaseModel implements HasMedia
     public function languageProficiencies(): MorphToMany
     {
         return $this->morphToMany(LanguageProficiency::class, 'language_model');
+    }
+
+    public function projects(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class);
     }
 
     public function skills(): MorphToMany
