@@ -99,24 +99,26 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                Years of experience as competitor
+                                <h3>
+                                    Amount of Events as competitor
+                                </h3>
                             </x-slot>
                             <x-slot name="subtitle">
-                                State below how long your experience for each given Event-Type is.
-                                <div class="info">The number will be taken as years - 0 for no experience.</div>
+                                <div>State below on how many events you attended for each given Event-Type.</div>
+                                <div class="info">State the approximate amount of events - 0 for no experience.</div>
                             </x-slot>
                             <x-base.input name="local_experience"
                                           value="{{ $volunteer->local_experience }}"
-                                          label="Experiences with local Events (number)" type="number" size="3" min="0"
+                                          label="Experiences with local Events (amount)" type="number" size="3" min="0"
                                           step="1"/>
                             <x-base.input name="national_experience"
                                           value="{{ $volunteer->national_experience }}"
-                                          label="Experiences with national Events (number)" type="number" size="3"
+                                          label="Experiences with national Events (amount)" type="number" size="3"
                                           min="0"
                                           step="1"/>
                             <x-base.input name="international_experience"
                                           value="{{ $volunteer->international_experience }}"
-                                          label="Experiences with international Events (number)" type="number" size="3"
+                                          label="Experiences with international Events (amount)" type="number" size="3"
                                           min="0" step="1"/>
                         </x-form.section>
 
@@ -124,10 +126,13 @@
                             <x-slot name="title">
                                 5. O-Work Experience
                             </x-slot>
+                            <x-slot name="subtitle">
+                                State below how many events you have O-Work Experience with.
+                            </x-slot>
                             <div class="form-group">
                                 @foreach($dutyTypes AS $dutyType)
                                     <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
-                                                  label="{{ $dutyType->name }} (number)" type="number"
+                                                  label="{{ $dutyType->name }} (amount)" type="number"
                                                   value="{{ $volunteer->getAttribute($dutyType->id === 1
                                                             ? 'o_work_experience_local'
                                                             : 'o_work_experience_international')
@@ -151,7 +156,7 @@
                                 6. Languages *
                             </x-slot>
                             <x-slot name="subtitle">
-                                <div class="warn">(required, even if only listed in "Additional languages")</div>
+                                <div class="warn">(<strong>required,</strong> even if only listed in "Additional languages")</div>
                             </x-slot>
                             @foreach($languages AS $language)
                                 <x-base.radio name="language[{{ $language->id }}]" label="{{ $language->name }}"

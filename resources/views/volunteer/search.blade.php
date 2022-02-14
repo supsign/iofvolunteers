@@ -47,20 +47,24 @@
 
                         <x-form.section>
                             <x-slot name="title">
-                                3. O-Experience
+                                3. O-Work Experience
                             </x-slot>
-                            <x-base.input name="ol_duration" label='Years in orienteering (at least "" years)'
+                            <x-base.input name="ol_duration" label='Years in orienteering (at least "" years of experience)'
                                           type="number" min="0"/>
-                            <div class="form-group">
-                                <label class="formSubtitle2">Years of experience as competitor</label>
-                            </div>
-                            <x-base.input name="local_experience" label="Experience with local Events (number)"
-                                          type="number" size="3" min="0" step="1"/>
-                            <x-base.input name="national_experience" label="Experience with national Events (number)"
-                                          type="number" size="3" min="0" step="1"/>
-                            <x-base.input name="international_experience"
-                                          label="Experience with international Events (number)" type="number" size="3"
-                                          min="0" step="1"/>
+                        </x-form.section>
+
+                        <x-form.section>
+                            <x-slot name="title">
+                                <h3>
+                                    Amount of Events
+                                </h3>
+                            </x-slot>
+
+                            @foreach($dutyTypes AS $dutyType)
+                                <x-base.input name="o_work_experience[{{ $dutyType->id }}]"
+                                              label="{{ $dutyType->name }} (amount)" type="number" size="3" min="0"
+                                              step="1"/>
+                            @endforeach
                         </x-form.section>
 
                         <x-form.section>

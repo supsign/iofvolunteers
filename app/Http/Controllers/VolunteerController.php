@@ -288,9 +288,8 @@ class VolunteerController extends Controller
                 case 'work_duration':
                     $volunteers->whereNull($key)->orWhere($key, '>=', $value);
                     break;
-                case 'local_experience':
-                case 'national_experience':
-                case 'international_experience':
+                case 'o_work_experience_local':
+                case 'o_work_experience_international':
                     $volunteers->where($key, '>=', $value);
                     break;
 
