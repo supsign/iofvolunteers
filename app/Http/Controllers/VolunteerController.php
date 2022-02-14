@@ -44,7 +44,7 @@ class VolunteerController extends Controller
             Mail::to($volunteer)->send(new ContactVolunteerMail($volunteer, Auth::user(), $project));
 
             $project->volunteers()->syncWithPivotValues(
-                [$volunteer->id], 
+                [$volunteer->id],
                 ['volunteer_contacted_at' => Carbon::now()],
             );
         } catch (Throwable $th) {
