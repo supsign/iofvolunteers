@@ -52,7 +52,7 @@
 
                 @if($guest->ol_duration)
                     <tr>
-                        <th id="guest_preview_ol_experience" class="font-weight-bold">OL-Experience</th>
+                        <th id="guest_preview_ol_experience" class="font-weight-bold">O-Experience</th>
                         <td>since {{ $guest->ol_duration }}</td>
                     </tr>
                 @endif
@@ -73,7 +73,7 @@
 
                 @if($guest->local_experience || $guest->national_experience || $guest->international_experience)
                     <tr>
-                        <th id="guest_preview_oexperience" class="font-weight-bold">O-Experience (in years)</th>
+                        <th id="guest_preview_oexperience" class="font-weight-bold">O-Experience (amount of events)</th>
                         <td>
                             <ul>
                                 @if($guest->local_experience)
