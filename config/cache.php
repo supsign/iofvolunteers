@@ -36,7 +36,6 @@ return [
             'driver' => 'null',
         ],
 
-
         'apc' => [
             'driver' => 'apc',
         ],
