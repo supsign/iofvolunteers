@@ -164,7 +164,7 @@
                 </tbody>
             </table>
 
-            @if($project->volunteers->count() && $user->id === $project->user_id)
+            @if($project->volunteers()->whereNotNull('project_contacted_at')->count() && $user->id === $project->user_id)
                 <x-form.section>
                     <x-slot name="title">
                         Interested Volunteers
@@ -174,7 +174,7 @@
                         <div class="col p-4 border">Name</div>
                     </div>
                     <div class="row">
-                        @foreach($project->volunteers as $volunteer)
+                        @foreach($project->volunteers()->whereNotNull('project_contacted_at')->get() as $volunteer)
                             <div class="border p-4 col">
                                 <a href="{{ route('volunteer.show', $volunteer) }}">
                                     {{ $volunteer->name }}
