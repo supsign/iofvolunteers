@@ -164,7 +164,7 @@
                 </tbody>
             </table>
 
-            @if($project->volunteers->count())
+            @if($project->volunteers->count() && $user->id === $project->user_id)
                 <x-form.section>
                     <x-slot name="title">
                         Interested Volunteers
