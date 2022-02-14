@@ -158,9 +158,8 @@
 
                         <td class="font-weight-bold">{{ __('Skills') }}</td>
                         <td>
-
-                                @foreach($volunteer->skillTypes AS $skillType)
-                                    <div class="mb-3">
+                            @foreach($volunteer->skillTypes AS $skillType)
+                                <div class="mb-3">
                                     <strong>{{ $skillType->name }}</strong><br/>
                                     @foreach($volunteer->skills()->where('skill_type_id', $skillType->id)->get() AS $skill)
                                         {{ $skill->name }}<br/>
@@ -176,24 +175,21 @@
                                         @endif
                                     @endif
 
-                                <div>
-                                    @php
-                                        $volColName = $skillType->vol_col_name;
-                                    @endphp
+                                    <div>
+                                        @php
+                                            $volColName = $skillType->vol_col_name;
+                                        @endphp
                                         @if($volunteer->$volColName)
                                             <div class="ml-4 font-weight-bold">Description:</div>
                                             <div class="ml-4">{{ $volunteer->$volColName}}</div>
                                         @endif
-                                </div>
-
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
 
-                                @if($volunteer->skill_other)
-                                    <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
-                                @endif
-
-
+                            @if($volunteer->skill_other)
+                                <strong>Other:</strong><br/> {{ $volunteer->skill_other }}
+                            @endif
                         </td>
                     </tr>
                 @endif
