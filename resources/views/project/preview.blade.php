@@ -164,6 +164,28 @@
                 </tbody>
             </table>
 
+            @if($project->volunteers()->whereNotNull('project_contacted_at')->count() && $user->id === $project->user_id)
+                <x-form.section>
+                    <x-slot name="title">
+                        Interested Volunteers
+                    </x-slot>
+
+                    <div class="row font-weight-bold">
+                        <div class="col p-4 border">Name</div>
+                    </div>
+                    <div class="row">
+                        @foreach($project->volunteers()->whereNotNull('project_contacted_at')->get() as $volunteer)
+                            <div class="border p-4 col">
+                                <a href="{{ route('volunteer.show', $volunteer) }}">
+                                    {{ $volunteer->name }}
+                                </a>
+                            </div>
+                            <div class="w-100"></div>
+                        @endforeach
+                    </div>
+                </x-form.section>
+            @endif
+
             @if($volunteer)
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchProject(event)"
@@ -183,8 +205,8 @@
                         <h3 class="mb-4 formSectionTitle">Mail-Preview</h3>
                         <div class="border p-4">
                             <p>Dear {{ $project->contact }}</p>
-                            <p>The volunteer {{ $user->firstname }} {{ $user->lastname }} is interested in helping you with your project {{ $project->name }}.</p>
-                            <p>To learn more about the volunteer, have a look at IOF’s Connecting Worldwide volunteer platform.</p>
+                            <p>The volunteer {{ $volunteer->name }} is interested in helping you with your project {{ $project->name }}.</p>
+                            <p>To learn more about the volunteer, have a look at IOF’s Connecting Worldwide volunteer platform and visit <a href="{{ route('volunteer.show', $volunteer) }}">{{ $volunteer->name }}</a>.</p>
                             <p>In order to get in contact with the interested volunteer, you can simply reply to this e-mail.</p>
                             <p>Kind Regards, <br />
                                 iof volunteers</p>
