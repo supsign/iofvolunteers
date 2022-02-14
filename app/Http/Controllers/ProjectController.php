@@ -18,6 +18,7 @@ use App\Models\Project;
 use App\Models\ProjectOffer;
 use App\Models\ProjectStatus;
 use App\Models\SkillType;
+use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class ProjectController extends Controller
 
     public function contact(Project $project, Request $request)
     {
-        if (!$volunteer = Project::find($request->volunteer_id)) {
+        if (!$volunteer = Volunteer::find($request->volunteer_id)) {
             abort(404);
         }
 

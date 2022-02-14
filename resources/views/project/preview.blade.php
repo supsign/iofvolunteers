@@ -165,6 +165,9 @@
             </table>
 
             @if($volunteer)
+                @dump($project->id)
+                @dump($volunteer->id)
+                @dump($project->organisation_email)
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchProject(event)"
                           enctype="multipart/form-data">
