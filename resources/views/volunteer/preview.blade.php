@@ -246,6 +246,8 @@
                         </div>
                     </div>
                 </div>
+            @else
+                 {{-- ToDo: Meldung als Projektleiter beim Volunteer, falls keine Projekte vorhanden sind --}}
             @endif
         </div>
     </section>
