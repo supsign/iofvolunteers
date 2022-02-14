@@ -30,7 +30,7 @@ class HostController extends Controller
 
     public function contact(Host $host, Request $request)
     {
-        if (! $guest = Guest::find($request->guest_id)) {
+        if (!$guest = Guest::find($request->guest_id)) {
             abort(404);
         }
 
@@ -43,7 +43,7 @@ class HostController extends Controller
 
     public function editForm(Host $host)
     {
-        if (! Auth::user()->host) {
+        if (!Auth::user()->host) {
             return redirect()->route('host.registerForm');
         }
 
@@ -179,7 +179,7 @@ class HostController extends Controller
         $hosts = Host::with('languageHosts');
 
         foreach ($hostData as $key => $value) {
-            if (! $value) {
+            if (!$value) {
                 continue;
             }
 
@@ -199,7 +199,7 @@ class HostController extends Controller
         $hosts = $hosts->get();
 
         foreach ($relationData as $key => $value) {
-            if (! $value) {
+            if (!$value) {
                 continue;
             }
 

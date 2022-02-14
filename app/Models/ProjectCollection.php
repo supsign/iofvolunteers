@@ -27,7 +27,7 @@ class ProjectCollection extends Collection
     {
         return $this->filter(function ($project) use ($offerArray) {
             foreach (array_keys(array_filter($offerArray)) as $offer) {
-                if (! $project->projectOffers->contains('id', $offer)) {
+                if (!$project->projectOffers->contains('id', $offer)) {
                     return false;
                 }
             }
@@ -40,7 +40,7 @@ class ProjectCollection extends Collection
     {
         return $this->filter(function ($project) use ($disciplinesArray) {
             foreach (array_keys(array_filter($disciplinesArray)) as $discipline) {
-                if (! $project->disciplines->contains('id', $discipline)) {
+                if (!$project->disciplines->contains('id', $discipline)) {
                     return false;
                 }
             }
@@ -53,7 +53,7 @@ class ProjectCollection extends Collection
     {
         return $this->filter(function ($project) use ($skillTypeArray) {
             foreach (array_keys(array_filter($skillTypeArray)) as $skillType) {
-                if (! $project->skillTypes->contains('id', $skillType)) {
+                if (!$project->skillTypes->contains('id', $skillType)) {
                     return false;
                 }
             }

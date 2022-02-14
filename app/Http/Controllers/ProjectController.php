@@ -41,11 +41,11 @@ class ProjectController extends Controller
 
     public function editForm(Project $project)
     {
-        if (! Auth::user()->projects->count()) {
+        if (!Auth::user()->projects->count()) {
             return redirect()->route('project.registerForm');
         }
 
-        if (! Auth::user()->projects->contains($project)) {
+        if (!Auth::user()->projects->contains($project)) {
             abort(403);
         }
 
@@ -216,7 +216,7 @@ class ProjectController extends Controller
         $projects = Project::get();
 
         foreach ($relationData as $key => $value) {
-            if (! $value) {
+            if (!$value) {
                 continue;
             }
 

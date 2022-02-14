@@ -23,7 +23,7 @@ class GuestCollection extends Collection
     {
         return $this->filter(function ($guest) use ($disciplinesArray) {
             foreach (array_keys(array_filter($disciplinesArray)) as $discipline) {
-                if (! $guest->disciplines->contains('id', $discipline)) {
+                if (!$guest->disciplines->contains('id', $discipline)) {
                     return false;
                 }
             }

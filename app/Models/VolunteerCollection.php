@@ -23,7 +23,7 @@ class VolunteerCollection extends Collection
     {
         return $this->filter(function ($volunteer) use ($disciplinesArray) {
             foreach (array_keys(array_filter($disciplinesArray)) as $discipline) {
-                if (! $volunteer->disciplines->contains('id', $discipline)) {
+                if (!$volunteer->disciplines->contains('id', $discipline)) {
                     return false;
                 }
             }
@@ -36,7 +36,7 @@ class VolunteerCollection extends Collection
     {
         return $this->filter(function ($volunteer) use ($skillTypeArray) {
             foreach (array_keys(array_filter($skillTypeArray)) as $skillType) {
-                if (! $volunteer->skillTypes->contains('id', $skillType)) {
+                if (!$volunteer->skillTypes->contains('id', $skillType)) {
                     return false;
                 }
             }

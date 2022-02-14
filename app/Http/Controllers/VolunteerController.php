@@ -36,7 +36,7 @@ class VolunteerController extends Controller
 
     public function contact(Volunteer $volunteer, Request $request)
     {
-        if (! $project = Project::find($request->project_id)) {
+        if (!$project = Project::find($request->project_id)) {
             abort(404);
         }
 
@@ -160,7 +160,7 @@ class VolunteerController extends Controller
 
     public function editForm(Volunteer $volunteer)
     {
-        if (! Auth::user()->volunteer) {
+        if (!Auth::user()->volunteer) {
             return redirect()->route('volunteer.registerForm');
         }
 
@@ -266,7 +266,7 @@ class VolunteerController extends Controller
         $volunteers = Volunteer::with('languageVolunteers');
 
         foreach ($volunteerData as $key => $value) {
-            if (! $value) {
+            if (!$value) {
                 continue;
             }
 
@@ -303,7 +303,7 @@ class VolunteerController extends Controller
         $volunteers = $volunteers->get();
 
         foreach ($relationData as $key => $value) {
-            if (! $value) {
+            if (!$value) {
                 continue;
             }
 

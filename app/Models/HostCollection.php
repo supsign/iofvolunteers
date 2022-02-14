@@ -41,7 +41,7 @@ class HostCollection extends Collection
     {
         return $this->filter(function ($host) use ($offerArray) {
             foreach (array_keys(array_filter($offerArray)) as $offer) {
-                if (! $host->projectOffers->contains('id', $offer)) {
+                if (!$host->projectOffers->contains('id', $offer)) {
                     return false;
                 }
             }
