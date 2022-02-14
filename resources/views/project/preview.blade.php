@@ -164,6 +164,28 @@
                 </tbody>
             </table>
 
+            @if($project->volunteers->count())
+                <x-form.section>
+                    <x-slot name="title">
+                        Interested Volunteers
+                    </x-slot>
+
+                    <div class="row font-weight-bold">
+                        <div class="col p-4 border">Name</div>
+                    </div>
+                    <div class="row">
+                        @foreach($project->volunteers as $volunteer)
+                            <div class="border p-4 col">
+                                <a href="{{ route('volunteer.show', $volunteer) }}">
+                                    {{ $volunteer->name }}
+                                </a>
+                            </div>
+                            <div class="w-100"></div>
+                        @endforeach
+                    </div>
+                </x-form.section>
+            @endif
+
             @if($volunteer)
                 <div id="mail-wrapper" class="d-flex flex-row">
                     <form class="d-flex flex-column align-items-start w-50" onsubmit="return searchProject(event)"
