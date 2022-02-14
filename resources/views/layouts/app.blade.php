@@ -62,7 +62,7 @@
                             <img src="{{ asset('images/menu.svg') }}" alt=""/>
                         </a>
                         <ul id="menu-main-menu" class="menu main_menu d-xl-flex align-items-center w-100">
-                            <li>
+                            <li class="menu-item">
                                 <a href="/">
                                     <i class="fas fa-home my-auto home" aria-hidden="true"></i>
                                 </a>
