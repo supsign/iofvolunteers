@@ -1050,4 +1050,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
     text-decoration: none;
 }
 
+.red {
+    color: red;
+}
+
+.link {
+    font-weight: 400 !important;
+    color: #007bff !important;
+}
+
 /********************default - end*******************/

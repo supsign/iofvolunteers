@@ -9,6 +9,9 @@
                         <div class="card-header">{{ __('Login') }}</div>
 
                         <div class="card-body">
+                            <div class="row justify-content-md-center red">
+                                Please register first in order to use our services.
+                            </div>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <x-form.section>
@@ -42,14 +45,25 @@
                                     </div>
                                 </x-form.section>
 
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-md-center mb-3">
                                     <div class="col-md-7">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary w-100">
                                             {{ __('Login') }}
                                         </button>
 
+
+                                    </div>
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <div class="col-md-7 d-flex justify-content-between">
+                                        @if (Route::has('register'))
+                                            <a class="link" href="{{ route('register') }}">
+                                                {{ __('Register') }}
+                                            </a>
+                                        @endif
+
                                         @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            <a class="link" href="{{ route('password.request') }}">
                                                 {{ __('Forgot Your Password?') }}
                                             </a>
                                         @endif
