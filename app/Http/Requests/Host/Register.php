@@ -25,19 +25,19 @@ class Register extends FormRequest
     {
         return [
             'country_id' => 'required|int',
-            'zip' => 'required|string',
-            'city' => 'required|string',
+            'zip' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
             'max_duration' => 'required|int',
             'host_desc' => 'required|string',
             'guest_expectations' => 'nullable|string',
-            'name' => 'required|max:191|string',
-            'contact_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-            'contact_email' => 'required|email:rfc,dns|max:191',
-            'contact_other' => 'nullable|string',
+            'name' => 'required|max:255|string',
+            'contact_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:255',
+            'contact_email' => 'required|email:rfc,dns|max:255',
+            'contact_other' => 'nullable|string|max:255',
             'language' => 'nullable|array',
-            'other_languages' => 'nullable|string',
+            'other_languages' => 'nullable|string|max:255',
             'offer' => 'nullable|array',
-            'offer_text' => 'nullable|string',
+            'offer_text' => 'nullable|string|max:255',
         ];
     }
 }
