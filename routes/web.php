@@ -27,55 +27,77 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+});
+
 Route::get('/home', function () {
     return redirect(route('home'));
 });
 
-Route::get('test', [TestController::class, 'test'])->name('test');
+Route::controller(TestController::class)->group(function () {
+    Route::get('test', 'test')->name('test');
+});
 
-Route::get('guest/show/{guest}', [GuestController::class, 'show'])->name('guest.show');
-Route::get('guest/register', [GuestController::class, 'registerForm'])->name('guest.registerForm');
-Route::get('guest/edit/{guest}', [GuestController::class, 'editForm'])->name('guest.edit');
-Route::get('guest/search', [GuestController::class, 'searchForm'])->name('guest.searchForm');
-Route::get('guest/search/result', [GuestController::class, 'search'])->name('guest.search');
-Route::post('guest/register', [GuestController::class, 'register'])->name('guest.register');
-Route::patch('guest/update/{guest}', [GuestController::class, 'update'])->name('guest.update');
-Route::delete('guest/delete/{guest}', [GuestController::class, 'delete'])->name('guest.delete');
+// Guest routes
+Route::controller(GuestController::class)->group(function () {
+    Route::get('guest/show/{guest}', 'show')->name('guest.show');
+    Route::get('guest/register', 'registerForm')->name('guest.registerForm');
+    Route::get('guest/edit/{guest}', 'editForm')->name('guest.edit');
+    Route::get('guest/search', 'searchForm')->name('guest.searchForm');
+    Route::get('guest/search/result', 'search')->name('guest.search');
+    Route::post('guest/register', 'register')->name('guest.register');
+    Route::patch('guest/update/{guest}', 'update')->name('guest.update');
+    Route::delete('guest/delete/{guest}', 'delete')->name('guest.delete');
+});
 
-Route::get('host/show/{host}', [HostController::class, 'show'])->name('host.show');
-Route::get('host/edit/{host}', [HostController::class, 'editForm'])->name('host.edit');
-Route::get('host/register', [HostController::class, 'registerForm'])->name('host.registerForm');
-Route::get('host/search', [HostController::class, 'searchForm'])->name('host.searchForm');
-Route::get('host/search/result', [HostController::class, 'search'])->name('host.search');
-Route::post('host/contact/{host}', [HostController::class, 'contact'])->name('host.contact');
-Route::post('host/register', [HostController::class, 'register'])->name('host.register');
-Route::patch('host/update/{host}', [HostController::class, 'update'])->name('host.update');
-Route::delete('host/delete/{host}', [HostController::class, 'delete'])->name('host.delete');
+// Host routes
+Route::controller(HostController::class)->group(function () {
+    Route::get('host/show/{host}', 'show')->name('host.show');
+    Route::get('host/edit/{host}', 'editForm')->name('host.edit');
+    Route::get('host/register', 'registerForm')->name('host.registerForm');
+    Route::get('host/search', 'searchForm')->name('host.searchForm');
+    Route::get('host/search/result', 'search')->name('host.search');
+    Route::post('host/contact/{host}', 'contact')->name('host.contact');
+    Route::post('host/register', 'register')->name('host.register');
+    Route::patch('host/update/{host}', 'update')->name('host.update');
+    Route::delete('host/delete/{host}', 'delete')->name('host.delete');
+});
 
-Route::post('project/contact/{project}', [ProjectController::class, 'contact'])->name('project.contact');
-Route::get('project/show/{project}', [ProjectController::class, 'show'])->name('project.show');
-Route::get('project/register', [ProjectController::class, 'registerForm'])->name('project.registerForm');
-Route::get('project/list', [ProjectController::class, 'list'])->name('project.list');
-Route::get('project/edit/{project}', [ProjectController::class, 'editForm'])->name('project.edit');
-Route::get('project/search', [ProjectController::class, 'searchForm'])->name('project.searchForm');
-Route::get('project/search/result', [ProjectController::class, 'search'])->name('project.search');
-Route::post('project/register', [ProjectController::class, 'register'])->name('project.register');
-Route::patch('project/update/{project}', [ProjectController::class, 'update'])->name('project.update');
-Route::delete('project/delete/{project}', [ProjectController::class, 'delete'])->name('project.delete');
+// Project routes
+Route::controller(ProjectController::class)->group(function () {
+    Route::post('project/contact/{project}', 'contact')->name('project.contact');
+    Route::get('project/show/{project}', 'show')->name('project.show');
+    Route::get('project/register', 'registerForm')->name('project.registerForm');
+    Route::get('project/list', 'list')->name('project.list');
+    Route::get('project/edit/{project}', 'editForm')->name('project.edit');
+    Route::get('project/search', 'searchForm')->name('project.searchForm');
+    Route::get('project/search/result', 'search')->name('project.search');
+    Route::post('project/register', 'register')->name('project.register');
+    Route::patch('project/update/{project}', 'update')->name('project.update');
+    Route::delete('project/delete/{project}', 'delete')->name('project.delete');
+});
 
-Route::get('volunteer/show/{volunteer}', [VolunteerController::class, 'show'])->name('volunteer.show');
-Route::get('volunteer/edit/{volunteer}', [VolunteerController::class, 'editForm'])->name('volunteer.edit');
-Route::get('volunteer/register', [VolunteerController::class, 'registerForm'])->name('volunteer.registerForm');
-Route::get('volunteer/search', [VolunteerController::class, 'searchForm'])->name('volunteer.searchForm');
-Route::get('volunteer/search/result', [VolunteerController::class, 'search'])->name('volunteer.search');
-Route::post('volunteer/contact/{volunteer}', [VolunteerController::class, 'contact'])->name('volunteer.contact');
-Route::post('volunteer/register', [VolunteerController::class, 'register'])->name('volunteer.register');
-Route::patch('volunteer/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
-Route::delete('volunteer/delete/{volunteer}', [VolunteerController::class, 'delete'])->name('volunteer.delete');
+// Volunteer routes
+Route::controller(VolunteerController::class)->group(function () {
+    Route::get('volunteer/show/{volunteer}', 'show')->name('volunteer.show');
+    Route::get('volunteer/edit/{volunteer}', 'editForm')->name('volunteer.edit');
+    Route::get('volunteer/register', 'registerForm')->name('volunteer.registerForm');
+    Route::get('volunteer/search', 'searchForm')->name('volunteer.searchForm');
+    Route::get('volunteer/search/result', 'search')->name('volunteer.search');
+    Route::post('volunteer/contact/{volunteer}', 'contact')->name('volunteer.contact');
+    Route::post('volunteer/register', 'register')->name('volunteer.register');
+    Route::patch('volunteer/update/{volunteer}', 'update')->name('volunteer.update');
+    Route::delete('volunteer/delete/{volunteer}', 'delete')->name('volunteer.delete');
+});
 
 //  Media routes
-Route::get('media/download/{mediaItem}', [MediaDownloadController::class, 'download'])->name('media.download');
-Route::get('media/show/{mediaItem}', [MediaDownloadController::class, 'show'])->name('media.show');
+Route::controller(MediaDownloadController::class)->group(function () {
+    Route::get('media/download/{mediaItem}', 'download')->name('media.download');
+    Route::get('media/show/{mediaItem}', 'show')->name('media.show');
+});
 
-Route::get('volunteer/test', [VolunteerController::class, 'testForm'])->name('volunteer.testForm');
+// Test Volunteer routes
+Route::controller(VolunteerController::class)->group(function () {
+    Route::get('volunteer/test', 'testForm')->name('volunteer.testForm');
+});
