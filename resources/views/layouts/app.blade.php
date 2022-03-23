@@ -244,7 +244,12 @@
                     <p>Drottninggatan 47 31/2 tr<br>
                         SE-65225 Karlstad<br>
                         SWEDEN<br>
-                        <a href="mailto:iof@orienteering.org">iof@orienteering.org</a></p>
+                        <a href="mailto:iof@orienteering.org">iof@orienteering.org</a>
+                    </p>
+                    <div class="d-flex">
+                        <div class="mr-1 font-weight-bold">Feedback and support:</div>
+                        <a href="mailto:GDC@orienteering.sport">GDC@orienteering.sport</a>
+                    </div>
                 </aside>
             </div>
         </div>
