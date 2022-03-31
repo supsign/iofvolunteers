@@ -251,6 +251,9 @@
                         <a href="mailto:GDC@orienteering.sport">GDC@orienteering.sport</a>
                     </div>
                 </aside>
+                <div class="col-3 d-flex justify-content-end align-items-end">
+                    © 2021 Supsign AG
+                </div>
             </div>
         </div>
     </footer>
