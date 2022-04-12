@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HostController;
@@ -97,7 +98,6 @@ Route::controller(MediaDownloadController::class)->group(function () {
     Route::get('media/show/{mediaItem}', 'show')->name('media.show');
 });
 
-// Test Volunteer routes
-Route::controller(VolunteerController::class)->group(function () {
-    Route::get('volunteer/test', 'testForm')->name('volunteer.testForm');
+Route::controller(Controller::class)->group(function() {
+    Route::post('{model}/{id}/isactive', 'setIsActive')->name('isActive');
 });

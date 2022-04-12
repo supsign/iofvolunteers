@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::table('guests', function (Blueprint $table) {
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1)->after('other_languages');
         });
 
         Schema::table('hosts', function (Blueprint $table) {
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1)->after('offer_text');
         });
 
         Schema::table('projects', function (Blueprint $table) {
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1)->after('o_work_experience_international');
         });
 
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1)->after('expectation');
         });
     }
 
