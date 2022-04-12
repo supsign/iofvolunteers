@@ -99,5 +99,5 @@ Route::controller(MediaDownloadController::class)->group(function () {
 });
 
 Route::controller(Controller::class)->group(function() {
-    Route::post('{model}/{id}/isactive', 'setIsActive')->name('isActive');
+    Route::post('{modelName}/{id}/isactive', 'setIsActive')->name('isActive');
 });

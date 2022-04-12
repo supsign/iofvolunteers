@@ -14,15 +14,15 @@ class Controller extends BaseController
     use DispatchesJobs;
     use ValidatesRequests;
 
-    public function setIsActive(string $model, int $id, Request $request)
+    public function setIsActive(string $modelName, int $id, Request $request)
     {
-        $modelName = 'App\Models\\'.ucfirst($model);
+        $fullModelName = 'App\Models\\'.ucfirst($modelName);
 
-        if (!class_exists($modelName)) {
+        if (!class_exists($fullModelName)) {
             abort(404);
         }
 
-        $model = $modelName::find($id);
+        $model = $fullModelName::find($id);
 
         if (!$model) {
             abort(404);
