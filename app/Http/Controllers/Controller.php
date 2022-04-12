@@ -31,6 +31,6 @@ class Controller extends BaseController
         $model->is_active = $request->is_active ?? !$model->is_active;
         $model->save();
 
-         //  where to redirect?
+        //  where to redirect?
     }
 }
