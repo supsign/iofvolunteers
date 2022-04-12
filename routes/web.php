@@ -98,6 +98,6 @@ Route::controller(MediaDownloadController::class)->group(function () {
     Route::get('media/show/{mediaItem}', 'show')->name('media.show');
 });
 
-Route::controller(Controller::class)->group(function() {
+Route::controller(Controller::class)->group(function () {
     Route::post('{model}/{id}/isactive', 'setIsActive')->name('isActive');
 });
