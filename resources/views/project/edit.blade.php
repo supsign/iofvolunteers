@@ -9,9 +9,10 @@
                 <div class="warn pt-2">All fields with * <strong>are mandatory</strong></div>
             </div>
 
-            <div class="row pb-3">
-                <div class="col-12 col-md-6">
-                    <form action="{{ route('project.delete', $project) }}" method="POST"
+            <div class="row  pb-3">
+                <div class="col-12 col-md-6 row m-0 justify-content-md-between align-content-center justify-content-center">
+                    <x-base.toggleActive modelName="project" :model="$project" />
+                    <form action="{{ route('project.delete', $project) }}" method="POST" class="mt-3 mt-lg-0"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
                         @csrf
