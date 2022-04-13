@@ -272,7 +272,7 @@ class VolunteerController extends Controller
         $columns = array_flip(array_merge(Schema::getColumnListing('volunteers'), ['minage', 'maxage']));
         $volunteerData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
-        $volunteers = Volunteer::with('languageVolunteers');
+        $volunteers = Volunteer::where('is_active', true)->with('languageVolunteers');
 
         foreach (['o_work_experience'] as $key) {
             $$key = Helper::extractElementByKey($data, $key);

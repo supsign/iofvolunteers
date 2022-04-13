@@ -234,7 +234,7 @@ class ProjectController extends Controller
         $columns = array_flip(array_merge(Schema::getColumnListing('projects')));
         $relationData = array_diff_key($data, $columns);
 
-        $projects = Project::get();
+        $projects = Project::where('is_active', true)->get();
 
         foreach ($relationData as $key => $value) {
             if (!$value) {
