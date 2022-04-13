@@ -11,12 +11,12 @@
 
             <div class="row pb-3">
                 <div class="col-12 col-md-6 row m-0 justify-content-md-between align-content-center justify-content-center">
-                    <x-base.toggleActive modelName="host" :model="$host" />
-                    <form action="{{ route('host.delete', $host) }}" method="POST" class="mt-3 mt-lg-0"
+                 <x-base.toggleActive modelName="host" :model="$host" />
+                    <form action="{{ route('host.delete', $host) }}" method="POST"
                           onclick="return confirm('Are You Sure?')" onkeydown="return confirm('Are You Sure?')">
                         @method('DELETE')
                         @csrf
-                        <input class="ml-auto float-md-right delete-btn" type="submit" value="Delete Host">
+                        <input class="delete-btn m-2 m-lg-0" type="submit" value="Delete Host">
                     </form>
                 </div>
             </div>
