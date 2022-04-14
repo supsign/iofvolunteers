@@ -687,6 +687,25 @@ form .delete-btn:hover {
     color: #e30420 !important;
 }
 
+form .activate-btn {
+    background: #14b358 !important;
+    border: 1px solid #14b358 !important;
+}
+
+form .activate-btn:hover {
+    background: #fff !important;
+    color: #14b358 !important;
+}
+form .deactivate-btn {
+    background: #e30420 !important;
+    border: 1px solid #e30420 !important;
+}
+
+form .deactivate-btn:hover {
+    background: #fff !important;
+    color: #e30420 !important;
+}
+
 form select {
     padding-right: 56px !important;
 }

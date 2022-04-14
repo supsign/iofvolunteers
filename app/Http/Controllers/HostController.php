@@ -176,7 +176,7 @@ class HostController extends Controller
         $columns = array_flip(array_merge(Schema::getColumnListing('hosts'), ['minage', 'maxage']));
         $hostData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
-        $hosts = Host::with('languageHosts');
+        $hosts = Host::where('is_active', true)->with('languageHosts');
 
         foreach ($hostData as $key => $value) {
             if (!$value) {

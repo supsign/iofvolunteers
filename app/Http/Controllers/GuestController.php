@@ -168,7 +168,7 @@ class GuestController extends Controller
         $columns = array_flip(array_merge(Schema::getColumnListing('guests'), ['minage', 'maxage']));
         $guestData = array_intersect_key($data, $columns);
         $relationData = array_diff_key($data, $columns);
-        $guests = Guest::with('languageGuests');
+        $guests = Guest::where('is_active', true)->with('languageGuests');
 
         unset($relationData['_token']);
 
