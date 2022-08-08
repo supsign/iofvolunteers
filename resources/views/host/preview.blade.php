@@ -153,6 +153,14 @@
                         </div>
                     </div>
                 </div>
+            @else
+            
+            <div>
+               For a Host Request, you have to create a Guest.
+                <a onclick="location.href='{{ route('guest.registerForm') }}'" class="ml-2">      
+                    <input class="ml-auto" type="button" value="Register Guest" >
+                </a>
+            </div>
             @endif
         </div>
     </section>
