@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use App\Models\Project;
-use App\Models\User;
 use App\Models\Volunteer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -18,7 +17,7 @@ class ContactProjectMail extends Mailable
      *
      * @return void
      */
-    public function __construct(public Project $project, public User $user, public Volunteer $volunteer)
+    public function __construct(public Project $project, public Volunteer $volunteer)
     {
         //
     }

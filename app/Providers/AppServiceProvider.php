@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (!$this->app->isProduction()) {
+            Mail::alwaysTo('florian.ratz@supsign.ch');
+        }
+        
         view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
         });

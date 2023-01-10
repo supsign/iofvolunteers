@@ -42,7 +42,7 @@ class ProjectController extends Controller
         }
 
         try {
-            Mail::to($volunteer)->send(new ContactProjectMail($project, Auth::user(), $volunteer));
+            Mail::to($project->organisation_email)->send(new ContactProjectMail($project, $volunteer));
 
             $volunteer->projects()->syncWithPivotValues(
                 [$project->id],
