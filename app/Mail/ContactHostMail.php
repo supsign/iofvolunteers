@@ -31,8 +31,11 @@ class ContactHostMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.host.contact')->subject('Hosting Opportunity')->replyTo(
-            $this->user->guest->email
-        )->from('mail@volunteers.orienteering.sport')->bcc('mail@volunteers.orienteering.sport');
+        return $this
+            ->markdown('mails.host.contact')
+            ->subject('Hosting Opportunity')
+            ->replyTo($this->user->guest->email)
+            ->from(env('MAIL_FROM_ADDRESS'))
+            ->bcc('mail@volunteers.orienteering.sport');
     }
 }

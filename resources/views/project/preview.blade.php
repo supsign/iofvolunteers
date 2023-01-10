@@ -174,10 +174,10 @@
                         <div class="col p-4 border">Name</div>
                     </div>
                     <div class="row">
-                        @foreach($project->volunteers()->whereNotNull('project_contacted_at')->get() as $volunteer)
+                        @foreach($project->volunteers()->whereNotNull('project_contacted_at')->get() as $volunteerEntry)
                             <div class="border p-4 col">
-                                <a href="{{ route('volunteer.show', $volunteer) }}">
-                                    {{ $volunteer->name }}
+                                <a href="{{ route('volunteer.show', $volunteerEntry) }}">
+                                    {{ $volunteerEntry->name }}
                                 </a>
                             </div>
                             <div class="w-100"></div>
