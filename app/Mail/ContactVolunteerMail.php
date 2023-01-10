@@ -35,7 +35,7 @@ class ContactVolunteerMail extends Mailable
             ->markdown('mails.volunteer.contact')
             ->subject('Volunteering Opportunity')
             ->replyTo($this->project->organisation_email)
-            ->from(env('MAIL_USERNAME'))
+            ->from(env('MAIL_FROM_ADDRESS'))
             ->bcc('mail@volunteers.orienteering.sport');
     }
 }
