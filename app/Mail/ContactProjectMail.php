@@ -33,7 +33,7 @@ class ContactProjectMail extends Mailable
             ->markdown('mails.project.contact')
             ->subject('Volunteering Opportunity')
             ->replyTo($this->project->organisation_email)
-            ->from('mail@volunteers.orienteering.sport')
+            ->from(env('MAIL_USERNAME'))
             ->bcc('mail@volunteers.orienteering.sport');
     }
 }
