@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!$this->app->isProduction()) {
-            Mail::alwaysTo('florian.ratz@supsign.ch');
+            Mail::alwaysTo(env('DEV_MAIL', 'admin@supsign.ch'));
         }
         
         view()->composer('*', function ($view) {
