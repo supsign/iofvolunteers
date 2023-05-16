@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin IdeHelperProjectVolunteer
+ */
 class ProjectVolunteer extends BaseModel
 {
     public function project(): BelongsTo

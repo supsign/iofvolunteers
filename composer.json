@@ -8,13 +8,14 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "doctrine/dbal": "^3.3",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "laravel/vapor-core": "^2.31",
         "realrashid/sweet-alert": "^5.0",
         "spatie/laravel-ignition": "^1.0",
         "spatie/laravel-medialibrary-pro": "^2.1"

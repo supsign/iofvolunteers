@@ -1,0 +1,14 @@
+id: 47012
+name: iof-volunteer
+environments:
+    production:
+        memory: 1024
+        cli-memory: 512
+        warm: 10
+        runtime: docker
+        database: iof-volunteer
+        network: iof-volunteer
+        build:
+            - 'composer install --no-dev'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run build && rm -rf node_modules'
